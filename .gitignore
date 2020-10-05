@@ -1,0 +1,10 @@
+#ignore files general
+**/.vscode
+**/.log
+**/.vagrant
+
+#security
+**/authorized_keys
+**/*.pub
+**/*.ppk
+**/*private*

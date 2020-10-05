@@ -1,0 +1,1 @@
+rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/alura/alura-lpi/ /home/marcos.silvestrini/vagrant-ubuntu-desktop
