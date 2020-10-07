@@ -75,14 +75,16 @@
 
 ### Http server
 
-- [Apache httpd](https://ubuntu.com/server/docs/web-servers-apache)
+#### [Apache httpd](https://ubuntu.com/server/docs/web-servers-apache)
+
 - `sudo  apt install apache2 -y`
 - `systemctl status apache2`
 - `sudo systemctl start apache2`
 - `sudo systemctl stop apache2`
 - `sudo systemctl enable apache2`
 
-- [Nginx](https://nginx.org/en/docs/)
+#### [Nginx](https://nginx.org/en/docs/)
+
 - `sudo  apt install nginx -y`
 - `systemctl status nginx`
 - `sudo systemctl start nginx`
@@ -92,7 +94,8 @@
 
 ### SGBD
 
-- [MySQL](https://ubuntu.com/server/docs/databases-mysql)
+#### [MySQL](https://ubuntu.com/server/docs/databases-mysql)
+
 - `sudo apt-get update`
 - `sudo apt install mysql-server mysql-client -y`
 - `sudo systemctl status mysql.service`
@@ -104,8 +107,9 @@
 - `sudo apt install mysql-workbench -y`
 - `mysql-workbench`
 
-- [MariaDB](https://mariadb.com/kb/en/documentation/)
-- [PostgreSQL](https://ubuntu.com/server/docs/databases-postgresql)
+#### [MariaDB](https://mariadb.com/kb/en/documentation/)
+
+#### [PostgreSQL](https://ubuntu.com/server/docs/databases-postgresql)
 
 ### Package Bundle
 
