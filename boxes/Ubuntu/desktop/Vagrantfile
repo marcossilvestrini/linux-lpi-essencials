@@ -23,7 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     srv02.vm.hostname = APP_NAME
 
     # NETWORK
-    srv02.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge"
+    srv02.vm.network "public_network" ,ip: "192.168.0.134",mode: "bridge"
 
     # Forward Port
     # srv02.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
@@ -48,7 +48,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       cd  /tmp
       wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       sudo apt install ./google-chrome-stable_current_amd64.deb
-
     SHELL
 
     # # PACKAGES FOR PROVISION
