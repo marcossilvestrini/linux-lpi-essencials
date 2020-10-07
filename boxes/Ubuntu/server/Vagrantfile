@@ -26,13 +26,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     srv01.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge"
 
     # Forward Port
-    # srv01.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
-    # srv01.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+    # srv02.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+    # srv02.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
 
     # MOUNTS
     srv01.vm.synced_folder ".", "/vagrant", disabled: true
     srv01.vm.synced_folder "./security", "/security"
-    #srv01.vm.synced_folder "./install", "/totvs/install", type: "rsync",rsync__args: ["-r", "--include=*"]
 
     # PROVIDER
     srv01.vm.provider "virtualbox" do |vb|

@@ -32,7 +32,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # MOUNTS
     srv02.vm.synced_folder ".", "/vagrant", disabled: true
     srv02.vm.synced_folder "./security", "/security"
-    #srv02.vm.synced_folder "./install", "/totvs/install", type: "rsync",rsync__args: ["-r", "--include=*"]
 
     # PROVIDER
     srv02.vm.provider "virtualbox" do |vb|
@@ -49,11 +48,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
       sudo apt install ./google-chrome-stable_current_amd64.deb
     SHELL
-
-    # # PACKAGES FOR PROVISION
-    # srv02.vm.provision "shell", inline: <<-SHELL
-    #   dnf install python3 -y
-    # SHELL
 
   end
 
