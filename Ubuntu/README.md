@@ -113,16 +113,15 @@
 
 ### [PostgreSQL](https://ubuntu.com/server/docs/databases-postgresql)
 
-- Install Latest Version
+- Install Latest Version\
 
-1. Create the file repository configuration
+1. Create the file repository configuration\
 `sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'`\
 
-2. Import the repository signing key
+2. Import the repository signing key\
 `wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -`
 
-3. Update the package lists
-
+3. Update the package lists\
 `sudo apt-get update`
 
 4. Install the latest version of PostgreSQL
@@ -131,13 +130,13 @@
 
 `sudo apt-get -y install postgresql`
 
-- Common comands
+- Common comands\
 `sudo systemctl status postgresql.service`\
 `sudo systemctl start postgresql.service`\
 `sudo systemctl stop postgresql.service`\
 `sudo systemctl enable postgresql.service`
 
-- View Version with SQL
+- View Version with SQL\
 
 `sudo -u postgres psql`
 `SELECT version();`
