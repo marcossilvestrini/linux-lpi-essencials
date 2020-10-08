@@ -57,7 +57,10 @@
 
 ### [Apache httpd](https://ubuntu.com/server/docs/web-servers-apache)
 
-`sudo  apt install apache2 -y`\
+- Install Latest Version
+`sudo  apt install apache2 -y`
+
+- Common Commands
 `systemctl status apache2`\
 `sudo systemctl start apache2`\
 `sudo systemctl stop apache2`\
@@ -65,7 +68,10 @@
 
 ### [Nginx](https://nginx.org/en/docs/)
 
-`sudo  apt install nginx -y`\
+- Install Latest Version
+`sudo  apt install nginx -y`
+
+- Common Commands
 `systemctl status nginx`\
 `sudo systemctl start nginx`\
 `sudo systemctl stop nginx`\
@@ -76,20 +82,62 @@
 
 ### [MySQL](https://ubuntu.com/server/docs/databases-mysql)
 
+- Install Latest Version
 `sudo apt-get update`\
 `sudo apt install mysql-server mysql-client -y`\
+`sudo mysql_secure_installation`
+
+- Common Commands
 `sudo systemctl status mysql.service`\
 `sudo systemctl start mysql.service`\
 `sudo systemctl stop mysql.service`\
-`sudo systemctl enable mysql.service`\
-`sudo mysql_secure_installation`\
 `mysql -h localhost -u root -p`\
 `sudo apt install mysql-workbench -y`\
 `mysql-workbench`
 
 ### [MariaDB](https://mariadb.com/kb/en/documentation/)
 
+- Install Latest Version
+`sudo apt update`\
+`sudo apt install mariadb-server -y`
+
+- Common Comands
+`sudo mysqladmin version`\
+`sudo mysql_secure_installation`\
+`sudo systemctl status mariadb.service`\
+`sudo systemctl start mariadb.service`\
+`sudo systemctl stop mariadb.service`\
+`sudo mysql`\
+`GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;`\
+`FLUSH PRIVILEGES;`
+
 ### [PostgreSQL](https://ubuntu.com/server/docs/databases-postgresql)
+
+- Install Latest Version
+
+1.Create the file repository configuration
+`sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'`\
+
+2.Import the repository signing key
+`wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -`
+
+3.Update the package lists
+`sudo apt-get update`
+
+4.Install the latest version of PostgreSQL
+>If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':
+`sudo apt-get -y install postgresql`
+
+- Common comands
+`sudo systemctl status postgresql.service`\
+`sudo systemctl start postgresql.service`\
+`sudo systemctl stop postgresql.service`\
+`sudo systemctl enable postgresql.service`
+
+- View Version with SQL
+
+`sudo -u postgres psql`
+`SELECT version();`
 
 ## Package Bundle
 
