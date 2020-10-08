@@ -1,4 +1,4 @@
-# LEARNNING LPI CERTIFICATION
+# UBUNTU
 
 ![Ubuntu](https://user-images.githubusercontent.com/62715900/95467421-cf501680-0953-11eb-92f9-3c5fce92fcfb.png)
 
@@ -13,20 +13,19 @@
 
 ## References
 
+- [Ubuntu Docs](https://docs.ubuntu.com/)
 - [Ubuntu Server](https://ubuntu.com/server/docs)
 
-## [Ubuntu](https://ubuntu.com/)
-
-### Base
+## Base
 
 - Debian
 
-### Licenses
+## Licenses
 
 - GLP
 - LTS
 
-### Package Manager
+## Package Manager
 
 - [GNOME Software](https://wiki.gnome.org/Apps/Software)
 - [apt](https://linux.die.net/man/8/apt)
@@ -34,29 +33,29 @@
 - [Snap](https://en.wikipedia.org/wiki/Snap_(package_manager))
 - [flatpak](https://flatpak.org/)
 
-### Defaults Aplications Desktop
+## Defaults Aplications Desktop
 
 - Editor: namo, vim
 - Browser: Firefox
 - Client Email: Thunderbird
 - Suite for Work: LibreOffice
 
-### Optional Softwares Desktop
+## Optional Softwares Desktop
 
 - Image Editor: GIMP
 - 3D Modeling: Blender
 - Audio Editor: Audacity
 
-### Default Languages \ Compilers
+## Default Languages \ Compilers
 
 - shell
 - gcc
 - perl
 - python
 
-### Http server
+## Http server
 
-#### [Apache httpd](https://ubuntu.com/server/docs/web-servers-apache)
+### [Apache httpd](https://ubuntu.com/server/docs/web-servers-apache)
 
 `sudo  apt install apache2 -y`\
 `systemctl status apache2`\
@@ -64,7 +63,7 @@
 `sudo systemctl stop apache2`\
 `sudo systemctl enable apache2`
 
-#### [Nginx](https://nginx.org/en/docs/)
+### [Nginx](https://nginx.org/en/docs/)
 
 `sudo  apt install nginx -y`\
 `systemctl status nginx`\
@@ -73,9 +72,9 @@
 `sudo systemctl enable nginx`\
 `sudo ufw app list`
 
-### SGBD
+## SGBD
 
-#### [MySQL](https://ubuntu.com/server/docs/databases-mysql)
+### [MySQL](https://ubuntu.com/server/docs/databases-mysql)
 
 `sudo apt-get update`\
 `sudo apt install mysql-server mysql-client -y`\
@@ -88,15 +87,15 @@
 `sudo apt install mysql-workbench -y`\
 `mysql-workbench`
 
-#### [MariaDB](https://mariadb.com/kb/en/documentation/)
+### [MariaDB](https://mariadb.com/kb/en/documentation/)
 
-#### [PostgreSQL](https://ubuntu.com/server/docs/databases-postgresql)
+### [PostgreSQL](https://ubuntu.com/server/docs/databases-postgresql)
 
-### Package Bundle
+## Package Bundle
 
 - LAMP (Linux, Apache,Mysql,PHP)
 
-### Filesystem
+## Filesystem
 
 - NFS
 - Samba
