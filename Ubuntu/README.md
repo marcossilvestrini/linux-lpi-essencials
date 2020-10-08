@@ -122,6 +122,7 @@
 `wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -`
 
 3. Update the package lists
+
 `sudo apt-get update`
 
 4. Install the latest version of PostgreSQL
