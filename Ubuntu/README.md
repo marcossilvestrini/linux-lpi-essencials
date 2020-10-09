@@ -160,10 +160,8 @@
 - Configure\
 `sudo mkdir /mnt/files`\
 `sudo chown vagrant:vagrant -R /mnt/files`\
-`sudo vim /etc/exports`\
-
+`sudo vim /etc/exports`
 > Add this line: /mnt/files *(rw,async,no_subtree_check,no_root_squash)
-
 `sudo exportfs -a`
 
 - Mount (Client)\
