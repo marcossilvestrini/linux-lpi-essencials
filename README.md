@@ -34,7 +34,15 @@
 
 `cat /etc/*-release`
 
-### Filesystem
+## Package Bundle
+
+- LAMP (Linux, Apache,Mysql,PHP)
+
+## Filesystem
 
 - NFS
 - Samba
+
+## Server Printer
+
+-Cups
