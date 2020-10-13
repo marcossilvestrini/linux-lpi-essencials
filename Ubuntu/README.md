@@ -137,7 +137,6 @@
 `sudo systemctl enable postgresql.service`
 
 - View Version with SQL\
-
 `sudo -u postgres psql`\
 `SELECT version();`
 
