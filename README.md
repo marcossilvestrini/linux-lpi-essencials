@@ -15,6 +15,7 @@
 
 - [Kernel](https://www.kernel.org/)
 - [GNU](https://www.gnu.org/)
+- [Hurd](https://www.gnu.org/software/hurd/hurd/what_is_the_gnu_hurd.html)
 - [GNU Operating System](https://www.gnu.org/gnu/gnu.html)
 - [GNU Packages](https://www.gnu.org/software/)
 - [FSF](https://www.fsf.org/campaigns/)
@@ -29,21 +30,37 @@
 - [Bugzila](https://bugzilla.kernel.org/)
 - [Ubuntu Server](https://ubuntu.com/server/docs)
 
-## Commom Comands
-
-- Release
-
-`cat /etc/*-release`
-
-## Package Bundle
-
-- LAMP (Linux, Apache,Mysql,PHP)
-
 ## Filesystem
 
-- NFS
-- Samba
+- [NFS](https://www.kernel.org/doc/html/latest/admin-guide/nfs/index.html)
+- [Samba](https://wiki.samba.org/index.php/Main_Page)
 
 ## Server Printer
 
--Cups
+- [Cups](https://www.cups.org/documentation.html)
+
+## Server Mail
+
+- [Postfix](http://www.postfix.org/documentation.html)
+
+## DNS Server
+
+- [Bind](https://www.isc.org/bind/)
+
+## DHCP Server
+
+- [DNSmasq](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
+
+## LDAP
+
+- [OpenLDAP](https://www.openldap.org/)
+
+## Package Bundle
+
+- [LAMP - Linux, Apache,Mysql,PHP](https://www.linode.com/docs/web-servers/lamp/)
+
+## Commom Comands
+
+- View Release
+
+`cat /etc/*-release`
