@@ -26,6 +26,7 @@
 - [Comparison Linux Distributions](https://en.wikipedia.org/wiki/Comparison_of_Linux_distributions)
 - [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)
 - [Linux Standard Base](https://en.wikipedia.org/wiki/Linux_Standard_Base)
+- [Bugzila](https://bugzilla.kernel.org/)
 - [Ubuntu Server](https://ubuntu.com/server/docs)
 
 ## Commom Comands
