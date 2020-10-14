@@ -13,11 +13,11 @@
 
 ## References
 
-- [Kernel](https://www.kernel.org/)
 - [GNU](https://www.gnu.org/)
-- [Hurd](https://www.gnu.org/software/hurd/hurd/what_is_the_gnu_hurd.html)
 - [GNU Operating System](https://www.gnu.org/gnu/gnu.html)
 - [GNU Packages](https://www.gnu.org/software/)
+- [Hurd](https://www.gnu.org/software/hurd/hurd/what_is_the_gnu_hurd.html)
+- [Kernel](https://www.kernel.org/)
 - [FSF](https://www.fsf.org/campaigns/)
 - [Free Software](https://www.gnu.org/philosophy/free-sw.html)
 - [GPL](https://www.gnu.org/licenses/quick-guide-gplv3.html)
