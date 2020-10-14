@@ -2,6 +2,10 @@
 
 ![linux_lpi](https://user-images.githubusercontent.com/62715900/94920714-302baa80-048d-11eb-97f3-4293c5a7b3dd.jpg)
 
+>This project aims to help students or professionals to learn the main concepts of GNU \ Linux and free software.
+Some GNU \ Linux distributions such as Debian, RPM and others will be covered   
+Installation and configuration of some packages will also be covered
+
 ## Authors
 
 - Marcos Silvestrini
@@ -16,6 +20,8 @@
 - [GNU](https://www.gnu.org/)
 - [GNU Operating System](https://www.gnu.org/gnu/gnu.html)
 - [GNU Packages](https://www.gnu.org/software/)
+- [Collection GNU/Linux](https://directory.fsf.org/wiki/Collection:GNU/Linux)
+- [Free Software Directory](https://directory.fsf.org/wiki/Free_Software_Directory:Free_software_replacements)
 - [Hurd](https://www.gnu.org/software/hurd/hurd/what_is_the_gnu_hurd.html)
 - [Kernel](https://www.kernel.org/)
 - [FSF](https://www.fsf.org/campaigns/)
