@@ -172,7 +172,13 @@
 - Mount with /etc/fstab\
 `192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`
 
-### [Samba](https://ubuntu.com/server/docs/service-nfs)
+### [Samba](https://ubuntu.com/server/docs/samba-introduction)
 
-- Install
-- Configure
+- [Samba - Active Directory]()
+- [Samba - Domain Controller]()
+- [Samba - File Server]()
+- [Samba - Print Server]()
+- [Samba - Securing]()
+- [Samba - OpenLDAP Backend]()
+
+
