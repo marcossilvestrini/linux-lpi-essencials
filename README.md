@@ -23,6 +23,7 @@ Installation and configuration of some packages will also be covered
 
 ## References
 
+- [Richard Stallman's](http://www.stallman.org/)
 - [GNU](https://www.gnu.org/)
 - [GNU Operating System](https://www.gnu.org/gnu/thegnuproject.html)
 - [GNU Packages](https://www.gnu.org/software/)
