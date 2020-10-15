@@ -38,7 +38,7 @@
 - Editor: namo, vim
 - Browser: Firefox
 - Client Email: Thunderbird
-- Suite for Work: LibreOffice
+- Office Suite: LibreOffice
 
 ## Optional Softwares Desktop
 
