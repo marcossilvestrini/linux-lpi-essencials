@@ -109,14 +109,14 @@
 `sudo mysqladmin version`\
 `sudo systemctl status mariadb.service`\
 `sudo systemctl start mariadb.service`\
-`sudo systemctl stop mariadb.service`\
+`sudo systemctl stop mariadb.service`
 
 ### [PostgreSQL](https://ubuntu.com/server/docs/databases-postgresql)
 
 - Install Latest Version\
 
 1. Create the file repository configuration\
-`sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'`\
+`sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'`
 
 2. Import the repository signing key\
 `wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -`
@@ -152,7 +152,7 @@
 `sudo systemctl start nfs-kernel-server.service`\
 `sudo systemctl status nfs-kernel-server.service`\
 `sudo systemctl stop nfs-kernel-server.service`\
-`sudo systemctl enable  nfs-kernel-server.service`
+`sudo systemctl enable  nfs-kernel-server.service`\
 `cat /etc/exports`\
 `nfsstat`
 
