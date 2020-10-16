@@ -24,12 +24,15 @@ Installation and configuration of some packages will also be covered
 ## References
 
 - [Richard Stallman's](http://www.stallman.org/)
+- [GNU/Linux FAQ by Richard Stallman](https://www.gnu.org/gnu/gnu-linux-faq.html)
 - [GNU](https://www.gnu.org/)
 - [GNU Operating System](https://www.gnu.org/gnu/thegnuproject.html)
 - [GNU Packages](https://www.gnu.org/software/)
 - [Collection GNU/Linux](https://directory.fsf.org/wiki/Collection:GNU/Linux)
 - [Hurd](https://www.gnu.org/software/hurd/hurd/what_is_the_gnu_hurd.html)
 - [GCC Compiler](https://gcc.gnu.org/wiki/History)
+- [GNU Tar](https://www.gnu.org/software/tar/)
+- [GNU Make](https://www.gnu.org/software/make/)
 - [GNU Emacs](https://en.wikipedia.org/wiki/Emacs)
 - [Bourne Again Shell](https://www.gnu.org/software/bash/manual/)
 - [Kernel](https://www.kernel.org/)
