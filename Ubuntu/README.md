@@ -172,7 +172,7 @@
 - Mount with /etc/fstab\
 `192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`
 
-### [Samba](https://ubuntu.com/server/docs/samba-introduction)
+## [Samba](https://ubuntu.com/server/docs/samba-introduction)
 
 - [Samba - Active Directory](https://ubuntu.com/server/docs/samba-active-directory)
 - [Samba - Domain Controller](https://ubuntu.com/server/docs/samba-domain-controller)
