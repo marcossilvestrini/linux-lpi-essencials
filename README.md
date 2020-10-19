@@ -35,6 +35,8 @@ Installation and configuration of some packages will also be covered
 - [GNU Make](https://www.gnu.org/software/make/)
 - [GNU Emacs](https://en.wikipedia.org/wiki/Emacs)
 - [Bourne Again Shell](https://www.gnu.org/software/bash/manual/)
+- [GNU GNOME](https://www.gnu.org/press/gnome-1.0.html)
+- [Harmony](https://en.wikipedia.org/wiki/Harmony_(toolkit))
 - [Kernel](https://www.kernel.org/)
 - [FSF](https://www.fsf.org/campaigns/)
 - [Free Software Directory](https://directory.fsf.org/wiki/Free_Software_Directory:Free_software_replacements)
@@ -48,7 +50,6 @@ Installation and configuration of some packages will also be covered
 - [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)
 - [Linux Standard Base](https://en.wikipedia.org/wiki/Linux_Standard_Base)
 - [Bugzila](https://bugzilla.kernel.org/)
-- [Ubuntu Server](https://ubuntu.com/server/docs)
 
 ## Filesystem
 
