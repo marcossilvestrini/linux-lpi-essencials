@@ -2,6 +2,8 @@
 
 ![Ubuntu](https://user-images.githubusercontent.com/62715900/95467421-cf501680-0953-11eb-92f9-3c5fce92fcfb.png)
 
+Ubuntu is a distribution based on Debian, designed to have regular releases, a consistent user experience and commercial support on both desktops and servers.
+
 ## Authors
 
 - Marcos Silvestrini
