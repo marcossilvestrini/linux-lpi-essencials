@@ -175,10 +175,13 @@
 ## [Samba](https://ubuntu.com/server/docs/samba-introduction)
 
 - [Samba - Active Directory](https://ubuntu.com/server/docs/samba-active-directory)
+
 - [Samba - Domain Controller](https://ubuntu.com/server/docs/samba-domain-controller)
+
 - [Samba - File Server](https://ubuntu.com/server/docs/samba-file-server)
+
 - [Samba - Print Server](https://ubuntu.com/server/docs/samba-print-server)
+
 - [Samba - Securing](https://ubuntu.com/server/docs/samba-securing)
+
 - [Samba - OpenLDAP Backend](https://ubuntu.com/server/docs/samba-openldap-backend)
-
-
