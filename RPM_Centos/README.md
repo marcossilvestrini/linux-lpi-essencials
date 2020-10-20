@@ -29,7 +29,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 ## Package Manager
 
 - [Yum](https://man7.org/linux/man-pages/man8/yum.8.html)
-- [yum](https://yum.readthedocs.io/en/latest/)
+- [DNF](https://dnf.readthedocs.io/en/latest/)
 
 ## Default Languages \ Compilers
 
