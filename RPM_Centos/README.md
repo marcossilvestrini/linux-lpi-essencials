@@ -1,8 +1,8 @@
-# UBUNTU
+# CENTOS
 
 ![Centos](https://user-images.githubusercontent.com/62715900/96582746-2047ff00-12b2-11eb-82e4-bd121ae654e1.png)
 
-Ubuntu is a distribution based on Debian, designed to have regular releases, a consistent user experience and commercial support on both desktops and servers.
+The CentOS Linux distribution is a stable, predictable, manageable and reproducible platform derived from the sources of Red Hat Enterprise Linux (RHEL). We are now looking to expand on that by creating the resources needed by other communities to come together and be able to build on the CentOS Linux platform. And today we start the process by delivering a clear governance model, increased transparency and access. In the coming weeks we aim to publish our own roadmap that includes variants of the core CentOS Linux.
 
 ## Authors
 
@@ -15,12 +15,11 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 ## References
 
-- [Ubuntu Docs](https://docs.ubuntu.com/)
-- [Ubuntu Server](https://ubuntu.com/server/docs)
+- [CentOS Docs](https://wiki.centos.org/)
 
 ## Base
 
-- Debian
+- RPM
 
 ## Licenses
 
@@ -29,24 +28,8 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 ## Package Manager
 
-- [GNOME Software](https://wiki.gnome.org/Apps/Software)
-- [apt](https://linux.die.net/man/8/apt)
-- [dpkg](https://linux.die.net/man/1/dpkg)
-- [Snap](https://en.wikipedia.org/wiki/Snap_(package_manager))
-- [flatpak](https://flatpak.org/)
-
-## Defaults Aplications Desktop
-
-- Editor: namo, vim
-- Browser: Firefox
-- Client Email: Thunderbird
-- Office Suite: LibreOffice
-
-## Optional Softwares Desktop
-
-- Image Editor: GIMP
-- 3D Modeling: Blender
-- Audio Editor: Audacity
+- [Yum](https://man7.org/linux/man-pages/man8/yum.8.html)
+- [yum](https://yum.readthedocs.io/en/latest/)
 
 ## Default Languages \ Compilers
 
@@ -57,21 +40,23 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 ## Http server
 
-### [Apache httpd](https://ubuntu.com/server/docs/web-servers-apache)
+### [Apache httpd](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-centos-8-quickstart)
 
 - Install Latest Version\
-`sudo  apt install apache2 -y`
+`sudo yum install httpd -y`\
+`sudo firewall-cmd --permanent --add-service=https`\
+`sudo firewall-cmd --reload`
 
 - Common Commands\
-`systemctl status apache2`\
-`sudo systemctl start apache2`\
-`sudo systemctl stop apache2`\
-`sudo systemctl enable apache2`
+`systemctl status httpd`\
+`sudo systemctl start httpd`\
+`sudo systemctl enable httpd`\
+`sudo systemctl stop httpd`
 
 ### [Nginx](https://nginx.org/en/docs/)
 
 - Install Latest Version\
-`sudo  apt install nginx -y`
+`sudo  yum install nginx -y`
 
 - Common Commands\
 `systemctl status nginx`\
@@ -82,11 +67,11 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 ## SGBD
 
-### [MySQL](https://ubuntu.com/server/docs/databases-mysql)
+### [MySQL]()
 
 - Install Latest Version\
-`sudo apt-get update`\
-`sudo apt install mysql-server mysql-client -y`\
+`sudo yum-get update`\
+`sudo yum install mysql-server mysql-client -y`\
 `sudo mysql_secure_installation`
 
 - Common Commands\
@@ -94,14 +79,14 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 `sudo systemctl start mysql.service`\
 `sudo systemctl stop mysql.service`\
 `mysql -h localhost -u root -p`\
-`sudo apt install mysql-workbench -y`\
+`sudo yum install mysql-workbench -y`\
 `mysql-workbench`
 
 ### [MariaDB](https://mariadb.com/kb/en/documentation/)
 
 - Install Latest Version\
-`sudo apt update`\
-`sudo apt install mariadb-server -y`\
+`sudo yum update`\
+`sudo yum install mariadb-server -y`\
 `sudo mysql_secure_installation`
 `sudo mysql`\
 `GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;`\
@@ -113,24 +98,11 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 `sudo systemctl start mariadb.service`\
 `sudo systemctl stop mariadb.service`
 
-### [PostgreSQL](https://ubuntu.com/server/docs/databases-postgresql)
+### [PostgreSQL]()
 
-- Install Latest Version\
 
-1. Create the file repository configuration\
-`sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'`
 
-2. Import the repository signing key\
-`wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -`
-
-3. Update the package lists\
-`sudo apt-get update`
-
-4. Install the latest version of PostgreSQL
-
->If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql'
-
-`sudo apt-get -y install postgresql`
+`sudo yum-get -y install postgresql`
 
 - Common comands\
 `sudo systemctl status postgresql.service`\
@@ -144,11 +116,11 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 ## Filesystem
 
-### [NFS](https://ubuntu.com/server/docs/service-nfs)
+### [NFS]()
 
 - Install\
-`sudo apt install nfs-kernel-server -y`\
-`sudo apt install nfs-common -y`\
+`sudo yum install nfs-kernel-server -y`\
+`sudo yum install nfs-common -y`\
 
 - Common Commands\
 `sudo systemctl start nfs-kernel-server.service`\
@@ -168,11 +140,11 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 - Mount (Client)\
 `sudo mkdir /mnt/local_files`\
 `sudo chown vagrant:vagrant -R /mnt/local_files`\
-`sudo apt install nfs-common -y`\
+`sudo yum install nfs-common -y`\
 `sudo mount 192.168.0.134:/mnt/files /mnt/local_files`
 
 - Mount with /etc/fstab\
 `192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`
 
-## [Samba](https://ubuntu.com/server/docs/samba-introduction)
+## [Samba]()
 

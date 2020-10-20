@@ -1,1 +1,5 @@
+Ubuntu
 rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/alura/alura-lpi/ /home/marcos.silvestrini/vagrant-ubuntu-desktop
+
+Centos
+rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/alura/alura-lpi/RPM_Centos/ /home/marcos.silvestrini/vagrant-centos-7

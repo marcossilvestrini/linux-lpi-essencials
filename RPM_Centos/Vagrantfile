@@ -11,30 +11,30 @@ unless Vagrant.has_plugin?("vagrant-reload")
 end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "gusztavvargadr/ubuntu-desktop"
+  config.vm.box = "centos/7"
 
-  # VM srv02
-  config.vm.define "srv02"  do |srv02|
+  # VM srv01
+  config.vm.define "srv01"  do |srv01|
 
     # VARIABLE HOSTNAME
-    APP_NAME= "ubuntu-srv02"
+    APP_NAME= "centos-serv01"
 
     # HOSTNAME
-    srv02.vm.hostname = APP_NAME
+    srv01.vm.hostname = APP_NAME
 
     # NETWORK
-    srv02.vm.network "public_network" ,ip: "192.168.0.134",mode: "bridge"
+    srv01.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge"
 
     # Forward Port
     # srv02.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
     # srv02.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
 
     # MOUNTS
-    srv02.vm.synced_folder ".", "/vagrant", disabled: true
-    srv02.vm.synced_folder "./security", "/security"
+    srv01.vm.synced_folder ".", "/vagrant", disabled: true
+    srv01.vm.synced_folder "./security", "/security"
 
     # PROVIDER
-    srv02.vm.provider "virtualbox" do |vb|
+    srv01.vm.provider "virtualbox" do |vb|
       vb.linked_clone = true
       vb.name = APP_NAME
       vb.memory = 2048
@@ -42,12 +42,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     # PROVISION
-    srv02.vm.provision "shell", inline: <<-SHELL
+    # SSH,FIREWALLD AND SELINUX
+    srv01.vm.provision "shell", inline: <<-SHELL
       cat /security/id_rsa.pub >> .ssh/authorized_keys
-      cd  /tmp
-      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      sudo apt install ./google-chrome-stable_current_amd64.deb
     SHELL
+
+    # # PACKAGES FOR PROVISION
+    # srv01.vm.provision "shell", inline: <<-SHELL
+    #   dnf install python3 -y
+    # SHELL
 
   end
 
