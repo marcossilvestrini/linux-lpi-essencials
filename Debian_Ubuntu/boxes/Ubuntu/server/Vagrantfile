@@ -1,0 +1,52 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+# INSTALL PLUGIN RELLOAD
+unless Vagrant.has_plugin?("vagrant-reload")
+  puts 'Installing vagrant-reload Plugin...'
+  system('vagrant plugin install vagrant-reload')
+end
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "centos/7"
+end
+
+  # VM srv01
+  config.vm.define "srv01"  do |srv01|
+
+    # VARIABLE HOSTNAME
+    APP_NAME= "centos-srv01"
+
+    # HOSTNAME
+    srv01.vm.hostname = APP_NAME
+
+    # NETWORK
+    srv01.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge"
+
+    # Forward Port
+    # srv01.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+    # srv01.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+
+    # MOUNTS
+    srv01.vm.synced_folder ".", "/vagrant", disabled: true
+    srv01.vm.synced_folder "./security", "/security"
+
+    # PROVIDER
+    srv01.vm.provider "virtualbox" do |vb|
+      vb.linked_clone = true
+      vb.name = APP_NAME
+      vb.memory = 1024
+      vb.cpus = 1
+    end
+
+    # PROVISION
+    srv01.vm.provision "shell", inline: <<-SHELL
+      cat /security/id_rsa.pub >> .ssh/authorized_keys
+    SHELL
+
+  end
+
+end
