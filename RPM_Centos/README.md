@@ -1,6 +1,6 @@
 # UBUNTU
 
-![Ubuntu](https://user-images.githubusercontent.com/62715900/95467421-cf501680-0953-11eb-92f9-3c5fce92fcfb.png)
+![Centos](https://user-images.githubusercontent.com/62715900/96582746-2047ff00-12b2-11eb-82e4-bd121ae654e1.png)
 
 Ubuntu is a distribution based on Debian, designed to have regular releases, a consistent user experience and commercial support on both desktops and servers.
 
