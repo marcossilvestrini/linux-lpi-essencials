@@ -56,7 +56,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `sudo systemctl stop httpd`
 `sudo systemctl reload httpd`
 
-- Files and Directories
+- Files and Directories\
 1.Content\
 `/var/www/html`: This directory holds the web content of your site, and is its default root. You can modify Apache’s default configuration settings to point to other directories within var/www.\
 
