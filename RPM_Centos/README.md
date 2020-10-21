@@ -57,10 +57,10 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `sudo systemctl reload httpd`
 
 - Files and Directories
-1.Content
+1.Content\
 `/var/www/html`: This directory holds the web content of your site, and is its default root. You can modify Apache’s default configuration settings to point to other directories within var/www.\
 
-2.Server Configuration
+2.Server Configuration\
 `/etc/httpd`: The configuration directory in Apache, home to all of its configuration files.\
 `/etc/httpd/conf/httpd.conf`: Apache’s primary configuration file, which stores its global configuration settings. Other files in the configuration directory are loaded from this file. It also stores the FollowSymLinks directives, which control configuration enabling and disabling.\
 `/etc/httpd/sites-available/`: This directory holds virtual host configuration files, which are enabled through links to the sites-enabled directory. Modification to server block files happens in this directory, and is enabled through the a2ensite command.\
@@ -68,7 +68,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `/etc/httpd/conf-available` and `/etc/httpd/conf-enabled`: In the same relationship as sites-available and sites-enabled, these directories house configuration fragments that are unattached to virtual host configuration files.\
 `/etc/httpd/mods-available` and `/etc/httpd/mods-enabled`: Containing modules that are available and enabled, these directories have two components: files ending in .load, which contain fragments that load particular modules, and files ending in .conf, which store the configurations of these modules.\
 
-3.Server Logs
+3.Server Logs\
 `/var/log/httpd/access.log`: This file contains every request to the web server unless Apache’s
 configuration settings have been modified.\
 `/var/log/httpd/error.log`: This file contains errors. To modify the amount of detail in the error logs, modify the LogLevel directive in `/etc/httpd/conf/httpd.conf.`\
@@ -95,8 +95,7 @@ configuration settings have been modified.\
 - Files and Directories\
 
 1.Content\
-`/usr/share/nginx/html`:\
-The actual web content, which by default only consists of the default Nginx page you saw earlier, is served out of the /usr/share/nginx/html directory. This can be changed by altering Nginx configuration files.\
+`/usr/share/nginx/html`:The actual web content, which by default only consists of the default Nginx page you saw earlier, is served out of the /usr/share/nginx/html directory. This can be changed by altering Nginx configuration files.\
 
 2.Server Configuration\
 `/etc/nginx`: The Nginx configuration directory. All of the Nginx configuration files reside here.\
@@ -140,7 +139,7 @@ The actual web content, which by default only consists of the default Nginx page
 `sudo systemctl start mariadb.service`\
 `sudo systemctl stop mariadb.service`
 
-### [PostgreSQL]()
+### [PostgreSQL](foo)
 
 `sudo yum-get -y install postgresql`
 
