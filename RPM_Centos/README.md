@@ -41,7 +41,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 
 ## Http server
 
-### [Apache httpd](https://www.digitalocean.com/community/tutorials/how-to-install-the-apache-web-server-on-centos-8-quickstart)
+### [Apache httpd](http://httpd.apache.org/docs/2.4/)
 
 #### Install Latest Version
 
@@ -58,20 +58,12 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `sudo systemctl stop httpd`\
 `sudo systemctl reload httpd`
 
-<<<<<<< HEAD
 #### Files and Directories
 
 - Content\
 `/var/www/html`: This directory holds the web content of your site, and is its default root. You can modify Apache’s default configuration settings to point to other directories within var/www.
 
 - Server Configuration\
-=======
-- Files and Directories\
-Content\
-`/var/www/html`: This directory holds the web content of your site, and is its default root. You can modify Apache’s default configuration settings to point to other directories within var/www.\
-
-Server Configuration\
->>>>>>> 9536a7c... upd: Update Files
 `/etc/httpd`: The configuration directory in Apache, home to all of its configuration files.\
 `/etc/httpd/conf/httpd.conf`: Apache’s primary configuration file, which stores its global configuration settings. Other files in the configuration directory are loaded from this file. It also stores the FollowSymLinks directives, which control configuration enabling and disabling.\
 `/etc/httpd/sites-available/`: This directory holds virtual host configuration files, which are enabled through links to the sites-enabled directory. Modification to server block files happens in this directory, and is enabled through the a2ensite command.\
@@ -79,13 +71,8 @@ Server Configuration\
 `/etc/httpd/conf-available` and `/etc/httpd/conf-enabled`: In the same relationship as sites-available and sites-enabled, these directories house configuration fragments that are unattached to virtual host configuration files.\
 `/etc/httpd/mods-available` and `/etc/httpd/mods-enabled`: Containing modules that are available and enabled, these directories have two components: files ending in .load, which contain fragments that load particular modules, and files ending in .conf, which store the configurations of these modules.
 
-<<<<<<< HEAD
 - Server Logs\
 `/var/log/httpd/access_log`: This file contains every request to the web server unless Apache’s
-=======
-Server Logs\
-`/var/log/httpd/access.log`: This file contains every request to the web server unless Apache’s
->>>>>>> 9536a7c... upd: Update Files
 configuration settings have been modified.\
 `/var/log/httpd/error_log`: This file contains errors. To modify the amount of detail in the error logs, modify the LogLevel directive in `/etc/httpd/conf/httpd.conf.`
 
@@ -127,22 +114,42 @@ configuration settings have been modified.\
 
 ## SGBD
 
-### [MySQL]()
+### [MySQL](https://dev.mysql.com/doc/)
 
-#### Install Latest Version
+- Install\
+Get version in:\
+*https://dev.mysql.com/downloads/repo/yum/*\
+Example:\
+mysql80-community-release-el7-3.noarch.rpm\
 
-`sudo yum-get update`\
-`sudo yum install mysql-server mysql-client -y`\
-`sudo mysql_secure_installation`
+`sudo yum update`\
+`cd /tmp/`\
+`mysql_version=mysql80-community-release-el7-3.noarch.rpm`\
+`url=https://dev.mysql.com/get/$mysql_version`\
+`wget $url`\
+`md5sum $mysql_version`\
+`sudo rpm -ivh $mysql_version`\
+`sudo yum install mysql-server -y`
 
 #### Common Commands
 
 `sudo systemctl status mysql.service`\
 `sudo systemctl start mysql.service`\
 `sudo systemctl stop mysql.service`\
-`mysql -h localhost -u root -p`\
+`mysqladmin -u root -p version`
+
+- Install Tools
 `sudo yum install mysql-workbench -y`\
 `mysql-workbench`
+
+- View temporary password\
+`sudo grep 'temporary password' /var/log/mysqld.log`
+
+- Access SGBD\
+`mysql -h localhost -u root -p`
+
+- Configure\
+`sudo mysql_secure_installation`
 
 ### [MariaDB](https://mariadb.com/kb/en/documentation/)
 
@@ -161,7 +168,7 @@ configuration settings have been modified.\
 `sudo systemctl start mariadb.service`\
 `sudo systemctl stop mariadb.service`
 
-### [PostgreSQL](foo)
+### [PostgreSQL]([foo](https://www.postgresql.org/docs/))
 
 #### Instal Latest Version
 
