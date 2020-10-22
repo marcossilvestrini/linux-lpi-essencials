@@ -72,9 +72,9 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `/etc/httpd/mods-available` and `/etc/httpd/mods-enabled`: Containing modules that are available and enabled, these directories have two components: files ending in .load, which contain fragments that load particular modules, and files ending in .conf, which store the configurations of these modules.
 
 - Server Logs\
-`/var/log/httpd/access.log`: This file contains every request to the web server unless Apache’s
+`/var/log/httpd/access_log`: This file contains every request to the web server unless Apache’s
 configuration settings have been modified.\
-`/var/log/httpd/error.log`: This file contains errors. To modify the amount of detail in the error logs, modify the LogLevel directive in `/etc/httpd/conf/httpd.conf.`
+`/var/log/httpd/error_log`: This file contains errors. To modify the amount of detail in the error logs, modify the LogLevel directive in `/etc/httpd/conf/httpd.conf.`
 
 ### [Nginx](https://nginx.org/en/docs/)
 
