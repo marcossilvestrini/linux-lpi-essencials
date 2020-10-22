@@ -102,12 +102,12 @@ configuration settings have been modified.\
 #### Files and Directories\
 
 - Content\
-`/usr/share/nginx/html`:The actual web content, which by default only consists of the default Nginx page you saw earlier, is served out of the /usr/share/nginx/html directory. This can be changed by altering Nginx configuration files.\
+`/usr/share/nginx/html`:The actual web content, which by default only consists of the default Nginx page you saw earlier, is served out of the /usr/share/nginx/html directory. This can be changed by altering Nginx configuration files.
 
 - Server Configuration\
 `/etc/nginx`: The Nginx configuration directory. All of the Nginx configuration files reside here.\
 `/etc/nginx/nginx.conf`: The main Nginx configuration file. This can be modified to make changes to the Nginx global configuration.\
-`/etc/nginx/conf.d/`: This directory contains server block configuration files, where you can define the websites that are hosted within Nginx. A typical approach is to have each website in a separate file that is named after the website’s domain name, such as your_domain.conf.\
+`/etc/nginx/conf.d/`: This directory contains server block configuration files, where you can define the websites that are hosted within Nginx. A typical approach is to have each website in a separate file that is named after the website’s domain name, such as your_domain.conf.
 
 - Server Logs\
 `/var/log/nginx/access.log`: Every request to your web server is recorded in this log file unless Nginx is configured to do otherwise.\
@@ -118,6 +118,7 @@ configuration settings have been modified.\
 ### [MySQL](https://dev.mysql.com/doc/)
 
 - Install\
+
 Get version in:\
 *https://dev.mysql.com/downloads/repo/yum/*\
 Example:\
