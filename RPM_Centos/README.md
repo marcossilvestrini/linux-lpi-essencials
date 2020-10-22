@@ -42,11 +42,9 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 ## Http server
 
 ### [Apache httpd](http://httpd.apache.org/docs/2.4/)
-<<<<<<< HEAD
 
 #### Install Latest Version
-=======
->>>>>>> 7944edd... feat: Add new features
+
 
 `sudo yum install httpd -y`\
 `sudo firewall-cmd --permanent --add-service=https`\
@@ -124,7 +122,6 @@ Get version in:\
 *https://dev.mysql.com/downloads/repo/yum/*\
 Example:\
 mysql80-community-release-el7-3.noarch.rpm\
-
 `sudo yum update`\
 `cd /tmp/`\
 `mysql_version=mysql80-community-release-el7-3.noarch.rpm`\
