@@ -42,8 +42,11 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 ## Http server
 
 ### [Apache httpd](http://httpd.apache.org/docs/2.4/)
+<<<<<<< HEAD
 
 #### Install Latest Version
+=======
+>>>>>>> 7944edd... feat: Add new features
 
 `sudo yum install httpd -y`\
 `sudo firewall-cmd --permanent --add-service=https`\
@@ -130,8 +133,11 @@ mysql80-community-release-el7-3.noarch.rpm\
 `md5sum $mysql_version`\
 `sudo rpm -ivh $mysql_version`\
 `sudo yum install mysql-server -y`
+<<<<<<< HEAD
 
 #### Common Commands
+=======
+>>>>>>> 7944edd... feat: Add new features
 
 `sudo systemctl status mysql.service`\
 `sudo systemctl start mysql.service`\
@@ -169,8 +175,11 @@ mysql80-community-release-el7-3.noarch.rpm\
 `sudo systemctl stop mariadb.service`
 
 ### [PostgreSQL]([foo](https://www.postgresql.org/docs/))
+<<<<<<< HEAD
 
 #### Instal Latest Version
+=======
+>>>>>>> 7944edd... feat: Add new features
 
 `sudo yum-get -y install postgresql`
 
