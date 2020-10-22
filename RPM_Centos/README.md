@@ -58,12 +58,20 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `sudo systemctl stop httpd`\
 `sudo systemctl reload httpd`
 
+<<<<<<< HEAD
 #### Files and Directories
 
 - Content\
 `/var/www/html`: This directory holds the web content of your site, and is its default root. You can modify Apache’s default configuration settings to point to other directories within var/www.
 
 - Server Configuration\
+=======
+- Files and Directories\
+Content\
+`/var/www/html`: This directory holds the web content of your site, and is its default root. You can modify Apache’s default configuration settings to point to other directories within var/www.\
+
+Server Configuration\
+>>>>>>> 9536a7c... upd: Update Files
 `/etc/httpd`: The configuration directory in Apache, home to all of its configuration files.\
 `/etc/httpd/conf/httpd.conf`: Apache’s primary configuration file, which stores its global configuration settings. Other files in the configuration directory are loaded from this file. It also stores the FollowSymLinks directives, which control configuration enabling and disabling.\
 `/etc/httpd/sites-available/`: This directory holds virtual host configuration files, which are enabled through links to the sites-enabled directory. Modification to server block files happens in this directory, and is enabled through the a2ensite command.\
@@ -71,8 +79,13 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `/etc/httpd/conf-available` and `/etc/httpd/conf-enabled`: In the same relationship as sites-available and sites-enabled, these directories house configuration fragments that are unattached to virtual host configuration files.\
 `/etc/httpd/mods-available` and `/etc/httpd/mods-enabled`: Containing modules that are available and enabled, these directories have two components: files ending in .load, which contain fragments that load particular modules, and files ending in .conf, which store the configurations of these modules.
 
+<<<<<<< HEAD
 - Server Logs\
 `/var/log/httpd/access_log`: This file contains every request to the web server unless Apache’s
+=======
+Server Logs\
+`/var/log/httpd/access.log`: This file contains every request to the web server unless Apache’s
+>>>>>>> 9536a7c... upd: Update Files
 configuration settings have been modified.\
 `/var/log/httpd/error_log`: This file contains errors. To modify the amount of detail in the error logs, modify the LogLevel directive in `/etc/httpd/conf/httpd.conf.`
 
