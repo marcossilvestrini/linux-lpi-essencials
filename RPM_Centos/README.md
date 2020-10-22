@@ -55,7 +55,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `systemctl status httpd`\
 `sudo systemctl start httpd`\
 `sudo systemctl enable httpd`\
-`sudo systemctl stop httpd`
+`sudo systemctl stop httpd`\
 `sudo systemctl reload httpd`
 
 #### Files and Directories
