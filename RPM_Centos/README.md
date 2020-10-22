@@ -133,16 +133,6 @@ mysql80-community-release-el7-3.noarch.rpm\
 `md5sum $mysql_version`\
 `sudo rpm -ivh $mysql_version`\
 `sudo yum install mysql-server -y`
-<<<<<<< HEAD
-
-#### Common Commands
-=======
->>>>>>> 7944edd... feat: Add new features
-
-`sudo systemctl status mysql.service`\
-`sudo systemctl start mysql.service`\
-`sudo systemctl stop mysql.service`\
-`mysqladmin -u root -p version`
 
 - Install Tools
 `sudo yum install mysql-workbench -y`\
@@ -169,17 +159,15 @@ mysql80-community-release-el7-3.noarch.rpm\
 `FLUSH PRIVILEGES;`
 
 #### Common Comands
+
 `sudo mysqladmin version`\
 `sudo systemctl status mariadb.service`\
 `sudo systemctl start mariadb.service`\
 `sudo systemctl stop mariadb.service`
 
-### [PostgreSQL]([foo](https://www.postgresql.org/docs/))
-<<<<<<< HEAD
+### [PostgreSQL](https://www.postgresql.org/docs/)
 
 #### Instal Latest Version
-=======
->>>>>>> 7944edd... feat: Add new features
 
 `sudo yum-get -y install postgresql`
 
