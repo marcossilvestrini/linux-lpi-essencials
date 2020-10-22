@@ -117,7 +117,8 @@ configuration settings have been modified.\
 
 ### [MySQL](https://dev.mysql.com/doc/)
 
-- Install\
+#### Install
+
 Get version in: *https://dev.mysql.com/downloads/repo/yum/* \
 Example:\
 mysql80-community-release-el7-3.noarch.rpm\
@@ -130,17 +131,21 @@ mysql80-community-release-el7-3.noarch.rpm\
 `sudo rpm -ivh $mysql_version`\
 `sudo yum install mysql-server -y`
 
-- Install Tools
+### Install Tools
+
 `sudo yum install mysql-workbench -y`\
 `mysql-workbench`
 
-- View temporary password\
+#### View temporary password
+
 `sudo grep 'temporary password' /var/log/mysqld.log`
 
-- Access SGBD\
+#### Access SGBD
+
 `mysql -h localhost -u root -p`
 
-- Configure\
+#### Configure
+
 `sudo mysql_secure_installation`
 
 ### [MariaDB](https://mariadb.com/kb/en/documentation/)
