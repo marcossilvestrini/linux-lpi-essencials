@@ -118,8 +118,7 @@ configuration settings have been modified.\
 ### [MySQL](https://dev.mysql.com/doc/)
 
 - Install\
-Get version in:\
-*https://dev.mysql.com/downloads/repo/yum/*\
+Get version in: *https://dev.mysql.com/downloads/repo/yum/* \
 Example:\
 mysql80-community-release-el7-3.noarch.rpm\
 `sudo yum update`
