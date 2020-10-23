@@ -61,10 +61,10 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 
 #### Files and Directories
 
-- Content\
+##### Content
 `/var/www/html`: This directory holds the web content of your site, and is its default root. You can modify Apache’s default configuration settings to point to other directories within var/www.
 
-- Server Configuration\
+##### Server Configuration
 `/etc/httpd`: The configuration directory in Apache, home to all of its configuration files.\
 `/etc/httpd/conf/httpd.conf`: Apache’s primary configuration file, which stores its global configuration settings. Other files in the configuration directory are loaded from this file. It also stores the FollowSymLinks directives, which control configuration enabling and disabling.\
 `/etc/httpd/sites-available/`: This directory holds virtual host configuration files, which are enabled through links to the sites-enabled directory. Modification to server block files happens in this directory, and is enabled through the a2ensite command.\
@@ -72,7 +72,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `/etc/httpd/conf-available` and `/etc/httpd/conf-enabled`: In the same relationship as sites-available and sites-enabled, these directories house configuration fragments that are unattached to virtual host configuration files.\
 `/etc/httpd/mods-available` and `/etc/httpd/mods-enabled`: Containing modules that are available and enabled, these directories have two components: files ending in .load, which contain fragments that load particular modules, and files ending in .conf, which store the configurations of these modules.
 
-- Server Logs\
+##### Server Logs
 `/var/log/httpd/access_log`: This file contains every request to the web server unless Apache’s
 configuration settings have been modified.\
 `/var/log/httpd/error_log`: This file contains errors. To modify the amount of detail in the error logs, modify the LogLevel directive in `/etc/httpd/conf/httpd.conf.`
@@ -101,15 +101,15 @@ configuration settings have been modified.\
 
 #### Files and Directories\
 
-- Content\
+##### Content
 `/usr/share/nginx/html`:The actual web content, which by default only consists of the default Nginx page you saw earlier, is served out of the /usr/share/nginx/html directory. This can be changed by altering Nginx configuration files.
 
-- Server Configuration\
+##### Server Configuration
 `/etc/nginx`: The Nginx configuration directory. All of the Nginx configuration files reside here.\
 `/etc/nginx/nginx.conf`: The main Nginx configuration file. This can be modified to make changes to the Nginx global configuration.\
 `/etc/nginx/conf.d/`: This directory contains server block configuration files, where you can define the websites that are hosted within Nginx. A typical approach is to have each website in a separate file that is named after the website’s domain name, such as your_domain.conf.
 
-- Server Logs\
+##### Server Logs
 `/var/log/nginx/access.log`: Every request to your web server is recorded in this log file unless Nginx is configured to do otherwise.\
 `/var/log/nginx/error.log`: Any Nginx errors will be recorded in this log.
 
