@@ -122,8 +122,8 @@ configuration settings have been modified.\
 Get version in: *https://dev.mysql.com/downloads/repo/yum/* \
 Example:\
 mysql80-community-release-el7-3.noarch.rpm\
-`sudo yum update`
-`cd /tmp/`
+`sudo yum update`\
+`cd /tmp/`\
 `mysql_version=mysql80-community-release-el7-3.noarch.rpm`\
 `url=https://dev.mysql.com/get/$mysql_version`\
 `wget $url`\
