@@ -169,7 +169,7 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 `sudo mkdir /mnt/local_files`\
 `sudo chown vagrant:vagrant -R /mnt/local_files`\
 `sudo apt install nfs-common -y`\
-`sudo mount 192.168.0.134:/mnt/files /mnt/local_files`
+`mount 192.168.0.134:/mnt/files /mnt/local_files`
 
 - Mount with /etc/fstab\
 `192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`

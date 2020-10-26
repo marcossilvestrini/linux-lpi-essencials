@@ -219,20 +219,22 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 ## Filesystem
 
-### [NFS]()
+### [NFS](http://nfs.sourceforge.net/)
 
 #### Install NFS
-`sudo yum install nfs-kernel-server -y`\
-`sudo yum install nfs-common -y`\
+
+`yum install nfs-utils -y`\
 
 #### Common Commands NFS
 
-`sudo systemctl start nfs-kernel-server.service`\
-`sudo systemctl status nfs-kernel-server.service`\
-`sudo systemctl stop nfs-kernel-server.service`\
-`sudo systemctl enable  nfs-kernel-server.service`\
-`cat /etc/exports`\
-`nfsstat`
+`sudo systemctl enable rpcbind`
+`sudo systemctl enable nfs-server`
+`sudo systemctl enable nfs-lock`
+`sudo systemctl enable nfs-idmap`
+`sudo systemctl start rpcbind`
+`sudo systemctl start nfs-server`
+`sudo systemctl start nfs-lock`
+`sudo systemctl start nfs-idmap`
 
 #### Configure NFS
 
@@ -240,18 +242,24 @@ mysql80-community-release-el7-3.noarch.rpm\
 `sudo chown vagrant:vagrant -R /mnt/files`\
 `sudo vim /etc/exports`\
 `/mnt/files *(rw,async,no_subtree_check,no_root_squash)`\
-`sudo exportfs -a`
+`sudo exportfs -a`\
+`sudo systemctl restart nfs-server`\
+`firewall-cmd --permanent --zone=public --add-service=nfs`\
+`firewall-cmd --permanent --zone=public --add-service=mountd`\
+`firewall-cmd --permanent --zone=public --add-service=rpc-bind`\
+`firewall-cmd --reload`
 
 #### Mount (Client) NFS
 
 `sudo mkdir /mnt/local_files`\
 `sudo chown vagrant:vagrant -R /mnt/local_files`\
-`sudo yum install nfs-common -y`\
-`sudo mount 192.168.0.134:/mnt/files /mnt/local_files`
+`sudo yum install nfs-utils -y`\
+`mount -t nfs 192.168.0.134:/mnt/files /mnt/local_files`
 
 #### Mount NFS with /etc/fstab
 
-`192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`
+`192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`\
+or\
+`192.168.0.134:/mnt/files    /mnt/files   nfs defaults 0 0`
 
-## [Samba]()
-
+## [Samba](https://www.samba.org/samba/docs/)
