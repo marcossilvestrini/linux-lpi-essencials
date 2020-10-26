@@ -62,9 +62,11 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 #### Files and Directories
 
 ##### Content
+
 `/var/www/html`: This directory holds the web content of your site, and is its default root. You can modify Apache’s default configuration settings to point to other directories within var/www.
 
 ##### Server Configuration
+
 `/etc/httpd`: The configuration directory in Apache, home to all of its configuration files.\
 `/etc/httpd/conf/httpd.conf`: Apache’s primary configuration file, which stores its global configuration settings. Other files in the configuration directory are loaded from this file. It also stores the FollowSymLinks directives, which control configuration enabling and disabling.\
 `/etc/httpd/sites-available/`: This directory holds virtual host configuration files, which are enabled through links to the sites-enabled directory. Modification to server block files happens in this directory, and is enabled through the a2ensite command.\
@@ -73,6 +75,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `/etc/httpd/mods-available` and `/etc/httpd/mods-enabled`: Containing modules that are available and enabled, these directories have two components: files ending in .load, which contain fragments that load particular modules, and files ending in .conf, which store the configurations of these modules.
 
 ##### Server Logs
+
 `/var/log/httpd/access_log`: This file contains every request to the web server unless Apache’s
 configuration settings have been modified.\
 `/var/log/httpd/error_log`: This file contains errors. To modify the amount of detail in the error logs, modify the LogLevel directive in `/etc/httpd/conf/httpd.conf.`
@@ -83,14 +86,14 @@ configuration settings have been modified.\
 
 `sudo yum install epel-release -y`
 
-#### Install Latest Version
+#### Install Latest Version Nginx
 
 `sudo  yum install nginx -y`\
 `sudo firewall-cmd --permanent --add-service=http`\
 `sudo firewall-cmd --permanent --list-all`\
 `sudo firewall-cmd --reload`
 
-#### Common Commands
+#### Common Commands Nginx
 
 `systemctl status nginx`\
 `sudo systemctl start nginx`\
@@ -99,12 +102,14 @@ configuration settings have been modified.\
 `sudo systemctl disable nginx`\
 `sudo systemctl reload nginx`
 
-#### Files and Directories\
+#### Files and Directories Nginx
 
-##### Content
+##### Content Nginx
+
 `/usr/share/nginx/html`:The actual web content, which by default only consists of the default Nginx page you saw earlier, is served out of the /usr/share/nginx/html directory. This can be changed by altering Nginx configuration files.
 
-##### Server Configuration
+##### Server Configuration Nginx
+
 `/etc/nginx`: The Nginx configuration directory. All of the Nginx configuration files reside here.\
 `/etc/nginx/nginx.conf`: The main Nginx configuration file. This can be modified to make changes to the Nginx global configuration.\
 `/etc/nginx/conf.d/`: This directory contains server block configuration files, where you can define the websites that are hosted within Nginx. A typical approach is to have each website in a separate file that is named after the website’s domain name, such as your_domain.conf.
@@ -117,7 +122,7 @@ configuration settings have been modified.\
 
 ### [MySQL](https://dev.mysql.com/doc/)
 
-#### Install
+#### Install Latest Version Mysql
 
 Get version in: *https://dev.mysql.com/downloads/repo/yum/* \
 Example:\
@@ -131,7 +136,7 @@ mysql80-community-release-el7-3.noarch.rpm\
 `sudo rpm -ivh $mysql_version`\
 `sudo yum install mysql-server -y`
 
-### Install Tools
+### Install Tools Mysql
 
 `sudo yum install mysql-workbench -y`\
 `mysql-workbench`
@@ -140,31 +145,52 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 `sudo grep 'temporary password' /var/log/mysqld.log`
 
-#### Access SGBD
+#### Access Mysql
 
 `mysql -h localhost -u root -p`
 
-#### Configure
+#### Configure Mysql
 
 `sudo mysql_secure_installation`
 
 ### [MariaDB](https://mariadb.com/kb/en/documentation/)
 
-#### Install Latest Version
+#### Install Latest Version MariaDB
 
 `sudo yum update`\
 `sudo yum install mariadb-server -y`\
 `sudo mysql_secure_installation`
-`sudo mysql`\
-`GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;`\
-`FLUSH PRIVILEGES;`
 
-#### Common Comands
+#### Common Comands MariaDB
 
 `sudo mysqladmin version`\
 `sudo systemctl status mariadb.service`\
 `sudo systemctl start mariadb.service`\
 `sudo systemctl stop mariadb.service`
+
+#### Reset password MariaDB
+
+`sudo systemctl stop mariadb`
+`sudo mysqld_safe --skip-grant-tables &`
+`mysql -u root`
+`use mysql;`
+`update user SET PASSWORD=PASSWORD("batman2") WHERE USER='root';`
+`flush privileges;`
+`exit`
+`sudo systemctl start mariadb`
+
+#### Create a New MariaDB User and Database
+
+`mysql -h localhost -u root -p`\
+`create database testdb;`\
+`create user 'testuser'@localhost identified by 'password';`\
+`grant all on testdb.* to 'testuser' identified by 'password';`
+
+#### Create New Table MariaDB
+
+`mysql -u testuser -p`\
+`create table customers (customer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, first_name TEXT, last_name TEXT);`\
+`show tables;`
 
 ### [PostgreSQL](https://www.postgresql.org/docs/)
 

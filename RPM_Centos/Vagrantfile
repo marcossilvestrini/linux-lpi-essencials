@@ -48,9 +48,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     SHELL
 
     # # PACKAGES FOR PROVISION
-    # srv01.vm.provision "shell", inline: <<-SHELL
-    #   dnf install python3 -y
-    # SHELL
+    srv01.vm.provision "shell", inline: <<-SHELL
+      # yum install python3 -y
+      yum install  xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps -y
+    SHELL
 
   end
 
