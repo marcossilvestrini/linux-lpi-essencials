@@ -227,13 +227,13 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 #### Common Commands NFS
 
-`sudo systemctl enable rpcbind`
-`sudo systemctl enable nfs-server`
-`sudo systemctl enable nfs-lock`
-`sudo systemctl enable nfs-idmap`
-`sudo systemctl start rpcbind`
-`sudo systemctl start nfs-server`
-`sudo systemctl start nfs-lock`
+`sudo systemctl enable rpcbind`\
+`sudo systemctl enable nfs-server`\
+`sudo systemctl enable nfs-lock`\
+`sudo systemctl enable nfs-idmap`\
+`sudo systemctl start rpcbind`\
+`sudo systemctl start nfs-server`\
+`sudo systemctl start nfs-lock`\
 `sudo systemctl start nfs-idmap`
 
 #### Configure NFS
