@@ -43,7 +43,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 
 ### [Apache httpd](http://httpd.apache.org/docs/2.4/)
 
-#### Install Latest Version
+#### Install Latest Version Apache
 
 
 `sudo yum install httpd -y`\
@@ -51,7 +51,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `sudo firewall-cmd --permanent --list-all`\
 `sudo firewall-cmd --reload`
 
-#### Common Commands
+#### Common Commands Apache
 
 `systemctl status httpd`\
 `sudo systemctl start httpd`\
@@ -59,13 +59,13 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `sudo systemctl stop httpd`\
 `sudo systemctl reload httpd`
 
-#### Files and Directories
+#### Files and Directories Apache
 
-##### Content
+##### Content Apache
 
 `/var/www/html`: This directory holds the web content of your site, and is its default root. You can modify Apache’s default configuration settings to point to other directories within var/www.
 
-##### Server Configuration
+##### Server Configuration Apache
 
 `/etc/httpd`: The configuration directory in Apache, home to all of its configuration files.\
 `/etc/httpd/conf/httpd.conf`: Apache’s primary configuration file, which stores its global configuration settings. Other files in the configuration directory are loaded from this file. It also stores the FollowSymLinks directives, which control configuration enabling and disabling.\
@@ -74,7 +74,7 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 `/etc/httpd/conf-available` and `/etc/httpd/conf-enabled`: In the same relationship as sites-available and sites-enabled, these directories house configuration fragments that are unattached to virtual host configuration files.\
 `/etc/httpd/mods-available` and `/etc/httpd/mods-enabled`: Containing modules that are available and enabled, these directories have two components: files ending in .load, which contain fragments that load particular modules, and files ending in .conf, which store the configurations of these modules.
 
-##### Server Logs
+##### Server Logs Apache
 
 `/var/log/httpd/access_log`: This file contains every request to the web server unless Apache’s
 configuration settings have been modified.\
@@ -114,7 +114,8 @@ configuration settings have been modified.\
 `/etc/nginx/nginx.conf`: The main Nginx configuration file. This can be modified to make changes to the Nginx global configuration.\
 `/etc/nginx/conf.d/`: This directory contains server block configuration files, where you can define the websites that are hosted within Nginx. A typical approach is to have each website in a separate file that is named after the website’s domain name, such as your_domain.conf.
 
-##### Server Logs
+##### Server Logs Nginx
+
 `/var/log/nginx/access.log`: Every request to your web server is recorded in this log file unless Nginx is configured to do otherwise.\
 `/var/log/nginx/error.log`: Any Nginx errors will be recorded in this log.
 
@@ -141,7 +142,7 @@ mysql80-community-release-el7-3.noarch.rpm\
 `sudo yum install mysql-workbench -y`\
 `mysql-workbench`
 
-#### View temporary password
+#### View Temporary password
 
 `sudo grep 'temporary password' /var/log/mysqld.log`
 
@@ -195,16 +196,21 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 ### [PostgreSQL](https://www.postgresql.org/docs/)
 
-#### Instal Latest Version
+#### Instal Latest Version PostgreSQL
 
-`sudo yum-get -y install postgresql`
+>Postgres can be installed using default CentOS repositories. But as of the writing of this tutorial, the version that is available in the CentOS 7 Base repository is obsolete. Therefore, this tutorial will use the official Postgres repository\
 
-#### Common comands
+`sudo vi /etc/yum.repos.d/CentOS-Base.repo`\
+`sudo yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm -y`\
+`yum list postgresql*`\
+`sudo yum install postgresql11-server -y`\
 
-`sudo systemctl status postgresql.service`\
-`sudo systemctl start postgresql.service`\
-`sudo systemctl stop postgresql.service`\
-`sudo systemctl enable postgresql.service`
+#### Common comands PostgreSQL
+
+`sudo systemctl status postgresql-11.service`\
+`sudo systemctl start postgresql-11.service`\
+`sudo systemctl stop postgresql-11.service`\
+`sudo systemctl enable postgresql-11.service`
 
 #### View Version with SQL
 
@@ -215,11 +221,11 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 ### [NFS]()
 
-#### Install
+#### Install NFS
 `sudo yum install nfs-kernel-server -y`\
 `sudo yum install nfs-common -y`\
 
-#### Common Commands
+#### Common Commands NFS
 
 `sudo systemctl start nfs-kernel-server.service`\
 `sudo systemctl status nfs-kernel-server.service`\
@@ -228,7 +234,7 @@ mysql80-community-release-el7-3.noarch.rpm\
 `cat /etc/exports`\
 `nfsstat`
 
-#### Configure
+#### Configure NFS
 
 `sudo mkdir /mnt/files`\
 `sudo chown vagrant:vagrant -R /mnt/files`\
@@ -236,14 +242,14 @@ mysql80-community-release-el7-3.noarch.rpm\
 `/mnt/files *(rw,async,no_subtree_check,no_root_squash)`\
 `sudo exportfs -a`
 
-#### Mount (Client)
+#### Mount (Client) NFS
 
 `sudo mkdir /mnt/local_files`\
 `sudo chown vagrant:vagrant -R /mnt/local_files`\
 `sudo yum install nfs-common -y`\
 `sudo mount 192.168.0.134:/mnt/files /mnt/local_files`
 
-#### Mount with /etc/fstab
+#### Mount NFS with /etc/fstab
 
 `192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`
 
