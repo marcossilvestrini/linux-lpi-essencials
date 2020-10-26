@@ -166,7 +166,8 @@ mysql80-community-release-el7-3.noarch.rpm\
 `sudo mysqladmin version`\
 `sudo systemctl status mariadb.service`\
 `sudo systemctl start mariadb.service`\
-`sudo systemctl stop mariadb.service`
+`sudo systemctl stop mariadb.service`\
+`sudo systemctl enable mariadb`
 
 #### Reset password MariaDB
 
