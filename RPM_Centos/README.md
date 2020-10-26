@@ -259,7 +259,6 @@ mysql80-community-release-el7-3.noarch.rpm\
 #### Mount NFS with /etc/fstab
 
 `192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`\
-or\
 `192.168.0.134:/mnt/files    /mnt/files   nfs defaults 0 0`
 
 ## [Samba](https://www.samba.org/samba/docs/)
