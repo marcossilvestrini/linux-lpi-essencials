@@ -172,13 +172,13 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 #### Reset password MariaDB
 
-`sudo systemctl stop mariadb`
-`sudo mysqld_safe --skip-grant-tables &`
-`mysql -u root`
-`use mysql;`
-`update user SET PASSWORD=PASSWORD("batman2") WHERE USER='root';`
-`flush privileges;`
-`exit`
+`sudo systemctl stop mariadb`\
+`sudo mysqld_safe --skip-grant-tables &`\
+`mysql -u root`\
+`use mysql;`\
+`update user SET PASSWORD=PASSWORD("batman2") WHERE USER='root';`\
+`flush privileges;`\
+`exit`\
 `sudo systemctl start mariadb`
 
 #### Create a New MariaDB User and Database
@@ -198,7 +198,7 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 #### Instal Latest Version PostgreSQL
 
->Postgres can be installed using default CentOS repositories. But as of the writing of this tutorial, the version that is available in the CentOS 7 Base repository is obsolete. Therefore, this tutorial will use the official Postgres repository\
+>Postgres can be installed using default CentOS repositories. But as of the writing of this tutorial, the version that is available in the CentOS 7 Base repository is obsolete. Therefore, this tutorial will use the official Postgres repository
 
 `sudo vi /etc/yum.repos.d/CentOS-Base.repo`\
 `sudo yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm -y`\
