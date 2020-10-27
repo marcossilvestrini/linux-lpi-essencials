@@ -276,7 +276,7 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 ### Configure Firewall
 
-`firewall-cmd --permanent --zone=public --add-service=samba`
+`firewall-cmd --permanent --zone=public --add-service=samba`\
 `firewall-cmd --zone=public --add-service=samba`
 
 ### Creating Samba Users and Directory Structure
@@ -291,8 +291,8 @@ Create a new group named sambashare. Later we will add all Samba users to this g
 Creating Samba Users\
 To create a new user named josh, use the following command:\
 `sudo useradd -M -d /samba/josh -s /usr/sbin/nologin -G sambashare josh`
->The useradd options have the following meanings:
--M -do not create the user’s home directory. We’ll manually create this directory.
--d /samba/josh - set the user’s home directory to /samba/josh.
--s /usr/sbin/nologin - disable shell access for this user.
--G sambashare - add the user to the sambashare group.
+>The useradd options have the following meanings:\
+-M -do not create the user’s home directory. We’ll manually create this directory.\
+-d /samba/josh - set the user’s home directory to /samba/josh.\
+-s /usr/sbin/nologin - disable shell access for this user.\
+-G sambashare - add the user to the sambashare group.\
