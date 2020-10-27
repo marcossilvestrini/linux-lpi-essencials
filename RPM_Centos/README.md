@@ -17,6 +17,8 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 
 - [CentOS Docs](https://wiki.centos.org/)
 - [Apache Configure Virtual Host](https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-centos-7)
+-[Samba](https://linuxize.com/post/how-to-install-and-configure-samba-on-centos-7/)
+-[Samba Configuration File](https://www.samba.org/samba/docs/current/man-html/smb.conf.5.html)
 
 ## Base
 
@@ -285,12 +287,16 @@ Create samba share directory\
 `sudo mkdir /samba`\
 
 Create a new group named sambashare. Later we will add all Samba users to this group.\
-`sudo groupadd sambashare`
+`sudo groupadd sambashare`\
 `sudo chgrp sambashare /samba`\
 
 Creating Samba Users\
+
+>Samba uses Linux users and group permission system but it has its own authentication mechanism separate from the standard Linux authentication.\
+We will create the users using the standard Linux useradd tool and then set the user password with the smbpasswd utility.\
+
 To create a new user named josh, use the following command:\
-`sudo useradd -M -d /samba/josh -s /usr/sbin/nologin -G sambashare josh`
+`sudo useradd -M -d /samba/josh -s /usr/sbin/nologin -G sambashare josh`\
 >The useradd options have the following meanings:\
 -M -do not create the user’s home directory. We’ll manually create this directory.\
 -d /samba/josh - set the user’s home directory to /samba/josh.\
@@ -298,9 +304,56 @@ To create a new user named josh, use the following command:\
 -G sambashare - add the user to the sambashare group.\
 
 Create the user’s home directory and set the directory ownership to user josh and group sambashare:\
-`sudo mkdir /samba/josh`
-`sudo chown josh:sambashare /samba/josh`
-`sudo chmod 2770 /samba/josh`
+`sudo mkdir /samba/josh`\
+`sudo chown josh:sambashare /samba/josh`\
+`sudo chmod 2770 /samba/josh`\
 
->The following command will add the setgid bit to the /samba/josh directory so the newly created files in this directory will inherit the group of the parent directory.This way, no matter which user creates a new file, the file will have group-owner of sambashare. For example, if you don’t set the directory’s permissions to 2770 and the sadmin user creates a new file the user josh will not be able to read/write to this file.
+>The following command will add the setgid bit to the /samba/josh directory so the newly created files in this directory will inherit the group of the parent directory.\
+This way, no matter which user creates a new file, the file will have group-owner of sambashare.\
+For example, if you don’t set the directory’s permissions to 2770 and the sadmin user creates a new file the user josh will not be able to read/write to this file.\
 
+Add the josh user account to the Samba database by setting the user password:\
+`sudo smbpasswd -a josh`\
+
+>Next, let’s create a user and group sadmin. All members of this group will have administrative permissions.
+Later if you want to grant administrative permissions to another user simply add that user to the sadmin group .
+
+Create the administrative user by typing:\
+`sudo useradd -M -d /samba/users -s /usr/sbin/nologin -G sambashare sadmin`
+
+Set a password and enable the user:\
+`sudo smbpasswd -a sadmin`\
+`sudo smbpasswd -e sadmin`\
+
+Next, create the Users share directory:\
+`sudo mkdir /samba/users`\
+
+Set the directory ownership to user sadmin and group sambashare:\
+`sudo chown sadmin:sambashare /samba/users`
+
+>This directory will be accessible by all authenticated users.
+The following command configures write/read access to members of the sambashare group in the /samba/users directory:
+`sudo chmod 2770 /samba/users`
+
+### Configuring Samba Shares
+
+Open the Samba configuration file and append the sections:\
+`sudo vi /etc/samba/smb.conf`\
+
+```linux
+[users]
+    path = /samba/users
+    browseable = yes
+    read only = no
+    force create mode = 0660
+    force directory mode = 2770
+    valid users = @sambashare @sadmin
+
+[josh]
+    path = /samba/josh
+    browseable = no
+    read only = no
+    force create mode = 0660
+    force directory mode = 2770
+    valid users = josh @sadmin
+```
