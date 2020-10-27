@@ -262,3 +262,37 @@ mysql80-community-release-el7-3.noarch.rpm\
 `192.168.0.134:/mnt/files    /mnt/files   nfs defaults 0 0`
 
 ## [Samba](https://www.samba.org/samba/docs/)
+
+### Install Samba
+
+`sudo yum install samba samba-client`
+
+### Commom Comands Samba
+
+`sudo systemctl start smb.service`\
+`sudo systemctl start nmb.service`\
+`sudo systemctl enable smb.service`\
+`sudo systemctl enable nmb.service`
+
+### Configure Firewall
+
+`firewall-cmd --permanent --zone=public --add-service=samba`
+`firewall-cmd --zone=public --add-service=samba`
+
+### Creating Samba Users and Directory Structure
+
+Create samba share directory\
+`sudo mkdir /samba`\
+
+Create a new group named sambashare. Later we will add all Samba users to this group.\
+`sudo groupadd sambashare`
+`sudo chgrp sambashare /samba`\
+
+Creating Samba Users\
+To create a new user named josh, use the following command:\
+`sudo useradd -M -d /samba/josh -s /usr/sbin/nologin -G sambashare josh`
+>The useradd options have the following meanings:
+-M -do not create the user’s home directory. We’ll manually create this directory.
+-d /samba/josh - set the user’s home directory to /samba/josh.
+-s /usr/sbin/nologin - disable shell access for this user.
+-G sambashare - add the user to the sambashare group.
