@@ -333,6 +333,7 @@ Later if you want to grant administrative permissions to another user simply add
 
 >This directory will be accessible by all authenticated users.
 The following command configures write/read access to members of the sambashare group in the /samba/users directory:
+
 `sudo chmod 2770 /samba/users`
 
 ### Configuring Samba Shares
