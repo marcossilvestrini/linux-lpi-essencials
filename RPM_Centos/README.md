@@ -283,14 +283,14 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 ### Creating Samba Users and Directory Structure
 
-Create samba share directory\
+**Create samba share directory**\
 `sudo mkdir /samba`\
 
-Create a new group named sambashare. Later we will add all Samba users to this group.\
+**Create a new group named sambashare. Later we will add all Samba users to this group.**\
 `sudo groupadd sambashare`\
 `sudo chgrp sambashare /samba`\
 
-Creating Samba Users\
+**Creating Samba Users**\
 
 >Samba uses Linux users and group permission system but it has its own authentication mechanism separate from the standard Linux authentication.\
 We will create the users using the standard Linux useradd tool and then set the user password with the smbpasswd utility.\
@@ -303,7 +303,7 @@ To create a new user named josh, use the following command:\
 -s /usr/sbin/nologin - disable shell access for this user.\
 -G sambashare - add the user to the sambashare group.\
 
-Create the user’s home directory and set the directory ownership to user josh and group sambashare:\
+**Create the user’s home directory and set the directory ownership to user josh and group sambashare:**\
 `sudo mkdir /samba/josh`\
 `sudo chown josh:sambashare /samba/josh`\
 `sudo chmod 2770 /samba/josh`\
@@ -312,35 +312,35 @@ Create the user’s home directory and set the directory ownership to user josh 
 This way, no matter which user creates a new file, the file will have group-owner of sambashare.\
 For example, if you don’t set the directory’s permissions to 2770 and the sadmin user creates a new file the user josh will not be able to read/write to this file.\
 
-Add the josh user account to the Samba database by setting the user password:\
+**Add the josh user account to the Samba database by setting the user password:**\
 `sudo smbpasswd -a josh`\
 
 >Next, let’s create a user and group sadmin. All members of this group will have administrative permissions.
-Later if you want to grant administrative permissions to another user simply add that user to the sadmin group .
+Later if you want to grant administrative permissions to another user simply add that user to the sadmin group.
 
-Create the administrative user by typing:\
-`sudo useradd -M -d /samba/users -s /usr/sbin/nologin -G sambashare sadmin`
+**Create the administrative user by typing:**\
+`sudo useradd -M -d /samba/users -s /usr/sbin/nologin -G sambashare sadmin`\
 
-Set a password and enable the user:\
+**Set a password and enable the user:**\
 `sudo smbpasswd -a sadmin`\
 `sudo smbpasswd -e sadmin`\
 
-Next, create the Users share directory:\
+**Next, create the Users share directory:**\
 `sudo mkdir /samba/users`\
 
-Set the directory ownership to user sadmin and group sambashare:\
-`sudo chown sadmin:sambashare /samba/users`
+**Set the directory ownership to user sadmin and group sambashare:**\
+`sudo chown sadmin:sambashare /samba/users`\
 
 >This directory will be accessible by all authenticated users.
-The following command configures write/read access to members of the sambashare group in the /samba/users directory:
+**The following command configures write/read access to members of the sambashare group in the /samba/users directory:**\
 `sudo chmod 2770 /samba/users`
 
 ### Configuring Samba Shares
 
 Open the Samba configuration file and append the sections:\
-`sudo vi /etc/samba/smb.conf`\
 
 ```linux
+sudo vi /etc/samba/smb.conf
 [users]
     path = /samba/users
     browseable = yes
@@ -357,3 +357,12 @@ Open the Samba configuration file and append the sections:\
     force directory mode = 2770
     valid users = josh @sadmin
 ```
+
+**The options have the following meanings:**\
+- [users] and [josh] - The names of the shares that you will use when logging in.\
+- path - The path to the share.\
+- browseable - Whether the share should be listed in the available shares list. By setting to no other users will not be able to see the share.\
+- read only - Whether the users specified in the valid users list are able to write to this share.\
+- force create mode - Sets the permissions for the newly created files in this share.\
+- force directory mode - Sets the permissions for the newly created directories in this share.\
+- valid users - A list of users and groups that are allowed to access the share. Groups are prefixed with the @ symbol.\
