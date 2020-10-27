@@ -283,12 +283,12 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 ### Creating Samba Users and Directory Structure
 
-**Create samba share directory**\
-`sudo mkdir /samba`\
+**Create samba share directory**
+`sudo mkdir /samba`
 
-**Create a new group named sambashare. Later we will add all Samba users to this group.**\
+**Create a new group named sambashare. Later we will add all Samba users to this group.**
 `sudo groupadd sambashare`\
-`sudo chgrp sambashare /samba`\
+`sudo chgrp sambashare /samba`
 
 **Creating Samba Users**\
 
@@ -303,7 +303,7 @@ To create a new user named josh, use the following command:\
 -s /usr/sbin/nologin - disable shell access for this user.\
 -G sambashare - add the user to the sambashare group.\
 
-**Create the user’s home directory and set the directory ownership to user josh and group sambashare:**\
+**Create the user’s home directory and set the directory ownership to user josh and group sambashare:**
 `sudo mkdir /samba/josh`\
 `sudo chown josh:sambashare /samba/josh`\
 `sudo chmod 2770 /samba/josh`\
