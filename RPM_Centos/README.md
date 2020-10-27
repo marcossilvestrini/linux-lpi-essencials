@@ -313,7 +313,7 @@ This way, no matter which user creates a new file, the file will have group-owne
 For example, if you don’t set the directory’s permissions to 2770 and the sadmin user creates a new file the user josh will not be able to read/write to this file.
 
 **Add the josh user account to the Samba database by setting the user password:**\
-`sudo smbpasswd -a josh`\
+`sudo smbpasswd -a josh`
 
 >Next, let’s create a user and group sadmin. All members of this group will have administrative permissions.
 Later if you want to grant administrative permissions to another user simply add that user to the sadmin group.
@@ -332,12 +332,12 @@ Later if you want to grant administrative permissions to another user simply add
 `sudo chown sadmin:sambashare /samba/users`
 
 >This directory will be accessible by all authenticated users.
-**The following command configures write/read access to members of the sambashare group in the /samba/users directory:**\
+The following command configures write/read access to members of the sambashare group in the /samba/users directory:
 `sudo chmod 2770 /samba/users`
 
 ### Configuring Samba Shares
 
-Open the Samba configuration file and append the sections:\
+Open the Samba configuration file and append the sections:
 
 ```linux
 sudo vi /etc/samba/smb.conf
