@@ -310,7 +310,7 @@ To create a new user named josh, use the following command:\
 `sudo mkdir /samba/josh`\
 `sudo chown josh:sambashare /samba/josh`\
 `sudo chmod 2770 /samba/josh`\
-`sudo chcon -t samba_share_t /samba/josh`\
+`sudo chcon -t samba_share_t /samba/josh`
 
 >The following command will add the setgid bit to the /samba/josh directory so the newly created files in this directory will inherit the group of the parent directory.\
 This way, no matter which user creates a new file, the file will have group-owner of sambashare.\
