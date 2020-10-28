@@ -225,7 +225,7 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 #### Install NFS
 
-`yum install nfs-utils -y`\
+`yum install nfs-utils -y`
 
 #### Common Commands NFS
 
@@ -283,27 +283,30 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 ### Creating Samba Users and Directory Structure
 
-**Create samba share directory**\
+**Create samba share directory**
+
 `sudo mkdir /samba`
 
-**Create a new group named sambashare. Later we will add all Samba users to this group.**\
+**Create a new group named sambashare. Later we will add all Samba users to this group.**
+
 `sudo groupadd sambashare`\
 `sudo chgrp sambashare /samba`
 
-**Creating Samba Users**\
+**Creating Samba Users**
 
 >Samba uses Linux users and group permission system but it has its own authentication mechanism separate from the standard Linux authentication.\
-We will create the users using the standard Linux useradd tool and then set the user password with the smbpasswd utility.\
+We will create the users using the standard Linux useradd tool and then set the user password with the smbpasswd utility.
 
 To create a new user named josh, use the following command:\
-`sudo useradd -M -d /samba/josh -s /usr/sbin/nologin -G sambashare josh`\
+`sudo useradd -M -d /samba/josh -s /usr/sbin/nologin -G sambashare josh`
 >The useradd options have the following meanings:\
 -M -do not create the user’s home directory. We’ll manually create this directory.\
 -d /samba/josh - set the user’s home directory to /samba/josh.\
 -s /usr/sbin/nologin - disable shell access for this user.\
 -G sambashare - add the user to the sambashare group.
 
-**Create the user’s home directory and set the directory ownership to user josh and group sambashare:**\
+**Create the user’s home directory and set the directory ownership to user josh and group sambashare:**
+
 `sudo mkdir /samba/josh`\
 `sudo chown josh:sambashare /samba/josh`\
 `sudo chmod 2770 /samba/josh`\
@@ -318,17 +321,21 @@ For example, if you don’t set the directory’s permissions to 2770 and the sa
 >Next, let’s create a user and group sadmin. All members of this group will have administrative permissions.
 Later if you want to grant administrative permissions to another user simply add that user to the sadmin group.
 
-**Create the administrative user by typing:**\
+**Create the administrative user by typing:**
+
 `sudo useradd -M -d /samba/users -s /usr/sbin/nologin -G sambashare sadmin`
 
-**Set a password and enable the user:**\
+**Set a password and enable the user:**
+
 `sudo smbpasswd -a sadmin`\
 `sudo smbpasswd -e sadmin`
 
-**Next, create the Users share directory:**\
+**Next, create the Users share directory:**
+
 `sudo mkdir /samba/users`
 
-**Set the directory ownership to user sadmin and group sambashare:**\
+**Set the directory ownership to user sadmin and group sambashare:**
+
 `sudo chown sadmin:sambashare /samba/users`
 
 >This directory will be accessible by all authenticated users.
@@ -359,7 +366,8 @@ sudo vi /etc/samba/smb.conf
     valid users = josh @sadmin
 ```
 
-**The options have the following meanings:**\
+**The options have the following meanings:**
+
 - [users] and [josh] - The names of the shares that you will use when logging in.\
 - path - The path to the share.\
 - browseable - Whether the share should be listed in the available shares list. By setting to no other users will not be able to see the share.\
