@@ -397,7 +397,7 @@ sudo vi /etc/samba/smb.conf
 
 **Restart SMB Services**
 
-`sudo systemctl restart smb.service`
+`sudo systemctl restart smb.service`\
 `sudo systemctl restart nmb.service`
 
 ### Connecting to a Samba Share from Linux
