@@ -307,6 +307,7 @@ To create a new user named josh, use the following command:\
 `sudo mkdir /samba/josh`\
 `sudo chown josh:sambashare /samba/josh`\
 `sudo chmod 2770 /samba/josh`\
+`sudo chcon -t samba_share_t /samba/josh`\
 
 >The following command will add the setgid bit to the /samba/josh directory so the newly created files in this directory will inherit the group of the parent directory.\
 This way, no matter which user creates a new file, the file will have group-owner of sambashare.\
@@ -335,6 +336,7 @@ Later if you want to grant administrative permissions to another user simply add
 The following command configures write/read access to members of the sambashare group in the /samba/users directory:
 
 `sudo chmod 2770 /samba/users`
+`sudo chcon -t samba_share_t /samba/users`
 
 ### Configuring Samba Shares
 
@@ -359,7 +361,15 @@ sudo vi /etc/samba/smb.conf
     valid users = josh @sadmin
 ```
 
-**The options have the following meanings:**\
+**Fix: in windows shares access**\
+
+- Add this lines in [global] section
+`client min protocol = SMB2`\
+`client max protocol = SMB3`\
+Restart smb services\
+
+**The options have the following meanings:**
+
 - [users] and [josh] - The names of the shares that you will use when logging in.\
 - path - The path to the share.\
 - browseable - Whether the share should be listed in the available shares list. By setting to no other users will not be able to see the share.\
@@ -367,3 +377,37 @@ sudo vi /etc/samba/smb.conf
 - force create mode - Sets the permissions for the newly created files in this share.\
 - force directory mode - Sets the permissions for the newly created directories in this share.\
 - valid users - A list of users and groups that are allowed to access the share. Groups are prefixed with the @ symbol.\
+
+**Once done, restart the Samba services with:**
+`sudo systemctl restart smb.service`
+`sudo systemctl restart nmb.service`
+
+### Connecting to a Samba Share from Linux
+
+#### Using the smbclient client
+
+**Using the smbclient client**\
+>smbclient is a tool that allows you to access Samba from the command line. The smbclient package is not pre-installed on most Linux distros so you will need to install it with your distribution package manager.
+
+`sudo yum install samba-client`\
+
+The syntax to access a Samba share is as follows:\
+`mbclient //samba_hostname_or_server_ip/share_name -U username`\
+Example:\
+`smbclient //192.168.121.118/josh -U josh`\
+
+**Mounting the Samba share**\
+To mount a Samba share on Linux first you need to install the cifs-utils package.\
+`sudo yum install cifs-utils`
+
+Next, create a mount point:\
+`sudo mkdir /mnt/smbmount`\
+
+Mount the share using the following command:\
+`sudo mount -t cifs -o username=username //samba_hostname_or_server_ip/sharename /mnt/smbmount`
+
+#### Mounting the Samba share
+
+### Logs Files SAMBA
+
+ /var/log/samba
