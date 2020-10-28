@@ -393,4 +393,37 @@ sudo vi /etc/samba/smb.conf
 - read only - Whether the users specified in the valid users list are able to write to this share.\
 - force create mode - Sets the permissions for the newly created files in this share.\
 - force directory mode - Sets the permissions for the newly created directories in this share.\
-- valid users - A list of users and groups that are allowed to access the share. Groups are prefixed with the @ symbol.\
+- valid users - A list of users and groups that are allowed to access the share. Groups are prefixed with the @ symbol.
+
+**Restart SMB Services**
+
+`sudo systemctl restart smb.service`
+`sudo systemctl restart nmb.service`
+
+### Connecting to a Samba Share from Linux
+
+**To install smbclient on CentOS and Fedora run:**
+
+`sudo yum install samba-client`
+
+**The syntax to access a Samba share is as follows:**
+
+`mbclient //samba_hostname_or_server_ip/share_name -U username`\
+`smbclient //192.168.121.118/josh -U josh`
+
+### Mounting the Samba share
+
+>To mount a Samba share on Linux first you need to install the cifs-utils package
+
+```linux
+sudo yum install cifs-utils
+sudo mkdir /mnt/smbmount
+sudo mount -t cifs -o username=username //samba_hostname_or_server_ip/sharename /mnt/smbmount
+```
+Example: sudo mount -t cifs -o username=josh //192.168.121.118/josh /mnt/smbmount
+
+### Connecting to a Samba Share from Windows
+
+\\samba_hostname_or_server_ip\sharename
+
+
