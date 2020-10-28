@@ -225,7 +225,7 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 #### Install NFS
 
-`yum install nfs-utils -y`\
+`yum install nfs-utils -y`
 
 #### Common Commands NFS
 
@@ -283,27 +283,30 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 ### Creating Samba Users and Directory Structure
 
-**Create samba share directory**\
+**Create samba share directory**
+
 `sudo mkdir /samba`
 
-**Create a new group named sambashare. Later we will add all Samba users to this group.**\
+**Create a new group named sambashare. Later we will add all Samba users to this group.**
+
 `sudo groupadd sambashare`\
 `sudo chgrp sambashare /samba`
 
-**Creating Samba Users**\
+**Creating Samba Users**
 
 >Samba uses Linux users and group permission system but it has its own authentication mechanism separate from the standard Linux authentication.\
-We will create the users using the standard Linux useradd tool and then set the user password with the smbpasswd utility.\
+We will create the users using the standard Linux useradd tool and then set the user password with the smbpasswd utility.
 
 To create a new user named josh, use the following command:\
-`sudo useradd -M -d /samba/josh -s /usr/sbin/nologin -G sambashare josh`\
+`sudo useradd -M -d /samba/josh -s /usr/sbin/nologin -G sambashare josh`
 >The useradd options have the following meanings:\
 -M -do not create the user’s home directory. We’ll manually create this directory.\
 -d /samba/josh - set the user’s home directory to /samba/josh.\
 -s /usr/sbin/nologin - disable shell access for this user.\
 -G sambashare - add the user to the sambashare group.
 
-**Create the user’s home directory and set the directory ownership to user josh and group sambashare:**\
+**Create the user’s home directory and set the directory ownership to user josh and group sambashare:**
+
 `sudo mkdir /samba/josh`\
 `sudo chown josh:sambashare /samba/josh`\
 `sudo chmod 2770 /samba/josh`\
@@ -319,17 +322,21 @@ For example, if you don’t set the directory’s permissions to 2770 and the sa
 >Next, let’s create a user and group sadmin. All members of this group will have administrative permissions.
 Later if you want to grant administrative permissions to another user simply add that user to the sadmin group.
 
-**Create the administrative user by typing:**\
+**Create the administrative user by typing:**
+
 `sudo useradd -M -d /samba/users -s /usr/sbin/nologin -G sambashare sadmin`
 
-**Set a password and enable the user:**\
+**Set a password and enable the user:**
+
 `sudo smbpasswd -a sadmin`\
 `sudo smbpasswd -e sadmin`
 
-**Next, create the Users share directory:**\
+**Next, create the Users share directory:**
+
 `sudo mkdir /samba/users`
 
-**Set the directory ownership to user sadmin and group sambashare:**\
+**Set the directory ownership to user sadmin and group sambashare:**
+
 `sudo chown sadmin:sambashare /samba/users`
 
 >This directory will be accessible by all authenticated users.
@@ -340,33 +347,46 @@ The following command configures write/read access to members of the sambashare 
 
 ### Configuring Samba Shares
 
+In windows station, execute this command:
+
+```powershell
+net config workstation
+```
+
+View this line:\
+`Workstation domain                   WORKGROUP`
+
 Open the Samba configuration file and append the sections:
 
 ```linux
 sudo vi /etc/samba/smb.conf
+[global]
+        workgroup = WORKGROUP
+        security = user
+
+        passdb backend = tdbsam
+
+        printing = cups
+        printcap name = cups
+        load printers = yes
+        cups options = raw
+
 [users]
-    path = /samba/users
-    browseable = yes
-    read only = no
-    force create mode = 0660
-    force directory mode = 2770
-    valid users = @sambashare @sadmin
+        path = /samba/users
+        browseable = yes
+        read only = no
+        force create mode = 0660
+        force directory mode = 2770
+        valid users = @sambashare @sadmin
 
 [josh]
-    path = /samba/josh
-    browseable = no
-    read only = no
-    force create mode = 0660
-    force directory mode = 2770
-    valid users = josh @sadmin
+        path = /samba/josh
+        browseable = no
+        read only = no
+        force create mode = 0660
+        force directory mode = 2770
+        valid users = josh @sadmin
 ```
-
-**Fix: in windows shares access**\
-
-- Add this lines in [global] section
-`client min protocol = SMB2`\
-`client max protocol = SMB3`\
-Restart smb services\
 
 **The options have the following meanings:**
 
@@ -376,38 +396,35 @@ Restart smb services\
 - read only - Whether the users specified in the valid users list are able to write to this share.\
 - force create mode - Sets the permissions for the newly created files in this share.\
 - force directory mode - Sets the permissions for the newly created directories in this share.\
-- valid users - A list of users and groups that are allowed to access the share. Groups are prefixed with the @ symbol.\
+- valid users - A list of users and groups that are allowed to access the share. Groups are prefixed with the @ symbol.
 
-**Once done, restart the Samba services with:**
-`sudo systemctl restart smb.service`
+**Restart SMB Services**
+
+`sudo systemctl restart smb.service`\
 `sudo systemctl restart nmb.service`
 
 ### Connecting to a Samba Share from Linux
 
-#### Using the smbclient client
+**To install smbclient on CentOS and Fedora run:**
 
-**Using the smbclient client**\
->smbclient is a tool that allows you to access Samba from the command line. The smbclient package is not pre-installed on most Linux distros so you will need to install it with your distribution package manager.
+`sudo yum install samba-client`
 
-`sudo yum install samba-client`\
+**The syntax to access a Samba share is as follows:**
 
-The syntax to access a Samba share is as follows:\
 `mbclient //samba_hostname_or_server_ip/share_name -U username`\
-Example:\
-`smbclient //192.168.121.118/josh -U josh`\
+`smbclient //192.168.121.118/josh -U josh`
 
-**Mounting the Samba share**\
-To mount a Samba share on Linux first you need to install the cifs-utils package.\
-`sudo yum install cifs-utils`
+### Mounting the Samba share
 
-Next, create a mount point:\
-`sudo mkdir /mnt/smbmount`\
+>To mount a Samba share on Linux first you need to install the cifs-utils package
 
-Mount the share using the following command:\
-`sudo mount -t cifs -o username=username //samba_hostname_or_server_ip/sharename /mnt/smbmount`
+```linux
+sudo yum install cifs-utils
+sudo mkdir /mnt/smbmount
+sudo mount -t cifs -o username=username //samba_hostname_or_server_ip/sharename /mnt/smbmount
+```
+Example: sudo mount -t cifs -o username=josh //192.168.121.118/josh /mnt/smbmount
 
-#### Mounting the Samba share
+### Connecting to a Samba Share from Windows
 
-### Logs Files SAMBA
-
- /var/log/samba
+\\samba_hostname_or_server_ip\sharename
