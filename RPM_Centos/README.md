@@ -345,25 +345,44 @@ The following command configures write/read access to members of the sambashare 
 
 ### Configuring Samba Shares
 
+In windows station, execute this command:
+
+```powershell
+net config workstation
+```
+View this line:\
+`Workstation domain                   WORKGROUP`
+
 Open the Samba configuration file and append the sections:
 
 ```linux
 sudo vi /etc/samba/smb.conf
+[global]
+        workgroup = WORKGROUP
+        security = user
+
+        passdb backend = tdbsam
+
+        printing = cups
+        printcap name = cups
+        load printers = yes
+        cups options = raw
+
 [users]
-    path = /samba/users
-    browseable = yes
-    read only = no
-    force create mode = 0660
-    force directory mode = 2770
-    valid users = @sambashare @sadmin
+        path = /samba/users
+        browseable = yes
+        read only = no
+        force create mode = 0660
+        force directory mode = 2770
+        valid users = @sambashare @sadmin
 
 [josh]
-    path = /samba/josh
-    browseable = no
-    read only = no
-    force create mode = 0660
-    force directory mode = 2770
-    valid users = josh @sadmin
+        path = /samba/josh
+        browseable = no
+        read only = no
+        force create mode = 0660
+        force directory mode = 2770
+        valid users = josh @sadmin
 ```
 
 **The options have the following meanings:**
