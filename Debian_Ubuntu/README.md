@@ -152,7 +152,12 @@ The files will be located in "/var/cache/apt/archives".\
 `sudo systemctl enable nginx`\
 `sudo ufw app list`
 
-## LAMP
+## [LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04)
+
+### Step 1: Install Apache and Allow in Firewall
+
+`sudo apt-get update`\
+`sudo apt-get install apache2`
 
 ### Install LAMP
 
