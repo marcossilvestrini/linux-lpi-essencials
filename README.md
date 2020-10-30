@@ -36,6 +36,7 @@ Installation and configuration of some packages will also be covered
 - [GNU Emacs](https://en.wikipedia.org/wiki/Emacs)
 - [Bourne Again Shell](https://www.gnu.org/software/bash/manual/)
 - [GNU GNOME](https://www.gnu.org/press/gnome-1.0.html)
+- [GNOME](https://www.gnome.org/)
 - [Harmony](https://en.wikipedia.org/wiki/Harmony_(toolkit))
 - [Kernel](https://www.kernel.org/)
 - [FSF](https://www.fsf.org/campaigns/)

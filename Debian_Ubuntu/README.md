@@ -6,17 +6,18 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 ## Authors
 
-- Marcos Silvestrini
-- marcos.silvestrini@gmail.com
+Marcos Silvestrini\
+marcos.silvestrini@gmail.com
 
 ## License
 
-- This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ## References
 
 - [Ubuntu Docs](https://docs.ubuntu.com/)
 - [Ubuntu Server](https://ubuntu.com/server/docs)
+- [SETUP SERVER](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
 
 ## Base
 
@@ -55,14 +56,83 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 - perl
 - python
 
+## - [Manage Packages](https://www.digitalocean.com/community/tutorials/how-to-manage-packages-in-ubuntu-and-debian-with-apt-get-apt-cache)
+
+### How To Update the Package Database with Apt-Get
+
+`sudo apt-get update`\
+
+### How to Upgrade Installed Packages with Apt-Get
+
+`sudo apt-get upgrade`\
+
+>For a more complete upgrade, you can use the "dist-upgrade" argument, which attempts intelligent dependency resolution for new packages and will upgrade essential programs at the expense of less important ones
+
+`sudo apt-get dist-upgrade`\
+
+### How to Install New Packages with Apt-Get
+
+`sudo apt-get install package1 package2 package3`\
+
+### How to Delete a Package with Apt-Get
+
+`sudo apt-get remove package_name`\
+
+>This command removes the package, but keeps the configuration files in case you install the package again later. This way, your settings will remain intact, even though the program is not installed.
+If this is not the desired outcome, and you would like to clean out the configuration files as well as the program, use the following syntax:
+
+`sudo apt-get purge package_name`\
+
+>To remove any packages that were installed automatically to support another program, that are no longer needed, type the following command:
+
+`sudo apt-get autoremove`\
+
+>You can also specify a package name after the "autoremove" command to uninstall a package and its dependencies
+
+### Common Apt-Get Option Flags
+
+**To do a "dry run" of a procedure in order to get an idea of what an action will do, you can pass the "-s" flag for "simulate":**
+`sudo apt-get install -s htop`\
+
+**If you do not want to be prompted to confirm your choices, you can also pass the "-y" flag to automatically assume "yes" to questions.**
+`sudo apt-get remove -y htop`\
+
+**If you would like to download a package, but not install it, you can issue the following command:**
+`sudo apt-get install -d packagename`\
+The files will be located in "/var/cache/apt/archives".\
+
+**If you would like to suppress output, you can pass the "-qq" flag to the command:**
+`sudo apt-get remove -qq packagename`\
+
+### How to Find a Package with Apt-Cache
+
+>While "apt-get" is used to upgrade, install, and remove packages, "apt-cache" is used to query the package database for package information.
+
+**You can use the following command to search for a package that suits your needs. Note that apt-cache doesn't usually require administrative privileges:**
+`apt-cache search what_you_are_looking_for`
+`apt-cache search mp3 convert`]
+`apt-cache search mail thunderbird`
+
+### How to View Package Information with Apt-Cache
+
+**To view information about a package, including an extended description, use the following syntax:**
+`apt-cache show package_name`
+`apt-cache show vim | grep Depends`
+*This will also provide the size of the download and the dependencies needed for the package.*
+
+**To see if a package is installed and to check which repository it belongs to, we can issue:**
+`apt-cache policy package_name`
+
 ## Http server
 
 ### [Apache httpd](https://ubuntu.com/server/docs/web-servers-apache)
 
-- Install Latest Version\
+#### Install Latest Version Apache
+
 `sudo  apt install apache2 -y`
 
-- Common Commands\
+#### Common Commands Apache
+
 `systemctl status apache2`\
 `sudo systemctl start apache2`\
 `sudo systemctl stop apache2`\
@@ -70,26 +140,34 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 ### [Nginx](https://nginx.org/en/docs/)
 
-- Install Latest Version\
+#### Install Latest Version Nginx
+
 `sudo  apt install nginx -y`
 
-- Common Commands\
+#### Common Commands Nginx
+
 `systemctl status nginx`\
 `sudo systemctl start nginx`\
 `sudo systemctl stop nginx`\
 `sudo systemctl enable nginx`\
 `sudo ufw app list`
 
+## LAMP
+
+### Install LAMP
+
 ## SGBD
 
 ### [MySQL](https://ubuntu.com/server/docs/databases-mysql)
 
-- Install Latest Version\
+#### Install Latest Version MySQL
+
 `sudo apt-get update`\
 `sudo apt install mysql-server mysql-client -y`\
 `sudo mysql_secure_installation`
 
-- Common Commands\
+#### Common Commands MySQL
+
 `sudo systemctl status mysql.service`\
 `sudo systemctl start mysql.service`\
 `sudo systemctl stop mysql.service`\
@@ -99,7 +177,8 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 ### [MariaDB](https://mariadb.com/kb/en/documentation/)
 
-- Install Latest Version\
+#### Install Latest Version MariaDB
+
 `sudo apt update`\
 `sudo apt install mariadb-server -y`\
 `sudo mysql_secure_installation`
@@ -107,7 +186,8 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 `GRANT ALL ON *.* TO 'admin'@'localhost' IDENTIFIED BY 'password' WITH GRANT OPTION;`\
 `FLUSH PRIVILEGES;`
 
-- Common Comands\
+#### Common Comands MariaDB
+
 `sudo mysqladmin version`\
 `sudo systemctl status mariadb.service`\
 `sudo systemctl start mariadb.service`\
@@ -115,7 +195,7 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 ### [PostgreSQL](https://ubuntu.com/server/docs/databases-postgresql)
 
-- Install Latest Version\
+#### Install Latest Version PostgreSQL
 
 1. Create the file repository configuration\
 `sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'`
@@ -132,13 +212,15 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 `sudo apt-get -y install postgresql`
 
-- Common comands\
+#### Common comands PostgreSQL
+
 `sudo systemctl status postgresql.service`\
 `sudo systemctl start postgresql.service`\
 `sudo systemctl stop postgresql.service`\
 `sudo systemctl enable postgresql.service`
 
-- View Version with SQL\
+#### View Version with SQL
+
 `sudo -u postgres psql`\
 `SELECT version();`
 
@@ -146,11 +228,13 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 
 ### [NFS](https://ubuntu.com/server/docs/service-nfs)
 
-- Install\
+#### Install NFS
+
 `sudo apt install nfs-kernel-server -y`\
 `sudo apt install nfs-common -y`\
 
-- Common Commands\
+#### Common Commands NFS
+
 `sudo systemctl start nfs-kernel-server.service`\
 `sudo systemctl status nfs-kernel-server.service`\
 `sudo systemctl stop nfs-kernel-server.service`\
@@ -158,20 +242,23 @@ Ubuntu is a distribution based on Debian, designed to have regular releases, a c
 `cat /etc/exports`\
 `nfsstat`
 
-- Configure\
+#### Configure NFS
+
 `sudo mkdir /mnt/files`\
 `sudo chown vagrant:vagrant -R /mnt/files`\
 `sudo vim /etc/exports`\
 `/mnt/files *(rw,async,no_subtree_check,no_root_squash)`\
 `sudo exportfs -a`
 
-- Mount (Client)\
+#### Mount (Client)
+
 `sudo mkdir /mnt/local_files`\
 `sudo chown vagrant:vagrant -R /mnt/local_files`\
 `sudo apt install nfs-common -y`\
 `mount 192.168.0.134:/mnt/files /mnt/local_files`
 
-- Mount with /etc/fstab\
+#### Mount with /etc/fstab
+
 `192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`
 
 ## [Samba](https://ubuntu.com/server/docs/samba-introduction)

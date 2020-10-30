@@ -6,12 +6,12 @@ The CentOS Linux distribution is a stable, predictable, manageable and reproduci
 
 ## Authors
 
-- Marcos Silvestrini
-- marcos.silvestrini@gmail.com
+Marcos Silvestrini\
+marcos.silvestrini@gmail.com
 
 ## License
 
-- This project is licensed under the MIT License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
 ## References
 
@@ -425,6 +425,10 @@ sudo mount -t cifs -o username=username //samba_hostname_or_server_ip/sharename 
 ```
 Example: sudo mount -t cifs -o username=josh //192.168.121.118/josh /mnt/smbmount
 
+
 ### Connecting to a Samba Share from Windows
 
-\\samba_hostname_or_server_ip\sharename
+\\samba_hostname_or_server_ip\sharename \
+
+**Mount Windows Share in /etc/fstab**
+//server_windows_or_ip/share /mnt/share -win cifs username=my_username,password=my_password,user,dir_mode=0777,file_mode=0777 0 0 init 6
