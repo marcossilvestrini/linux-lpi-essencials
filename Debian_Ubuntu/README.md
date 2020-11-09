@@ -92,14 +92,14 @@ If this is not the desired outcome, and you would like to clean out the configur
 ### Common Apt-Get Option Flags
 
 **To do a "dry run" of a procedure in order to get an idea of what an action will do, you can pass the "-s" flag for "simulate":**\
-`sudo apt-get install -s htop`\
+`sudo apt-get install -s htop`
 
 **If you do not want to be prompted to confirm your choices, you can also pass the "-y" flag to automatically assume "yes" to questions.**\
-`sudo apt-get remove -y htop`\
+`sudo apt-get remove -y htop`
 
-**If you would like to download a package, but not install it, you can issue the following command:**
+**If you would like to download a package, but not install it, you can issue the following command:**\
 `sudo apt-get install -d packagename`\
-The files will be located in "/var/cache/apt/archives".\
+The files will be located in "/var/cache/apt/archives".
 
 **If you would like to suppress output, you can pass the "-qq" flag to the command:**\
 `sudo apt-get remove -qq packagename`\
@@ -111,14 +111,14 @@ The files will be located in "/var/cache/apt/archives".\
 **You can use the following command to search for a package that suits your needs. Note that apt-cache doesn't usually require administrative privileges:**\
 `apt-cache search what_you_are_looking_for`\
 `apt-cache search mp3 convert`]\
-`apt-cache search mail thunderbird`\
+`apt-cache search mail thunderbird`
 
 ### How to View Package Information with Apt-Cache
 
 **To view information about a package, including an extended description, use the following syntax:**\
 `apt-cache show package_name`\
 `apt-cache show vim | grep Depends`\
-*This will also provide the size of the download and the dependencies needed for the package.*\
+*This will also provide the size of the download and the dependencies needed for the package.*
 
 **To see if a package is installed and to check which repository it belongs to, we can issue:**\
 `apt-cache policy package_name`
