@@ -60,15 +60,15 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ### How To Update the Package Database with Apt-Get
 
-`sudo apt-get update`\
+`sudo apt-get update`
 
 ### How to Upgrade Installed Packages with Apt-Get
 
-`sudo apt-get upgrade`\
+`sudo apt-get upgrade`
 
 >For a more complete upgrade, you can use the "dist-upgrade" argument, which attempts intelligent dependency resolution for new packages and will upgrade essential programs at the expense of less important ones
 
-`sudo apt-get dist-upgrade`\
+`sudo apt-get dist-upgrade`
 
 ### How to Install New Packages with Apt-Get
 
@@ -76,16 +76,16 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ### How to Delete a Package with Apt-Get
 
-`sudo apt-get remove package_name`\
+`sudo apt-get remove package_name`
 
 >This command removes the package, but keeps the configuration files in case you install the package again later. This way, your settings will remain intact, even though the program is not installed.
 If this is not the desired outcome, and you would like to clean out the configuration files as well as the program, use the following syntax:
 
-`sudo apt-get purge package_name`\
+`sudo apt-get purge package_name`
 
 >To remove any packages that were installed automatically to support another program, that are no longer needed, type the following command:
 
-`sudo apt-get autoremove`\
+`sudo apt-get autoremove`
 
 >You can also specify a package name after the "autoremove" command to uninstall a package and its dependencies
 
@@ -102,7 +102,7 @@ If this is not the desired outcome, and you would like to clean out the configur
 The files will be located in "/var/cache/apt/archives".\
 
 **If you would like to suppress output, you can pass the "-qq" flag to the command:**\
-`sudo apt-get remove -qq packagename`\
+`sudo apt-get remove -qq packagename`
 
 ### How to Find a Package with Apt-Cache
 
@@ -111,7 +111,7 @@ The files will be located in "/var/cache/apt/archives".\
 **You can use the following command to search for a package that suits your needs. Note that apt-cache doesn't usually require administrative privileges:**\
 `apt-cache search what_you_are_looking_for`\
 `apt-cache search mp3 convert`]\
-`apt-cache search mail thunderbird`\
+`apt-cache search mail thunderbird`
 
 ### How to View Package Information with Apt-Cache
 
