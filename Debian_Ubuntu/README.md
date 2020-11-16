@@ -17,7 +17,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 - [Ubuntu Docs](https://docs.ubuntu.com/)
 - [Ubuntu Server](https://ubuntu.com/server/docs)
-- [SETUP SERVER](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
+- [Setup Server](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
 
 ## Base
 
@@ -160,6 +160,8 @@ The files will be located in "/var/cache/apt/archives".
 `sudo apt-get install apache2`
 
 ### Install LAMP
+
+
 
 ## SGBD
 
