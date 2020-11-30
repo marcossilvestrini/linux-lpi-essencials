@@ -159,9 +159,64 @@ The files will be located in "/var/cache/apt/archives".
 `sudo apt-get update`\
 `sudo apt-get install apache2`
 
-### Install LAMP
+#### Set Global ServerName to Suppress Syntax Warnings
 
+Next, we will add a single line to the /etc/apache2/apache2.conf file to suppress a warning message.\
+While harmless, if you do not set ServerName globally, you will receive the following warning when checking your\ Apache configuration for syntax errors:\
+`sudo apache2ctl configtest`\
+`sudo nano /etc/apache2/apache2.conf`\
+`sudo apache2ctl configtest`\
+`sudo systemctl restart apache2`
 
+#### Adjust the Firewall to Allow Web Traffic
+
+Next, assuming that you have followed the initial server setup instructions to enable the UFW firewall, make sure\ that your firewall allows HTTP and HTTPS traffic.\
+You can make sure that UFW has an application profile for Apache like so:\
+`sudo ufw app list`\
+`sudo ufw app info "Apache Full"`\
+`sudo ufw allow in "Apache Full"`
+
+### Step 2: Install MySQL
+
+`sudo apt-get install mysql-server`\
+`mysql_secure_installation`\
+
+### Step 3: Install PHP
+
+PHP is the component of our setup that will process code to display dynamic content. It can run scripts, connect\
+to our MySQL databases to get information, and hand the processed content over to our web server to display.\
+`sudo apt-get install php libapache2-mod-php php-mcrypt php-mysql`\
+
+In most cases, we’ll want to modify the way that Apache serves files when a directory is requested. Currently, if\
+a user requests a directory from the server, Apache will first look for a file called index.html. We want to tell\
+our web server to prefer PHP files, so we’ll make Apache look for an index.php file first.\
+To do this, type this command to open the dir.conf file in a text editor with root privileges:\
+`sudo vi /etc/apache2/mods-enabled/dir.conf`\
+`sudo systemctl restart apache2`\
+`sudo systemctl status apache2`
+
+#### Install PHP Modules
+
+`apt-cache search php- | less`\
+`apt-cache show php-cli`\
+`sudo apt-get install php-cli`
+
+### Step 4: Test PHP Processing on your Web Server
+
+In order to test that our system is configured properly for PHP, we can create a very basic PHP script.\
+We will call this script info.php. In order for Apache to find the file and serve it correctly, it must be saved\
+to a very specific directory, which is called the “web root”.\
+In Ubuntu 16.04, this directory is located at /var/www/html/.\
+We can create the file at that location by typing:\
+`sudo vi /var/www/html/info.php`\
+
+Add this content in file:\
+
+```php
+<?php
+phpinfo();
+?>
+```
 
 ## SGBD
 
