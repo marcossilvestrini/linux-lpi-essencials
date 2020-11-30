@@ -218,6 +218,9 @@ phpinfo();
 ?>
 ```
 
+The address you want to visit will be:\
+<http://your_server_IP_address/info.php>
+
 ## SGBD
 
 ### [MySQL](https://ubuntu.com/server/docs/databases-mysql)
