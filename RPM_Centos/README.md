@@ -423,8 +423,8 @@ sudo yum install cifs-utils
 sudo mkdir /mnt/smbmount
 sudo mount -t cifs -o username=username //samba_hostname_or_server_ip/sharename /mnt/smbmount
 ```
-Example: sudo mount -t cifs -o username=josh //192.168.121.118/josh /mnt/smbmount
 
+Example: sudo mount -t cifs -o username=josh //192.168.121.118/josh /mnt/smbmount
 
 ### Connecting to a Samba Share from Windows
 
