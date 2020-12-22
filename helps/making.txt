@@ -1,0 +1,10 @@
+Working in:
+
+Virtual Host in Apache - Ubuntu Server
+
+Let's Encrypt - Ubuntu Server
+
+OpenLDAP - Ubuntu Server
+
+Bind - Ubuntu
+Bind - Centos

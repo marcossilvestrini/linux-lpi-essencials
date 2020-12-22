@@ -18,6 +18,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - [Ubuntu Docs](https://docs.ubuntu.com/)
 - [Ubuntu Server](https://ubuntu.com/server/docs)
 - [Setup Server](https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04)
+- [Setup Virtual Host in Apache](https://www.digitalocean.com/community/tutorials/how-to-set-up-apache-virtual-hosts-on-ubuntu-16-04)
 
 ## Base
 
@@ -138,6 +139,131 @@ The files will be located in "/var/cache/apt/archives".
 `sudo systemctl stop apache2`\
 `sudo systemctl enable apache2`
 
+### How To Set Up Apache Virtual Hosts on Ubuntu
+
+#### Create the Directory Structure
+
+```linux
+sudo mkdir -p /var/www/example.com/public_html
+sudo mkdir -p /var/www/test.com/public_html
+```
+
+#### Grant Permissions
+
+```linux
+sudo chown -R $USER:$USER /var/www/example.com/public_html
+sudo chown -R $USER:$USER /var/www/test.com/public_html
+sudo chmod -R 755 /var/www
+```
+
+#### Create Demo Pages for Each Virtual Host
+
+```linux
+vi /var/www/example.com/public_html/index.html
+```
+
+```html
+<html>
+  <head>
+    <title>Welcome to Example.com!</title>
+  </head>
+  <body>
+    <h1>Success!  The example.com virtual host is working!</h1>
+  </body>
+</html>
+```
+
+```linux
+cp /var/www/example.com/public_html/index.html /var/www/test.com/public_html/index.html
+vi /var/www/test.com/public_html/index.html
+```
+
+```html
+<html>
+  <head>
+    <title>Welcome to Test.com!</title>
+  </head>
+  <body>
+    <h1>Success!  The test.com virtual host is working!</h1>
+  </body>
+</html>
+```
+
+#### Create New Virtual Host Files
+
+##### Create the First Virtual Host File
+
+```linux
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/example.com.conf
+sudo vi /etc/apache2/sites-available/example.com.conf
+
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    ServerName example.com
+    ServerAlias www.example.com
+    DocumentRoot /var/www/example.com/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+##### Copy First Virtual Host and Customize for Second Domain
+
+```linux
+sudo cp /etc/apache2/sites-available/example.com.conf /etc/apache2/sites-available/test.com.conf
+sudo vi /etc/apache2/sites-available/test.com.conf
+
+<VirtualHost *:80>
+    ServerAdmin admin@test.com
+    ServerName test.com
+    ServerAlias www.test.com
+    DocumentRoot /var/www/test.com/public_html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+##### Enable the New Virtual Host Files
+
+We can use the a2ensite tool to enable each of our sites like this:
+
+```linux
+sudo a2ensite example.com.conf
+sudo a2ensite test.com.conf
+```
+
+Next, disable the default site defined in 000-default.conf:
+
+```linux
+sudo a2dissite 000-default.conf
+```
+
+When you are finished, you need to restart Apache to make these changes take effect:
+
+```linux
+sudo systemctl restart apache2
+```
+
+##### Set Up Local Hosts File (Optional)
+
+For the domains that I used in this guide, assuming that my VPS IP address is 111.111.111.111, I could add\
+thefollowing lines to the bottom of my hosts file:
+
+```linux
+sudo vi /etc/hosts
+
+127.0.0.1   localhost
+127.0.1.1   guest-desktop
+111.111.111.111 example.com
+111.111.111.111 test.com
+
+```
+
+##### Test your Results
+
+<http://example.com>\
+<http://test.com>
+
 ### [Nginx](https://nginx.org/en/docs/)
 
 #### Install Latest Version Nginx
@@ -151,6 +277,7 @@ The files will be located in "/var/cache/apt/archives".
 `sudo systemctl stop nginx`\
 `sudo systemctl enable nginx`\
 `sudo ufw app list`
+
 
 ## [LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04)
 
