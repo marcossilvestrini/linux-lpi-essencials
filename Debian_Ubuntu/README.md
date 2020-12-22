@@ -244,7 +244,7 @@ When you are finished, you need to restart Apache to make these changes take eff
 sudo systemctl restart apache2
 ```
 
-##### Set Up Local Hosts File (Optional)
+#### Set Up Local Hosts File (Optional)
 
 For the domains that I used in this guide, assuming that my VPS IP address is 111.111.111.111, I could add\
 thefollowing lines to the bottom of my hosts file:
@@ -259,7 +259,7 @@ sudo vi /etc/hosts
 
 ```
 
-##### Test your Results
+#### Test your Results
 
 <http://example.com>\
 <http://test.com>
