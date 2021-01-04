@@ -51,6 +51,8 @@ Installation and configuration of some packages will also be covered
 - [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)
 - [Linux Standard Base](https://en.wikipedia.org/wiki/Linux_Standard_Base)
 - [Bugzila](https://bugzilla.kernel.org/)
+- [Let's Encrypt](https://letsencrypt.org/pt-br/getting-started/)
+- [Certbot](https://certbot.eff.org/instructions)
 
 ## Filesystem
 
