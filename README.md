@@ -53,6 +53,7 @@ Installation and configuration of some packages will also be covered
 - [Bugzila](https://bugzilla.kernel.org/)
 - [Let's Encrypt](https://letsencrypt.org/pt-br/getting-started/)
 - [Certbot](https://certbot.eff.org/instructions)
+- [Snapcraft](https://snapcraft.io/docs/installing-snapd)
 
 ## Filesystem
 
