@@ -277,6 +277,29 @@ sudo vi /etc/hosts
 `sudo systemctl enable nginx`\
 `sudo ufw app list`
 
+## Let's Encrypt
+
+### Step 1 — Install the Let’s Encrypt Client
+
+First, add the repository:\
+
+`sudo add-apt-repository ppa:certbot/certbot`
+
+You’ll need to press ENTER to accept. Afterwards, update the package list to pick up the new
+repository’s package information:\
+
+`sudo apt-get update`
+
+And finally, install Certbot from the new repository with apt-get:\
+
+`sudo apt-get install python-certbot-apache`
+
+### Step 2 — Set Up the SSL Certificate
+
+To execute the interactive installation and obtain a certificate that covers only a single
+domain, run the certbot command like so, where example.com is your domain:\
+
+`sudo certbot --apache -d example.com`
 
 ## [LAMP](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu-16-04)
 
@@ -451,6 +474,51 @@ The address you want to visit will be:\
 #### Mount with /etc/fstab
 
 `192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`
+
+## LDAP
+
+### [Install OpenLDAP](https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-openldap-and-phpldapadmin-on-ubuntu-16-04)
+
+#### Step 1 — Installing and Configuring the LDAP Server
+
+```linux
+sudo apt-get update
+sudo apt-get install slapd ldap-utils
+sudo dpkg-reconfigure slapd
+sudo ufw allow ldap
+```
+
+Let’s test our LDAP connection with ldapwhoami, which should return the username we’re connected as:\
+
+`ldapwhoami -H ldap:// -x`\
+
+Output\
+anonymous\
+
+#### Step 2 — Installing and Configuring the phpLDAPadmin Web Interface
+
+`sudo apt-get install phpldapadmin`\
+
+Opening the main configuration file with root privileges in your text editor:\
+`sudo nano /etc/phpldapadmin/config.php`\
+
+Set this lines:\
+
+```shel
+$servers->setValue('server','name','Example LDAP');
+$servers->setValue('server','base', array('dc=example,dc=com'));
+#$servers->setValue('login','bind_id','cn=admin,dc=example,dc=com');
+$config->custom->appearance['hide_template_warning'] = true;
+```
+
+#### Step 3 — Logging into the phpLDAPadmin Web Interface
+
+http://example.com/phpldapadmin\
+
+user: cn=admin,dc=example,dc=com\
+pass: has been configured in slapd\
+
+It is recommended that you configure StartTLS LDAP Encryption!!!
 
 ## [Samba](https://ubuntu.com/server/docs/samba-introduction)
 
