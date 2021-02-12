@@ -29,14 +29,6 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - GLP
 - LTS
 
-## Package Manager
-
-- [GNOME Software](https://wiki.gnome.org/Apps/Software)
-- [apt](https://linux.die.net/man/8/apt)
-- [dpkg](https://linux.die.net/man/1/dpkg)
-- [Snap](https://en.wikipedia.org/wiki/Snap_(package_manager))
-- [flatpak](https://flatpak.org/)
-
 ## Defaults Aplications Desktop
 
 - Editor: namo, vim
@@ -50,18 +42,34 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - 3D Modeling: Blender
 - Audio Editor: Audacity
 
-## Default Languages \ Compilers
+## Default Languages \ Compilers Desktop
 
 - shell
 - gcc
 - perl
 - python
 
-## [Manage Packages](https://www.digitalocean.com/community/tutorials/how-to-manage-packages-in-ubuntu-and-debian-with-apt-get-apt-cache)
+## Packages Manager
+
+- [GNOME Software](https://wiki.gnome.org/Apps/Software)
+- [apt](https://linux.die.net/man/8/apt)
+- [dpkg](https://linux.die.net/man/1/dpkg)
+- [Snap](https://en.wikipedia.org/wiki/Snap_(package_manager))
+- [flatpak](https://flatpak.org/)
+
+## [APT](https://www.digitalocean.com/community/tutorials/how-to-manage-packages-in-ubuntu-and-debian-with-apt-get-apt-cache)
+
+### File with List of Apt Repositorys
+
+/etc/apt/sources.list
 
 ### How To Update the Package Database with Apt-Get
 
 `sudo apt-get update`
+
+### How to Update Specific Installed Package with Apt-Get
+
+`sudo apt-get install --only-upgrade package1`
 
 ### How to Upgrade Installed Packages with Apt-Get
 
