@@ -11,24 +11,21 @@ unless Vagrant.has_plugin?("vagrant-reload")
 end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "centos/7"
-end
+  config.vm.box = "fedora/33-cloud-base"
+  config.vm.box_version = "33.20201019.0"
 
   # VM srv01
   config.vm.define "srv01"  do |srv01|
 
     # VARIABLE HOSTNAME
-    APP_NAME= "centos-srv01"
+    APP_NAME= "fedora-serv01"
 
     # HOSTNAME
     srv01.vm.hostname = APP_NAME
 
     # NETWORK
-    srv01.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge" ,bridge: "ens32"
+    srv01.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge"
 
-    # Forward Port
-    # srv01.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
-    # srv01.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
 
     # MOUNTS
     srv01.vm.synced_folder ".", "/vagrant", disabled: true
@@ -38,13 +35,20 @@ end
     srv01.vm.provider "virtualbox" do |vb|
       vb.linked_clone = true
       vb.name = APP_NAME
-      vb.memory = 1024
+      vb.memory = 2048
       vb.cpus = 1
     end
 
     # PROVISION
+    # SSH,FIREWALLD AND SELINUX
     srv01.vm.provision "shell", inline: <<-SHELL
       cat /security/id_rsa.pub >> .ssh/authorized_keys
+    SHELL
+
+    # # PACKAGES FOR PROVISION
+    srv01.vm.provision "shell", inline: <<-SHELL
+      # yum install python3 -y
+      yum install  xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps -y
     SHELL
 
   end
