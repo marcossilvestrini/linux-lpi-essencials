@@ -7,12 +7,6 @@ $vmware = "E:\VMware\vmware.exe"
 $vm = "E:\Servers\Linux\vagrant-ansible\vagrant-ansible.vmx"
 $ip = "192.168.0.33"
 $port = "22"
-$putty = "E:\Apps\Putty\putty.exe"
-
-# Close SHH connectio
-Write-Host "Kill SSH Connections" -BackgroundColor White -ForegroundColor Black
-Get-Process -name putty -ErrorAction SilentlyContinue |
-Stop-Process -ErrorAction SilentlyContinue >$null
 
 # Power Off Virtual Machine
 Write-Host "Power Off Virtual Machine: [$($vm)]" -BackgroundColor White -ForegroundColor Black
@@ -55,9 +49,5 @@ While (!$tcp_test) {
         Start-Sleep 1
     }
 }
-
-# Open session SSH
-Write-Host "Open SSH Connection" -BackgroundColor White -ForegroundColor Black
-& $putty -load "vagrant-protheus-core"
 
 
