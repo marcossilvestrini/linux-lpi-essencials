@@ -31,6 +31,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ## Package Manager
 
+- [RPM](https://rpm.org/)
 - [Yum](https://man7.org/linux/man-pages/man8/yum.8.html)
 - [DNF](https://dnf.readthedocs.io/en/latest/)
 
@@ -41,12 +42,40 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 - perl
 - python
 
+## RPM Examples
+
+### RPM List all packages
+
+`rpm --query --all`
+`rpm -q -a`
+
+### RPM Install package
+
+`sudo rpm -i package_name`
+
+### RPM Erase package
+
+`sudo rpm -e package_name`
+
+## YUM Examples
+
+### YUM List all packages
+
+`yum search package_name`
+
+### YUM Install package
+
+`sudo yum install package_name`
+
+### YUM Erase package
+
+`sudo rpm -e package_name`
+
 ## Http server
 
 ### [Apache httpd](http://httpd.apache.org/docs/2.4/)
 
 #### Install Latest Version Apache
-
 
 `sudo yum install httpd -y`\
 `sudo firewall-cmd --permanent --add-service=https`\
