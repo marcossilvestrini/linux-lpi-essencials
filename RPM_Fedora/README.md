@@ -1,8 +1,10 @@
-# CENTOS
+# FEDORA
 
-![Fedora](https://user-images.githubusercontent.com/62715900/96582746-2047ff00-12b2-11eb-82e4-bd121ae654e1.png)
+![fedora](https://user-images.githubusercontent.com/62715900/114779439-8470ea80-9d4c-11eb-8e5a-1330391ab15a.png)
 
-The CentOS Linux distribution is a stable, predictable, manageable and reproducible platform derived from the sources of Red Hat Enterprise Linux (RHEL). We are now looking to expand on that by creating the resources needed by other communities to come together and be able to build on the CentOS Linux platform. And today we start the process by delivering a clear governance model, increased transparency and access. In the coming weeks we aim to publish our own roadmap that includes variants of the core CentOS Linux.
+Fedora is a popular open source Linux-based operating system.\
+Fedora is designed as a secure, general purpose operating system. The operating system is developed on a six-month release cycle, under the auspices of the Fedora Project. Fedora is sponsored by Red Hat.\
+According to the Fedora Project, Fedora is "always free for anyone to use, modify, and distribute." Fedora is said to be the second-most commonly used Linux distribution, after Ubuntu. There are over a hundred distributions based on Fedora, including Red Hat Enterprise Linux (RHEL) and the One Laptop Per Child (OLPC) project's XO operating system.
 
 ## Authors
 
@@ -15,7 +17,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ## References
 
-- [CentOS Docs](https://docs.fedoraproject.org/en-US/docs/)
+- [Fedora Docs](https://docs.fedoraproject.org/en-US/docs/)
 
 ## Base
 
