@@ -87,6 +87,88 @@ Installation and configuration of some packages will also be covered
 
 ## Cheat Sheet
 
-- System Information
+### System Information (RPM, Debian)
 
 `cat /etc/*-release`
+
+### Network
+
+#### View Ip (RPM,Debian)
+
+`ip addr show`
+
+#### List Network Adapters (RMP)
+
+`nmcli d`
+
+#### Configure Network (RPM Centos)
+
+`nmtui`
+
+#### Restart Network(RPM)
+
+`sudo systemctl restart network`
+
+### Packages
+
+#### Repository File(RPM)
+
+`/etc/yum.conf`
+`/etc/yum.repos.d/`
+
+#### Repository File(Debian)
+
+#### Repository File(RPM)
+
+`/etc/apt/sources.list`
+`/etc/apt/sources.list.d/`
+
+/etc/apt/sources.list
+
+#### List Repositories(RPM)
+
+`yum repolist`
+
+#### Install Package(RPM)
+
+`sudo yum install lynx`
+
+#### Install Package(Debian)
+
+`sudo apt-get install lynx`
+
+#### Search Packge(RPM)
+
+`yum search lynx`
+
+#### Search Packge(Debian)
+
+`apt-cache search lynx`
+`apt-cache search -n lynx`
+
+#### Infos of Package(RPM)
+
+`yum info lynx`
+
+#### Infos of Package(Debian)
+
+`apt-cache show lynx`
+
+#### Remove Package(RPM)
+
+`sudo yum remove lynx`
+
+#### Remove Package(Debian)
+
+`sudo apt-get remove lynx`
+
+#### Update Repo Cache(RPM)
+
+`yum makecache`
+
+#### Update Packages(RPM)
+
+`sudo yum update`
+
+
+

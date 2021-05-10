@@ -52,10 +52,25 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 ## Packages Manager
 
 - [GNOME Software](https://wiki.gnome.org/Apps/Software)
-- [apt](https://linux.die.net/man/8/apt)
 - [dpkg](https://linux.die.net/man/1/dpkg)
+- [apt](https://linux.die.net/man/8/apt)
 - [Snap](https://en.wikipedia.org/wiki/Snap_(package_manager))
 - [flatpak](https://flatpak.org/)
+
+## DPKG Examples
+
+### List all packages
+
+`dpkg-query -l`
+
+### Install package
+
+`dpkg -i package_name`
+
+### Remove package
+
+`dpkg -r package_name`
+`dpkg -P package_name`
 
 ## [APT](https://www.digitalocean.com/community/tutorials/how-to-manage-packages-in-ubuntu-and-debian-with-apt-get-apt-cache)
 
