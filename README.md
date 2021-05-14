@@ -44,6 +44,9 @@ Installation and configuration of some packages will also be covered
 - [Free Software](https://www.gnu.org/philosophy/free-sw.html)
 - [Copyleft](https://www.gnu.org/licenses/copyleft.en.html)
 - [GPL](https://www.gnu.org/licenses/quick-guide-gplv3.html)
+- [BSD](https://opensource.org/licenses/BSD-3-Clause)
+- [Open Source Initiative](https://opensource.org/)
+- [Creative Commons](https://creativecommons.org/)
 - [GNU Lesser General Public License](https://www.gnu.org/licenses/lgpl-3.0.html)
 - [License LTS](https://en.wikipedia.org/wiki/Long-term_support)
 - [List Linux Distribution](https://en.wikipedia.org/wiki/List_of_Linux_distributions)
@@ -54,6 +57,7 @@ Installation and configuration of some packages will also be covered
 - [Let's Encrypt](https://letsencrypt.org/pt-br/getting-started/)
 - [Certbot](https://certbot.eff.org/instructions)
 - [Snapcraft](https://snapcraft.io/docs/installing-snapd)
+- [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 
 ## Filesystem
 
@@ -118,16 +122,21 @@ Installation and configuration of some packages will also be covered
 
 #### Repository File(Debian)
 
-#### Repository File(RPM)
-
 `/etc/apt/sources.list`
-`/etc/apt/sources.list.d/`
-
-/etc/apt/sources.list
 
 #### List Repositories(RPM)
 
 `yum repolist`
+
+#### Add new repository(RPM)
+
+`sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo`
+`yum-config-manager --enable hashicorp`
+
+
+#### Remove repository(RPM)
+
+`yum --disablerepo=hashicorp update`
 
 #### Install Package(RPM)
 
@@ -169,6 +178,3 @@ Installation and configuration of some packages will also be covered
 #### Update Packages(RPM)
 
 `sudo yum update`
-
-
-
