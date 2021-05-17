@@ -46,8 +46,10 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ### RPM List all packages
 
-`rpm --query --all`
-`rpm -q -a`
+```sh
+rpm --query --all
+rpm -q -a
+```
 
 ### RPM Install package
 
@@ -77,18 +79,22 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 #### Install Latest Version Apache
 
-`sudo yum install httpd -y`\
-`sudo firewall-cmd --permanent --add-service=https`\
-`sudo firewall-cmd --permanent --list-all`\
-`sudo firewall-cmd --reload`
+```sh
+sudo yum install httpd -y
+sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --permanent --list-all
+sudo firewall-cmd --reload
+```
 
 #### Common Commands Apache
 
-`systemctl status httpd`\
-`sudo systemctl start httpd`\
-`sudo systemctl enable httpd`\
-`sudo systemctl stop httpd`\
-`sudo systemctl reload httpd`
+```sh
+systemctl status httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl stop httpd
+sudo systemctl reload httpd
+```
 
 #### Files and Directories Apache
 
@@ -119,19 +125,23 @@ configuration settings have been modified.\
 
 #### Install Latest Version Nginx
 
-`sudo  yum install nginx -y`\
-`sudo firewall-cmd --permanent --add-service=http`\
-`sudo firewall-cmd --permanent --list-all`\
-`sudo firewall-cmd --reload`
+```sh
+sudo  yum install nginx -y
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --list-all
+sudo firewall-cmd --reload
+```
 
 #### Common Commands Nginx
 
-`systemctl status nginx`\
-`sudo systemctl start nginx`\
-`sudo systemctl stop nginx`\
-`sudo systemctl enable nginx`\
-`sudo systemctl disable nginx`\
-`sudo systemctl reload nginx`
+```sh
+systemctl status nginx
+sudo systemctl start nginx
+sudo systemctl stop nginx
+sudo systemctl enable nginx
+sudo systemctl disable nginx
+sudo systemctl reload nginx
+```
 
 #### Files and Directories Nginx
 
@@ -189,41 +199,49 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 #### Install Latest Version MariaDB
 
-`sudo yum update`\
-`sudo yum install mariadb-server -y`\
-`sudo mysql_secure_installation`
+```sh
+sudo yum update
+sudo yum install mariadb-server -y
+sudo mysql_secure_installation
+```
 
 #### Common Comands MariaDB
 
-`sudo mysqladmin version`\
-`sudo systemctl status mariadb.service`\
-`sudo systemctl start mariadb.service`\
-`sudo systemctl stop mariadb.service`\
-`sudo systemctl enable mariadb`
+```sh
+sudo mysqladmin version
+sudo systemctl status mariadb.service
+sudo systemctl start mariadb.service
+sudo systemctl stop mariadb.service
+sudo systemctl enable mariadb
+```
 
 #### Reset password MariaDB
 
-`sudo systemctl stop mariadb`\
-`sudo mysqld_safe --skip-grant-tables &`\
-`mysql -u root`\
-`use mysql;`\
-`update user SET PASSWORD=PASSWORD("batman2") WHERE USER='root';`\
-`flush privileges;`\
-`exit`\
-`sudo systemctl start mariadb`
+```sh
+mysql -u root
+use mysql;
+update user SET PASSWORD=PASSWORD("batman2") WHERE USER='root';
+flush privileges;
+exit
+sudo systemctl start mariadb
+```
 
 #### Create a New MariaDB User and Database
 
-`mysql -h localhost -u root -p`\
-`create database testdb;`\
-`create user 'testuser'@localhost identified by 'password';`\
-`grant all on testdb.* to 'testuser' identified by 'password';`
+```sh
+mysql -h localhost -u root -p
+create database testdb;
+create user 'testuser'@localhost identified by 'password';
+grant all on testdb.* to 'testuser' identified by 'password';
+```
 
 #### Create New Table MariaDB
 
-`mysql -u testuser -p`\
-`create table customers (customer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, first_name TEXT, last_name TEXT);`\
-`show tables;`
+```sh
+`mysql -u testuser -p
+`create table customers (customer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, first_name TEXT, last_name TEXT);
+`show tables;
+```
 
 ### [PostgreSQL](https://www.postgresql.org/docs/)
 
@@ -231,22 +249,28 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 >Postgres can be installed using default CentOS repositories. But as of the writing of this tutorial, the version that is available in the CentOS 7 Base repository is obsolete. Therefore, this tutorial will use the official Postgres repository
 
-`sudo vi /etc/yum.repos.d/CentOS-Base.repo`\
-`sudo yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm -y`\
-`yum list postgresql*`\
-`sudo yum install postgresql11-server -y`\
+```sh
+sudo vi /etc/yum.repos.d/CentOS-Base.repo
+sudo yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm -y
+yum list postgresql*
+sudo yum install postgresql11-server -y
+```
 
 #### Common comands PostgreSQL
 
-`sudo systemctl status postgresql-11.service`\
-`sudo systemctl start postgresql-11.service`\
-`sudo systemctl stop postgresql-11.service`\
-`sudo systemctl enable postgresql-11.service`
+```sh
+sudo systemctl status postgresql-11.servic
+sudo systemctl start postgresql-11.service
+sudo systemctl stop postgresql-11.service
+sudo systemctl enable postgresql-11.service
+```
 
 #### View Version with SQL
 
-`sudo -u postgres psql`\
-`SELECT version();`
+```sh
+sudo -u postgres psql
+SELECT version();
+```
 
 ## Filesystem
 
@@ -258,35 +282,40 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 #### Common Commands NFS
 
-`sudo systemctl enable rpcbind`\
-`sudo systemctl enable nfs-server`\
-`sudo systemctl enable nfs-lock`\
-`sudo systemctl enable nfs-idmap`\
-`sudo systemctl start rpcbind`\
-`sudo systemctl start nfs-server`\
-`sudo systemctl start nfs-lock`\
-`sudo systemctl start nfs-idmap`
+```sh
+sudo systemctl enable rpcbind
+sudo systemctl enable nfs-server
+sudo systemctl enable nfs-lock
+sudo systemctl enable nfs-idmap
+sudo systemctl start rpcbind
+sudo systemctl start nfs-server
+sudo systemctl start nfs-lock
+sudo systemctl start nfs-idma
+```
 
 #### Configure NFS
 
-`sudo mkdir /mnt/files`\
-`sudo chown vagrant:vagrant -R /mnt/files`\
-`sudo vim /etc/exports`\
-`/mnt/files *(rw,async,no_subtree_check,no_root_squash)`\
-`sudo exportfs -a`\
-`sudo systemctl restart nfs-server`\
-`firewall-cmd --permanent --zone=public --add-service=nfs`\
-`firewall-cmd --permanent --zone=public --add-service=mountd`\
-`firewall-cmd --permanent --zone=public --add-service=rpc-bind`\
-`firewall-cmd --reload`
+```sh
+sudo mkdir /mnt/files
+sudo chown vagrant:vagrant -R /mnt/files
+sudo vim /etc/exports
+/mnt/files *(rw,async,no_subtree_check,no_root_squash)
+sudo exportfs -a
+sudo systemctl restart nfs-server
+firewall-cmd --permanent --zone=public --add-service=nfs
+firewall-cmd --permanent --zone=public --add-service=mountd
+firewall-cmd --permanent --zone=public --add-service=rpc-bind
+firewall-cmd --reload
+```
 
 #### Mount (Client) NFS
 
-`sudo mkdir /mnt/local_files`\
-`sudo chown vagrant:vagrant -R /mnt/local_files`\
-`sudo yum install nfs-utils -y`\
-`mount -t nfs 192.168.0.134:/mnt/files /mnt/local_files`
-
+```sh
+sudo mkdir /mnt/local_files
+sudo chown vagrant:vagrant -R /mnt/local_files
+sudo yum install nfs-utils -y
+mount -t nfs 192.168.0.134:/mnt/files /mnt/local_files
+```
 #### Mount NFS with /etc/fstab
 
 `192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`\
