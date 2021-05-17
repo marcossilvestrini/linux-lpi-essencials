@@ -167,16 +167,18 @@ sudo systemctl reload nginx
 #### Install Latest Version Mysql
 
 Get version in: *https://dev.mysql.com/downloads/repo/yum/* \
-Example:\
-mysql80-community-release-el7-3.noarch.rpm\
-`sudo yum update`\
-`cd /tmp/`\
-`mysql_version=mysql80-community-release-el7-3.noarch.rpm`\
-`url=https://dev.mysql.com/get/$mysql_version`\
-`wget $url`\
-`md5sum $mysql_version`\
-`sudo rpm -ivh $mysql_version`\
-`sudo yum install mysql-server -y`
+Example: mysql80-community-release-el7-3.noarch.rpm\
+
+```sh
+sudo yum update
+cd /tmp/
+mysql_version=mysql80-community-release-el7-3.noarch.rpm
+url=https://dev.mysql.com/get/$mysql_version
+wget $url
+md5sum $mysql_version
+sudo rpm -ivh $mysql_version
+sudo yum install mysql-server -y
+```
 
 ### Install Tools Mysql
 
@@ -318,8 +320,10 @@ mount -t nfs 192.168.0.134:/mnt/files /mnt/local_files
 ```
 #### Mount NFS with /etc/fstab
 
-`192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`\
-`192.168.0.134:/mnt/files    /mnt/files   nfs defaults 0 0`
+```sh
+192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr
+192.168.0.134:/mnt/files    /mnt/files   nfs defaults 0 0
+```
 
 ## [Samba](https://www.samba.org/samba/docs/)
 
@@ -329,15 +333,19 @@ mount -t nfs 192.168.0.134:/mnt/files /mnt/local_files
 
 ### Commom Comands Samba
 
-`sudo systemctl start smb.service`\
-`sudo systemctl start nmb.service`\
-`sudo systemctl enable smb.service`\
-`sudo systemctl enable nmb.service`
+```sh
+sudo systemctl start smb.service
+sudo systemctl start nmb.service
+sudo systemctl enable smb.service
+sudo systemctl enable nmb.service
+```
 
 ### Configure Firewall
 
-`firewall-cmd --permanent --zone=public --add-service=samba`\
-`firewall-cmd --zone=public --add-service=samba`
+```sh
+firewall-cmd --permanent --zone=public --add-service=samba
+firewall-cmd --zone=public --add-service=samba
+```
 
 ### Creating Samba Users and Directory Structure
 
@@ -347,8 +355,10 @@ mount -t nfs 192.168.0.134:/mnt/files /mnt/local_files
 
 **Create a new group named sambashare. Later we will add all Samba users to this group.**
 
-`sudo groupadd sambashare`\
-`sudo chgrp sambashare /samba`
+```sh
+sudo groupadd sambashare
+sudo chgrp sambashare /samba
+```
 
 **Creating Samba Users**
 
@@ -365,10 +375,12 @@ To create a new user named josh, use the following command:\
 
 **Create the user’s home directory and set the directory ownership to user josh and group sambashare:**
 
-`sudo mkdir /samba/josh`\
-`sudo chown josh:sambashare /samba/josh`\
-`sudo chmod 2770 /samba/josh`\
-`sudo chcon -t samba_share_t /samba/josh`
+```sh
+sudo mkdir /samba/josh
+sudo chown josh:sambashare /samba/josh
+sudo chmod 2770 /samba/josh
+sudo chcon -t samba_share_t /samba/josh
+```
 
 >The following command will add the setgid bit to the /samba/josh directory so the newly created files in this directory will inherit the group of the parent directory.\
 This way, no matter which user creates a new file, the file will have group-owner of sambashare.\
@@ -386,8 +398,10 @@ Later if you want to grant administrative permissions to another user simply add
 
 **Set a password and enable the user:**
 
-`sudo smbpasswd -a sadmin`\
-`sudo smbpasswd -e sadmin`
+```sh
+sudo smbpasswd -a sadmin
+sudo smbpasswd -e sadmin
+```
 
 **Next, create the Users share directory:**
 
@@ -400,8 +414,10 @@ Later if you want to grant administrative permissions to another user simply add
 >This directory will be accessible by all authenticated users.
 The following command configures write/read access to members of the sambashare group in the /samba/users directory:
 
-`sudo chmod 2770 /samba/users`\
-`sudo chcon -t samba_share_t /samba/users`
+```sh
+sudo chmod 2770 /samba/users
+sudo chcon -t samba_share_t /samba/users
+```
 
 ### Configuring Samba Shares
 
@@ -458,8 +474,10 @@ sudo vi /etc/samba/smb.conf
 
 **Restart SMB Services**
 
-`sudo systemctl restart smb.service`\
-`sudo systemctl restart nmb.service`
+```sh
+sudo systemctl restart smb.service
+sudo systemctl restart nmb.service
+```
 
 ### Connecting to a Samba Share from Linux
 
@@ -469,8 +487,10 @@ sudo vi /etc/samba/smb.conf
 
 **The syntax to access a Samba share is as follows:**
 
-`mbclient //samba_hostname_or_server_ip/share_name -U username`\
-`smbclient //192.168.121.118/josh -U josh`
+```sh
+mbclient //samba_hostname_or_server_ip/share_name -U username
+smbclient //192.168.121.118/josh -U josh
+```
 
 ### Mounting the Samba share
 
