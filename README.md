@@ -91,19 +91,69 @@ Installation and configuration of some packages will also be covered
 
 ## Bourne Again Shell - Bash
 
-## Command echo
+### Syntax
+
+`command [options] [arguments]`
+
+### Command echo
 
 ```sh
 echo "Hello World"
 echo "This command save this string in file" > ~/example_echo
 ```
 
-## Command Type(check alias)
+### Command Help - Help in some command
+
+´´´sh
+help type
+´´´
+
+### Command Man - Manual pager utils
+
+´´´sh
+help type
+´´´
+
+### Command Type - Display information about command type
 
 ```sh
-type ls
+type echo
 type cp
-type mv
+type if
+type -t pwd
+type -a ls
+```
+
+### Command History - Display or manipulate the history list
+
+´´´sh
+history
+history -c
+´´´
+
+## Variables
+
+### Shell Variables
+
+```sh
+name="Marcos Silvestrini"
+age=39
+echo Name is $name and age is $age
+command="ls -la"
+$command
+```
+
+## Environment Variables
+
+```sh
+name="Marcos Silvestrini"
+age=39
+export name
+export age
+echo 'echo' Name is '$name' and age is '$age' years old. >~/example_env_vars
+chmod 777 ~/example_env_vars
+cd ~/
+./example_env_vars
 ```
 
 ## Cheat Sheet

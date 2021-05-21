@@ -11,19 +11,47 @@ unless Vagrant.has_plugin?("vagrant-reload")
 end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "centos/7"
+  config.vm.box = "centos/8"
 
   # VM srv01
   config.vm.define "srv01"  do |srv01|
 
+    # Monkey patch for https://github.com/dotless-de/vagrant-vbguest/issues/367
+    class Foo < VagrantVbguest::Installers::CentOS
+      def has_rel_repo?
+        unless instance_variable_defined?(:@has_rel_repo)
+          rel = release_version
+          @has_rel_repo = communicate.test("yum repolist")
+        end
+        @has_rel_repo
+      end
+
+      def install_kernel_devel(opts=nil, &block)
+        cmd = "yum update kernel -y"
+        communicate.sudo(cmd, opts, &block)
+
+        cmd = "yum install -y kernel-devel"
+        communicate.sudo(cmd, opts, &block)
+
+        cmd = "shutdown -r now"
+        communicate.sudo(cmd, opts, &block)
+
+        begin
+          sleep 5
+        end until @vm.communicate.ready?
+      end
+    end
+    srv01.vbguest.installer = Foo
+
+
     # VARIABLE HOSTNAME
-    APP_NAME= "centos-serv01"
+    APP_NAME= "centos8-serv01"
 
     # HOSTNAME
     srv01.vm.hostname = APP_NAME
 
     # NETWORK
-    srv01.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge"
+    srv01.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge" , bridge: "ens32"
 
     # Forward Port
     # srv02.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
