@@ -11,41 +11,47 @@ unless Vagrant.has_plugin?("vagrant-reload")
 end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "centos/7"
-end
+  config.vm.box = "gusztavvargadr/ubuntu-server-lts"
 
-  # VM srv01
-  config.vm.define "srv01"  do |srv01|
+  # VM ubuntu-server
+  config.vm.define "ubuntuServer"  do |ubuntuServer|
 
     # VARIABLE HOSTNAME
-    APP_NAME= "centos-srv01"
+    APP_NAME= "ubuntuServer"
 
     # HOSTNAME
-    srv01.vm.hostname = APP_NAME
+    ubuntuServer.vm.hostname = APP_NAME
 
     # NETWORK
-    srv01.vm.network "public_network" ,ip: "192.168.0.133",mode: "bridge" ,bridge: "ens32"
+    ubuntuServer.vm.network "public_network" ,ip: "192.168.0.134",mode: "bridge" , bridge: "ens32"
 
     # Forward Port
-    # srv01.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
-    # srv01.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+    # ubuntuServer.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.134" ,host_ip: "192.168.0.33"
+    # ubuntuServer.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.134" ,host_ip: "192.168.0.33"
 
     # MOUNTS
-    srv01.vm.synced_folder ".", "/vagrant", disabled: true
-    srv01.vm.synced_folder "./security", "/security"
+    ubuntuServer.vm.synced_folder ".", "/vagrant", disabled: true
+    ubuntuServer.vm.synced_folder "./security", "/security"
+    #ubuntuServer.vm.synced_folder "./install", "/totvs/install", type: "rsync",rsync__args: ["-r", "--include=*"]
 
     # PROVIDER
-    srv01.vm.provider "virtualbox" do |vb|
+    ubuntuServer.vm.provider "virtualbox" do |vb|
       vb.linked_clone = true
       vb.name = APP_NAME
-      vb.memory = 1024
+      vb.memory = 2048
       vb.cpus = 1
     end
 
     # PROVISION
-    srv01.vm.provision "shell", inline: <<-SHELL
+    # SSH,FIREWALLD AND SELINUX
+    ubuntuServer.vm.provision "shell", inline: <<-SHELL
       cat /security/id_rsa.pub >> .ssh/authorized_keys
     SHELL
+
+    # # PACKAGES FOR PROVISION
+    # ubuntuServer.vm.provision "shell", inline: <<-SHELL
+    #   dnf install python3 -y
+    # SHELL
 
   end
 

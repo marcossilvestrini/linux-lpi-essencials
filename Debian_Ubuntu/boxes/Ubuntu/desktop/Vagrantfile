@@ -11,41 +11,47 @@ unless Vagrant.has_plugin?("vagrant-reload")
 end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "centos/7"
-end
+  config.vm.box = "gusztavvargadr/ubuntu-desktop"
 
-  # VM srv02
-  config.vm.define "srv02"  do |srv02|
+  # VM ubuntu-desktop
+  config.vm.define "ubuntuDesktop"  do |ubuntuDesktop|
 
     # VARIABLE HOSTNAME
-    APP_NAME= "centos-srv02"
+    APP_NAME= "ubuntu-server"
 
     # HOSTNAME
-    srv02.vm.hostname = APP_NAME
+    ubuntuDesktop.vm.hostname = APP_NAME
 
     # NETWORK
-    srv02.vm.network "public_network" ,ip: "192.168.0.134",mode: "bridge" ,bridge: "ens32"
+    ubuntuDesktop.vm.network "public_network" ,ip: "192.168.0.134",mode: "bridge" , bridge: "ens32"
 
     # Forward Port
-    # srv02.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
-    # srv02.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.133" ,host_ip: "192.168.0.33"
+    # ubuntuDesktop.vm.network "forwarded_port", guest: 8020, host: 9020, adapter: 1, guest_ip: "192.168.0.134" ,host_ip: "192.168.0.33"
+    # ubuntuDesktop.vm.network "forwarded_port", guest: 2234, host: 3234, adapter: 1, guest_ip: "192.168.0.134" ,host_ip: "192.168.0.33"
 
     # MOUNTS
-    srv02.vm.synced_folder ".", "/vagrant", disabled: true
-    srv02.vm.synced_folder "./security", "/security"
+    ubuntuDesktop.vm.synced_folder ".", "/vagrant", disabled: true
+    ubuntuDesktop.vm.synced_folder "./security", "/security"
+    #ubuntuDesktop.vm.synced_folder "./install", "/totvs/install", type: "rsync",rsync__args: ["-r", "--include=*"]
 
     # PROVIDER
-    srv02.vm.provider "virtualbox" do |vb|
+    ubuntuDesktop.vm.provider "virtualbox" do |vb|
       vb.linked_clone = true
       vb.name = APP_NAME
-      vb.memory = 1024
+      vb.memory = 2048
       vb.cpus = 1
     end
 
     # PROVISION
-    srv02.vm.provision "shell", inline: <<-SHELL
+    # SSH,FIREWALLD AND SELINUX
+    ubuntuDesktop.vm.provision "shell", inline: <<-SHELL
       cat /security/id_rsa.pub >> .ssh/authorized_keys
     SHELL
+
+    # # PACKAGES FOR PROVISION
+    # ubuntuDesktop.vm.provision "shell", inline: <<-SHELL
+    #   dnf install python3 -y
+    # SHELL
 
   end
 

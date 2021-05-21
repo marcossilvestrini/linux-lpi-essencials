@@ -89,6 +89,23 @@ Installation and configuration of some packages will also be covered
 - [LAMP - Linux, Apache,Mysql,PHP](https://www.linode.com/docs/web-servers/lamp/)
 - [LEMP - Linux, Nginx,Mysql,PHP](https://www.linode.com/docs/guides/web-servers/lemp/)
 
+## Bourne Again Shell - Bash
+
+## Command echo
+
+```sh
+echo "Hello World"
+echo "This command save this string in file" > ~/example_echo
+```
+
+## Command Type(check alias)
+
+```sh
+type ls
+type cp
+type mv
+```
+
 ## Cheat Sheet
 
 ### System Information (RPM, Debian)
@@ -105,7 +122,7 @@ Installation and configuration of some packages will also be covered
 
 `nmcli d`
 
-#### Configure Network (RPM Centos)
+#### Configure Network (RPM)
 
 `nmtui`
 
@@ -113,30 +130,54 @@ Installation and configuration of some packages will also be covered
 
 `sudo systemctl restart network`
 
-### Packages
+### Managment Packages
 
 #### Repository File(RPM)
 
-`/etc/yum.conf`
-`/etc/yum.repos.d/`
+```sh
+/etc/yum.conf
+/etc/yum.repos.d/
+```
 
 #### Repository File(Debian)
 
-`/etc/apt/sources.list`
+```sh
+/etc/apt/sources.list
+/etc/apt/sources.list.d/
+```
 
 #### List Repositories(RPM)
 
 `yum repolist`
 
+#### List Repositories(Debian)
+
+```sh
+sudo grep -rhE ^deb /etc/apt/sources.list*
+apt-cache policy
+```
+
 #### Add new repository(RPM)
 
-`sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo`
-`yum-config-manager --enable hashicorp`
+```sh
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+yum-config-manager --enable hashicorp
+```
 
+#### Add new repository(Debian)
+
+```sh
+sudo add-apt-repository \
+'deb [arch=amd64] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse'
+```
 
 #### Remove repository(RPM)
 
 `yum --disablerepo=hashicorp update`
+
+#### Remove repository(Debian)
+
+`sudo add-apt-repository -r ppa:nemh/systemback`
 
 #### Install Package(RPM)
 
@@ -178,3 +219,7 @@ Installation and configuration of some packages will also be covered
 #### Update Packages(RPM)
 
 `sudo yum update`
+
+#### Update Packages(Debian)
+
+`sudo apt-get update`

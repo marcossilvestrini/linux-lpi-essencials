@@ -4,7 +4,8 @@
 # Variables
 $vmrun = "E:\VMWare\vmrun.exe"
 $vmware = "E:\VMware\vmware.exe"
-$vm = "E:\Servers\Linux\vagrant-ansible\vagrant-ansible.vmx"
+$vmPath = "E:\Servers\Linux\vagrant-ansible"
+$vm = "$($vmPath)\vagrant-ansible.vmx"
 $ip = "192.168.0.33"
 $port = "22"
 
@@ -21,8 +22,8 @@ Stop-Process -ErrorAction SilentlyContinue >$null
 
 # Set Memory
 $vmxName = "vagrant-ansible"
-$vmxConfig = (Get-VMX -VMXName $vmxName).Config
-$memoryMB = "8196"
+$vmxConfig = (Get-VMX -Path $vmPath -VMXName $vmxName).Config
+$memoryMB = "16192"
 # SYNTAX: Set-VMXmemory [-VMXName <Object>] [-config <Object>] -MemoryMB <Int32> [<CommonParameters>]
 Set-VMXmemory -VMXName $vmxName -config $vmxConfig -MemoryMB $memoryMB
 

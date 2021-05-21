@@ -1,5 +1,6 @@
 Ubuntu
-rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/alura/alura-lpi/ /home/marcos.silvestrini/vagrant-ubuntu-desktop
+rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/alura/alura-lpi/Debian_Ubuntu/boxes/Ubuntu/desktop/Vagrantfile /home/marcos.silvestrini/vagrant-ubuntu-desktop
+rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/alura/alura-lpi/Debian_Ubuntu/boxes/Ubuntu/server/Vagrantfile /home/marcos.silvestrini/vagrant-ubuntu-server
 
 Centos
 rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/alura/alura-lpi/RPM_Centos/ /home/marcos.silvestrini/vagrant-centos-7
