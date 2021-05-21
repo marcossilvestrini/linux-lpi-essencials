@@ -46,8 +46,10 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 ### RPM List all packages
 
-`rpm --query --all`
-`rpm -q -a`
+```sh
+rpm --query --all
+rpm -q -a
+```
 
 ### RPM Install package
 
@@ -77,18 +79,22 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 
 #### Install Latest Version Apache
 
-`sudo yum install httpd -y`\
-`sudo firewall-cmd --permanent --add-service=https`\
-`sudo firewall-cmd --permanent --list-all`\
-`sudo firewall-cmd --reload`
+```sh
+sudo yum install httpd -y
+sudo firewall-cmd --permanent --add-service=https
+sudo firewall-cmd --permanent --list-all
+sudo firewall-cmd --reload
+```
 
 #### Common Commands Apache
 
-`systemctl status httpd`\
-`sudo systemctl start httpd`\
-`sudo systemctl enable httpd`\
-`sudo systemctl stop httpd`\
-`sudo systemctl reload httpd`
+```sh
+systemctl status httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl stop httpd
+sudo systemctl reload httpd
+```
 
 #### Files and Directories Apache
 
@@ -119,19 +125,23 @@ configuration settings have been modified.\
 
 #### Install Latest Version Nginx
 
-`sudo  yum install nginx -y`\
-`sudo firewall-cmd --permanent --add-service=http`\
-`sudo firewall-cmd --permanent --list-all`\
-`sudo firewall-cmd --reload`
+```sh
+sudo  yum install nginx -y
+sudo firewall-cmd --permanent --add-service=http
+sudo firewall-cmd --permanent --list-all
+sudo firewall-cmd --reload
+```
 
 #### Common Commands Nginx
 
-`systemctl status nginx`\
-`sudo systemctl start nginx`\
-`sudo systemctl stop nginx`\
-`sudo systemctl enable nginx`\
-`sudo systemctl disable nginx`\
-`sudo systemctl reload nginx`
+```sh
+systemctl status nginx
+sudo systemctl start nginx
+sudo systemctl stop nginx
+sudo systemctl enable nginx
+sudo systemctl disable nginx
+sudo systemctl reload nginx
+```
 
 #### Files and Directories Nginx
 
@@ -157,16 +167,18 @@ configuration settings have been modified.\
 #### Install Latest Version Mysql
 
 Get version in: *https://dev.mysql.com/downloads/repo/yum/* \
-Example:\
-mysql80-community-release-el7-3.noarch.rpm\
-`sudo yum update`\
-`cd /tmp/`\
-`mysql_version=mysql80-community-release-el7-3.noarch.rpm`\
-`url=https://dev.mysql.com/get/$mysql_version`\
-`wget $url`\
-`md5sum $mysql_version`\
-`sudo rpm -ivh $mysql_version`\
-`sudo yum install mysql-server -y`
+Example: mysql80-community-release-el7-3.noarch.rpm\
+
+```sh
+sudo yum update
+cd /tmp/
+mysql_version=mysql80-community-release-el7-3.noarch.rpm
+url=https://dev.mysql.com/get/$mysql_version
+wget $url
+md5sum $mysql_version
+sudo rpm -ivh $mysql_version
+sudo yum install mysql-server -y
+```
 
 ### Install Tools Mysql
 
@@ -189,41 +201,49 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 #### Install Latest Version MariaDB
 
-`sudo yum update`\
-`sudo yum install mariadb-server -y`\
-`sudo mysql_secure_installation`
+```sh
+sudo yum update
+sudo yum install mariadb-server -y
+sudo mysql_secure_installation
+```
 
 #### Common Comands MariaDB
 
-`sudo mysqladmin version`\
-`sudo systemctl status mariadb.service`\
-`sudo systemctl start mariadb.service`\
-`sudo systemctl stop mariadb.service`\
-`sudo systemctl enable mariadb`
+```sh
+sudo mysqladmin version
+sudo systemctl status mariadb.service
+sudo systemctl start mariadb.service
+sudo systemctl stop mariadb.service
+sudo systemctl enable mariadb
+```
 
 #### Reset password MariaDB
 
-`sudo systemctl stop mariadb`\
-`sudo mysqld_safe --skip-grant-tables &`\
-`mysql -u root`\
-`use mysql;`\
-`update user SET PASSWORD=PASSWORD("batman2") WHERE USER='root';`\
-`flush privileges;`\
-`exit`\
-`sudo systemctl start mariadb`
+```sh
+mysql -u root
+use mysql;
+update user SET PASSWORD=PASSWORD("batman2") WHERE USER='root';
+flush privileges;
+exit
+sudo systemctl start mariadb
+```
 
 #### Create a New MariaDB User and Database
 
-`mysql -h localhost -u root -p`\
-`create database testdb;`\
-`create user 'testuser'@localhost identified by 'password';`\
-`grant all on testdb.* to 'testuser' identified by 'password';`
+```sh
+mysql -h localhost -u root -p
+create database testdb;
+create user 'testuser'@localhost identified by 'password';
+grant all on testdb.* to 'testuser' identified by 'password';
+```
 
 #### Create New Table MariaDB
 
-`mysql -u testuser -p`\
-`create table customers (customer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, first_name TEXT, last_name TEXT);`\
-`show tables;`
+```sh
+`mysql -u testuser -p
+`create table customers (customer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, first_name TEXT, last_name TEXT);
+`show tables;
+```
 
 ### [PostgreSQL](https://www.postgresql.org/docs/)
 
@@ -231,22 +251,28 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 >Postgres can be installed using default CentOS repositories. But as of the writing of this tutorial, the version that is available in the CentOS 7 Base repository is obsolete. Therefore, this tutorial will use the official Postgres repository
 
-`sudo vi /etc/yum.repos.d/CentOS-Base.repo`\
-`sudo yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm -y`\
-`yum list postgresql*`\
-`sudo yum install postgresql11-server -y`\
+```sh
+sudo vi /etc/yum.repos.d/CentOS-Base.repo
+sudo yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm -y
+yum list postgresql*
+sudo yum install postgresql11-server -y
+```
 
 #### Common comands PostgreSQL
 
-`sudo systemctl status postgresql-11.service`\
-`sudo systemctl start postgresql-11.service`\
-`sudo systemctl stop postgresql-11.service`\
-`sudo systemctl enable postgresql-11.service`
+```sh
+sudo systemctl status postgresql-11.servic
+sudo systemctl start postgresql-11.service
+sudo systemctl stop postgresql-11.service
+sudo systemctl enable postgresql-11.service
+```
 
 #### View Version with SQL
 
-`sudo -u postgres psql`\
-`SELECT version();`
+```sh
+sudo -u postgres psql
+SELECT version();
+```
 
 ## Filesystem
 
@@ -258,39 +284,46 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 #### Common Commands NFS
 
-`sudo systemctl enable rpcbind`\
-`sudo systemctl enable nfs-server`\
-`sudo systemctl enable nfs-lock`\
-`sudo systemctl enable nfs-idmap`\
-`sudo systemctl start rpcbind`\
-`sudo systemctl start nfs-server`\
-`sudo systemctl start nfs-lock`\
-`sudo systemctl start nfs-idmap`
+```sh
+sudo systemctl enable rpcbind
+sudo systemctl enable nfs-server
+sudo systemctl enable nfs-lock
+sudo systemctl enable nfs-idmap
+sudo systemctl start rpcbind
+sudo systemctl start nfs-server
+sudo systemctl start nfs-lock
+sudo systemctl start nfs-idma
+```
 
 #### Configure NFS
 
-`sudo mkdir /mnt/files`\
-`sudo chown vagrant:vagrant -R /mnt/files`\
-`sudo vim /etc/exports`\
-`/mnt/files *(rw,async,no_subtree_check,no_root_squash)`\
-`sudo exportfs -a`\
-`sudo systemctl restart nfs-server`\
-`firewall-cmd --permanent --zone=public --add-service=nfs`\
-`firewall-cmd --permanent --zone=public --add-service=mountd`\
-`firewall-cmd --permanent --zone=public --add-service=rpc-bind`\
-`firewall-cmd --reload`
+```sh
+sudo mkdir /mnt/files
+sudo chown vagrant:vagrant -R /mnt/files
+sudo vim /etc/exports
+/mnt/files *(rw,async,no_subtree_check,no_root_squash)
+sudo exportfs -a
+sudo systemctl restart nfs-server
+firewall-cmd --permanent --zone=public --add-service=nfs
+firewall-cmd --permanent --zone=public --add-service=mountd
+firewall-cmd --permanent --zone=public --add-service=rpc-bind
+firewall-cmd --reload
+```
 
 #### Mount (Client) NFS
 
-`sudo mkdir /mnt/local_files`\
-`sudo chown vagrant:vagrant -R /mnt/local_files`\
-`sudo yum install nfs-utils -y`\
-`mount -t nfs 192.168.0.134:/mnt/files /mnt/local_files`
-
+```sh
+sudo mkdir /mnt/local_files
+sudo chown vagrant:vagrant -R /mnt/local_files
+sudo yum install nfs-utils -y
+mount -t nfs 192.168.0.134:/mnt/files /mnt/local_files
+```
 #### Mount NFS with /etc/fstab
 
-`192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr`\
-`192.168.0.134:/mnt/files    /mnt/files   nfs defaults 0 0`
+```sh
+192.168.0.134:/mnt/files /mnt/local_files nfs rsize=8192,wsize=8192,timeo=14,intr
+192.168.0.134:/mnt/files    /mnt/files   nfs defaults 0 0
+```
 
 ## [Samba](https://www.samba.org/samba/docs/)
 
@@ -300,15 +333,19 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 ### Commom Comands Samba
 
-`sudo systemctl start smb.service`\
-`sudo systemctl start nmb.service`\
-`sudo systemctl enable smb.service`\
-`sudo systemctl enable nmb.service`
+```sh
+sudo systemctl start smb.service
+sudo systemctl start nmb.service
+sudo systemctl enable smb.service
+sudo systemctl enable nmb.service
+```
 
 ### Configure Firewall
 
-`firewall-cmd --permanent --zone=public --add-service=samba`\
-`firewall-cmd --zone=public --add-service=samba`
+```sh
+firewall-cmd --permanent --zone=public --add-service=samba
+firewall-cmd --zone=public --add-service=samba
+```
 
 ### Creating Samba Users and Directory Structure
 
@@ -318,8 +355,10 @@ mysql80-community-release-el7-3.noarch.rpm\
 
 **Create a new group named sambashare. Later we will add all Samba users to this group.**
 
-`sudo groupadd sambashare`\
-`sudo chgrp sambashare /samba`
+```sh
+sudo groupadd sambashare
+sudo chgrp sambashare /samba
+```
 
 **Creating Samba Users**
 
@@ -336,10 +375,12 @@ To create a new user named josh, use the following command:\
 
 **Create the user’s home directory and set the directory ownership to user josh and group sambashare:**
 
-`sudo mkdir /samba/josh`\
-`sudo chown josh:sambashare /samba/josh`\
-`sudo chmod 2770 /samba/josh`\
-`sudo chcon -t samba_share_t /samba/josh`
+```sh
+sudo mkdir /samba/josh
+sudo chown josh:sambashare /samba/josh
+sudo chmod 2770 /samba/josh
+sudo chcon -t samba_share_t /samba/josh
+```
 
 >The following command will add the setgid bit to the /samba/josh directory so the newly created files in this directory will inherit the group of the parent directory.\
 This way, no matter which user creates a new file, the file will have group-owner of sambashare.\
@@ -357,8 +398,10 @@ Later if you want to grant administrative permissions to another user simply add
 
 **Set a password and enable the user:**
 
-`sudo smbpasswd -a sadmin`\
-`sudo smbpasswd -e sadmin`
+```sh
+sudo smbpasswd -a sadmin
+sudo smbpasswd -e sadmin
+```
 
 **Next, create the Users share directory:**
 
@@ -371,8 +414,10 @@ Later if you want to grant administrative permissions to another user simply add
 >This directory will be accessible by all authenticated users.
 The following command configures write/read access to members of the sambashare group in the /samba/users directory:
 
-`sudo chmod 2770 /samba/users`\
-`sudo chcon -t samba_share_t /samba/users`
+```sh
+sudo chmod 2770 /samba/users
+sudo chcon -t samba_share_t /samba/users
+```
 
 ### Configuring Samba Shares
 
@@ -429,8 +474,10 @@ sudo vi /etc/samba/smb.conf
 
 **Restart SMB Services**
 
-`sudo systemctl restart smb.service`\
-`sudo systemctl restart nmb.service`
+```sh
+sudo systemctl restart smb.service
+sudo systemctl restart nmb.service
+```
 
 ### Connecting to a Samba Share from Linux
 
@@ -440,8 +487,10 @@ sudo vi /etc/samba/smb.conf
 
 **The syntax to access a Samba share is as follows:**
 
-`mbclient //samba_hostname_or_server_ip/share_name -U username`\
-`smbclient //192.168.121.118/josh -U josh`
+```sh
+mbclient //samba_hostname_or_server_ip/share_name -U username
+smbclient //192.168.121.118/josh -U josh
+```
 
 ### Mounting the Samba share
 
