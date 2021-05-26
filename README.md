@@ -243,8 +243,10 @@ sudo add-apt-repository \
 
 #### Search Packge(Debian)
 
-`apt-cache search lynx`
-`apt-cache search -n lynx`
+```sh
+apt-cache search lynx
+apt-cache search -n lynx
+```
 
 #### Infos of Package(RPM)
 
