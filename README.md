@@ -57,6 +57,7 @@ Installation and configuration of some packages will also be covered
 - [Let's Encrypt](https://letsencrypt.org/pt-br/getting-started/)
 - [Certbot](https://certbot.eff.org/instructions)
 - [Snapcraft](https://snapcraft.io/docs/installing-snapd)
+- [Bash RC Generator](http://bashrcgenerator.com/)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 
 ## Filesystem
@@ -93,7 +94,10 @@ Installation and configuration of some packages will also be covered
 
 ### Syntax
 
-`command [options] [arguments]`
+```sh
+command [options] [arguments]
+[var_name=value] command [options] [arguments]
+```
 
 ### Command echo
 
@@ -131,29 +135,91 @@ history
 history -c
 ´´´
 
-## Variables
+## Variables in Linux
 
 ### Shell Variables
 
 ```sh
 name="Marcos Silvestrini"
 age=39
-echo Name is $name and age is $age
+echo Name is ${name} and age is $age
 command="ls -la"
 $command
 ```
 
-## Environment Variables
+```sh
+day=10
+month=12
+year=1981
+echo "Date is ${day}\\${month}\\${year}"
+```
+
+### Environment Variables
 
 ```sh
-name="Marcos Silvestrini"
-age=39
-export name
-export age
-echo 'echo' Name is '$name' and age is '$age' years old. >~/example_env_vars
+export NAME="Jonny Wick"
+echo ${NAME}
+```
+
+```sh
+NAME="Marcos Silvestrini"
+AGE=39
+export NAME
+export AGE
+echo 'echo' Name is '${NAME}' and age is '${AGE}' years old. >~/example_env_vars
 chmod 777 ~/example_env_vars
 cd ~/
 ./example_env_vars
+```
+
+### Best pratice for scripts
+
+`env`
+
+```sh
+env NAME=Silvestrini AGE=110 bash ./example_env_vars
+NAME=Silvestrini AGE=110 bash ./example_env_vars
+```
+
+### Remove Variable
+
+#### In env
+
+```sh
+NAME="Steve Jobs"
+export NAME
+echo ${NAME}
+env | grep NAME
+export -n NAME
+env | grep NAME
+echo $NAME
+```
+
+#### In env and shell
+
+```sh
+NAME="Michael J. Fox"
+export NAME
+echo ${NAME}
+env | grep NAME
+unset NAME
+echo $NAME
+env | grep NAME
+```
+
+### Variable PS1 and PS2
+
+```sh
+echo $PS1 && echo $PS2
+
+# hostname@username
+export PS1='\h@\u: '
+
+# [hostname@username@time:]
+export PS1='[\h@\u@\t:]'
+
+# PS2 - new_line
+export PS2='new_line: '
 ```
 
 ## Cheat Sheet
