@@ -109,15 +109,15 @@ echo "This command save this string in file" > ~/example_echo
 
 ### Command Help - Help in some command
 
-´´´sh
+```sh
 help type
-´´´
+```
 
 ### Command Man - Manual pager utils
 
-´´´sh
+```sh
 help type
-´´´
+```
 
 ### Command Type - Display information about command type
 
@@ -131,10 +131,10 @@ type -a ls
 
 ### Command History - Display or manipulate the history list
 
-´´´sh
+```sh
 history
 history -c
-´´´
+```
 
 ## Variables in Linux
 
@@ -238,7 +238,7 @@ USER: the current logged in user\
 UID: id of current user\
 EDITOR: default editor current user\
 SHELL: the path of the current user’s shell, such as bash or zsh\
-LANG: the current locales settings
+LANG: the current locales settings\
 HISTFILE: history file
 
 ## Cheat Sheet
