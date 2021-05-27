@@ -107,7 +107,7 @@ echo "Hello World"
 echo "This command save this string in file" > ~/example_echo
 ```
 
-### Command Help - Help in some command
+### Command Help - Display information about builtin commands
 
 ```sh
 help type
@@ -116,7 +116,7 @@ help type
 ### Command Man - Manual pager utils
 
 ```sh
-help type
+man type
 ```
 
 ### Command Type - Display information about command type
@@ -129,11 +129,33 @@ type -t pwd
 type -a ls
 ```
 
+### Command which - shows the full path of (shell) commands
+
+```sh
+which pwd
+which -a python
+```
+
+### Command whereis - Locate the binary, source, and manual page files for a command
+
+```sh
+whereis pwd
+whereis python
+```
+
 ### Command History - Display or manipulate the history list
 
 ```sh
 history
 history -c
+```
+
+### Comand hash - Manipulate bash cache
+
+```sh
+help hash
+hash -d vi
+hash -r
 ```
 
 ## Variables in Linux
