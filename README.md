@@ -58,6 +58,7 @@ Installation and configuration of some packages will also be covered
 - [Certbot](https://certbot.eff.org/instructions)
 - [Snapcraft](https://snapcraft.io/docs/installing-snapd)
 - [Bash RC Generator](http://bashrcgenerator.com/)
+- [Environment Variables](https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 
 ## Filesystem
@@ -207,7 +208,7 @@ echo $NAME
 env | grep NAME
 ```
 
-### Variable PS1 and PS2
+### Variable PS1 and PS2 (prompt command)
 
 ```sh
 echo $PS1 && echo $PS2
@@ -221,6 +222,24 @@ export PS1='[\h@\u@\t:]'
 # PS2 - new_line
 export PS2='new_line: '
 ```
+
+### Variable PATH
+
+```sh
+PATH=$PATH:/some_dir
+echo $PATH
+```
+
+### Some Import Variables
+
+HOME: the home directory of the current user\
+LOGNAME: name of current user\
+USER: the current logged in user\
+UID: id of current user\
+EDITOR: default editor current user\
+SHELL: the path of the current user’s shell, such as bash or zsh\
+LANG: the current locales settings
+HISTFILE: history file
 
 ## Cheat Sheet
 
