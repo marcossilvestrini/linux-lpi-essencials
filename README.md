@@ -108,18 +108,6 @@ echo "Hello World"
 echo "This command save this string in file" > ~/example_echo
 ```
 
-### Command Help - Display information about builtin commands
-
-```sh
-help type
-```
-
-### Command Man - Manual pager utils
-
-```sh
-man type
-```
-
 ### Command Type - Display information about command type
 
 ```sh
@@ -291,6 +279,7 @@ echo $PATH
 
 ### Some Import Variables
 
+```linux
 HOME: the home directory of the current user\
 LOGNAME: name of current user\
 USER: the current logged in user\
@@ -300,8 +289,15 @@ SHELL: the path of the current user’s shell, such as bash or zsh\
 LANG: the current locales settings\
 HISTFILE: history file
 ?: Exit codes
+```
 
-## General Commands Help
+## Help for commands
+
+### Command Help - Display information about builtin commands
+
+```sh
+help type
+```
 
 ```sh
 ls --help
@@ -311,7 +307,7 @@ zip -h
 man [COMMAND]
 ```
 
-### Man Sections
+### Command Man - Manual pager utils
 
 ```linux
 The table below shows the section numbers of the manual followed by the types of pages they contain.
@@ -325,8 +321,37 @@ The table below shows the section numbers of the manual followed by the types of
 7   Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)
 8   System administration commands (usually only for root)
 9   Kernel routines [Non standard]
+
+ A manual page consists of several sections.
+
+Conventional  section  names  include  NAME,  SYNOPSIS,  CONFIGURATION,
+DESCRIPTION,  OPTIONS,  EXIT STATUS, RETURN VALUE, ERRORS, ENVIRONMENT,
+FILES, VERSIONS, CONFORMING TO,  NOTES,  BUGS,  EXAMPLE,  AUTHORS,  and
+SEE ALSO.
+
+Examples:
+man ls
+man -a ls
+man -k ascii
+man -k compiler
+
+File of config man path
+/etc/manpath.config
+
+manpath
 ```
 
+### apropos - Search the manual page names and descriptions(man -k)
+
+`apropos pwd`
+
+### whatis - Display one-line manual page descriptions
+
+`whatis pwd`
+
+### info- Read Info documents
+
+`info echo`
 
 ## Cheat Sheet
 
