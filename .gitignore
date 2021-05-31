@@ -8,4 +8,5 @@ workspace.code-workspace
 **/authorized_keys
 **/*.pub
 **/*.ppk
+**/*pk_centos
 **/*private*
