@@ -59,6 +59,7 @@ Installation and configuration of some packages will also be covered
 - [Snapcraft](https://snapcraft.io/docs/installing-snapd)
 - [Bash RC Generator](http://bashrcgenerator.com/)
 - [Environment Variables](https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/)
+- [Globbing](https://linuxhint.com/bash_globbing_tutorial/)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 
 ## Filesystem
@@ -156,6 +157,42 @@ history -c
 help hash
 hash -d vi
 hash -r
+```
+
+### Relational Operators in Shell commands
+
+```sh
+ls ~/foo && cp ~/foo ~/bar
+ls ~/foo || ls ~/bar
+```
+
+### Bash Globbing
+
+```sh
+cat ~/*.txt
+ls -a ~/*.php
+ls -a ~/.*
+
+cat ~/foo?.txt
+ls -a ~/202004??.log
+ls -a ~/2020040?.log
+
+cat ~/foo[0-9].log
+cat ~/foo[!0-9].log
+cat ~/foo[A-Z].log
+ls -a ~/foo[123].log
+
+ls {centos?-ks.cfg,*.log}
+```
+
+### Bash Quoting
+
+```sh
+echo \* Hello World \*
+cat log\ example.txt
+echo '* Hello World *'
+echo "Hello  World"
+cat 'log example.txt'
 ```
 
 ## Variables in Linux
@@ -262,6 +299,7 @@ EDITOR: default editor current user\
 SHELL: the path of the current user’s shell, such as bash or zsh\
 LANG: the current locales settings\
 HISTFILE: history file
+?: Exit codes
 
 ## Cheat Sheet
 
