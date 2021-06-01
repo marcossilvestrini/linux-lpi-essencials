@@ -1,6 +1,6 @@
 # LEARNNING LPI CERTIFICATION
 
-![linux_lpi](https://user-images.githubusercontent.com/62715900/94920714-302baa80-048d-11eb-97f3-4293c5a7b3dd.jpg)
+![download-linux-1024x576](https://user-images.githubusercontent.com/62715900/120332929-950dfd80-c2c5-11eb-9629-094d5bd209ac.png)
 
 >This project aims to help students or professionals to learn the main concepts of GNU \ Linux and free software
 Some GNU \ Linux distributions like Debian and RPM will be covered
