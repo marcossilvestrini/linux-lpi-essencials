@@ -63,7 +63,7 @@ Installation and configuration of some packages will also be covered
 - [GNU Globbing](https://man7.org/linux/man-pages/man7/glob.7.html)
 - [Globbing](https://linuxhint.com/bash_globbing_tutorial/)
 - [Quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)
-- [HowTOS](https://tldp.org/docs.html#howto)
+- [Howtos](https://tldp.org/docs.html#howto)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 
 ## Filesystem
