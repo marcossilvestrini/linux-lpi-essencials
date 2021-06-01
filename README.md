@@ -194,7 +194,7 @@ cat 'log example.txt'
 ```sh
 name="Marcos Silvestrini"
 age=39
-echo Name is ${name} and age is $age
+echo Name is ${name} and age is ${age}
 command="ls -la"
 $command
 ```
