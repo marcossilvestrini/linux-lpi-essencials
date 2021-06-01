@@ -58,8 +58,12 @@ Installation and configuration of some packages will also be covered
 - [Certbot](https://certbot.eff.org/instructions)
 - [Snapcraft](https://snapcraft.io/docs/installing-snapd)
 - [Bash RC Generator](http://bashrcgenerator.com/)
+- [DistroTest](https://distrotest.net/index.php)
 - [Environment Variables](https://linuxize.com/post/how-to-set-and-list-environment-variables-in-linux/)
+- [GNU Globbing](https://man7.org/linux/man-pages/man7/glob.7.html)
 - [Globbing](https://linuxhint.com/bash_globbing_tutorial/)
+- [Quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)
+- [HowTOS](https://tldp.org/docs.html#howto)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 
 ## Filesystem
@@ -291,7 +295,7 @@ HISTFILE: history file
 ?: Exit codes
 ```
 
-## Help for commands
+## Command Line to get Help
 
 ### Command Help - Display information about builtin commands
 
@@ -299,12 +303,13 @@ HISTFILE: history file
 help type
 ```
 
+### Others Helps
+
 ```sh
 ls --help
 zip --help
 zip -?
 zip -h
-man [COMMAND]
 ```
 
 ### Command Man - Manual pager utils
@@ -328,6 +333,8 @@ Conventional  section  names  include  NAME,  SYNOPSIS,  CONFIGURATION,
 DESCRIPTION,  OPTIONS,  EXIT STATUS, RETURN VALUE, ERRORS, ENVIRONMENT,
 FILES, VERSIONS, CONFORMING TO,  NOTES,  BUGS,  EXAMPLE,  AUTHORS,  and
 SEE ALSO.
+
+man [COMMAND]
 
 Examples:
 man ls
@@ -353,122 +360,149 @@ manpath
 
 `info echo`
 
-## Cheat Sheet
+### HOWTOs
 
-### System Information (RPM, Debian)
+```linux
+apt-cache search HOWTO
+sudo apt-get install python-turbogears2-doc -y
+ls /usr/share/doc/
+```
+
+### Locate - Find files by name
+
+```linux
+sudo updatedb
+locate file
+locate -e file
+locate "*arquivo*"
+locate arquivo[2-3].txt
+locate arquivo?.txt
+```
+
+## System Information (RPM, Debian)
 
 `cat /etc/*-release`
 
-### Network
+## Network Managment
 
-#### View Ip (RPM,Debian)
+### View Ip (RPM,Debian)
 
 `ip addr show`
 
-#### List Network Adapters (RMP)
+### List Network Adapters (RMP)
 
 `nmcli d`
 
-#### Configure Network (RPM)
+### Configure Network (RPM)
 
 `nmtui`
 
-#### Restart Network(RPM)
+### Restart Network(RPM)
 
 `sudo systemctl restart network`
 
-### Managment Packages
+## Storage Managment
 
-#### Repository File(RPM)
+### du - Estimate file space usage
+
+du /home/vagrant
+du -s ~/
+du -sh ~/
+
+### df - Report file system disk space usage
+
+## Packages Managment
+
+### Repository File(RPM)
 
 ```sh
 /etc/yum.conf
 /etc/yum.repos.d/
 ```
 
-#### Repository File(Debian)
+### Repository File(Debian)
 
 ```sh
 /etc/apt/sources.list
 /etc/apt/sources.list.d/
 ```
 
-#### List Repositories(RPM)
+### List Repositories(RPM)
 
 `yum repolist`
 
-#### List Repositories(Debian)
+### List Repositories(Debian)
 
 ```sh
 sudo grep -rhE ^deb /etc/apt/sources.list*
 apt-cache policy
 ```
 
-#### Add new repository(RPM)
+### Add new repository(RPM)
 
 ```sh
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 yum-config-manager --enable hashicorp
 ```
 
-#### Add new repository(Debian)
+### Add new repository(Debian)
 
 ```sh
 sudo add-apt-repository \
 'deb [arch=amd64] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse'
 ```
 
-#### Remove repository(RPM)
+### Remove repository(RPM)
 
 `yum --disablerepo=hashicorp update`
 
-#### Remove repository(Debian)
+### Remove repository(Debian)
 
 `sudo add-apt-repository -r ppa:nemh/systemback`
 
-#### Install Package(RPM)
+### Install Package(RPM)
 
 `sudo yum install lynx`
 
-#### Install Package(Debian)
+### Install Package(Debian)
 
 `sudo apt-get install lynx`
 
-#### Search Packge(RPM)
+### Search Packge(RPM)
 
 `yum search lynx`
 
-#### Search Packge(Debian)
+### Search Packge(Debian)
 
 ```sh
 apt-cache search lynx
 apt-cache search -n lynx
 ```
 
-#### Infos of Package(RPM)
+### Infos of Package(RPM)
 
 `yum info lynx`
 
-#### Infos of Package(Debian)
+### Infos of Package(Debian)
 
 `apt-cache show lynx`
 
-#### Remove Package(RPM)
+### Remove Package(RPM)
 
 `sudo yum remove lynx`
 
-#### Remove Package(Debian)
+### Remove Package(Debian)
 
 `sudo apt-get remove lynx`
 
-#### Update Repo Cache(RPM)
+### Update Repo Cache(RPM)
 
 `yum makecache`
 
-#### Update Packages(RPM)
+### Update Packages(RPM)
 
 `sudo yum update`
 
-#### Update Packages(Debian)
+### Update Packages(Debian)
 
 `sudo apt-get update`
