@@ -434,10 +434,13 @@ White with blue background: sticky directory
 Blue with green background: other-writable directory
 Black with green background: sticky and other-writable directory
 
+#mark types [*= executables, /=directories, @=symbolik links]
+ls -F
+ls -p
+
 #Some examples
 ls /etc
 ls -ld /etc
-
 
 #inode
 ls -inode /usr/bin
@@ -446,10 +449,6 @@ ls -i /usr/bin
 #list reverse order
 ls --reverse
 ls -r
-
-#mark types [*= executables, /=directories, @=symbolik links]
-ls -F
-ls -p
 
 #view hidden folders\files
 ls -a
