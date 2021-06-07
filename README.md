@@ -368,7 +368,7 @@ sudo apt-get install python-turbogears2-doc -y
 ls /usr/share/doc/
 ```
 
-### Locate - Find files by name
+## Locate - Find files by name
 
 ```linux
 sudo updatedb
@@ -377,6 +377,116 @@ locate -e file
 locate "*arquivo*"
 locate arquivo[2-3].txt
 locate arquivo?.txt
+```
+
+## Using Directories and Listing Files
+
+### Absolute Path
+
+```linux
+cat /home/vagrant/my_dir/foo.txt
+```
+
+### Relative Path
+
+```linux
+cat my_dir/foo.txt
+cd ~/
+~/foo.sh
+./foo.sh
+cd ..
+cd ../etc
+ls ../../foo.txt
+../bar.sh
+```
+
+### Command cd - Change the shell working directory
+
+```sh
+# home
+cd
+
+# latest path
+cd -
+```
+
+### Command ls - List directory contents
+
+```sh
+# Colors in command
+
+Uncolored (white): file or non-filename text (e.g. permissions in the output of ls -l) or multi-hardlink file
+Bold blue: directory
+Bold cyan: symbolic link
+Bold green: executable file
+Bold red: archive file
+Bold magenta: image file, video, graphic, etc. or door or socket
+Cyan: audio file
+Yellow with black background: pipe (AKA FIFO)
+Bold yellow with black background: block device or character device
+Bold red with black background: orphan symlink or missing file
+Uncolored with red background: set-user-ID file
+Black with yellow background: set-group-ID file
+Black with red background: file with capability
+White with blue background: sticky directory
+Blue with green background: other-writable directory
+Black with green background: sticky and other-writable directory
+
+#Some examples
+ls /etc
+ls -ld /etc
+
+
+#inode
+ls -inode /usr/bin
+ls -i /usr/bin
+
+#list reverse order
+ls --reverse
+ls -r
+
+#mark types [*= executables, /=directories, @=symbolik links]
+ls -F
+ls -p
+
+#view hidden folders\files
+ls -a
+
+#sort size
+ls --sort=size
+ls -S
+
+#sort time
+ls /etc --sort=time
+ls --sort=time  --format=long --reverse
+ls -t /etc
+
+#sort by extension
+ls --sort=extension /etc
+ls -X /etc
+
+#format
+ls /etc --format=long
+ls --sort=size --format=long  /usr/bin
+
+# recursive
+ls --recursive /etc
+ls -R /etc
+```
+
+## Creating,Moving and Deleting Files
+
+### Directories
+
+```sh
+#create dir
+mkdir images
+mkdir -p ~/foo/bar/beer/noise
+
+#remove dir
+rmdir images
+rmdir -p ~/foo/bar/beer
+
 ```
 
 ## System Information (RPM, Debian)
