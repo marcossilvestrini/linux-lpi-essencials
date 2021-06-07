@@ -175,6 +175,8 @@ cat ~/foo[A-Z].log
 ls -a ~/foo[123].log
 
 ls {centos?-ks.cfg,*.log}
+
+echo foo/bar/201{1,2,3}
 ```
 
 ### Bash Quoting
@@ -487,6 +489,55 @@ mkdir -p ~/foo/bar/beer/noise
 rmdir images
 rmdir -p ~/foo/bar/beer
 
+#Globbing
+mkdir -p pictures/201{1,2}/foo{1,2,3,4}
+rmdir -p --ignore-fail-on-non-empty  pictures/201{1,2}/foo{1,2,3,4}
+```
+
+### Files
+
+#### Command touch -  Change file timestamps
+
+```sh
+#create file
+touch foo.txt
+
+#Update the access and modification times of each FILE to the current time
+touch foo.txt
+touch -a foo.txt
+touch -ca foo.txt
+touch -cm foo.txt
+```
+
+#### Command cp - Copy files and directories
+
+```sh
+cp /etc/fstab ~/
+cp foo.txt foo2.txt
+cp pictures/*  images
+cp -R pictures/  images
+cp -Ru pictures  images
+
+#Warnning in user -f !!!!!
+cp -rf pictures  images
+```
+
+#### Command mv - Move,Rename files
+
+```sh
+mv ~/foo ~/bar
+mv foo2.txt foo3.txt
+mv -f ~/foo/bar.txt ~/beer.txt
+```
+
+#### Command rm -  Remove files or directories
+
+```sh
+rm ~/foo2.txt
+
+# Warnning in use *
+echo ~/pictures/*
+rm ~/pictures/*
 ```
 
 ## System Information (RPM, Debian)

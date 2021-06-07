@@ -4,3 +4,6 @@ rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/alura/alu
 
 Centos
 rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/alura/alura-lpi/RPM_Centos/ /home/marcos.silvestrini/vagrant-centos-7
+
+Set Timezone
+sudo timedatectl set-timezone America/Sao_Paulo
