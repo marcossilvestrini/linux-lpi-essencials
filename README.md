@@ -228,9 +228,9 @@ cd ~/
 
 ### Best pratice for scripts
 
-`env`
-
 ```sh
+#env
+
 env NAME=Silvestrini AGE=110 bash ./example_env_vars
 NAME=Silvestrini AGE=110 bash ./example_env_vars
 ```
