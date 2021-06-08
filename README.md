@@ -96,6 +96,102 @@ Installation and configuration of some packages will also be covered
 - [LAMP - Linux, Apache,Mysql,PHP](https://www.linode.com/docs/web-servers/lamp/)
 - [LEMP - Linux, Nginx,Mysql,PHP](https://www.linode.com/docs/guides/web-servers/lemp/)
 
+## Packages Managment
+
+### Repository File(RPM)
+
+```sh
+/etc/yum.conf
+/etc/yum.repos.d/
+```
+
+### Repository File(Debian)
+
+```sh
+/etc/apt/sources.list
+/etc/apt/sources.list.d/
+```
+
+### List Repositories(RPM)
+
+`yum repolist`
+
+### List Repositories(Debian)
+
+```sh
+sudo grep -rhE ^deb /etc/apt/sources.list*
+apt-cache policy
+```
+
+### Add new repository(RPM)
+
+```sh
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+yum-config-manager --enable hashicorp
+```
+
+### Add new repository(Debian)
+
+```sh
+sudo add-apt-repository \
+'deb [arch=amd64] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse'
+```
+
+### Remove repository(RPM)
+
+`yum --disablerepo=hashicorp update`
+
+### Remove repository(Debian)
+
+`sudo add-apt-repository -r ppa:nemh/systemback`
+
+### Install Package(RPM)
+
+`sudo yum install lynx`
+
+### Install Package(Debian)
+
+`sudo apt-get install lynx`
+
+### Search Packge(RPM)
+
+`yum search lynx`
+
+### Search Packge(Debian)
+
+```sh
+apt-cache search lynx
+apt-cache search -n lynx
+```
+
+### Infos of Package(RPM)
+
+`yum info lynx`
+
+### Infos of Package(Debian)
+
+`apt-cache show lynx`
+
+### Remove Package(RPM)
+
+`sudo yum remove lynx`
+
+### Remove Package(Debian)
+
+`sudo apt-get remove lynx`
+
+### Update Repo Cache(RPM)
+
+`yum makecache`
+
+### Update Packages(RPM)
+
+`sudo yum update`
+
+### Update Packages(Debian)
+
+`sudo apt-get update`
+
 ## Bourne Again Shell - Bash
 
 ### Syntax
@@ -492,6 +588,11 @@ rmdir -p ~/foo/bar/beer
 #Globbing
 mkdir -p pictures/201{1,2}/foo{1,2,3,4}
 rmdir -p --ignore-fail-on-non-empty  pictures/201{1,2}/foo{1,2,3,4}
+
+mkdir 202{1..5}
+mkdir 202{1..5}/test{1..5}
+rmdir 202{1..5}/test{1..5}
+rmdir 202{1..5}
 ```
 
 ### Files
@@ -501,6 +602,7 @@ rmdir -p --ignore-fail-on-non-empty  pictures/201{1,2}/foo{1,2,3,4}
 ```sh
 #create file
 touch foo.txt
+touch arquive{1..5}.txt
 
 #Update the access and modification times of each FILE to the current time
 touch foo.txt
@@ -535,9 +637,45 @@ mv -f ~/foo/bar.txt ~/beer.txt
 ```sh
 rm ~/foo2.txt
 
-# Warnning in use *
+# Warnning in use *, -r, -rf
 echo ~/pictures/*
 rm ~/pictures/*
+
+rm -r ~/pictures
+rm -ri ~/pictures
+rm -rf ~/pictures
+```
+
+## Archiving Files on the Command Line
+
+### Tar - An archiving utility
+
+```sh
+# Archiving
+tar -cf scripts.tar foo1.sh foo2.sh
+tar -cf scripts.tar scripts/*
+tar -cvf scripts.tar scripts
+
+#view content
+tar -tf scripts.tar
+
+# extract
+tar -xf scripts.tar
+tar -xvf scripts.tar
+
+#update - Add new version for modify files.Not best practice!
+tar -uvf scripts.tar scripts
+
+#update best practice for update tar files
+tar -cvf scripts.tar scripts
+
+#compress \ descompress with gzip
+tar -czvf scripts.tar.gz scripts
+tar -xzvf scripts.tar.gz
+
+#compress \ descompress with bzip
+tar -cjvf scripts.tar.bz2 scripts
+tar -xjvf scripts.tar.bz2
 ```
 
 ## System Information (RPM, Debian)
@@ -571,99 +709,3 @@ du -s ~/
 du -sh ~/
 
 ### df - Report file system disk space usage
-
-## Packages Managment
-
-### Repository File(RPM)
-
-```sh
-/etc/yum.conf
-/etc/yum.repos.d/
-```
-
-### Repository File(Debian)
-
-```sh
-/etc/apt/sources.list
-/etc/apt/sources.list.d/
-```
-
-### List Repositories(RPM)
-
-`yum repolist`
-
-### List Repositories(Debian)
-
-```sh
-sudo grep -rhE ^deb /etc/apt/sources.list*
-apt-cache policy
-```
-
-### Add new repository(RPM)
-
-```sh
-sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
-yum-config-manager --enable hashicorp
-```
-
-### Add new repository(Debian)
-
-```sh
-sudo add-apt-repository \
-'deb [arch=amd64] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse'
-```
-
-### Remove repository(RPM)
-
-`yum --disablerepo=hashicorp update`
-
-### Remove repository(Debian)
-
-`sudo add-apt-repository -r ppa:nemh/systemback`
-
-### Install Package(RPM)
-
-`sudo yum install lynx`
-
-### Install Package(Debian)
-
-`sudo apt-get install lynx`
-
-### Search Packge(RPM)
-
-`yum search lynx`
-
-### Search Packge(Debian)
-
-```sh
-apt-cache search lynx
-apt-cache search -n lynx
-```
-
-### Infos of Package(RPM)
-
-`yum info lynx`
-
-### Infos of Package(Debian)
-
-`apt-cache show lynx`
-
-### Remove Package(RPM)
-
-`sudo yum remove lynx`
-
-### Remove Package(Debian)
-
-`sudo apt-get remove lynx`
-
-### Update Repo Cache(RPM)
-
-`yum makecache`
-
-### Update Packages(RPM)
-
-`sudo yum update`
-
-### Update Packages(Debian)
-
-`sudo apt-get update`
