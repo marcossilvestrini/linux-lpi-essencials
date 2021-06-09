@@ -495,6 +495,7 @@ find -type d -name "*picture*"
 find -type f -name "picture*"
 
 #find link
+find /usr/bin -type l
 
 #find per user
 find -user vagrant
@@ -505,6 +506,38 @@ find -user vagrant -type f
 find -size +10k
 find / -size -1M
 find / -size +10G
+
+#find per access time
+find -atime -7
+
+#find per modification time
+find -mtime -2
+
+#find per change time
+find -ctime -2
+
+#find per inode
+find /usr/bin -inum 101245498
+
+# ignore case sensitive
+find -iname "*log*"
+
+#find whith and, or , not
+find -name "*log*" -name "*2*"
+find -name "*picture*" -o -name "*log*"
+find \( -name "*picture*" -o -name "*log*" \) -a -name "*1*"
+find \( -name "*picture*" -o -name "*log*" \) -a -type d
+find \( -name "*picture*" -o -name "*log*" \) -a -type f
+find \( -name "*picture*" -o -name "*log*" \) -a \(! -type f \)
+find \( -name "*picture*" -o -name "*log*" \) -a \( ! -type f \)
+
+#find with command exec
+find [options] -exec command [options] "{}" \;
+find -name "*log*" -type f -exec ls -Rlt "{}" \;
+find -name "*log*" -type f -exec echo "Find File: "  "{}" \;
+find -name "*log*" -type f -exec rm -i  "{}" \;
+
+
 ```
 
 ## Using Directories and Listing Files
@@ -737,6 +770,49 @@ bzip2 -v9 picture1.jpg
 #descompress
 bunzip2 -v picture1.jpg.bz2
 bzip2 -dv picture1.jpg.bz2
+```
+
+### Zip - package and compress (archive) files
+
+```sh
+zip pictures.zip  picture1.jpg picture2.jpg
+zip -r scripts.zip scripts
+zip -rq scripts.zip scripts
+zip -r scripts.zip -d /tmp
+
+#globbling
+zip scripts.zip scripts/script[3-8].sh
+zip scripts.zip scripts/script{1,8}.sh
+zip scripts.zip scripts/script?.sh
+zip scripts.zip scripts/script??.sh
+
+#pipe with find
+find scripts/tar/ -name "*.tar" | zip -@ scripts.zip
+find scripts/tar/script[3-7].tar | zip -@ scripts.zip
+
+```
+
+### Unzip - list, test and extract compressed files in a ZIP archive
+
+```sh
+#list
+unzip -l scripts.zip
+
+#descompress
+unzip scripts.zip
+unzip -q scripts.zip
+unzip -d /tmp scripts.zip
+
+#descompress specific file
+unzip scripts.zip scripts/script1.sh
+unzip -d /tmp scripts.zip scripts/script1.sh
+
+#globbling
+unzip -d /tmp scripts.zip scripts/script[3-8].sh
+unzip -d /tmp scripts.zip scripts/script{1,8}.sh
+unzip -d /tmp scripts.zip scripts/script?.sh
+unzip -d /tmp scripts.zip scripts/script??.sh
+unzip -d /tmp scripts.zip "scripts/*"
 
 ```
 
