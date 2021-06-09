@@ -477,6 +477,36 @@ locate arquivo[2-3].txt
 locate arquivo?.txt
 ```
 
+## Find - search for files in a directory hierarchy
+
+```sh
+find .
+find -name "*.jpg"
+find -name "var"
+find -name "log*"
+find -name "*log*"
+find -name 'picture[3-9].jpg'
+find -name 'picture?.jpg'
+
+#find folder
+find -type d -name "*picture*"
+
+#find file
+find -type f -name "picture*"
+
+#find link
+
+#find per user
+find -user vagrant
+find -user vagrant -type d
+find -user vagrant -type f
+
+#find per size
+find -size +10k
+find / -size -1M
+find / -size +10G
+```
+
 ## Using Directories and Listing Files
 
 ### Absolute Path
@@ -652,8 +682,8 @@ rm -rf ~/pictures
 ```sh
 # Archiving
 tar -cf scripts.tar foo1.sh foo2.sh
-tar -cf scripts.tar scripts/*
 tar -cvf scripts.tar scripts
+tar -cf scripts.tar scripts/*
 
 #view content
 tar -tf scripts.tar
@@ -675,6 +705,39 @@ tar -xzvf scripts.tar.gz
 #compress \ descompress with bzip
 tar -cjvf scripts.tar.bz2 scripts
 tar -xjvf scripts.tar.bz2
+```
+
+## Compress Files
+
+### Gzip - compress or expand files
+
+```sh
+#compress
+gzip -v scripts/script1.sh
+gzip -v1 scripts/script1.sh
+gzip -v9 scripts/script1.sh
+gzip -c scripts/script1.sh > scripts/script1.sh.gz
+
+#descompress
+gzip -dv picture1.jpg.gz
+gunzip -v scripts/script1.gz
+
+#list infos
+gzip -l picture1.jpg.gz
+```
+
+### Bzip2 - a block-sorting file compressor
+
+```sh
+#compress
+bzip2 -v scripts/script1.sh
+bzip2 -v1 picture1.jpg
+bzip2 -v9 picture1.jpg
+
+#descompress
+bunzip2 -v picture1.jpg.bz2
+bzip2 -dv picture1.jpg.bz2
+
 ```
 
 ## System Information (RPM, Debian)
