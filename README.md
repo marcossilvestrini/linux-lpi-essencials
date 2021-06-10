@@ -786,6 +786,9 @@ zip scripts.zip scripts/script{1,8}.sh
 zip scripts.zip scripts/script?.sh
 zip scripts.zip scripts/script??.sh
 
+#stdin
+zip scripts.zip -@ [input name file]
+
 #pipe with find
 find scripts/tar/ -name "*.tar" | zip -@ scripts.zip
 find scripts/tar/script[3-7].tar | zip -@ scripts.zip
@@ -859,6 +862,33 @@ head -n 2 -q foo.txt
 tail foo.txt
 tail -n 20 foo.txt
 tail -n +30 foo.txt
+
+#follow file
+tail -f foo.log
+```
+
+### Redirect Standart I/O
+
+```sh
+input: stdin(channel 0)
+output:  stdout(channel 1)
+error: stderr(channel 2)
+
+#output
+ls > ~/stdout_ls.txt
+echo "Hello World" > echo_hello.txt
+ls >> ~/stdout_ls.txt
+echo "Second Line" >> echo_hello.txt
+
+#stderr
+cd /shgfdjdgfjsdfgjhdfs 2> stderr_cd.txt
+
+#alter output channel
+cat /shgfdjdgfjsdfgjhdfs >stderr_cat.txt 2>&1
+
+#input
+zip -@ prograns.zip < list_prograns.txt
+
 ```
 
 ## System Information (RPM, Debian)
