@@ -813,7 +813,52 @@ unzip -d /tmp scripts.zip scripts/script{1,8}.sh
 unzip -d /tmp scripts.zip scripts/script?.sh
 unzip -d /tmp scripts.zip scripts/script??.sh
 unzip -d /tmp scripts.zip "scripts/*"
+```
 
+## Searching and Extracting Data from Files
+
+### wc - print newline, word, and byte counts for each file
+
+```sh
+wc foo.txt
+wc -c bar.txt #bytes
+wc -l foo.txt #lines
+wc -m bar.txt #words
+wc -w bar.txt #words
+wc -L bar.txt #big line
+```
+
+### more - file perusal filter for crt viewing
+
+```sh
+more foo.txt
+```
+
+### less - opposite of more
+
+```sh
+less foo.txt
+```
+
+### cat - concatenate files and print on the standard output
+
+```sh
+cat foo.txt bar.txt
+```
+
+### head - output the first part of files
+
+```sh
+head foo.txt
+head -n 2 -q foo.txt
+```
+
+### tail - output the last part of files
+
+```sh
+tail foo.txt
+tail -n 20 foo.txt
+tail -n +30 foo.txt
 ```
 
 ## System Information (RPM, Debian)
