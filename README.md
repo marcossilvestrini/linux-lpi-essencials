@@ -887,8 +887,49 @@ cd /shgfdjdgfjsdfgjhdfs 2> stderr_cd.txt
 cat /shgfdjdgfjsdfgjhdfs >stderr_cat.txt 2>&1
 
 #input
-zip -@ prograns.zip < list_prograns.txt
+zip -@ programs.zip < list_programs.txt
 
+```
+
+### Pipe in commandline
+
+```sh
+find scripts -name progran*[1..9].sh | zip -@ programs2.zip
+ls -la | less
+dnf search msql | less
+cat /etc/passwd | wc
+cat /etc/passwd | cut -c 1-5 /etc/passwd
+```
+
+### cut - remove sections from each line of files
+
+```sh
+cut -c 10 /etc/passwd
+cut -c 1-5 /etc/passwd
+cut -c 1-5,10,15 /etc/passwd
+cut -c 1-5,6-12 --output-delimiter=' - ' /etc/passwd
+
+cut -f 6 -d: --output-delimiter=";" /etc/passwd
+cut -f 1,5 -d: --output-delimiter="|" /etc/passwd
+```
+
+### paste - merge lines of files
+
+```sh
+#generate line 1
+cut -f 1 -d: /etc/passwd >passwd.users
+#generate line 2
+cut -f 6 -d:  /etc/passwd >passwd.home
+#merge lines
+paste passwd.users passwd.home > passwd_fmt.txt
+
+#use delimiter
+paste -d: passwd.users passwd.home
+paste -d\;   passwd.users passwd.home
+
+#serial (most use for export tom exel,etc)
+paste -s passwd.users passwd.home
+paste -s\;   passwd.users passwd.home
 ```
 
 ## System Information (RPM, Debian)
