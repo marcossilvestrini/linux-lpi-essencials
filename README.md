@@ -932,6 +932,51 @@ paste -s passwd.users passwd.home
 paste -s\;   passwd.users passwd.home
 ```
 
+### sort - sort lines of text files
+
+```sh
+#env variables for witch sort
+LC_ALL
+LC_COLLATE
+LANG
+
+#simple sort
+sort passwd.users
+
+#sort per number\value
+cut -f 2,3 -d: --output-delimiter=: nfe.txt | sort -k 2 -t: -n
+cut -f 2,3 -d: --output-delimiter=: nfe.txt | sort -k 2 -t: -n -r
+
+#ignore duplicate lines
+cut -f 2,3 -d: --output-delimiter=: nfe.txt | sort -k 2 -t: -n -u
+
+#output
+cut -f 2,3 -d: --output-delimiter=: nfe.txt | sort -k 2 -t: -n -u -o nfe_formatted.txt
+```
+
+### grep, egrep, fgrep - print lines matching a pattern
+
+```sh
+#simple find
+grep Xbox post-ign.txt
+
+#ignore case
+grep -i No post-ign.txt
+
+#per line
+grep -n Xbox post-ign.txt
+
+#count
+grep -c Xbox post-ign.txt
+
+#regular expression
+grep 'erro.' protheus.log
+grep "2021-0[56]" protheus.log
+grep "2021-06-11T[0-9]" protheus.log
+grep "2021-06-1[[:digit:]]" protheus.log
+grep "err[[:alpha:]]" protheus.log
+```
+
 ## System Information (RPM, Debian)
 
 `cat /etc/*-release`
