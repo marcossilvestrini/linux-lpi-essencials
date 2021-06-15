@@ -965,6 +965,7 @@ grep -i No post-ign.txt
 
 #per line
 grep -n Xbox post-ign.txt
+grep -n -i Xbox post-ign.txt
 
 #count
 grep -c Xbox post-ign.txt
@@ -973,8 +974,31 @@ grep -c Xbox post-ign.txt
 grep 'erro.' protheus.log
 grep "2021-0[56]" protheus.log
 grep "2021-06-11T[0-9]" protheus.log
+grep "[[:digit:]]" protheus.log
 grep "2021-06-1[[:digit:]]" protheus.log
 grep "err[[:alpha:]]" protheus.log
+grep "[[:digit:]]\+,[[:digit:]]\*" protheus.log
+grep "[[:digit:]]\+:[[:digit:]]*" protheus.log
+grep "[[:digit:]]\+:?[[:digit:]]\+" protheus.log
+grep "[[:digit:]]\+/[[:digit:]]\+/[[:digit:]]\+" protheus.log
+grep "[[:digit:]]\+[:,\]\?[[:digit:]]\+" protheus.log
+grep "[[:digit:]]\+[:,\]\?[[:digit:]]\+" protheus.log nfe.txt
+
+#find file
+grep -l "[[:digit:]]\+[:,\]\?[[:digit:]]\+" protheus.log nfe.txt
+
+#deny\invert expression
+grep -v "[[:digit:]]\+[:,\]\?[[:digit:]]\+" protheus.log nfe.txt
+
+#recursive
+grep -r  "[[:digit:]]\+[:,\]\?[[:digit:]]\+"
+
+#pipe
+grep erro protheus.log | grep "[[:digit:]]"
+ls | grep "[[:digit:]]"
+ls | grep "[[:punct:]]"
+
+
 ```
 
 ## System Information (RPM, Debian)
