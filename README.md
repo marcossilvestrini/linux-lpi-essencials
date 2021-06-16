@@ -64,6 +64,8 @@ Installation and configuration of some packages will also be covered
 - [Globbing](https://linuxhint.com/bash_globbing_tutorial/)
 - [Quoting](https://www.gnu.org/software/bash/manual/html_node/Quoting.html)
 - [Howtos](https://tldp.org/docs.html#howto)
+- [Regular Expressions](https://www.gnu.org/software/grep/manual/html_node/Regular-Expressions.html)
+- [Shebang](https://bash.cyberciti.biz/guide/Shebang)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 
 ## Filesystem
@@ -778,7 +780,7 @@ bzip2 -dv picture1.jpg.bz2
 zip pictures.zip  picture1.jpg picture2.jpg
 zip -r scripts.zip scripts
 zip -rq scripts.zip scripts
-zip -r scripts.zip -d /tmp
+zip -r /tmp/scripts.zip scripts
 
 #globbling
 zip scripts.zip scripts/script[3-8].sh
@@ -997,8 +999,27 @@ grep -r  "[[:digit:]]\+[:,\]\?[[:digit:]]\+"
 grep erro protheus.log | grep "[[:digit:]]"
 ls | grep "[[:digit:]]"
 ls | grep "[[:punct:]]"
+```
 
+## Turning Commands into a Script
 
+### Example 1 - Zip files
+
+```sh
+#!/bin/bash -v
+
+# ---------------------------------
+#
+# Example - Script Zip Files
+#
+# Purpose: Zip files in folder
+#
+# Author: Marcos Silvestrini
+# --------------------------------
+cd
+find scripts -name "*progran*" \
+| zip -@ /tmp/scripts.zip scripts \
+| wc -l
 ```
 
 ## System Information (RPM, Debian)
