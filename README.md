@@ -1003,23 +1003,142 @@ ls | grep "[[:punct:]]"
 
 ## Turning Commands into a Script
 
+### Running scripts
+
+```sh
+./foo.sh
+/home/vagrant/foo.sh
+
+#for export variables values in shell children
+source ./foo.sh
+. foo.sh
+```
+
+### Arguments Variables
+
+```sh
+$0 = scriptpath
+$N, N>0= some argument
+$#= number of arguments
+$*= print value all arguments
+```
+
 ### Example 1 - Zip files
 
 ```sh
-#!/bin/bash -v
+#!/bin/bash
 
 # ---------------------------------
 #
-# Example - Script Zip Files
+# Example 1 - Script Zip Files
 #
 # Purpose: Zip files in folder
 #
 # Author: Marcos Silvestrini
+#
+# Version: 1.0.0
 # --------------------------------
 cd
 find scripts -name "*progran*" \
 | zip -@ /tmp/scripts.zip scripts \
 | wc -l
+```
+
+### Example 2 - Zip files
+
+```sh
+#!/bin/bash
+
+# ---------------------------------
+#
+# Example 2 - Script Zip Files
+#
+# Purpose: Zip files in folder
+#
+# Author: Marcos Silvestrini
+#
+# Version: 2.0.0
+# --------------------------------
+clear
+cd
+echo "Zip files in directory `pwd`/scripts"
+find scripts -name "*progran*" \
+| zip -@ /tmp/scripts.zip scripts \
+| echo "Number of files: $(wc -l)"
+```
+
+### Example 3 - Variables
+
+```sh
+#!/bin/bash
+
+# ---------------------------------
+#
+# Example 3 - Script Zip Files
+#
+# Purpose: Zip files in folder
+#
+# Author: Marcos Silvestrini
+#
+# Version: 3.0.0
+# --------------------------------
+
+# Clear Screen
+clear
+
+#Variables
+JOKER="progran"
+
+# Navegate to home
+cd
+
+# Print message
+echo "Zip files in directory `pwd`/scripts"
+
+# Find and Zip Files
+find scripts -name "*$JOKER*" \
+| zip -@ /tmp/scripts.zip scripts \
+| echo "Number of files: $(wc -l)"
+```
+
+### Example 4 - Arguments
+
+```sh
+#!/bin/bash
+
+# ---------------------------------
+#
+# Example 4 - Script Zip Files
+#
+# Purpose: Zip files in folder
+#
+# Author: Marcos Silvestrini
+#
+# Version: 4.0.0
+# --------------------------------
+
+# Clear Screen
+clear
+
+# Navegate to home
+cd
+
+# ScriptPath
+echo "Scrip in exec is: ${0}"
+
+# Print message
+echo "Zip files in directory `pwd`/scripts"
+
+# Find and Zip Files
+JOKER=${1}
+find scripts -name "*${JOKER}*" \
+| zip -@ /tmp/scripts.zip scripts \
+| echo "Number of files: $(wc -l)"
+```
+
+```sh
+#execute script with arg
+example-zip4.sh progran
 ```
 
 ## System Information (RPM, Debian)
