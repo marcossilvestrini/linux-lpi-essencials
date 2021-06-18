@@ -566,6 +566,10 @@ ls ../../foo.txt
 ### Command cd - Change the shell working directory
 
 ```sh
+cd /etc
+cd ../bar
+cd ../../bar/foo
+
 # home
 cd
 
