@@ -1009,7 +1009,7 @@ ls | grep "[[:punct:]]"
 ./foo.sh
 /home/vagrant/foo.sh
 
-#for export variables values in shell children
+# current shell environment
 source ./foo.sh
 . foo.sh
 ```
@@ -1018,7 +1018,7 @@ source ./foo.sh
 
 ```sh
 $0 = scriptpath
-$N, N>0= some argument
+$N, N>0= some argument. Example: example-zip.sh arg1 arg2 argN
 $#= number of arguments
 $*= print value all arguments
 ```
@@ -1030,7 +1030,7 @@ $*= print value all arguments
 
 # ---------------------------------
 #
-# Example 1 - Script Zip Files
+# Script Zip Files
 #
 # Purpose: Zip files in folder
 #
@@ -1044,14 +1044,14 @@ find scripts -name "*progran*" \
 | wc -l
 ```
 
-### Example 2 - Zip files
+### Example 2 - Quotting
 
 ```sh
 #!/bin/bash
 
 # ---------------------------------
 #
-# Example 2 - Script Zip Files
+# Script Zip Files
 #
 # Purpose: Zip files in folder
 #
@@ -1074,9 +1074,11 @@ find scripts -name "*progran*" \
 
 # ---------------------------------
 #
-# Example 3 - Script Zip Files
+# Script Zip Files
 #
-# Purpose: Zip files in folder
+# Purpose: Zip files in folder whith name file like NAME
+#
+# Example: example-zip5.sh NAME
 #
 # Author: Marcos Silvestrini
 #
@@ -1087,7 +1089,7 @@ find scripts -name "*progran*" \
 clear
 
 #Variables
-JOKER="progran"
+NAME="progran"
 
 # Navegate to home
 cd
@@ -1096,7 +1098,7 @@ cd
 echo "Zip files in directory `pwd`/scripts"
 
 # Find and Zip Files
-find scripts -name "*$JOKER*" \
+find scripts -name "*$NAME*" \
 | zip -@ /tmp/scripts.zip scripts \
 | echo "Number of files: $(wc -l)"
 ```
@@ -1108,9 +1110,11 @@ find scripts -name "*$JOKER*" \
 
 # ---------------------------------
 #
-# Example 4 - Script Zip Files
+# Script Zip Files
 #
-# Purpose: Zip files in folder
+# Purpose: Zip files in folder whith name file like NAME
+#
+# Example: example-zip5.sh NAME [NAME...]
 #
 # Author: Marcos Silvestrini
 #
@@ -1129,9 +1133,11 @@ echo "Scrip in exec is: ${0}"
 # Print message
 echo "Zip files in directory `pwd`/scripts"
 
+#Variables
+NAME=${1}
+
 # Find and Zip Files
-JOKER=${1}
-find scripts -name "*${JOKER}*" \
+find scripts -name "*${NAME}*" \
 | zip -@ /tmp/scripts.zip scripts \
 | echo "Number of files: $(wc -l)"
 ```
@@ -1140,6 +1146,175 @@ find scripts -name "*${JOKER}*" \
 #execute script with arg
 example-zip4.sh progran
 ```
+
+### Example 5 - Loop for
+
+```sh
+#!/bin/bash
+
+# ---------------------------------
+#
+# Script Zip Files
+#
+# Purpose: Zip files in folder whith name file like NAME
+#
+# Example: example-zip5.sh NAME [NAME...]
+#
+# Author: Marcos Silvestrini
+#
+# Version: 5.0.0
+# --------------------------------
+
+# Clear Screen
+clear
+
+# Navegate to home
+cd
+
+# ScriptPath
+echo "Scrip in exec is: ${0}"
+
+# Print message
+echo "Zip log files in directory `pwd`/logs"
+
+# Variables
+SOURCE=logs
+
+for NAME in $*
+do
+    echo "Arg : ${NAME}"
+    find ${SOURCE} -name "*${NAME}*" \
+    | zip -@ /tmp/logs.zip "${SOURCE}" \
+    | echo "Number of files: $(wc -l)"
+done
+```
+
+### Example 6 - Loop for
+
+```sh
+#!/bin/bash
+
+# ---------------------------------
+#
+# Script print fruits
+#
+# Purpose: Script for print some type of fruits
+#
+# Example: print-fruits.sh
+#
+# Author: Marcos Silvestrini
+#
+# Version: 1.0.0
+# --------------------------------
+
+# Clear Screen
+clear
+
+# Navegate to home
+cd
+
+# ScriptPath
+echo "Scrip in exec is: ${0}"
+
+# Print message
+echo "Print name of fruits"
+
+# Variables
+FRUITS="apple orange lemon banana avocado"
+
+for i in $FRUITS
+do
+    echo "Fruit : ${i}"
+done
+```
+
+### Example 7 - Loop for
+
+```sh
+#!/bin/bash
+
+# ---------------------------------
+#
+# Script find files
+#
+# Purpose: Script for find files in MYPATH by NAME and add name file in file
+#
+# Example: print-files.sh MYPATH NAME
+#
+# Author: Marcos Silvestrini
+#
+# Version: 1.0.0
+# --------------------------------
+
+# Clear Screen
+clear
+
+# Navegate to home
+cd
+
+# ScriptPath
+echo "Scrip in exec is: ${0}"
+
+# Variables
+MYPATH=${1}
+NAME=${2}
+
+# Print message
+echo "Find files in: ${MYPATH}"
+echo "Name: ${NAME}"
+
+for i in `find ${MYPATH} -name "*${NAME}*"`
+do
+    echo ${i}
+    # add text in file
+    echo "${i}" >> $i
+done
+```
+
+### Example 8 - Loop for
+
+```sh
+#!/bin/bash
+
+# ---------------------------------
+#
+# Script list files
+#
+# Purpose: Script for list files in MYPATH with extension MYEXTENSION
+#
+# Example: list-files.sh MYPATH MYEXTENSION
+#
+# Author: Marcos Silvestrini
+#
+# Version: 1.0.0
+# --------------------------------
+
+# Clear Screen
+clear
+
+# Navegate to home
+cd
+
+# ScriptPath
+echo "Scrip in exec is: ${0}"
+
+# Variables
+MYPATH=$1
+MYEXTENSION=${2}
+
+# Print message
+echo "List files in ${MYPATH} with extension: ${MYEXTENSION}"
+
+cd $MYPATH
+
+for i in *$MYEXTENSION
+do
+    echo ${i}
+done
+```
+
+
+
 
 ## System Information (RPM, Debian)
 
