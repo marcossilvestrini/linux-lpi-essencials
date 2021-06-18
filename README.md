@@ -659,6 +659,7 @@ rmdir -p --ignore-fail-on-non-empty  pictures/201{1,2}/foo{1,2,3,4}
 
 mkdir 202{1..5}
 mkdir 202{1..5}/test{1..5}
+
 rmdir 202{1..5}/test{1..5}
 rmdir 202{1..5}
 ```
