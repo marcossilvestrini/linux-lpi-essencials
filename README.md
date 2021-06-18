@@ -381,7 +381,7 @@ PATH=$PATH:/some_dir
 echo $PATH
 ```
 
-### Some Import Variables
+### Some Environment Variables
 
 ```linux
 HOME: the home directory of the current user\
