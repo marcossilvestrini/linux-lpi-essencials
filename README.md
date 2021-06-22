@@ -935,7 +935,7 @@ paste passwd.users passwd.home > passwd_fmt.txt
 paste -d: passwd.users passwd.home
 paste -d\;   passwd.users passwd.home
 
-#serial (most use for export tom exel,etc)
+#serial (most use for export for exel,etc)
 paste -s passwd.users passwd.home
 paste -s\;   passwd.users passwd.home
 ```
