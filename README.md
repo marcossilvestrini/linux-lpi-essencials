@@ -1438,11 +1438,15 @@ sudo umount /mnt/secondary
 
 ### du - Estimate file space usage
 
+```sh
 du /home/vagrant
 du -s ~/
 du -sh ~/
+```
 
 ### df - Report file system disk space usage
+
+`df /`
 
 ## Where Data is Stored
 
@@ -1450,7 +1454,7 @@ du -sh ~/
 
 #### the root directory
 
-´\´
+\
 
 #### binary directories
 
