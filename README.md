@@ -1408,7 +1408,7 @@ lsblk
 
 ```sh
 sudo fdisk /dev/sdb
-# Options for creat a default ext2 partition: n, p , 1
+# Options for create a default ext2 partition: n, p , 1
 # save new partition: w
 ```
 
