@@ -52,6 +52,7 @@ Installation and configuration of some packages will also be covered
 - [List Linux Distribution](https://en.wikipedia.org/wiki/List_of_Linux_distributions)
 - [Comparison Linux Distributions](https://en.wikipedia.org/wiki/Comparison_of_Linux_distributions)
 - [Filesystem Hierarchy Standard](https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard)
+- [File Hierarchy Structure](https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf)
 - [Linux Standard Base](https://en.wikipedia.org/wiki/Linux_Standard_Base)
 - [Bugzila](https://bugzilla.kernel.org/)
 - [Let's Encrypt](https://letsencrypt.org/pt-br/getting-started/)
@@ -66,7 +67,6 @@ Installation and configuration of some packages will also be covered
 - [Howtos](https://tldp.org/docs.html#howto)
 - [Regular Expressions](https://www.gnu.org/software/grep/manual/html_node/Regular-Expressions.html)
 - [Shebang](https://bash.cyberciti.biz/guide/Shebang)
-- [File Hierarchy Structure](https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 
 ## Filesystem
