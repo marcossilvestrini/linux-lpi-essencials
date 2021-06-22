@@ -66,6 +66,7 @@ Installation and configuration of some packages will also be covered
 - [Howtos](https://tldp.org/docs.html#howto)
 - [Regular Expressions](https://www.gnu.org/software/grep/manual/html_node/Regular-Expressions.html)
 - [Shebang](https://bash.cyberciti.biz/guide/Shebang)
+- [File Hierarchy Structure](https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 
 ## Filesystem
@@ -1393,14 +1394,14 @@ BIOS - Basic Input/Output System\
 RAM - Random-Access Memory\
 HD - Hard Disk\
 PSU - Power Supply Unit
-PERIPHERALS - Mouse,Keyboard,Printers, Mic, etc
+PERIPHERALS - Mouse,Keyboard,Printers, Mic,etc
 
-## Where Data is Stored
+## Storage Managment
 
 ### Commom mount paths
 
 devices: /dev/sd*\
-not optical drivers: /mnt\
+Mounted filesystem(not optical drivers): /mnt\
 optical drivers: /media\
 
 ### lsblk - list block devices
@@ -1449,10 +1450,13 @@ du -sh ~/
 
 ### df - Report file system disk space usage
 
+## Where Data is Stored
 
-## System Information (RPM, Debian)
+### Filesystem Hierarchy Standard
 
-`cat /etc/*-release`
+```sh
+
+```
 
 ## Network Managment
 
