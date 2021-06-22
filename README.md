@@ -1402,7 +1402,7 @@ PERIPHERALS - Mouse,Keyboard,Printers, Mic,etc
 
 devices: /dev/sd*\
 Mounted filesystem(not optical drivers): /mnt\
-optical drivers: /media\
+Removable Media (optical drivers): /media\
 
 ### lsblk - list block devices
 
@@ -1454,8 +1454,57 @@ du -sh ~/
 
 ### Filesystem Hierarchy Standard
 
-```sh
+#### the root directory
 
+´\´
+
+#### binary directories
+
+```sh
+/bin
+# other /bin directories
+/sbin
+/lib
+/opt
+```
+
+#### configuration directories
+
+```sh
+/boot
+/etc
+```
+
+#### data directories
+
+```sh
+/home
+/root
+/srv
+/media
+/mnt
+/tmp
+```
+
+#### in memory directories
+
+```sh
+/dev
+/proc conversation with the kernel
+/sys Linux 2.6 hot plugging
+/usr Unix System Resources
+/usr/bin
+/usr/include
+/usr/lib
+/usr/local
+/usr/share
+/usr/src
+/var variable data
+/var/log
+/var/log/messages
+/var/cache
+/var/spool
+/var/lib
 ```
 
 ## Network Managment
