@@ -1398,12 +1398,6 @@ PERIPHERALS - Mouse,Keyboard,Printers, Mic,etc
 
 ## Storage Managment
 
-### Commom mount paths
-
-devices: /dev/sd*\
-Mounted filesystem(not optical drivers): /mnt\
-Removable Media (optical drivers): /media\
-
 ### lsblk - list block devices
 
 ```sh
@@ -1452,7 +1446,7 @@ du -sh ~/
 
 ## Where Data is Stored
 
-### Filesystem Hierarchy Standard
+### FHS - Filesystem Hierarchy Standard
 
 #### the root directory
 
@@ -1461,49 +1455,86 @@ du -sh ~/
 #### binary directories
 
 ```sh
+# Essential command binaries
 /bin
-# other /bin directories
+# Essential system binaries
 /sbin
+# Essential shared libraries and kernel modules
 /lib
+# Add-on application software packages
 /opt
 ```
 
 #### configuration directories
 
 ```sh
+# Static files of the boot loader
 /boot
+# Host-specific system configuration
 /etc
 ```
 
 #### data directories
 
 ```sh
+#  User home directories (optional)
 /home
+# Home directory for the root user(optional)
 /root
+# Data for services provided by this system
 /srv
+# Mount point for removable media
 /media
+# Mount point for mounting a filesystem temporarily
 /mnt
+# Temporary files
 /tmp
 ```
 
 #### in memory directories
 
 ```sh
+# Device files
 /dev
-/proc conversation with the kernel
-/sys Linux 2.6 hot plugging
-/usr Unix System Resources
+# Kernel and process information virtual filesystem
+/proc
+# Kernel and system information virtual filesystem
+/sys
+```
+
+#### Unix System Resources - The second major section of the filesystem
+
+```sh
+/usr
+# Most user commands
 /usr/bin
+# Directory for standard include files
 /usr/include
+# Libraries for programming and packages
 /usr/lib
+# Local hierarchy
 /usr/local
+# Architecture-independent data
 /usr/share
+# Source code (optional)
 /usr/src
-/var variable data
+```
+
+#### Variable data
+
+```sh
+/run
+/var
+# Data relevant to running processes
+/var/run
+# Log files and directories
 /var/log
 /var/log/messages
+# Application cache data
 /var/cache
+# Application spool data
 /var/spool
+# Variable state information
 /var/lib
 ```
 
