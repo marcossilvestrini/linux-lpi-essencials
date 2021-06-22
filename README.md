@@ -1318,7 +1318,136 @@ do
 done
 ```
 
+### Text editors
 
+#### vim - Vi IMproved, a programmer's text editor
+
+```sh
+#open file
+vi foo.txt
+
+#enter edit mode
+i
+
+#exit edir mode
+esc
+
+#add  char
+a - add new letter in next posicion where the course is positioned
+I - add new letter in bigin line
+A - add new letter in end line
+
+#delete char
+x - delete letter where the course is positioned
+X - delete previous letter where the course is positioned
+dd - delete line where the course is positioned
+
+#find
+/
+#Example: /foo
+#[N: Next],[?: previous ]
+
+#save
+:w
+
+#exit
+:q
+
+#save and quit
+:wq
+
+#not save and quit
+:q!
+```
+
+### nano - Nano's ANOther editor, an enhanced free Pico clone
+
+```sh
+#open file
+nano foo.sh
+
+#exir
+ctr+x
+
+#save
+ctr+o
+
+#find
+ctr+w
+
+#cut
+ctr+k
+
+#past
+ctr+u
+
+#open another file
+ctr+r
+```
+
+## Understanding Computer Hardware
+
+MOTHERBOARDS - main printed circuit board (PCB)\
+CPU - Central Processig Unit\
+BIOS - Basic Input/Output System\
+RAM - Random-Access Memory\
+HD - Hard Disk\
+PSU - Power Supply Unit
+PERIPHERALS - Mouse,Keyboard,Printers, Mic, etc
+
+## Where Data is Stored
+
+### Commom mount paths
+
+devices: /dev/sd*\
+not optical drivers: /mnt\
+optical drivers: /media\
+
+### lsblk - list block devices
+
+```sh
+lsblk
+```
+
+### fdisk - manipulate disk partition table
+
+```sh
+sudo fdisk /dev/sdb
+# Options for creat a default ext2 partition: n, p , 1
+# save new partition: w
+```
+
+### mkfs - build a Linux filesystem
+
+```sh
+# default filesystem ext2
+sudo mkfs /dev/sdb1
+
+# filesystem ext4
+sudo mkfs -t ext4 /dev/sdb1
+```
+
+### mount - mount a filesystem
+
+```sh
+mkdir /mnt/secondary
+sudo mount /dev/sdb1 /mnt/secondary
+lsblk
+```
+
+### umount - umount a file systems
+
+```sh
+sudo umount /mnt/secondary
+```
+
+### du - Estimate file space usage
+
+du /home/vagrant
+du -s ~/
+du -sh ~/
+
+### df - Report file system disk space usage
 
 
 ## System Information (RPM, Debian)
@@ -1343,12 +1472,4 @@ done
 
 `sudo systemctl restart network`
 
-## Storage Managment
 
-### du - Estimate file space usage
-
-du /home/vagrant
-du -s ~/
-du -sh ~/
-
-### df - Report file system disk space usage
