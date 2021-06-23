@@ -1542,11 +1542,39 @@ du -sh ~/
 /var/lib
 ```
 
-### Some important file in /etc
+### Some important FHS files
 
-/etc/fstab : mount point in boot
+/etc/fstab : Static information about filesystems (optional)\
+/etc/hosts : Static information about host names (optional)\
+/etc/passwd : The password file (optional)\
+/etc/shadow : Encrypted passwords\
+/etc/init.d : Prograns executed in boot\
 
-/etc/hosts :
+/proc/cpuinfo : Details of CPU host\
+/proc/devices : Details of devices host\
+/proc/loadavg : CPU usage details
+/proc/meminfo : Memory usage details
+/proc/version : Infos of gnu\linux
+
+/var/log : Log files
+
+### Some Important commands
+
+```sh
+# Tell how long the system has been running
+uptime
+
+# Display amount of free and used memory in the system
+free
+free -h
+
+# Display Linux processes
+top
+
+# Print or control the kernel ring buffer
+dmesg | less
+
+```
 
 ## Network Managment
 
