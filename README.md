@@ -1538,6 +1538,12 @@ du -sh ~/
 /var/lib
 ```
 
+### Some important file in /etc
+
+/etc/fstab : mount point in boot
+
+/etc/hosts :
+
 ## Network Managment
 
 ### View Ip (RPM,Debian)
