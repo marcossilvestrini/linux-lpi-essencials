@@ -1568,17 +1568,57 @@ uptime
 free
 free -h
 
-# Display Linux processes
-top
-
 # Print or control the kernel ring buffer
 dmesg | less
 
+# Display Linux processes
+top
+
+
+# Report a snapshot of the current processes.
+ps
+ps -e
+ps -ef
+ps -ef | grep vim
+ps -f 5634
+ps -l
+
+# kill - terminate a process
+kill vim
+kill 1298
+
+#force
+kill -9 vim
+
+#stop and restore program
+kill -STOP 11163
+kill -CONT 11163
 ```
 
-## Network Managment
+### Some shortcuts
 
-### View Ip (RPM,Debian)
+stop program : ctr+z
+go back to the program
+
+## Your Computer on the Network
+
+### dig - DNS lookup utility
+
+```sh
+# install in centos 7/8
+sudo yum install bind-utils
+
+# Examples
+dig www.google.com
+```
+
+### ping - send ICMP ECHO_REQUEST to network hosts
+
+```sh
+ping www.google.com
+```
+
+### View Ip
 
 `ip addr show`
 
@@ -1593,5 +1633,3 @@ dmesg | less
 ### Restart Network(RPM)
 
 `sudo systemctl restart network`
-
-
