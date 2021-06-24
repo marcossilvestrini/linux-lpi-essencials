@@ -1544,19 +1544,21 @@ du -sh ~/
 
 ### Some important FHS files
 
-/etc/fstab : Static information about filesystems (optional)\
-/etc/hosts : Static information about host names (optional)\
-/etc/passwd : The password file (optional)\
-/etc/shadow : Encrypted passwords\
-/etc/init.d : Prograns executed in boot\
+```sh
+/etc/fstab : Static information about filesystems (optional)
+/etc/hosts : Static information about host names (optional)
+/etc/passwd : The password file (optional)
+/etc/shadow : Encrypted passwords
+/etc/init.d : Prograns executed in boot
 
-/proc/cpuinfo : Details of CPU host\
-/proc/devices : Details of devices host\
+/proc/cpuinfo : Details of CPU host
+/proc/devices : Details of devices host
 /proc/loadavg : CPU usage details
 /proc/meminfo : Memory usage details
 /proc/version : Infos of gnu\linux
 
 /var/log : Log files
+```
 
 ### Some Important commands
 
