@@ -1599,8 +1599,8 @@ kill -CONT 11163
 
 ### Some shortcuts
 
-stop program : ctr+z
-go back to the program
+stop program : ctr+z\
+go back to the program: fg
 
 ## Your Computer on the Network
 
