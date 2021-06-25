@@ -1750,16 +1750,40 @@ marcos.silvestrini:x:1000:1000:marcos.silvestrini:/home/marcos.silvestrini:/bin/
 7 - Command/shell: The absolute path of a command or shell (/bin/bash). Typically, this is a shell. Please note that it does not have to be a shell. For example, sysadmin can use the nologin shell, which acts as a replacement shell for the user accounts. If shell set to /sbin/nologin and the user tries to log in to the Linux system directly, the /sbin/nologin shell closes the connection.
 ```
 
+### Understanding File /etc/skel
+
+The /etc/skel/ directory is for "skeleton" user files, which are used to populate a home directory when a user is first created.
+
+```sh
+# Default files
+.bash_logout
+.bash_profile
+.bashrc
+```
+
 ### useradd - create a new user or update default new user information
 
 ```sh
 sudo useradd foo
+
+# create home dir
+sudo useradd -m foo
+
+#personalize skel(home files)
+sudo mkdir /my-skel
+sudo  cp -r /etc/skel /my-skel
+sudo touch /my-skel/skel/my-personal-file.txt
+sudo useradd -m -k /my-skel/skel/ foo
+sudo ls -la /home/foo
 ```
 
 ### userdel - delete a user account and related files
 
 ```sh
 sudo userdel foo
+
+# remove home dir
+sudo userdel -r foo
 ```
 
 ### passwd - update user's authentication tokens
@@ -1774,10 +1798,14 @@ passwd foo
 su foo
 ```
 
-### File /etc/skel
+### vipw, vigr - edit the password, group, shadow-password or shadow-group file
 
 ```sh
-The /etc/skel/ directory is for "skeleton" user files, which are used to populate a home directory when a user is first created.
+# Edit /etc/passwd
+sudo vipw
+
+# Edit /etc/shadow
+sudo vipw -s
 ```
 
 ### EOF
