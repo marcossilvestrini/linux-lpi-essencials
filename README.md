@@ -1627,10 +1627,11 @@ sudo yum install bind-utils
 dig www.google.com
 ```
 
-### ping - send ICMP ECHO_REQUEST to network hosts
+### ping\ping6 - send ICMP ECHO_REQUEST to network hosts
 
 ```sh
 ping www.google.com
+ping6 www.google.com
 ```
 
 ### ifconfig - configure a network interface
@@ -1659,7 +1660,46 @@ route
 
 ### ip - show / manipulate routing, network devices, interfaces and tunnels
 
-`ip addr show`
+```sh
+# list ips
+ip addr show
+
+# list routes
+ip route show
+```
+
+### netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
+
+```sh
+# list all conections
+netstat
+
+#listenning
+netstat -l
+
+# tcp connections
+netstat -t
+
+# tcp connection and listenning
+netstat -tl
+
+# print ports in connections tcp
+netstat -tln
+
+# print process id (PID) in connections tcp
+netstat -tlnp
+netstat -tlnp | grep 80
+#all
+sudo netstat -tlnp
+
+# udp connections
+netstat -u
+# all
+sudo netstat -u
+
+# print network statistics
+netstat -s
+```
 
 ### List Network Adapters
 
@@ -1672,3 +1712,76 @@ route
 ### Restart Network
 
 `sudo systemctl restart network`
+
+## Security and File Permissions
+
+### whoami - print effective userid
+
+```sh
+#view current user
+whoami
+```
+
+### id - print real and effective user and group IDs
+
+```sh
+id
+
+# view group
+id -g
+id -G
+
+# view user
+id -u
+```
+
+### Understanding file format /etc/passwd
+
+```sh
+1                  2   3    4          5                     6                 7
+marcos.silvestrini:x:1000:1000:marcos.silvestrini:/home/marcos.silvestrini:/bin/bash
+
+1 - Username: It is used when user logs in. It should be between 1 and 32 characters in length.
+2 - Password: An x character indicates that encrypted password is stored in /etc/shadow file. Please note that you need to use the passwd command to computes the hash of a password typed at the CLI or to store/update the hash of the password in /etc/shadow file.
+3 - User ID (UID): Each user must be assigned a user ID (UID). UID 0 (zero) is reserved for root and UIDs 1-99 are reserved for other predefined accounts. Further UID 100-999 are reserved by system for administrative and system accounts/groups.
+4 - Group ID (GID): The primary group ID (stored in /etc/group file)
+5 - User ID Info (GECOS): The comment field. It allow you to add extra information about the users such as user’s full name, phone number etc. This field use by finger command.
+6 - Home directory: The absolute path to the directory the user will be in when they log in. If this directory does not exists then users directory becomes /
+7 - Command/shell: The absolute path of a command or shell (/bin/bash). Typically, this is a shell. Please note that it does not have to be a shell. For example, sysadmin can use the nologin shell, which acts as a replacement shell for the user accounts. If shell set to /sbin/nologin and the user tries to log in to the Linux system directly, the /sbin/nologin shell closes the connection.
+```
+
+### useradd - create a new user or update default new user information
+
+```sh
+sudo useradd foo
+```
+
+### userdel - delete a user account and related files
+
+```sh
+sudo userdel foo
+```
+
+### passwd - update user's authentication tokens
+
+```sh
+passwd foo
+```
+
+### su - run a command with substitute user and group ID
+
+```sh
+su foo
+```
+
+### File /etc/skel
+
+```sh
+The /etc/skel/ directory is for "skeleton" user files, which are used to populate a home directory when a user is first created.
+```
+
+### EOF
+
+```sh
+foo
+```
