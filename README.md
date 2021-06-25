@@ -1604,6 +1604,19 @@ go back to the program: fg
 
 ## Your Computer on the Network
 
+### Some importants files
+
+```sh
+# Static information about host names (optional)
+/etc/hosts
+
+ # Resolver configuration file (optional)
+/etc/resolve.conf
+
+# Resolver configuration file (optional)
+/etc/host.conf
+```
+
 ### dig - DNS lookup utility
 
 ```sh
@@ -1620,18 +1633,42 @@ dig www.google.com
 ping www.google.com
 ```
 
-### View Ip
+### ifconfig - configure a network interface
+
+```sh
+# install
+sudo dnf install net-tools.x86_64
+
+ifconfig
+```
+
+### host - DNS lookup utility
+
+```sh
+# install
+sudo yum install bind-utils
+
+host www.google.com
+```
+
+### route - show / manipulate the IP routing table
+
+```sh
+route
+```
+
+### ip - show / manipulate routing, network devices, interfaces and tunnels
 
 `ip addr show`
 
-### List Network Adapters (RMP)
+### List Network Adapters
 
 `nmcli d`
 
-### Configure Network (RPM)
+### Configure Network
 
 `nmtui`
 
-### Restart Network(RPM)
+### Restart Network
 
 `sudo systemctl restart network`
