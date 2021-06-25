@@ -1367,7 +1367,7 @@ dd - delete line where the course is positioned
 #open file
 nano foo.sh
 
-#exir
+#exit
 ctr+x
 
 #save
