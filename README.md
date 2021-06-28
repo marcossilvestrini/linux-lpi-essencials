@@ -1735,6 +1735,23 @@ id -G
 id -u
 ```
 
+### who - show who is logged on
+
+```sh
+#latest boot
+who -b
+
+#list users
+who
+who -H
+```
+
+### w - Show who is logged on and what they are doing.
+
+```sh
+w
+```
+
 ### Understanding file format /etc/passwd
 
 ```sh
@@ -1796,6 +1813,25 @@ passwd foo
 
 ```sh
 su foo
+
+# Start the shell as a login shell with an environment similar to a real login
+su - foo
+```
+
+### sudo - sudoedit — execute a command as another user
+
+```sh
+sudo yum install java
+
+# open root terminal
+sudo -i
+```
+
+### last, lastb - show a listing of last logged in users
+
+```sh
+last
+last vagrant
 ```
 
 ### vipw, vigr - edit the password, group, shadow-password or shadow-group file
@@ -1808,8 +1844,117 @@ sudo vipw
 sudo vipw -s
 ```
 
+### Undertanding file permissions
+
+```sh
+# Example
+1  2   3    4  5  6   7   8     9
+- rw- r-- r--. 1 foo foo  0 Jun 25 19:37 my-personal-file.txt
+
+1: d=directory, -: file
+2: permission owner file
+3: permission owner group
+4: permission others owners
+5: 1: file, 2: directory
+6: owner
+7: group
+8:
+9:
+
+# Symbolic Method
+u: user
+g: group
+o: others
+a: all
+
+r: read
+w: write
+x: execute
+
++: allow permission
+-: denny permission
+
+# Numeric Method
+0: (000) - There is no permission.
+1: (001) - It has only the execute permission.
+2: (010) - It has only the write permission.
+3: (011) - It has both execute and write permissions.
+4: (100) - It has only read permission.
+5: (101) - Assigned only execute and read permissions.
+6: (110) - Only the write and read permissions have been assigned.
+7: (111) - All permissions.
+
+```
+
+### chmod - change file mode bits
+
+```sh
+# change mode read for others users
+chmod o+r bar.txt
+chmod o-r bar.txt
+
+# change mode write for others users
+chmod o+w bar.txt
+chmod o-w bar.txt
+
+# change mode execute for others users
+chmod o+x bar.txt
+chmod o-x bar.txt
+
+# change mode execute for user
+chmod u+x bar.txt
+chmod u-x bar.txt
+
+# change mode read,write for group
+chmod g+rw bar.txt
+chmod g-rw bar.txt
+
+# change mode read,write for user,group and others
+chmod ugo+rw bar.txt
+chmod a+rw bar.txt
+chmod ugo-rw bar.txt
+chmod a-rw bar.txt
+
+#recursive
+chmod -R o+rw terraform
+
+# quotting
+chmod o+x *
+chmod o+x foo/*
+
+# reference
+chmod --reference=foo.txt bar.txt
+
+# others examples
+chmod o=r foo.txt
+chmod u=rw,g=r,o=w foo.txt
+
+# numeric method
+chmod 644 bar.txt
+chmod 777 bar.txt
+chmod 744 bar.txt
+```
+
+### chown - change file owner and group
+
+```sh
+# file
+sudo chown mark /home/mark/foo.txt
+
+# folder
+sudo chown mark -R   /home/mark/foo
+
+# alter group
+sudo chown :bar foo.txt
+sudo chown mark:bar foo.txt
+
+# sticky bit
+chmod +t ~/foo/tmp
+```
+
 ### EOF
 
 ```sh
 foo
 ```
+
