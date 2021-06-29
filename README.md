@@ -68,6 +68,7 @@ Installation and configuration of some packages will also be covered
 - [Regular Expressions](https://www.gnu.org/software/grep/manual/html_node/Regular-Expressions.html)
 - [Shebang](https://bash.cyberciti.biz/guide/Shebang)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
+- [Simulator](https://www.proprofs.com/quiz-school/story.php?title=mtq1mtq2oqtx8h)
 
 ## Filesystem
 
@@ -603,6 +604,9 @@ Black with green background: sticky and other-writable directory
 #mark types [*= executables, /=directories, @=symbolik links]
 ls -F
 ls -p
+
+#all infos actual dir
+ls -ld
 
 #Some examples
 ls /etc
@@ -2084,11 +2088,6 @@ security risk. For example, a user can gain superuser privileges by executing a 
 user ID (UID) to root. Also, all users can set special permissions for files they own, which constitutes\
 another security concern.
 
-You should monitor your system for any unauthorized use of the setuid and setgid permissions to gain\
-superuser privileges. To search for and list all of the files that use these permissions, see How to\
-Find Files With setuid Permissions. A suspicious listing grants ownership of such a program to a user\
-rather than to root or bin.
-
 **setuid Permission**\
 When set-user identification (setuid) permission is set on an executable file, a process that runs this\
 file is granted access based on the owner of the file (usually root), rather than the user who is\
@@ -2131,8 +2130,12 @@ such as /tmp:
 
 `drwxrwxrwt 7  root  sys   400 Sep  3 13:37 tmp`
 
-### EOF
+### ln - make links between files
 
 ```sh
-foo
+# hardlink
+sudo ln /home/vagrant/bin/list-files.sh /usr/local/bin/list-files.sh
+
+# simbolik link
+sudo ln -s /home/vagrant/bin/list-files.sh /usr/local/bin/list-files.sh
 ```
