@@ -1727,13 +1727,31 @@ whoami
 ```sh
 id
 
-# view group
-id -g
-id -G
-
-# view user
+# view group number
 id -u
+id -u foo
+
+# view groups
+id -g
+id -g foo
+groups
+
+# all groups
+id -G
+id -G foo
+
+# group by name
+id -ng
+id -ng foo
+id -nG
 ```
+
+### groups - print the groups a user is in
+
+```sh
+groups
+```
+
 
 ### who - show who is logged on
 
@@ -1767,9 +1785,66 @@ marcos.silvestrini:x:1000:1000:marcos.silvestrini:/home/marcos.silvestrini:/bin/
 7 - Command/shell: The absolute path of a command or shell (/bin/bash). Typically, this is a shell. Please note that it does not have to be a shell. For example, sysadmin can use the nologin shell, which acts as a replacement shell for the user accounts. If shell set to /sbin/nologin and the user tries to log in to the Linux system directly, the /sbin/nologin shell closes the connection.
 ```
 
+### Understanding File /etc/group
+
+```sh
+The group membership in Linux is controlled through the /etc/group file. This is a simple text file that
+contains a list of groups and the members belonging to each group. Just like the /etc/passwd file,
+the /etc/group file consists of a series of colon-delimited lines, each of which defines a single group.
+The file is readable by all users.
+
+Here is how an entry in the /etc/group file looks like:
+group name:password:GID:list of users
+```
+
+### Uderstanding Files /etc/shadow
+
+```sh
+Here is how an entry in the /etc/shadow file looks like:
+username:encrypted password:last password change:minimum:maximum:warning:disabled:disabled date
+
+Here is a brief description of each field:
+
+username – the name of the user.
+
+encrypted password – the password in encrypted form.
+
+last password change – the date of the last password change. This date is stored as the number of days
+since January 1, 1970.
+
+minimum – the number of days before a password change is allowed. The value of 0 means the password can be changed any time.
+
+maximum – the number of days before the password must be changed. The value 99999 means the user’s password never expires.
+
+warning – the number of days before a password is going to expire during which the user will be warned.
+
+disabled – the number of days after a password has expired until the user account is disabled. No entry in this field means that the account is disabled immediately after the password expires.
+
+disabled date – the number of days since January 1, 1970 that the account has been disabled. No entry in this field means the account is not disabled.
+```
+
+### Uderstanding Files /etc/gshadow
+
+```sh
+Here is how an entry in the /etc/shadow file looks like:
+group name:encrypted password:group administrator:group members
+
+Here is a brief description of each field:
+
+Group Name: This is the name of the group. When you create a new user without defining a group name, the system automatically assigns the group name with the same as the user name.
+
+Encrypted Password Of Group: The encrypted password for the group. If set, non-members of the group can join the group by typing the password for that group using the newgrp command. If the value of this field is ! then no user is allowed to access the group using the newgrp command. A value of !! is treated the same as a value of! However, it also indicates that a password has never been set before. If the value is null, only group members can log into the group.
+
+Group Administrator: All the members of the group, listed here with a comma. You can add or remove group members using the gpasswd command
+
+Group Members: All the members of the group listed here are regular members. But, there is a comma to separate them, i.e. a non-administrative member of the groups.
+```
+
 ### Understanding File /etc/skel
 
+```sh
 The /etc/skel/ directory is for "skeleton" user files, which are used to populate a home directory when a user is first created.
+```
 
 ```sh
 # Default files
@@ -1778,35 +1853,66 @@ The /etc/skel/ directory is for "skeleton" user files, which are used to populat
 .bashrc
 ```
 
+### groupadd - create a new group
+
+```sh
+sudo groupadd admins
+```
+
+### groupdel - delete group
+
+```sh
+sudo groupdel admins
+```
+
+### groupmod - modify a group definition on the system
+
+```sh
+sudo groupmod -n infraestructure infra
+```
+
+### newgrp - log in to a new group
+
+```sh
+newgrp group
+```
+
 ### useradd - create a new user or update default new user information
 
 ```sh
-sudo useradd foo
+sudo useradd jon
 
 # create home dir
-sudo useradd -m foo
+sudo useradd -m jon
 
 #personalize skel(home files)
 sudo mkdir /my-skel
 sudo  cp -r /etc/skel /my-skel
 sudo touch /my-skel/skel/my-personal-file.txt
-sudo useradd -m -k /my-skel/skel/ foo
-sudo ls -la /home/foo
+sudo useradd -m -k /my-skel/skel/ jon
+sudo ls -la /home/jon
 ```
 
 ### userdel - delete a user account and related files
 
 ```sh
-sudo userdel foo
+sudo userdel jon
 
 # remove home dir
-sudo userdel -r foo
+sudo userdel -r jon
+```
+
+### usermod - modify a user account
+
+```sh
+# add jon n group 1003
+sudo usermod -a -G 1003 jon
 ```
 
 ### passwd - update user's authentication tokens
 
 ```sh
-passwd foo
+passwd jon
 ```
 
 ### su - run a command with substitute user and group ID
@@ -1815,7 +1921,7 @@ passwd foo
 su foo
 
 # Start the shell as a login shell with an environment similar to a real login
-su - foo
+su - jon
 ```
 
 ### sudo - sudoedit — execute a command as another user
