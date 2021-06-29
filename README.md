@@ -1976,6 +1976,8 @@ a: all
 r: read
 w: write
 x: execute
+t: Sticky Bit
+s: setuid,setgid
 
 +: allow permission
 -: denny permission
@@ -2095,4 +2097,3 @@ drwxrwxrwt 7  root  sys   400 Sep  3 13:37 tmp
 ```sh
 foo
 ```
-
