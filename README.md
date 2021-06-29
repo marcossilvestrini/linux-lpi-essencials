@@ -1772,40 +1772,35 @@ w
 
 ### Understanding file format /etc/passwd
 
-1                  2   3    4          5                     6                 7\
+```sh
+1                  2   3    4          5                     6                 7
 marcos.silvestrini:x:1000:1000:marcos.silvestrini:/home/marcos.silvestrini:/bin/bash
 
-1 - Username: It is used when user logs in. It should be between 1 and 32 characters in length.\
-2 - Password: An x character indicates that encrypted password is stored in /etc/shadow file. Please \
-note that you need to use the passwd command to computes the hash of a password typed at the CLI or to \
-store/update the hash of the password in /etc/shadow file.\
-3 - User ID (UID): Each user must be assigned a user ID (UID). UID 0 (zero) is reserved for root and\
-UIDs 1-99 are reserved for other predefined accounts. Further UID 100-999 are reserved by system for\
-administrative and system accounts/groups.\
-4 - Group ID (GID): The primary group ID (stored in /etc/group file)\
-5 - User ID Info (GECOS): The comment field. It allow you to add extra information about the users such\
-as user’s full name, phone number etc. This field use by finger command.\
-6 - Home directory: The absolute path to the directory the user will be in when they log in. If this\
-directory does not exists then users directory becomes / \
-7 - Command/shell: The absolute path of a command or shell (/bin/bash). Typically, this is a shell.\
-Please note that it does not have to be a shell. For example, sysadmin can use the nologin shell, which\
-acts as a replacement shell for the user accounts. If shell set to /sbin/nologin and the user tries to\
-log in to the Linux system directly, the /sbin/nologin shell closes the connection.
+1 - Username: It is used when user logs in. It should be between 1 and 32 characters in length.
+2 - Password: An x character indicates that encrypted password is stored in /etc/shadow file. Please note that you need to use the passwd command to computes the hash of a password typed at the CLI or to store/update the hash of the password in /etc/shadow file.
+3 - User ID (UID): Each user must be assigned a user ID (UID). UID 0 (zero) is reserved for root and UIDs 1-99 are reserved for other predefined accounts. Further UID 100-999 are reserved by system for administrative and system accounts/groups.
+4 - Group ID (GID): The primary group ID (stored in /etc/group file)
+5 - User ID Info (GECOS): The comment field. It allow you to add extra information about the users such as user’s full name, phone number etc. This field use by finger command.
+6 - Home directory: The absolute path to the directory the user will be in when they log in. If this directory does not exists then users directory becomes /
+7 - Command/shell: The absolute path of a command or shell (/bin/bash). Typically, this is a shell. Please note that it does not have to be a shell. For example, sysadmin can use the nologin shell, which acts as a replacement shell for the user accounts. If shell set to /sbin/nologin and the user tries to log in to the Linux system directly, the /sbin/nologin shell closes the connection.
+```
 
 ### Understanding File /etc/group
 
-The group membership in Linux is controlled through the /etc/group file. This is a simple text file that\
-contains a list of groups and the members belonging to each group. Just like the /etc/passwd file,\
-the /etc/group file consists of a series of colon-delimited lines, each of which defines a single group.\
+```sh
+The group membership in Linux is controlled through the /etc/group file. This is a simple text file that
+contains a list of groups and the members belonging to each group. Just like the /etc/passwd file,
+the /etc/group file consists of a series of colon-delimited lines, each of which defines a single group.
 The file is readable by all users.
 
-Here is how an entry in the /etc/group file looks like:\
+Here is how an entry in the /etc/group file looks like:
 group name:password:GID:list of users
+```
 
 ### Uderstanding Files /etc/shadow
 
-
-Here is how an entry in the /etc/shadow file looks like:\
+```sh
+Here is how an entry in the /etc/shadow file looks like:
 username:encrypted password:last password change:minimum:maximum:warning:disabled:disabled date
 
 Here is a brief description of each field:
@@ -1814,47 +1809,42 @@ username – the name of the user.
 
 encrypted password – the password in encrypted form.
 
-last password change – the date of the last password change. This date is stored as the number of days\
+last password change – the date of the last password change. This date is stored as the number of days
 since January 1, 1970.
 
-minimum – the number of days before a password change is allowed. The value of 0 means the password can\ be changed any time.
+minimum – the number of days before a password change is allowed. The value of 0 means the password can be changed any time.
 
-maximum – the number of days before the password must be changed. The value 99999 means the user’s\
-password never expires.
+maximum – the number of days before the password must be changed. The value 99999 means the user’s password never expires.
 
 warning – the number of days before a password is going to expire during which the user will be warned.
 
-disabled – the number of days after a password has expired until the user account is disabled. No entry\ in this field means that the account is disabled immediately after the password expires.
+disabled – the number of days after a password has expired until the user account is disabled. No entry in this field means that the account is disabled immediately after the password expires.
 
-disabled date – the number of days since January 1, 1970 that the account has been disabled. No entry in\
- this field means the account is not disabled.
+disabled date – the number of days since January 1, 1970 that the account has been disabled. No entry in this field means the account is not disabled.
+```
 
 ### Uderstanding Files /etc/gshadow
 
-Here is how an entry in the /etc/shadow file looks like:\
+```sh
+Here is how an entry in the /etc/shadow file looks like:
 group name:encrypted password:group administrator:group members
 
 Here is a brief description of each field:
 
-Group Name: This is the name of the group. When you create a new user without defining a group name, the\
-system automatically assigns the group name with the same as the user name.
+Group Name: This is the name of the group. When you create a new user without defining a group name, the system automatically assigns the group name with the same as the user name.
 
-Encrypted Password Of Group: The encrypted password for the group. If set, non-members of the group can\
-join the group by typing the password for that group using the newgrp command. If the value of this\
-field is ! then no user is allowed to access the group using the newgrp command. A value of !! is\
-treated the same as a value of! However, it also indicates that a password has never been set before. If\
-the value is null, only group members can log into the group.
+Encrypted Password Of Group: The encrypted password for the group. If set, non-members of the group can join the group by typing the password for that group using the newgrp command. If the value of this field is ! then no user is allowed to access the group using the newgrp command. A value of !! is treated the same as a value of! However, it also indicates that a password has never been set before. If the value is null, only group members can log into the group.
 
-Group Administrator: All the members of the group, listed here with a comma. You can add or remove group\
-members using the gpasswd command
+Group Administrator: All the members of the group, listed here with a comma. You can add or remove group members using the gpasswd command
 
-Group Members: All the members of the group listed here are regular members. But, there is a comma to\
-separate them, i.e. a non-administrative member of the groups.
+Group Members: All the members of the group listed here are regular members. But, there is a comma to separate them, i.e. a non-administrative member of the groups.
+```
 
 ### Understanding File /etc/skel
 
-The /etc/skel/ directory is for "skeleton" user files, which are used to populate a home directory when\
-a user is first created.
+```sh
+The /etc/skel/ directory is for "skeleton" user files, which are used to populate a home directory when a user is first created.
+```
 
 ```sh
 # Default files
