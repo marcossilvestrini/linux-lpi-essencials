@@ -1,0 +1,76 @@
+Guided Exercises
+
+1. How is Debian GNU/Linux different from Ubuntu?
+Name two aspects.
+
+R:
+Quais as diferenças entre o Debian GNU/Linux e o Ubuntu? Cite dois aspectos.
+
+O Ubuntu baseia-se em um instantâneo do Debian, e por isso existem muitas semelhanças entre eles.
+Todavia, eles não deixam de apresentar diferenças significativas.
+A primeira delas seria a usabilidade para os iniciantes.
+O Ubuntu é recomendado aos iniciantes devido à sua facilidade de uso,
+já o Debian é recomendado para usuários mais avançados.
+A principal diferença reside na complexidade da configuração de usuário,
+que o Ubuntu não exige durante o processo de instalação.
+
+Outra diferença seria a estabilidade de cada distribuição.
+O Debian é considerado mais estável em comparação com o Ubuntu.
+Isso acontece porque ele recebe menos atualizações, que são testadas em detalhe,
+e o sistema operacional como um todo tem mais estabilidade. Por outro lado,
+o Ubuntu permite que o usuário utilize os lançamentos mais recentes de software e todas as novas tecnologias.
+
+2. What are the most common environments/platforms Linux is used for?
+Name three different environments/platforms and name one distribution you can use for each.
+R:
+Dentre os ambientes/plataformas mais comuns poderíamos citar smartphone, desktop e servidor.
+Nos smartphones, ele pode ser empregado em distribuições como o Android.
+Para desktop e servidores, é possível escolher qualquer distribuição que pareça adequada à
+funcionalidade da máquina em questão, como Debian ou Ubuntu, ou ainda CentOS e Red Hat Enterprise Linux.
+
+3. You are planning to install a Linux distribution in a new environment.
+Name four things that you should consider when choosing a distribution.
+R:
+Ao escolher uma distribuição, alguns elementos importantes a considerar são custo,
+desempenho, escalabilidade, estabilidade e as exigências de hardware do sistema.
+
+4. Name three devices that the Android OS runs on, other than smartphones.
+R:
+smart tv
+smartwatches
+consoles
+
+5. Explain three major advantages of cloud computing.
+R:
+As principais vantagens da computação em nuvem são flexibilidade, facilidade de recuperação e baixo custo.
+Os serviços baseados na nuvem são fáceis de implementar e escalar, dependendo das necessidades da empresa.
+Eles são mais vantajosos para as soluções de backup e recuperação,
+já que permitem que uma empresa se recupere rapidamente e sem grandes repercussões após um incidente.
+Além disso, reduzem os custos operacionais, pois é possível pagar apenas pelos recursos usados pela empresa
+em um modelo baseado em assinatura.
+
+
+Explorational Exercises
+
+1. Considering cost and performance, which distributions are mostly suitable for a business
+that aims to reduce licensing costs, while keeping performance at its highest? Explain why.
+R:
+Uma das distribuições mais adequadas ao uso empresarial é o CentOS.
+Ela incorpora todos os produtos do Red Hat, que também são usados no sistema operacional comercial
+dessa empresa, sem deixar de ser gratuita. Da Mesma maneira, os lançamentos do Ubuntu LTS garantem
+o suporte por períodos mais longos. As versões estáveis de Debian GNU/Linux também são frequentemente
+usadas em ambientes empresariais.
+
+2. What are the major advantages of the Raspberry Pi and which functions can they take in business?
+R:
+O Raspberry Pi, embora pequeno, funciona como um computador normal.
+Além disso, custa pouco e pode lidar com tráfego web e muitas outras funcionalidades.
+Pode ser usado como servidor ou firewall, como placa principal de um robô e muitos outros pequenos dispositivos.
+
+3. What range of distributions does Amazon Cloud Services and Google Cloud offer?
+Name at least three common ones and two different ones.
+R:
+As distribuições em comum entre o Amazon e o Google Cloud Services são Ubuntu,
+CentOS e Red Hat Enterprise Linux. Cada um desses provedores de serviços na nuvem
+propõe distribuições específicas. A Amazon tem o Amazon Linux e o Kali Linux, ao passo
+que o Google oferece o uso de FreeBSD e Windows Servers.
