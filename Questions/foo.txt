@@ -1,0 +1,66 @@
+For each of the following commands, identify whether it is associated with the Debian packaging
+system or the Red Hat packaging system:
+
+dpkg
+rpm
+apt-get
+yum
+dnf
+
+R:
+Debian: dpkg,apt-get
+RPM: rpm,yum,dnf
+
+Which command could be used to install Blender on Ubuntu? After installation,
+how can the program be executed?
+
+R:
+sudo apt-get install Blender
+blender
+
+Which application from the LibreOffice suite can be used to work with electronic spreadsheets?
+Calc
+
+Which open-source web browser is used as the basis for the development of Google Chrome?
+R:
+Chromium
+
+SVG is an open standard for vector graphics. Which is the most popular application for editing
+SVG files in Linux systems?
+R:
+inkscape
+
+For each of the following file formats, write the name of an application able to open and edit
+the corresponding file:
+
+png - Gimp
+doc - LibreOffice writer
+xls - LibreOffice calc
+ppt - LibreOffice Impress
+wav - Audacity
+
+Which software package allows file sharing between Linux and Windows machines over the local network?
+R:
+Samba
+
+Explorational Exercises
+
+You know that configuration files are kept even if the associated package is removed from the system.
+How could you automatically remove the package named cups and its configuration
+files from a DEB based system?
+R:
+apt-get purge cups
+
+Suppose you have many TIFF image files and want to convert them to JPEG.
+Which software package could be used to convert those files directly at the command line?
+R:
+imagemagick
+
+Which software package do you need to install in order to be able to open Microsoft Word documents
+sent to you by a Windows user?
+R: LibreOffice or OpenOffice
+
+Every year, linuxquestions.org promotes a survey about the most popular Linux applications.
+Visit https://www.linuxquestions.org/questions/2018-linuxquestions-org-members-choice-awards-128/
+and find out which desktop applications are most popular among experienced Linux users.
+

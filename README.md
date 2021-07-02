@@ -132,18 +132,30 @@ Blender
 #### Image Editor
 
 [GIMP](https://www.gimp.org/)
+[ImageMagick](https://imagemagick.org/index.php)
 
 #### Vector graphics editor
 
-inkscape
+[inkscape](https://inkscape.org/about/)
 
-#### Players
+#### Audio Editor
+
+[Audacity](https://www.audacityteam.org/)
+
+#### Video Players
+
+VLC
+smplayer
+
+#### Audio Players
 
 Amarok
+Audacious
+Banshee
 
 #### Client Mail
 
-Thunderbird\
+Thunderbird
 
 #### Web Browsers
 
@@ -214,7 +226,8 @@ Fortune
 
 Apache HTTPD\
 NGINX\
-Tomcat
+Tomcat\
+lighttpd
 
 #### SGBD
 
@@ -227,6 +240,10 @@ PostgreSQL
 - [LAMP - Linux, Apache,Mysql,PHP](https://www.linode.com/docs/web-servers/lamp/)
 - [LEMP - Linux, Nginx,Mysql,PHP](https://www.linode.com/docs/guides/web-servers/lemp/)
 
+### Cloud
+
+ownCloud\
+Nextcloud
 ### Development languages
 
 C, Java, JavaScript, Perl, shell, Python, PHP
@@ -315,7 +332,12 @@ sudo add-apt-repository \
 
 ### Remove Package(Debian)
 
-`sudo apt-get remove lynx`
+```sh
+sudo apt-get remove lynx
+
+# remove all config files
+sudo apt-get purge cups
+```
 
 #### Update Repo Cache(RPM)
 
