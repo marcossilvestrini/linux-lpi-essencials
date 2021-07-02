@@ -72,36 +72,6 @@ Installation and configuration of some packages will also be covered
 - [LinuxEssentials Objectives V1.6](https://wiki.lpi.org/wiki/LinuxEssentials_Objectives_V1.6(PT-BR)#1.1_A_evolu.C3.A7.C3.A3o_do_Linux_e_sistemas_operacionais_populares)
 - [Simulator](https://www.proprofs.com/quiz-school/story.php?title=mtq1mtq2oqtx8h)
 
-## Filesystem
-
-- [NFS](https://www.kernel.org/doc/html/latest/admin-guide/nfs/index.html)
-- [Samba](https://wiki.samba.org/index.php/Main_Page)
-
-## Server Printer
-
-- [Cups](https://www.cups.org/documentation.html)
-
-## Server Mail
-
-- [Postfix](http://www.postfix.org/documentation.html)
-
-## DNS Server
-
-- [Bind](https://www.isc.org/bind/)
-
-## DHCP Server
-
-- [DNSmasq](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
-
-## LDAP
-
-- [OpenLDAP](https://www.openldap.org/)
-
-## Package Bundle
-
-- [LAMP - Linux, Apache,Mysql,PHP](https://www.linode.com/docs/web-servers/lamp/)
-- [LEMP - Linux, Nginx,Mysql,PHP](https://www.linode.com/docs/guides/web-servers/lemp/)
-
 ## Linux Evolution and Popular Operating Systems
 
 ### Distributions
@@ -149,56 +119,179 @@ AWS\
 Google Cloud\
 Azure
 
-## Packages Managment
+## Major Open Source Applications
 
-### Repository File(RPM)
+### Desktop applications
+
+#### Multimedia
+
+#### 3D creation suite
+
+Blender
+
+#### Image Editor
+
+[GIMP](https://www.gimp.org/)
+
+#### Vector graphics editor
+
+inkscape
+
+#### Players
+
+Amarok
+
+#### Client Mail
+
+Thunderbird\
+
+#### Web Browsers
+
+Firefox\
+Chrome\
+Chrominium
+
+#### Office Applications
+
+OpenOffice.org(Apache OpenOffice)\
+LibreOffice
+
+##### Aplications include in suites
+
+Writer\
+Text editor
+
+Calc\
+Spreadsheets
+
+Impress\
+Presentations
+
+Draw\
+Vector drawing
+
+Math\
+Math formulas
+
+Base\
+Database
+
+### [Fun applications](https://www.binarytides.com/linux-fun-commands/)
+
+Figlet\
+Cowsay
+Fortune
+`fortune -s | cowsay -W 78 -f $(ls /usr/share/cowsay/cows/ | shuf -n1)`
+
+### Server Application
+
+#### Server Printer
+
+- [Cups](https://www.cups.org/documentation.html)
+
+#### Server Mail
+
+- [Postfix](http://www.postfix.org/documentation.html)
+
+#### DNS Server
+
+- [Bind](https://www.isc.org/bind/)
+
+#### DHCP Server
+
+- [DNSmasq](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
+
+#### LDAP
+
+- [OpenLDAP](https://www.openldap.org/)
+
+#### Filesystem
+
+- [NFS](https://www.kernel.org/doc/html/latest/admin-guide/nfs/index.html)
+- [Samba](https://wiki.samba.org/index.php/Main_Page)
+
+#### Web Server
+
+Apache HTTPD\
+NGINX\
+Tomcat
+
+#### SGBD
+
+MariaDB
+MySQL
+PostgreSQL
+
+#### Package Bundle
+
+- [LAMP - Linux, Apache,Mysql,PHP](https://www.linode.com/docs/web-servers/lamp/)
+- [LEMP - Linux, Nginx,Mysql,PHP](https://www.linode.com/docs/guides/web-servers/lemp/)
+
+### Development languages
+
+C, Java, JavaScript, Perl, shell, Python, PHP
+
+### Package management tools and repositories
+
+#### Repository File(RPM)
 
 ```sh
 /etc/yum.conf
 /etc/yum.repos.d/
 ```
 
-### Repository File(Debian)
+#### Repository File(Debian)
 
 ```sh
 /etc/apt/sources.list
 /etc/apt/sources.list.d/
 ```
 
-### List Repositories(RPM)
+#### List Repositories(RPM)
 
 `yum repolist`
 
-### List Repositories(Debian)
+#### List Repositories(Debian)
 
 ```sh
 sudo grep -rhE ^deb /etc/apt/sources.list*
 apt-cache policy
 ```
 
-### Add new repository(RPM)
+#### Add new repository(RPM)
 
 ```sh
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 yum-config-manager --enable hashicorp
 ```
 
-### Add new repository(Debian)
+#### Search Packge(RPM)
+
+`yum search lynx`
+
+#### Search Packge(Debian)
+
+```sh
+apt-cache search lynx
+apt-cache search -n lynx
+```
+
+#### Add new repository(Debian)
 
 ```sh
 sudo add-apt-repository \
 'deb [arch=amd64] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse'
 ```
 
-### Remove repository(RPM)
+#### Remove repository(RPM)
 
 `yum --disablerepo=hashicorp update`
 
-### Remove repository(Debian)
+#### Remove repository(Debian)
 
 `sudo add-apt-repository -r ppa:nemh/systemback`
 
-### Install Package(RPM)
+#### Install Package(RPM)
 
 `sudo yum install lynx`
 
@@ -206,22 +299,13 @@ sudo add-apt-repository \
 
 `sudo apt-get install lynx`
 
-### Search Packge(RPM)
 
-`yum search lynx`
 
-### Search Packge(Debian)
-
-```sh
-apt-cache search lynx
-apt-cache search -n lynx
-```
-
-### Infos of Package(RPM)
+#### Infos of Package(RPM)
 
 `yum info lynx`
 
-### Infos of Package(Debian)
+#### Infos of Package(Debian)
 
 `apt-cache show lynx`
 
@@ -233,15 +317,15 @@ apt-cache search -n lynx
 
 `sudo apt-get remove lynx`
 
-### Update Repo Cache(RPM)
+#### Update Repo Cache(RPM)
 
 `yum makecache`
 
-### Update Packages(RPM)
+#### Update Packages(RPM)
 
 `sudo yum update`
 
-### Update Packages(Debian)
+#### Update Packages(Debian)
 
 `sudo apt-get update`
 
@@ -307,25 +391,42 @@ ls ~/foo && cp ~/foo ~/bar
 ls ~/foo || ls ~/bar
 ```
 
-### Bash Globbing
+### [Bash Globbing](https://linuxhint.com/bash_globbing_tutorial/)
 
 ```sh
+# *
 cat ~/*.txt
 ls -a ~/*.php
 ls -a ~/.*
 
+# ?
 cat ~/foo?.txt
 ls -a ~/202004??.log
 ls -a ~/2020040?.log
 
+# []
 cat ~/foo[0-9].log
 cat ~/foo[!0-9].log
 cat ~/foo[A-Z].log
 ls -a ~/foo[123].log
 
+# {}
 ls {centos?-ks.cfg,*.log}
-
 echo foo/bar/201{1,2,3}
+
+# ^
+grep '^[P-R]' list.txt
+grep '[^A-C]' list.txt
+sudo grep -rhE ^deb /etc/apt/sources.list*
+
+# !
+grep [!P-R] list.txt
+grep [!4-8] list.txt
+
+# $
+grep a$ list.txt
+grep 50$ list.txt
+
 ```
 
 ### Bash Quoting
@@ -1980,7 +2081,7 @@ sudo usermod -a -G 1003 jon
 ### passwd - update user's authentication tokens
 
 ```sh
-passwd jon
+sudo passwd jon
 ```
 
 ### su - run a command with substitute user and group ID
