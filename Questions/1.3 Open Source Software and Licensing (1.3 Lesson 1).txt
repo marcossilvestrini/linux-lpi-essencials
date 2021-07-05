@@ -1,0 +1,73 @@
+What are — in a nutshell — the “four freedoms” as defined by Richard Stallman and the Free Software Foundation?
+
+freedom 0 - Executar o Software
+freedom 1 - estudar e modificar o Software
+freedom 2 - distribuir o Software
+freedom 3 - distribuir o software modificado
+
+What does the abbreviation FLOSS stand for?
+R:
+Free/Libre Open Source Software
+
+You have developed free software and want to ensure that the software itself, but also all future works based on it,
+remain free as well. Which license do you choose?
+R:
+GPL version 3
+
+
+Which of the following licenses would you call permissive, which would you call copyleft?
+R:
+Simplified BSD License - Permissiva
+GPL version 3 - Copyleft
+CC BY - Permissiva
+CC BY-SA - Copyleft
+
+You have written a web application and published it under a free license. How can you earn money with your product?
+Name three possibilities.
+R:
+Licença dual, ou seja, oferecendo uma “Edição Empresarial” paga
+Oferecendo hospedagem, serviços e suporte
+Desenvolvendo extensões proprietárias para os clientes
+
+Explorational Exercises
+
+Under which license (including version) are the following applications available?
+
+Apache HTTP Server - Apache License 2.0
+R:
+MySQL Community Server - GPL 2.0
+Wikipedia articles - CC-BY-SA
+Mozilla Firefox - Mozilla Public License 2.0
+GIMP - LGPL 3
+
+You want to release your software under the GNU GPL v3. What steps should you follow?
+R:
+Se necessário, proteger-se contra o empregador com uma renúncia aos direitos autorais,
+por exemplo, para poder especificar a licença.
+Adicionar um aviso de direitos autorais a cada arquivo.
+Adicionar um arquivo chamado COPYING com o texto completo da licença de seu software.
+Adicionar uma referência à licença a cada arquivo.
+
+You have written proprietary software and would like to combine it with free software under the GPL version 3.
+Are you allowed to do this or what do you have to consider?
+R:
+As Questões Frequentes da Free Software Foundation trazem essa informação:
+Desde que seu software proprietário e o software livre permaneçam separados,
+a combinação é possível. Porém, você deve garantir que essa separação seja
+tecnicamente assegurada e reconhecível pelos usuários. Se você integrar o
+software livre de tal maneira que ele se torne parte integrante de seu produto,
+deve publicar também o produto sob a GPL de acordo com o princípio do copyleft.
+
+Why did the Free Software Foundation release the GNU Affero General Public License (GNU AGPL)
+as a supplement to the GNU GPL?
+R:
+A GNU AGPL vem preencher uma lacuna de licenciamento que ocorre especialmente com software livre
+hospedado em um servidor: se um desenvolvedor fizer alterações no software, ele não é obrigado,
+sob a GPL, a tornar essas alterações acessíveis, já que ele permite acesso ao programa,
+mas não “redistribui” o programa no sentido definido pela GPL. A GNU AGPL, por outro lado,
+estipula que o software deve ser disponibilizado para download com todas as alterações.
+
+Name three examples of free software, which are also offered as “Business Edition”,
+i.e. in a chargeable version.
+R:
+MySQL, Zammad, Nextcloud

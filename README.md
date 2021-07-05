@@ -144,13 +144,13 @@ Audacity
 
 ##### Video Players
 
-VLC
+VLC\
 smplayer
 
 ##### Audio Players
 
-Amarok
-Audacious
+Amarok\
+Audacious\
 Banshee
 
 #### Client Mail
@@ -170,29 +170,29 @@ LibreOffice
 
 ##### Aplications include in suites
 
-Writer\
+**Writer**\
 Text editor
 
-Calc\
+**Calc**\
 Spreadsheets
 
-Impress\
+**Impress**\
 Presentations
 
-Draw\
+**Draw**\
 Vector drawing
 
-Math\
+**Math**\
 Math formulas
 
-Base\
+**Base**\
 Database
 
 ### [Fun applications](https://www.binarytides.com/linux-fun-commands/)
 
 Figlet\
-Cowsay
-Fortune
+Cowsay\
+Fortune\
 `fortune -s | cowsay -W 78 -f $(ls /usr/share/cowsay/cows/ | shuf -n1)`
 
 ### Server Application
@@ -231,8 +231,8 @@ lighttpd
 
 #### SGBD
 
-MariaDB
-MySQL
+MariaDB\
+MySQL\
 PostgreSQL
 
 #### Package Bundle
@@ -333,20 +333,6 @@ sudo add-apt-repository \
 
 ### Remove Package(Debian)
 
-## Open Source Software and Licensing
-
-### Copyletf
-
-### Others Licensing
-
-FreeBSD\
-Creative Commons
-
-GPL - GNU General Public License\
-LGLP - GNU Lesser General Public License\
-GNU Affero General Public License\
-FDL - GNU Free Documentation License
-
 ```sh
 sudo apt-get remove lynx
 
@@ -366,6 +352,55 @@ sudo apt-get purge cups
 
 `sudo apt-get update`
 
+## Open Source Software and Licensing
+
+### Copyletf
+
+GPL - GNU General Public License\
+LGLP - GNU Lesser General Public License\
+GNU Affero General Public License\
+FDL - GNU Free Documentation License
+
+### Creative Commons
+
+#### CC BY
+
+This license lets others distribute, remix, adapt, and build upon your work, even commercially,\
+as long as they credit you for the original creation. This is the most accommodating of licenses\
+offered. Recommended for maximum dissemination and use of licensed materials.
+
+#### CC BY-SA
+
+This license lets others remix, adapt, and build upon your work even for commercial purposes,\
+as long as they credit you and license their new creations under the identical terms. This license is\
+often compared to “copyleft” free and open source software licenses. All new works based on yours will\
+carry the same license, so any derivatives will also allow commercial use. This is the license used by\
+Wikipedia, and is recommended for materials that would benefit from incorporating content from\
+Wikipedia and similarly licensed projects.
+
+#### CC BY-ND
+
+This license lets others reuse the work for any purpose, including commercially; however,\
+it cannot be shared with others in adapted form, and credit must be provided to you.
+
+#### CC BY-NC
+
+This license lets others remix, adapt, and build upon your work non-commercially, and although their\
+new works must also acknowledge you and be non-commercial, they don’t have to license their derivative\
+works on the same terms.
+
+#### CC BY-NC-SA
+
+This license lets others remix, adapt, and build upon your work non-commercially, as long as they\
+credit you and license their new creations under the identical terms.
+
+### CC BY-NC-ND
+
+This is the most restrictive of our six main licenses, only allowing others to download your works and share them as long as they credit you, but without being able to alter them in any way or use them for commercial purposes.s
+
+### Others Licensing
+
+FreeBSD
 ## Bourne Again Shell - Bash
 
 ### Syntax
