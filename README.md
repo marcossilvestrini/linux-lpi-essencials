@@ -131,16 +131,16 @@ Blender
 
 ##### Image Editor
 
-[GIMP](https://www.gimp.org/)
-[ImageMagick](https://imagemagick.org/index.php)
+GIMP\
+ImageMagick
 
 ##### Vector graphics editor
 
-[inkscape](https://inkscape.org/about/)
+inkscape
 
 ##### Audio Editor
 
-[Audacity](https://www.audacityteam.org/)
+Audacity
 
 ##### Video Players
 
