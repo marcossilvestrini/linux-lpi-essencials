@@ -96,7 +96,7 @@ SUSE Linux Enterprise Desktop
 
 Debian
 Ubuntu\
-Raspberry Pi OS
+Raspberry Pi OS\
 SteamOS
 
 #### Embedded Systems
