@@ -125,29 +125,29 @@ Azure
 
 #### Multimedia
 
-#### 3D creation suite
+##### 3D creation suite
 
 Blender
 
-#### Image Editor
+##### Image Editor
 
 [GIMP](https://www.gimp.org/)
 [ImageMagick](https://imagemagick.org/index.php)
 
-#### Vector graphics editor
+##### Vector graphics editor
 
 [inkscape](https://inkscape.org/about/)
 
-#### Audio Editor
+##### Audio Editor
 
 [Audacity](https://www.audacityteam.org/)
 
-#### Video Players
+##### Video Players
 
 VLC
 smplayer
 
-#### Audio Players
+##### Audio Players
 
 Amarok
 Audacious
@@ -244,6 +244,7 @@ PostgreSQL
 
 ownCloud\
 Nextcloud
+
 ### Development languages
 
 C, Java, JavaScript, Perl, shell, Python, PHP
@@ -331,6 +332,20 @@ sudo add-apt-repository \
 `sudo yum remove lynx`
 
 ### Remove Package(Debian)
+
+## Open Source Software and Licensing
+
+### Copyletf
+
+### Others Licensing
+
+FreeBSD\
+Creative Commons
+
+GPL - GNU General Public License\
+LGLP - GNU Lesser General Public License\
+GNU Affero General Public License\
+FDL - GNU Free Documentation License
 
 ```sh
 sudo apt-get remove lynx
