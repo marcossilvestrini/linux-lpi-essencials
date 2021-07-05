@@ -76,30 +76,30 @@ Installation and configuration of some packages will also be covered
 
 ### Distributions
 
-### RPM-Based
+#### RPM-Based
 
 RHEL\
 Centos\
 OpenSUSE\
 Fedora
 
-#### CentOS/RHEL-based
+##### CentOS/RHEL-based
 
 Oracle Linux
 
-#### openSUSE-based
+##### openSUSE-based
 
 SUSE Linux Enterprise Server\
 SUSE Linux Enterprise Desktop
 
-### Debian-Based
+#### Debian-Based
 
 Debian
 Ubuntu\
 Raspberry Pi OS
 SteamOS
 
-### Embedded Systems
+#### Embedded Systems
 
 Android\
 Raspbian\
