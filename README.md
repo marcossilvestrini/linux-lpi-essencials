@@ -72,40 +72,42 @@ Installation and configuration of some packages will also be covered
 - [LinuxEssentials Objectives V1.6](https://wiki.lpi.org/wiki/LinuxEssentials_Objectives_V1.6(PT-BR)#1.1_A_evolu.C3.A7.C3.A3o_do_Linux_e_sistemas_operacionais_populares)
 - [Simulator](https://www.proprofs.com/quiz-school/story.php?title=mtq1mtq2oqtx8h)
 
-## Linux Evolution and Popular Operating Systems
+## 1 The Linux Community and a Career in Open Source
 
-### Distributions
+### 1.1 Linux Evolution and Popular Operating Systems
 
-#### RPM-Based
+#### Distributions
+
+##### RPM-Based
 
 RHEL\
 Centos\
 OpenSUSE\
 Fedora
 
-##### CentOS/RHEL-based
+###### CentOS/RHEL-based
 
 Oracle Linux
 
-##### openSUSE-based
+###### openSUSE-based
 
 SUSE Linux Enterprise Server\
 SUSE Linux Enterprise Desktop
 
-#### Debian-Based
+##### Debian-Based
 
 Debian
 Ubuntu\
 Raspberry Pi OS\
 SteamOS
 
-#### Embedded Systems
+##### Embedded Systems
 
 Android\
 Raspbian\
 Kodi
 
-### Android Devices
+#### Android Devices
 
 mobile\
 smart tv\
@@ -113,62 +115,62 @@ smartwatches\
 consoles\
 cameras
 
-### Linux in the Cloud
+#### Linux in the Cloud
 
 AWS\
 Google Cloud\
 Azure
 
-## Major Open Source Applications
+### 1.2 Major Open Source Applications
 
-### Desktop applications
+#### Desktop applications
 
-#### Multimedia
+##### Multimedia
 
-##### 3D creation suite
+###### 3D creation suite
 
 Blender
 
-##### Image Editor
+###### Image Editor
 
 GIMP\
 ImageMagick
 
-##### Vector graphics editor
+###### Vector graphics editor
 
 inkscape
 
-##### Audio Editor
+###### Audio Editor
 
 Audacity
 
-##### Video Players
+###### Video Players
 
 VLC\
 smplayer
 
-##### Audio Players
+###### Audio Players
 
 Amarok\
 Audacious\
 Banshee
 
-#### Client Mail
+##### Client Mail
 
 Thunderbird
 
-#### Web Browsers
+##### Web Browsers
 
 Firefox\
 Chrome\
 Chrominium
 
-#### Office Applications
+##### Office Applications
 
 OpenOffice.org(Apache OpenOffice)\
 LibreOffice
 
-##### Aplications include in suites
+###### Aplications include in suites
 
 **Writer**\
 Text editor
@@ -188,150 +190,148 @@ Math formulas
 **Base**\
 Database
 
-### [Fun applications](https://www.binarytides.com/linux-fun-commands/)
+#### [Fun applications](https://www.binarytides.com/linux-fun-commands/)
 
 Figlet\
 Cowsay\
 Fortune\
 `fortune -s | cowsay -W 78 -f $(ls /usr/share/cowsay/cows/ | shuf -n1)`
 
-### Server Application
+#### Server Application
 
-#### Server Printer
+##### Server Printer
 
 - [Cups](https://www.cups.org/documentation.html)
 
-#### Server Mail
+##### Server Mail
 
 - [Postfix](http://www.postfix.org/documentation.html)
 
-#### DNS Server
+##### DNS Server
 
 - [Bind](https://www.isc.org/bind/)
 
-#### DHCP Server
+##### DHCP Server
 
 - [DNSmasq](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
 
-#### LDAP
+##### LDAP
 
 - [OpenLDAP](https://www.openldap.org/)
 
-#### Filesystem
+##### Filesystem
 
 - [NFS](https://www.kernel.org/doc/html/latest/admin-guide/nfs/index.html)
 - [Samba](https://wiki.samba.org/index.php/Main_Page)
 
-#### Web Server
+##### Web Server
 
 Apache HTTPD\
 NGINX\
 Tomcat\
 lighttpd
 
-#### SGBD
+##### SGBD
 
 MariaDB\
 MySQL\
 PostgreSQL
 
-#### Package Bundle
+##### Package Bundle
 
 - [LAMP - Linux, Apache,Mysql,PHP](https://www.linode.com/docs/web-servers/lamp/)
 - [LEMP - Linux, Nginx,Mysql,PHP](https://www.linode.com/docs/guides/web-servers/lemp/)
 
-### Cloud
+#### Cloud
 
 ownCloud\
 Nextcloud
 
-### Development languages
+#### Development languages
 
 C, Java, JavaScript, Perl, shell, Python, PHP
 
-### Package management tools and repositories
+#### Package management tools and repositories
 
-#### Repository File(RPM)
+##### Repository File(RPM)
 
 ```sh
 /etc/yum.conf
 /etc/yum.repos.d/
 ```
 
-#### Repository File(Debian)
+##### Repository File(Debian)
 
 ```sh
 /etc/apt/sources.list
 /etc/apt/sources.list.d/
 ```
 
-#### List Repositories(RPM)
+##### List Repositories(RPM)
 
 `yum repolist`
 
-#### List Repositories(Debian)
+##### List Repositories(Debian)
 
 ```sh
 sudo grep -rhE ^deb /etc/apt/sources.list*
 apt-cache policy
 ```
 
-#### Add new repository(RPM)
+##### Add new repository(RPM)
 
 ```sh
 sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
 yum-config-manager --enable hashicorp
 ```
 
-#### Search Packge(RPM)
+##### Search Packge(RPM)
 
 `yum search lynx`
 
-#### Search Packge(Debian)
+##### Search Packge(Debian)
 
 ```sh
 apt-cache search lynx
 apt-cache search -n lynx
 ```
 
-#### Add new repository(Debian)
+##### Add new repository(Debian)
 
 ```sh
 sudo add-apt-repository \
 'deb [arch=amd64] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse'
 ```
 
-#### Remove repository(RPM)
+##### Remove repository(RPM)
 
 `yum --disablerepo=hashicorp update`
 
-#### Remove repository(Debian)
+##### Remove repository(Debian)
 
 `sudo add-apt-repository -r ppa:nemh/systemback`
 
-#### Install Package(RPM)
+##### Install Package(RPM)
 
 `sudo yum install lynx`
 
-### Install Package(Debian)
+##### Install Package(Debian)
 
 `sudo apt-get install lynx`
 
-
-
-#### Infos of Package(RPM)
+##### Infos of Package(RPM)
 
 `yum info lynx`
 
-#### Infos of Package(Debian)
+##### Infos of Package(Debian)
 
 `apt-cache show lynx`
 
-### Remove Package(RPM)
+##### Remove Package(RPM)
 
 `sudo yum remove lynx`
 
-### Remove Package(Debian)
+##### Remove Package(Debian)
 
 ```sh
 sudo apt-get remove lynx
@@ -340,28 +340,28 @@ sudo apt-get remove lynx
 sudo apt-get purge cups
 ```
 
-#### Update Repo Cache(RPM)
+##### Update Repo Cache(RPM)
 
 `yum makecache`
 
-#### Update Packages(RPM)
+##### Update Packages(RPM)
 
 `sudo yum update`
 
-#### Update Packages(Debian)
+##### Update Packages(Debian)
 
 `sudo apt-get update`
 
-## Open Source Software and Licensing
+### 1.3 Open Source Software and Licensing
 
-### Copyletf
+#### Copyletf
 
 GPL - GNU General Public License\
 LGLP - GNU Lesser General Public License\
 GNU Affero General Public License\
 FDL - GNU Free Documentation License
 
-### Creative Commons
+#### Creative Commons
 
 #### CC BY
 
@@ -394,30 +394,54 @@ works on the same terms.
 This license lets others remix, adapt, and build upon your work non-commercially, as long as they\
 credit you and license their new creations under the identical terms.
 
-### CC BY-NC-ND
+#### CC BY-NC-ND
 
 This is the most restrictive of our six main licenses, only allowing others to download your works and share them as long as they credit you, but without being able to alter them in any way or use them for commercial purposes.s
 
-### Others Licensing
+#### Others Licensing
 
 FreeBSD
-## Bourne Again Shell - Bash
 
-### Syntax
+### 1.4 ICT Skills and Working in Linux
+
+#### Desktop Environment
+
+GNOME\
+KDE
+
+#### Graphical terminal emulator
+
+Gnome Terminal(Gnome)
+Konsole(KDE)
+XTerm
+
+#### Encryption
+
+Transport Layer Security (TLS)\
+Secure Sockets Layer (SSL)\
+GNU Privacy Guard(GnuPG)
+
+## 2 Finding Your Way on a Linux System
+
+### 2.1 Command Line Basics
+
+#### Bourne Again Shell - Bash
+
+##### Syntax
 
 ```sh
 command [options] [arguments]
 [var_name=value] command [options] [arguments]
 ```
 
-### Command echo
+##### Command echo
 
 ```sh
 echo "Hello World"
 echo "This command save this string in file" > ~/example_echo
 ```
 
-### Command Type - Display information about command type
+##### Command Type - Display information about command type
 
 ```sh
 type echo
@@ -427,28 +451,28 @@ type -t pwd
 type -a ls
 ```
 
-### Command which - shows the full path of (shell) commands
+##### Command which - shows the full path of (shell) commands
 
 ```sh
 which pwd
 which -a python
 ```
 
-### Command whereis - Locate the binary, source, and manual page files for a command
+##### Command whereis - Locate the binary, source, and manual page files for a command
 
 ```sh
 whereis pwd
 whereis python
 ```
 
-### Command History - Display or manipulate the history list
+##### Command History - Display or manipulate the history list
 
 ```sh
 history
 history -c
 ```
 
-### Comand hash - Manipulate bash cache
+##### Comand hash - Manipulate bash cache
 
 ```sh
 help hash
@@ -456,14 +480,14 @@ hash -d vi
 hash -r
 ```
 
-### Relational Operators in Shell commands
+##### Relational Operators in Shell commands
 
 ```sh
 ls ~/foo && cp ~/foo ~/bar
 ls ~/foo || ls ~/bar
 ```
 
-### [Bash Globbing](https://linuxhint.com/bash_globbing_tutorial/)
+##### [Bash Globbing](https://linuxhint.com/bash_globbing_tutorial/)
 
 ```sh
 # *
@@ -501,7 +525,7 @@ grep 50$ list.txt
 
 ```
 
-### Bash Quoting
+##### Bash Quoting
 
 ```sh
 echo \* Hello World \*
@@ -511,9 +535,9 @@ echo "Hello  World"
 cat 'log example.txt'
 ```
 
-## Variables in Linux
+##### Variables in Linux
 
-### Shell Variables
+##### Shell Variables
 
 ```sh
 name="Marcos Silvestrini"
@@ -530,7 +554,7 @@ year=1981
 echo "Date is ${day}\\${month}\\${year}"
 ```
 
-### Environment Variables
+###### Environment Variables
 
 ```sh
 export NAME="Jonny Wick"
@@ -548,7 +572,7 @@ cd ~/
 ./example_env_vars
 ```
 
-### Best pratice for scripts
+###### Best pratice for scripts
 
 ```sh
 #env
@@ -557,9 +581,9 @@ env NAME=Silvestrini AGE=110 bash ./example_env_vars
 NAME=Silvestrini AGE=110 bash ./example_env_vars
 ```
 
-### Remove Variable
+###### Remove Variable
 
-#### In env
+###### In env
 
 ```sh
 NAME="Steve Jobs"
@@ -571,7 +595,7 @@ env | grep NAME
 echo $NAME
 ```
 
-#### In env and shell
+###### env
 
 ```sh
 NAME="Michael J. Fox"
@@ -583,7 +607,7 @@ echo $NAME
 env | grep NAME
 ```
 
-### Variable PS1 and PS2 (prompt command)
+###### Variable PS1 and PS2 (prompt command)
 
 ```sh
 echo $PS1 && echo $PS2
@@ -598,14 +622,14 @@ export PS1='[\h@\u@\t:]'
 export PS2='new_line: '
 ```
 
-### Variable PATH
+###### Variable PATH
 
 ```sh
 PATH=$PATH:/some_dir
 echo $PATH
 ```
 
-### Some Environment Variables
+###### Some Environment Variables
 
 ```linux
 HOME: the home directory of the current user\
@@ -619,15 +643,15 @@ HISTFILE: history file
 ?: Exit codes
 ```
 
-## Command Line to get Help
+### 2.2 Command Line to get Help
 
-### Command Help - Display information about builtin commands
+#### Command Help - Display information about builtin commands
 
 ```sh
 help type
 ```
 
-### Others Helps
+#### Others Helps
 
 ```sh
 ls --help
@@ -636,7 +660,7 @@ zip -?
 zip -h
 ```
 
-### Command Man - Manual pager utils
+#### Command Man - Manual pager utils
 
 ```linux
 The table below shows the section numbers of the manual followed by the types of pages they contain.
@@ -672,19 +696,19 @@ File of config man path
 manpath
 ```
 
-### apropos - Search the manual page names and descriptions(man -k)
+#### apropos - Search the manual page names and descriptions(man -k)
 
 `apropos pwd`
 
-### whatis - Display one-line manual page descriptions
+#### whatis - Display one-line manual page descriptions
 
 `whatis pwd`
 
-### info- Read Info documents
+#### info- Read Info documents
 
 `info echo`
 
-### HOWTOs
+#### HOWTOs
 
 ```linux
 apt-cache search HOWTO
@@ -692,7 +716,7 @@ sudo apt-get install python-turbogears2-doc -y
 ls /usr/share/doc/
 ```
 
-## Locate - Find files by name
+#### Locate - Find files by name
 
 ```linux
 sudo updatedb
@@ -703,7 +727,7 @@ locate arquivo[2-3].txt
 locate arquivo?.txt
 ```
 
-## Find - search for files in a directory hierarchy
+#### Find - search for files in a directory hierarchy
 
 ```sh
 find .
@@ -766,15 +790,15 @@ find -name "*log*" -type f -exec rm -i  "{}" \;
 
 ```
 
-## Using Directories and Listing Files
+### 2.3 Using Directories and Listing Files
 
-### Absolute Path
+#### Absolute Path
 
 ```linux
 cat /home/vagrant/my_dir/foo.txt
 ```
 
-### Relative Path
+#### Relative Path
 
 ```linux
 cat my_dir/foo.txt
@@ -787,7 +811,7 @@ ls ../../foo.txt
 ../bar.sh
 ```
 
-### Command cd - Change the shell working directory
+#### Command cd - Change the shell working directory
 
 ```sh
 cd /etc
@@ -801,7 +825,7 @@ cd
 cd -
 ```
 
-### Command ls - List directory contents
+#### Command ls - List directory contents
 
 ```sh
 # Colors in command
@@ -867,9 +891,9 @@ ls --recursive /etc
 ls -R /etc
 ```
 
-## Creating,Moving and Deleting Files
+### 2.4 Creating,Moving and Deleting Files
 
-### Directories
+#### Directories
 
 ```sh
 #create dir
@@ -891,9 +915,9 @@ rmdir 202{1..5}/test{1..5}
 rmdir 202{1..5}
 ```
 
-### Files
+#### Files
 
-#### Command touch -  Change file timestamps
+##### Command touch -  Change file timestamps
 
 ```sh
 #create file
@@ -907,7 +931,7 @@ touch -ca foo.txt
 touch -cm foo.txt
 ```
 
-#### Command cp - Copy files and directories
+##### Command cp - Copy files and directories
 
 ```sh
 cp /etc/fstab ~/
@@ -920,7 +944,7 @@ cp -Ru pictures  images
 cp -rf pictures  images
 ```
 
-#### Command mv - Move,Rename files
+##### Command mv - Move,Rename files
 
 ```sh
 mv ~/foo ~/bar
@@ -928,7 +952,7 @@ mv foo2.txt foo3.txt
 mv -f ~/foo/bar.txt ~/beer.txt
 ```
 
-#### Command rm -  Remove files or directories
+##### Command rm -  Remove files or directories
 
 ```sh
 rm ~/foo2.txt
@@ -942,9 +966,11 @@ rm -ri ~/pictures
 rm -rf ~/pictures
 ```
 
-## Archiving Files on the Command Line
+## 3 The Power of the Command Line
 
-### Tar - An archiving utility
+### 3.1 Archiving Files on the Command Line
+
+#### Tar - An archiving utility
 
 ```sh
 # Archiving
@@ -974,9 +1000,9 @@ tar -cjvf scripts.tar.bz2 scripts
 tar -xjvf scripts.tar.bz2
 ```
 
-## Compress Files
+### Compress Files
 
-### Gzip - compress or expand files
+#### Gzip - compress or expand files
 
 ```sh
 #compress
@@ -993,7 +1019,7 @@ gunzip -v scripts/script1.gz
 gzip -l picture1.jpg.gz
 ```
 
-### Bzip2 - a block-sorting file compressor
+#### Bzip2 - a block-sorting file compressor
 
 ```sh
 #compress
@@ -1006,7 +1032,7 @@ bunzip2 -v picture1.jpg.bz2
 bzip2 -dv picture1.jpg.bz2
 ```
 
-### Zip - package and compress (archive) files
+#### Zip - package and compress (archive) files
 
 ```sh
 zip pictures.zip  picture1.jpg picture2.jpg
@@ -1029,7 +1055,7 @@ find scripts/tar/script[3-7].tar | zip -@ scripts.zip
 
 ```
 
-### Unzip - list, test and extract compressed files in a ZIP archive
+#### Unzip - list, test and extract compressed files in a ZIP archive
 
 ```sh
 #list
@@ -1052,7 +1078,7 @@ unzip -d /tmp scripts.zip scripts/script??.sh
 unzip -d /tmp scripts.zip "scripts/*"
 ```
 
-## Searching and Extracting Data from Files
+## 3.2 Searching and Extracting Data from Files
 
 ### wc - print newline, word, and byte counts for each file
 
@@ -1233,9 +1259,9 @@ ls | grep "[[:digit:]]"
 ls | grep "[[:punct:]]"
 ```
 
-## Turning Commands into a Script
+### 3.3 Turning Commands into a Script
 
-### Running scripts
+#### Running scripts
 
 ```sh
 ./foo.sh
@@ -1246,7 +1272,7 @@ source ./foo.sh
 . foo.sh
 ```
 
-### Arguments Variables
+#### Arguments Variables
 
 ```sh
 $0 = scriptpath
@@ -1255,7 +1281,7 @@ $#= number of arguments
 $*= print value all arguments
 ```
 
-### Example 1 - Zip files
+#### Example 1 - Zip files
 
 ```sh
 #!/bin/bash
@@ -1276,7 +1302,7 @@ find scripts -name "*progran*" \
 | wc -l
 ```
 
-### Example 2 - Quotting
+#### Example 2 - Quotting
 
 ```sh
 #!/bin/bash
@@ -1299,7 +1325,7 @@ find scripts -name "*progran*" \
 | echo "Number of files: $(wc -l)"
 ```
 
-### Example 3 - Variables
+#### Example 3 - Variables
 
 ```sh
 #!/bin/bash
@@ -1335,7 +1361,7 @@ find scripts -name "*$NAME*" \
 | echo "Number of files: $(wc -l)"
 ```
 
-### Example 4 - Arguments
+#### Example 4 - Arguments
 
 ```sh
 #!/bin/bash
@@ -1379,7 +1405,7 @@ find scripts -name "*${NAME}*" \
 example-zip4.sh progran
 ```
 
-### Example 5 - Loop for
+#### Example 5 - Loop for
 
 ```sh
 #!/bin/bash
@@ -1421,7 +1447,7 @@ do
 done
 ```
 
-### Example 6 - Loop for
+#### Example 6 - Loop for
 
 ```sh
 #!/bin/bash
@@ -1460,7 +1486,7 @@ do
 done
 ```
 
-### Example 7 - Loop for
+#### Example 7 - Loop for
 
 ```sh
 #!/bin/bash
@@ -1503,7 +1529,7 @@ do
 done
 ```
 
-### Example 8 - Loop for
+#### Example 8 - Loop for
 
 ```sh
 #!/bin/bash
@@ -1545,9 +1571,9 @@ do
 done
 ```
 
-### Text editors
+#### Text editors
 
-#### vim - Vi IMproved, a programmer's text editor
+##### vim - Vi IMproved, a programmer's text editor
 
 ```sh
 #open file
@@ -1559,7 +1585,7 @@ i
 #exit edir mode
 esc
 
-#add  char
+# add  char
 a - add new letter in next posicion where the course is positioned
 I - add new letter in bigin line
 A - add new letter in end line
@@ -1587,7 +1613,7 @@ dd - delete line where the course is positioned
 :q!
 ```
 
-### nano - Nano's ANOther editor, an enhanced free Pico clone
+#### nano - Nano's ANOther editor, an enhanced free Pico clone
 
 ```sh
 #open file
@@ -1612,7 +1638,11 @@ ctr+u
 ctr+r
 ```
 
-## Understanding Computer Hardware
+## 4 The Linux Operating System
+
+### 4.1 Choosing an Operating System
+
+### 4.2 Understanding Computer Hardware
 
 MOTHERBOARDS - main printed circuit board (PCB)\
 CPU - Central Processig Unit\
@@ -1674,15 +1704,15 @@ du -sh ~/
 
 `df /`
 
-## Where Data is Stored
+### 4.3 Where Data is Stored
 
-### FHS - Filesystem Hierarchy Standard
+#### FHS - Filesystem Hierarchy Standard
 
-#### the root directory
+##### the root directory
 
 \
 
-#### binary directories
+##### binary directories
 
 ```sh
 # Essential command binaries
@@ -1695,7 +1725,7 @@ du -sh ~/
 /opt
 ```
 
-#### configuration directories
+##### configuration directories
 
 ```sh
 # Static files of the boot loader
@@ -1704,7 +1734,7 @@ du -sh ~/
 /etc
 ```
 
-#### data directories
+##### data directories
 
 ```sh
 #  User home directories (optional)
@@ -1721,7 +1751,7 @@ du -sh ~/
 /tmp
 ```
 
-#### in memory directories
+##### in memory directories
 
 ```sh
 # Device files
@@ -1732,7 +1762,7 @@ du -sh ~/
 /sys
 ```
 
-#### Unix System Resources - The second major section of the filesystem
+##### Unix System Resources - The second major section of the filesystem
 
 ```sh
 /usr
@@ -1750,7 +1780,7 @@ du -sh ~/
 /usr/src
 ```
 
-#### Variable data
+##### Variable data
 
 ```sh
 /run
@@ -1768,7 +1798,7 @@ du -sh ~/
 /var/lib
 ```
 
-### Some important FHS files
+#### Some important FHS files
 
 ```sh
 /etc/fstab : Static information about filesystems (optional)
@@ -1786,7 +1816,7 @@ du -sh ~/
 /var/log : Log files
 ```
 
-### Some Important commands
+#### Some Important commands
 
 ```sh
 # Tell how long the system has been running
@@ -1823,14 +1853,14 @@ kill -STOP 11163
 kill -CONT 11163
 ```
 
-### Some shortcuts
+#### Some shortcuts
 
 stop program : ctr+z\
 go back to the program: fg
 
-## Your Computer on the Network
+### 4.4 Your Computer on the Network
 
-### Some importants files
+#### Some importants files
 
 ```sh
 # Static information about host names (optional)
@@ -1843,7 +1873,7 @@ go back to the program: fg
 /etc/host.conf
 ```
 
-### dig - DNS lookup utility
+#### dig - DNS lookup utility
 
 ```sh
 # install in centos 7/8
@@ -1853,14 +1883,14 @@ sudo yum install bind-utils
 dig www.google.com
 ```
 
-### ping\ping6 - send ICMP ECHO_REQUEST to network hosts
+#### ping\ping6 - send ICMP ECHO_REQUEST to network hosts
 
 ```sh
 ping www.google.com
 ping6 www.google.com
 ```
 
-### ifconfig - configure a network interface
+#### ifconfig - configure a network interface
 
 ```sh
 # install
@@ -1869,7 +1899,7 @@ sudo dnf install net-tools.x86_64
 ifconfig
 ```
 
-### host - DNS lookup utility
+#### host - DNS lookup utility
 
 ```sh
 # install
@@ -1878,13 +1908,13 @@ sudo yum install bind-utils
 host www.google.com
 ```
 
-### route - show / manipulate the IP routing table
+#### route - show / manipulate the IP routing table
 
 ```sh
 route
 ```
 
-### ip - show / manipulate routing, network devices, interfaces and tunnels
+#### ip - show / manipulate routing, network devices, interfaces and tunnels
 
 ```sh
 # list ips
@@ -1894,7 +1924,7 @@ ip addr show
 ip route show
 ```
 
-### netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
+#### netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
 
 ```sh
 # list all conections
@@ -1927,19 +1957,19 @@ sudo netstat -u
 netstat -s
 ```
 
-### List Network Adapters
+#### List Network Adapters
 
 `nmcli d`
 
-### Configure Network
+#### Configure Network
 
 `nmtui`
 
-### Restart Network
+#### Restart Network
 
 `sudo systemctl restart network`
 
-## Security and File Permissions
+## 5.1 Security and File Permissions
 
 ### whoami - print effective userid
 

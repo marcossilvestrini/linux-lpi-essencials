@@ -1,0 +1,88 @@
+Guided Exercises
+
+1 - You should use a “private window” in your browser if you want:
+To browse completely anonymous on the Internet
+To leave no trace on the computer you’re using
+To activate TLS to avoid cookie tracking
+In order to use DNT
+To use cryptography during data transmission
+
+R:
+Não deixar traços no computador que está usando
+
+
+2 - What is OpenStack?
+A project that allows the creation of private IaaS
+A project that allows the creation of private PaaS
+A project that allows the creation of private SaaS
+A hypervisor
+An open source password manager
+
+R:
+Um projeto que permite a criação de um IaaS privado
+
+
+3 - Which of the below options are valid disk encryption softwares?
+
+RevealJS, EncFS and dm-crypt
+dm-crypt and KeePass
+EncFS and Bitwarden
+EncFS and dm-crypt
+TLS and dm-crypt
+
+R:
+EncFS,dm-crypt
+
+Select true or false for dm-crypt device encryption:
+
+Files are encrypted before being written to the disk(verdadeiro)
+The entire filesystem is an encrypted blob(verdadeiro)
+Only files and directories are encrypted, not symlinks(falso)
+Don’t require root access(falso)
+Is a block device encryption(verdadeiro)
+
+Beamer is:
+
+An encryption mechanism
+A hypervisor
+A virtualization software
+An OpenStack component
+A LaTeX presentation tool
+
+R:
+Uma ferramenta de apresentações em LaTeX
+
+Explorational Exercises
+
+Most distributions come with Firefox installed by default(if yours doesn’t,
+you will have to install it first)
+We are going to install a Firefox extension called Lightbeam.
+You can do that by either pressing Ctrl+Shift+A and searching for “Lightbeam”
+on the search field that will be shown on the tab opened,or by visiting the extension
+page with Firefox and clicking on the “Install” button: https://addons.mozilla.org/en-GB/firefox/addon/lightbeam-3-0/.
+After doing this, start the extension by clicking on its icon and start visiting some
+webpages on other tabs to see what happens.
+
+R:
+Lembra dos cookies que podem compartilhar seus dados com diferentes serviços quando você visita
+um website? É exatamente isso o que esta extensão vai lhe mostrar.
+O Lightbeam é uma experiência da Mozilla para tentar revelar os sites principais e de terceiros
+com os quais você interage ao visitar uma única URL. Esse conteúdo normalmente não está visível
+para o usuário médio e mostra que, às vezes, um único website interage com mais de uma dúzia de serviços.
+
+What is the most important thing when using a password manager?
+R:
+Ao usar um gerenciador de senhas, o mais importante a se ter em mente é memorizar
+sua senha mestre e usar uma senha aleatória única para cada serviço.
+
+Use your web browser to navigate to https://haveibeenpwned.com/.
+Find out the purpose of the website and check if your email address was included in some data leaks.
+
+R:
+O site mantém um banco de dados de informações de login cujas senhas foram afetadas por um vazamento
+de senhas. Ele permite buscar por um endereço de email e mostra se esse endereço estava incluído
+em um banco de dados público de credenciais roubadas. Há grandes chances de que seu endereço
+de email tenha sido afetado por um vazamento ou outro. Se for o caso, é melhor que suas senhas
+tenham sido atualizadas recentemente. Se você ainda não usa um gerenciador de senhas,
+dê uma olhada nas opções que recomendamos nesta lição.
+
