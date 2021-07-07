@@ -1,0 +1,94 @@
+
+Split the lines below into the components of command, option(s)/parameter(s) and argument(s):
+
+Example: cat -n /etc/passwd
+
+Command:
+cat
+
+Option:
+-n
+
+Argument:
+/etc/passwd
+
+ls -l /etc
+
+R:
+Command:
+ls
+Option:
+-l
+Argument:
+/etc
+
+ls -l -a
+
+Command:
+ls
+Option:
+-l -a
+Argument:
+
+
+cd /home/user
+
+Command:
+cd
+Option:
+
+Argument:
+/home/user
+
+Find what type the following commands are:
+
+Example:
+pwd
+Shell builtin
+
+mv
+External command
+
+R:
+cd: Shell builtin
+
+cat: External
+
+exit: Shell builtin
+
+Resolve the following commands that use quotes:
+
+Example:
+echo "$HOME is my home directory"
+echo /home/user is my home directory
+
+R:
+touch "$USER"
+user
+
+touch 'touch'
+cria um arquivo chamado touch
+
+Explorational Exercises
+
+With one command and using brace expansion in Bash (review the man page for Bash),
+create 5 files numbered 1 to 5 with the prefix game (game1, game2, …​).
+
+R:
+touch game{1..5}
+
+Delete all 5 files that you just created with just one command, using a different special
+character (review Pathname Expansion in the Bash man pages).
+
+R:
+rm  game?
+
+Is there any other way to make two commands interact with each other? What are those?
+
+R:
+Existem outros jeitos de fazer com que dois comandos interajam entre si? Quais?
+
+Sim, um comando pode, por exemplo, escrever dados em um arquivo que é em seguida
+processado por outro comando. O Linux também pode coletar a saída de um comando e
+usá-la como entrada de outro comando. Isso se chama piping
+​

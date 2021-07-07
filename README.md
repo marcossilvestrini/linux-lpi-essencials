@@ -425,13 +425,39 @@ GNU Privacy Guard(GnuPG)
 
 ### 2.1 Command Line Basics
 
+#### Shell in Linux
+
+Bourne-again shell (Bash)\
+C shell (csh ou tcsh, a versão aprimorada do csh)\
+Korn shell (ksh)\
+Z shell (zsh)
+
+#### About prompt
+
+```sh
+username@hostname current_directory shell_type
+
+# shel type simbols
+# superuser\root: #
+# regular user: $
+
+# Ubuntu or Debian GNU/Linux
+carol@mycomputer:~$
+root@mycomputer:~#
+
+# Centos or Red Hat Linux
+[dave@mycomputer ~]$
+[root@mycomputer ~]#
+```
+
 #### Bourne Again Shell - Bash
 
 ##### Syntax
 
 ```sh
-command [options] [arguments]
-[var_name=value] command [options] [arguments]
+command  [option(s)/parameter(s)...]  [argument(s)...]
+[var_name=value] [option(s)/parameter(s)...]  [argument(s)...]
+
 ```
 
 ##### Command echo
@@ -529,10 +555,11 @@ grep 50$ list.txt
 
 ```sh
 echo \* Hello World \*
-cat log\ example.txt
 echo '* Hello World *'
 echo "Hello  World"
 cat 'log example.txt'
+echo "I am $USER"
+
 ```
 
 ##### Variables in Linux
@@ -1000,7 +1027,7 @@ tar -cjvf scripts.tar.bz2 scripts
 tar -xjvf scripts.tar.bz2
 ```
 
-### Compress Files
+#### Compress Files
 
 #### Gzip - compress or expand files
 
@@ -1078,9 +1105,9 @@ unzip -d /tmp scripts.zip scripts/script??.sh
 unzip -d /tmp scripts.zip "scripts/*"
 ```
 
-## 3.2 Searching and Extracting Data from Files
+### 3.2 Searching and Extracting Data from Files
 
-### wc - print newline, word, and byte counts for each file
+#### wc - print newline, word, and byte counts for each file
 
 ```sh
 wc foo.txt
@@ -1091,32 +1118,32 @@ wc -w bar.txt #words
 wc -L bar.txt #big line
 ```
 
-### more - file perusal filter for crt viewing
+#### more - file perusal filter for crt viewing
 
 ```sh
 more foo.txt
 ```
 
-### less - opposite of more
+#### less - opposite of more
 
 ```sh
 less foo.txt
 ```
 
-### cat - concatenate files and print on the standard output
+#### cat - concatenate files and print on the standard output
 
 ```sh
 cat foo.txt bar.txt
 ```
 
-### head - output the first part of files
+#### head - output the first part of files
 
 ```sh
 head foo.txt
 head -n 2 -q foo.txt
 ```
 
-### tail - output the last part of files
+#### tail - output the last part of files
 
 ```sh
 tail foo.txt
@@ -1127,7 +1154,7 @@ tail -n +30 foo.txt
 tail -f foo.log
 ```
 
-### Redirect Standart I/O
+#### Redirect Standart I/O
 
 ```sh
 input: stdin(channel 0)
@@ -1151,7 +1178,7 @@ zip -@ programs.zip < list_programs.txt
 
 ```
 
-### Pipe in commandline
+#### Pipe in commandline
 
 ```sh
 find scripts -name progran*[1..9].sh | zip -@ programs2.zip
@@ -1161,7 +1188,7 @@ cat /etc/passwd | wc
 cat /etc/passwd | cut -c 1-5 /etc/passwd
 ```
 
-### cut - remove sections from each line of files
+#### cut - remove sections from each line of files
 
 ```sh
 cut -c 10 /etc/passwd
@@ -1173,7 +1200,7 @@ cut -f 6 -d: --output-delimiter=";" /etc/passwd
 cut -f 1,5 -d: --output-delimiter="|" /etc/passwd
 ```
 
-### paste - merge lines of files
+#### paste - merge lines of files
 
 ```sh
 #generate line 1
@@ -1192,7 +1219,7 @@ paste -s passwd.users passwd.home
 paste -s\;   passwd.users passwd.home
 ```
 
-### sort - sort lines of text files
+#### sort - sort lines of text files
 
 ```sh
 #env variables for witch sort
@@ -1214,7 +1241,7 @@ cut -f 2,3 -d: --output-delimiter=: nfe.txt | sort -k 2 -t: -n -u
 cut -f 2,3 -d: --output-delimiter=: nfe.txt | sort -k 2 -t: -n -u -o nfe_formatted.txt
 ```
 
-### grep, egrep, fgrep - print lines matching a pattern
+#### grep, egrep, fgrep - print lines matching a pattern
 
 ```sh
 #simple find
@@ -1969,7 +1996,7 @@ netstat -s
 
 `sudo systemctl restart network`
 
-## 5.1 Security and File Permissions
+## 5 Security and File Permissions
 
 ### whoami - print effective userid
 
@@ -2007,7 +2034,6 @@ id -nG
 ```sh
 groups
 ```
-
 
 ### who - show who is logged on
 
