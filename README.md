@@ -125,31 +125,29 @@ Azure
 
 #### Desktop applications
 
-##### Multimedia
-
-###### 3D creation suite
+##### 3D creation suite
 
 Blender
 
-###### Image Editor
+##### Image Editor
 
 GIMP\
 ImageMagick
 
-###### Vector graphics editor
+##### Vector graphics editor
 
 inkscape
 
-###### Audio Editor
+##### Audio Editor
 
 Audacity
 
-###### Video Players
+##### Video Players
 
 VLC\
 smplayer
 
-###### Audio Players
+##### Audio Players
 
 Amarok\
 Audacious\
