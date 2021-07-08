@@ -281,17 +281,6 @@ sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinu
 yum-config-manager --enable hashicorp
 ```
 
-##### Search Packge(RPM)
-
-`yum search lynx`
-
-##### Search Packge(Debian)
-
-```sh
-apt-cache search lynx
-apt-cache search -n lynx
-```
-
 ##### Add new repository(Debian)
 
 ```sh
@@ -306,6 +295,17 @@ sudo add-apt-repository \
 ##### Remove repository(Debian)
 
 `sudo add-apt-repository -r ppa:nemh/systemback`
+
+##### Search Packge(RPM)
+
+`yum search lynx`
+
+##### Search Packge(Debian)
+
+```sh
+apt-cache search lynx
+apt-cache search -n lynx
+```
 
 ##### Install Package(RPM)
 
