@@ -298,7 +298,10 @@ sudo add-apt-repository \
 
 ##### Search Packge(RPM)
 
-`yum search lynx`
+```sh
+yum search lynx
+dnf search xclock
+```
 
 ##### Search Packge(Debian)
 
@@ -309,11 +312,17 @@ apt-cache search -n lynx
 
 ##### Install Package(RPM)
 
-`sudo yum install lynx`
+```sh
+sudo yum install lynx
+sudo dnf install xclock
+```
 
 ##### Install Package(Debian)
 
-`sudo apt-get install lynx`
+```sh
+sudo apt-get install lynx
+sudo apt install xclock
+```
 
 ##### Infos of Package(RPM)
 
