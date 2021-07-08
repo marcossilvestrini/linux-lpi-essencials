@@ -168,8 +168,6 @@ Chrominium
 OpenOffice.org(Apache OpenOffice)\
 LibreOffice
 
-###### Aplications include in suites
-
 **Writer**\
 Text editor
 
