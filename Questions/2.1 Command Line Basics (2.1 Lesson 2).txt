@@ -1,0 +1,50 @@
+Guided Exercises
+
+Create a local variable number.
+R:
+number="Hello World"
+
+Create an environment variable ORDER, using one of the two above methods.
+R:
+ORDER="foo"
+export ORDER
+
+export ORDER="foo"
+
+Display both the variable names and their contents.
+R:
+echo number
+echo $number
+echo ORDER
+echo $ORDER
+
+What are the scopes of the previously created variables?
+R:
+O escopo da variável number é o subshell atual
+O escopo da variável ORDER é o sistema atual
+
+Explorational Exercises
+
+Create a local variable nr_files and assign the number of lines found
+in the /etc/passwd file. Hint: Look into the command wc and command
+substitution and don’t forget about quotation marks.
+R:
+nr_files=`wc -l /etc/passwd
+str=`wc -l /etc/passwd | cut -c 1-3`
+
+Create an environment variable ME. Assign the USER variable’s value to it.
+R:
+export ME=$USER
+
+Append the HOME variable’s value to ME, having the : delimiter. Display the contents of the ME variable.
+R:
+ME=$ME:$HOME
+echo $ME
+
+Using the date example above, create a variable called today and assign the date for one of the time zones.
+R:
+today=GMT date
+
+Create another variable called today1 and assign the system’s date to it.
+R:
+today1=$(date)
