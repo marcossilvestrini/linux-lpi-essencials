@@ -562,7 +562,7 @@ echo "I am $USER"
 
 ```
 
-##### Variables in Linux
+#### Variables in Linux
 
 ##### Shell Variables
 
@@ -581,7 +581,7 @@ year=1981
 echo "Date is ${day}\\${month}\\${year}"
 ```
 
-###### Environment Variables
+##### Environment Variables
 
 ```sh
 export NAME="Jonny Wick"
@@ -599,7 +599,7 @@ cd ~/
 ./example_env_vars
 ```
 
-###### Best pratice for scripts
+##### Best pratice for scripts
 
 ```sh
 #env
@@ -608,9 +608,7 @@ env NAME=Silvestrini AGE=110 bash ./example_env_vars
 NAME=Silvestrini AGE=110 bash ./example_env_vars
 ```
 
-###### Remove Variable
-
-###### In env
+##### Remove Variable
 
 ```sh
 NAME="Steve Jobs"
@@ -622,8 +620,6 @@ env | grep NAME
 echo $NAME
 ```
 
-###### env
-
 ```sh
 NAME="Michael J. Fox"
 export NAME
@@ -634,7 +630,7 @@ echo $NAME
 env | grep NAME
 ```
 
-###### Variable PS1 and PS2 (prompt command)
+##### Variable PS1 and PS2 (prompt command)
 
 ```sh
 echo $PS1 && echo $PS2
@@ -649,14 +645,14 @@ export PS1='[\h@\u@\t:]'
 export PS2='new_line: '
 ```
 
-###### Variable PATH
+##### Variable PATH
 
 ```sh
 PATH=$PATH:/some_dir
 echo $PATH
 ```
 
-###### Some Environment Variables
+##### Some Environment Variables
 
 ```linux
 HOME: the home directory of the current user\
