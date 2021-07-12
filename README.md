@@ -78,31 +78,26 @@ Installation and configuration of some packages will also be covered
 
 #### Distributions
 
-##### RPM-Based
-
+**RPM-Based**\
 RHEL\
 Centos\
 OpenSUSE\
 Fedora
 
-###### CentOS/RHEL-based
-
+**CentOS/RHEL-based**\
 Oracle Linux
 
-###### openSUSE-based
-
+**openSUSE-based**\
 SUSE Linux Enterprise Server\
 SUSE Linux Enterprise Desktop
 
-##### Debian-Based
-
-Debian
+**Debian-Based**\
+Debian\
 Ubuntu\
 Raspberry Pi OS\
 SteamOS
 
-##### Embedded Systems
-
+**Embedded Systems**\
 Android\
 Raspbian\
 Kodi
@@ -677,11 +672,6 @@ HISTFILE: history file
 
 ```sh
 help type
-```
-
-#### Others Helps
-
-```sh
 ls --help
 zip --help
 zip -?
@@ -690,31 +680,47 @@ zip -h
 
 #### Command Man - Manual pager utils
 
+**Path for docs in Linux**\
+/usr/share/doc/\
+
+Each man page is divided in maximum of 11 sections, though many of these sections are optional:
+
+|SECTION    | DESCRIPTION|
+|:--------- |:---------|
+|NAME       |Command name and brief description|
+|SYNOPSIS   |Description of the command’s syntax|
+|DESCRIPTION|Description of the effects of the command|
+|OPTIONS    |Available options|
+|ARGUMENTS  |Available arguments|
+|FILES      |Auxiliary Files|
+|EXAMPLES   |A sample of the command line|
+|SEE ALSO   |Cross-reference to the related topics|
+|DIAGNOSTICS|Warnning and Error messages|
+|COPYRIGHT  |Author(s) of the command|
+|BUGS       |Any known limitations of the command
+
+Man pages are organized in eight categories, numbered from 1 to 8:
+
+|CATEGORY   |DESCRIPTION|
+|:----------|:----------|
+|1          |Executable programs or shell commands|
+|2          |System calls (functions provided by the kernel)|
+|3          |Library calls (functions within program libraries)|
+|4          |Special files (usually found in /dev)|
+|5          |File formats and conventions eg /etc/passwd|
+|6          |Games|
+|7          |Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)|
+|8          |System administration commands (usually only for root)|
+|9          |Kernel routines [Non standard]|
+
 ```linux
-The table below shows the section numbers of the manual followed by the types of pages they contain.
-
-1   Executable programs or shell commands
-2   System calls (functions provided by the kernel)
-3   Library calls (functions within program libraries)
-4   Special files (usually found in /dev)
-5   File formats and conventions eg /etc/passwd
-6   Games
-7   Miscellaneous (including macro packages and conventions), e.g. man(7), groff(7)
-8   System administration commands (usually only for root)
-9   Kernel routines [Non standard]
-
- A manual page consists of several sections.
-
-Conventional  section  names  include  NAME,  SYNOPSIS,  CONFIGURATION,
-DESCRIPTION,  OPTIONS,  EXIT STATUS, RETURN VALUE, ERRORS, ENVIRONMENT,
-FILES, VERSIONS, CONFORMING TO,  NOTES,  BUGS,  EXAMPLE,  AUTHORS,  and
-SEE ALSO.
 
 man [COMMAND]
 
 Examples:
 man ls
 man -a ls
+man 5 passwd
 man -k ascii
 man -k compiler
 
@@ -722,6 +728,28 @@ File of config man path
 /etc/manpath.config
 
 manpath
+```
+
+#### info- Read Info documents
+
+`info echo`
+
+#### Locate - Find files by name
+
+```linux
+# Update db
+sudo updatedb
+
+locate file
+locate -e file
+
+# Globbling
+locate "*arquivo*"
+locate arquivo[2-3].txt
+locate arquivo?.txt
+
+# N first files
+locate -n 3 README
 ```
 
 #### apropos - Search the manual page names and descriptions(man -k)
@@ -732,27 +760,12 @@ manpath
 
 `whatis pwd`
 
-#### info- Read Info documents
-
-`info echo`
-
 #### HOWTOs
 
 ```linux
 apt-cache search HOWTO
 sudo apt-get install python-turbogears2-doc -y
 ls /usr/share/doc/
-```
-
-#### Locate - Find files by name
-
-```linux
-sudo updatedb
-locate file
-locate -e file
-locate "*arquivo*"
-locate arquivo[2-3].txt
-locate arquivo?.txt
 ```
 
 #### Find - search for files in a directory hierarchy
@@ -1793,6 +1806,7 @@ du -sh ~/
 ##### Unix System Resources - The second major section of the filesystem
 
 ```sh
+# Unix System Resources
 /usr
 # Most user commands
 /usr/bin
