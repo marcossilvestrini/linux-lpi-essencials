@@ -1,0 +1,180 @@
+Guided Exercises
+
+Use the man command to find out what each command does:
+
+Command	Description
+ls
+Display the contents of a directory.
+
+R:
+cat
+Concatenate FILE(s) to standard output.
+
+cut
+Print selected parts of lines from each FILE to standard output.
+
+cd
+Change the current directory to dir
+
+cp
+Copy SOURCE to DEST, or multiple SOURCE(s) to DIRECTORY
+
+mv
+Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+
+mkdir
+Create the DIRECTORY(ies), if they do not already exist.
+
+touch
+Update the access and modification times of each FILE to the current time.
+
+wc
+Print  newline,  word, and byte counts for each FILE, and a total line if more than one FILE is specified.
+A word is a non-zero-length sequence of characters delimited by white space.
+
+
+passwd
+The passwd utility is used to update user's authentication token(s).
+
+rm
+This manual page documents the GNU version of rm.  rm removes each specified file.  By default, it does not remove directories.
+
+rmdir
+Remove the DIRECTORY(ies), if they are empty.
+
+more
+is  a filter for paging through text one screenful at a time.
+This version is especially primitive.  Users should realize that less(1) provides more(1)
+emulation plus extensive enhancements.
+
+less
+Less is a program similar to more (1), but which allows backward movement in the file as well as forward movement.
+Also, less does not have to read the entire input file before starting, so with large input files it starts
+up faster than text editors like vi (1).  Less uses termcap (or terminfo on some systems), so it can run on
+a variety  of terminals.  There is even limited support for hardcopy terminals.
+(On a hardcopy terminal, lines which should be printed at the top of the screen are prefixed with a caret.)
+
+whereis
+whereis  locates  the  binary, source and manual files for the specified command names.
+
+head
+Print the first 10 lines of each FILE to standard output.
+
+tail
+Print the last 10 lines of each FILE to standard output.
+
+sort
+Write sorted concatenation of all FILE(s) to standard output.
+
+tr
+Translate, squeeze, and/or delete characters from standard input, writing to standard output.
+
+chmod
+changes the file mode bits of each given file according to mode
+
+grep
+grep  searches  for  PATTERN  in  each  FILE.
+
+
+Open the ls info page and identify the MENU.
+What options do you have?
+R:
+* Which files are listed::
+* What information is listed::
+* Sorting the output::
+* Details about version sort::
+* General output formatting::
+* Formatting file timestamps::
+* Formatting the file names::
+
+Find the option that allows you to sort the output by modification time.
+R:
+ls -t
+
+Display the path to the first 3 README files. Use the man command to identify the correct option for locate.
+R:
+locate -n 3 README
+locate -l 3 README
+
+Create a file called test in your home directory. Find its absolute path with the locate command.
+R:
+cd
+touch test
+updatedb
+find test | grep home
+
+Did you find it immediately? What did you have to do in order for locate to find it?
+R:
+No.
+Is necessary update database with command updatedb
+
+Search for the test file that you previously created, using the find command.
+What syntax did you use and what is the absolute path ?
+R:
+find ~ -name test
+find . -name test
+
+Explorational Exercises
+
+There is one command in the table above that doesn’t have a man page.
+Which one is it and why do you think that the command doesn’t have a man page?
+R:
+Command cp because is a shell builtin
+
+Using the commands in the table above, create the following file tree.
+The names that start with a capital are Directories and the ones in lower case are files.
+
+User
+├── Documents
+|   ├──Hello
+|   |   ├──hey2
+|   |   ├──helloa
+|   |   └──ola5
+|   └──World
+|       └──earth9
+├── Downloads
+|   ├──Music
+|   └──Songs
+|       ├──collection1
+|       └──collection2
+├── Test
+|   └── passa
+└── test
+
+R:
+# Create folders
+cd
+mkdir -p \
+Documents/Hello Documents/World \
+Downloads/Music Downloads/Songs \
+Test
+
+# Create files
+cd
+cd Documents/Hello/
+touch hey2 helloa ola5
+cd
+cd Documents/World/
+touch earth9
+cd
+cd Downloads/Songs/
+touch collection{1..2}
+cd
+cd Test/
+touch passa
+cd
+touch test
+
+Display on the screen the present working directory, including the subfolders.
+ls -R
+tree -U
+
+Search within the tree for all files that end with a number.
+R:
+find . -name *[0-9]
+find ~ -name "*[0-9]"
+locate "*[0-9]"
+
+Remove the entire directory tree with a single command.
+R:
+rm -r Documents Downloads Test test
