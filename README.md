@@ -569,7 +569,7 @@ echo "I am $USER"
 
 #### Variables in Linux
 
-##### Shell Variables
+##### Escope Shell Variables
 
 ```sh
 name="Marcos Silvestrini"
@@ -586,7 +586,7 @@ year=1981
 echo "Date is ${day}\\${month}\\${year}"
 ```
 
-##### Environment Variables
+##### Escope Environment Variables
 
 ```sh
 export NAME="Jonny Wick"
