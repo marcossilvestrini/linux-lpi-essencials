@@ -930,6 +930,51 @@ ls --sort=size --format=long  /usr/bin
 # recursive
 ls --recursive /etc
 ls -R /etc
+
+# Additional ls Options
+
+#Combining long list with human readable file sizes will give us useful suffixes such as M for megabytes or K #for kilobytes.
+ls -lh
+
+
+#The -d option will list directories but not their contents. Combining this with */ will show only #subdirectories and no files.
+ls -d */
+
+
+#Combines long list with the option to sort by modification time. The files with the most recent changes will
+#be at the top, and files with the oldest changes will be at the bottom. But this order can be reversed with:
+ls -lt
+
+#Combines long list with sort by (modification) time, combined with -r which reverses the sort.
+#Now files #with the most recent changes are at the bottom of the list. In addition to sorting by
+#modification time, #files can also be sorted by access time or by status time.
+ls -lrt
+
+#Combines long list with the option to sort by file eXtension. This will, for example, group all files ending
+#with .txt together, all files ending with .jpg together, and so on.
+ls -lX
+
+```
+
+
+
+#### Command tree -  list contents of directories in a tree-like format.
+
+```sh
+tree /home/user
+
+# only directorys
+tree -d /
+
+# level
+tree -L 1 /
+
+# last modification time
+tree -D /home
+
+# hidden files
+tree -a /home
+
 ```
 
 ### 2.4 Creating,Moving and Deleting Files
