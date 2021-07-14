@@ -1,0 +1,112 @@
+Guided Exercises
+
+For each of the following paths, identify whether it is absolute or relative:
+
+R:
+
+/home/user/Downloads
+Absolute
+
+../Reports
+Relative
+
+/var
+Absolute
+
+docs
+Relative
+
+/
+Absolute
+
+Observe the following file structure.
+Note: Directories end with a slash (/) when tree is invoked with the -F option.
+You will need elevated privileges in order to run the tree command on the root (/) directory.
+The following is example output and is not indicative of a full directory structure.
+Use it to answer the following questions:
+
+$ sudo tree -F /
+
+/
+├── etc/
+│   ├── network/
+│   │   └── interfaces
+│   ├── systemd/
+│   │   ├── resolved.conf
+│   │   ├── system/
+│   │   ├── system.conf
+│   │   ├── user/
+│   │   └── user.conf
+│   └── udev/
+│       ├── rules.d/
+│       └── udev.conf
+└── home/
+    ├── lost+found/
+    └── user/
+        └── Documents/
+
+12 directories, 5 files
+Use this structure to answer the following questions.
+
+A user enters the following commands:
+
+$ cd /etc/udev
+$ ls -a
+What will be the output of the ls -a command?
+R:
+. .. rules.d udev.conf
+
+Enter the shortest possible command for each of the following:
+Your current location is root (/).
+Enter the command to navigate to lost+found within the home directory (example):
+$ cd home/lost+found
+R:
+cd ~/lost+found
+
+Your current location is root (/).
+Enter the command to navigate to the directory named /etc/network/.
+cd /etc/network
+
+Your current location is /home/user/Documents/.
+Navigate to the directory named /etc/.
+cd /etc
+
+Your current location is /etc/systemd/system/.
+Navigate to the directory named /home/user/.
+cd
+cd ~
+
+Consider the following commands:
+
+$ pwd
+/etc/udev/rules.d
+$ cd ../../systemd/user
+$ cd ..
+$ pwd
+What is the output of the final pwd command?
+/etc/systemd/
+
+Explorational Exercises
+
+Suppose a user has entered the following commands:
+
+$ mkdir "this is a test"
+$ ls
+this is a test
+What cd command would allow you to enter this directory?
+
+cd this\ is\ a\ test
+cd "this is a test"
+
+Try this again, but after typing in cd this, press the TAB key.
+What is now displayed on the prompt?
+cd this\ is\ a\ test
+
+This is an example of autocompletion, which is an invaluable tool not only for saving time,
+but for preventing spelling errors.
+
+Try to create a directory whose name contains a \ character.
+Display the directory’s name with ls and delete the directory.
+mkdir \\foo
+ls \\foo
+rmdir \\foo

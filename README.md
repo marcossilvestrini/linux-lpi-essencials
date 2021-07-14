@@ -833,13 +833,13 @@ find -name "*log*" -type f -exec rm -i  "{}" \;
 
 ### 2.3 Using Directories and Listing Files
 
-#### Absolute Path
+#### Absolute Path Examples
 
 ```linux
 cat /home/vagrant/my_dir/foo.txt
 ```
 
-#### Relative Path
+#### Relative Path Examples
 
 ```linux
 cat my_dir/foo.txt
