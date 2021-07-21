@@ -1,0 +1,78 @@
+,
+Guided Exercises
+
+According to the extensions, which of the following tools were used to create these files?
+
+Filename	tar	gzip	bzip2	xz
+archive.tar
+archive.tgz
+archive.tar.xz
+
+R:
+archive.tar -   tar
+archive.tgz -   tar gzip
+archive.tar.xz -    tar xz
+
+According to the extensions, which of these files are archives and which are compressed?
+
+Filename	Archive	Compressed
+file.tar
+file.tar.bz2
+file.zip
+file.xz
+
+R:
+file.tar -  archive
+file.tar.bz2 - archive,compressed
+file.zip - archive,compressed
+file.xz - compressed
+
+How would you add a file to a gzip compressed tar file?
+R:
+Descomprimimos o arquivo com gunzip, adicionamos o arquivo com tar uf
+e em seguida o comprimimos com gzip
+
+Which tar option instructs tar to include the leading / in absolute paths?
+R:
+A opção -P. Segundo a página man:
+
+-P, --absolute-names
+        Don't strip leading slashes from file names when creating  archives
+
+Does zip support different compression levels?
+R:
+Sim. Usaríamos -#, substituindo # por um número de 0-9. Segundo a página man:
+-#
+(-0, -1, -2, -3, -4, -5, -6, -7, -8, -9)Regula a velocidade da compressão usando
+o dígito especificado #,onde -0 indica sem compressão (armazena todos os arquivos),
+-1 indica a velocidade de compressão mais rápida (menos compressão)
+e -9 indica a velocidade de compressão mais lenta (compressão ideal,
+ignora a lista de sufixos). O nível de compressão padrão é -6.
+
+Embora ainda esteja sendo trabalhada, a intenção é que essa configuração controle
+a velocidade de compressão para todos os métodos de compressão.
+Atualmente, apenas a deflação é controlada.
+
+Explorational Exercises
+
+When extracting files, does tar support globs in the file list?
+R:
+Sim, com a opção --wildcards.
+--wildcards deve ser colocado logo após o arquivo tar ao se usar o estilo de opções sem hífen.
+Por exemplo:
+$ tar xf tarfile.tar --wildcards dir/file*
+$ tar --wildcards -xf tarfile.tar dir/file*
+
+How can you make sure a decompressed file is identical to the file before it was compressed?
+R:
+Não é preciso fazer nada com as ferramentas mostradas nesta lição.
+As três incluem somas de controle no formato de arquivo,
+que são verificadas quando eles são descomprimidos.
+
+What happens if you try to extract a file from a tar archive that already exists on your filesystem?
+R:
+O arquivo no sistema de arquivos é sobrescrito com a versão que está no arquivo tar.
+
+How would you extract the file archive.tgz without using the tar z option?
+R:
+Seria preciso descomprimi-lo antes com o gunzip.

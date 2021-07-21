@@ -1,0 +1,85 @@
+Guided Exercises
+
+Given the following, select the directories that would be created by the command
+mkdir -p /tmp/outfiles/text/today /tmp/infiles/text/today
+
+$ pwd
+/tmp
+$ find
+.
+./outfiles
+./outfiles/text
+
+/tmp
+/tmp/outfiles
+/tmp/outfiles/text
+/tmp/outfiles/text/today
+/tmp/infiles
+/tmp/infiles/text
+/tmp/infiles/text/today
+
+R:
+/tmp/outfiles/text/today
+/tmp/infiles
+/tmp/infiles/text
+/tmp/infiles/text/today
+
+What does -v do for mkdir, rm, and cp?
+R:
+Normalmente, -v ativa a saída detalhada.
+Ele faz com que os programas respectivos exibam o que estão fazendo no momento em que o fazem:
+
+What happens if you accidentally attempt to copy three files on the same
+command line to a file that already exists instead of a directory?
+R:
+cp se recusará a fazer qualquer coisa e exibirá uma mensagem de erro
+cp: target 'foo/bar' is not a directory
+
+What happens when you use mv to move a directory into itself?
+R:
+Aparece uma mensagem de erro dizendo que mv não pode fazer isso.
+mv: cannot move 'foo/' to a subdirectory of itself, 'foo/foo'
+
+How would you delete all files in your current directory that start with old?
+R:
+rm old*
+
+Which of the following files would log_[a-z]_201?_*_01.txt match?
+
+log_3_2017_Jan_01.txt
+log_+_2017_Feb_01.txt
+log_b_2007_Mar_01.txt
+log_f_201A_Wednesday_01.txt
+R:
+log_f_201A_Wednesday_01.txt
+
+Create a few globs to match the following list of file names:
+doc100
+doc200
+doc301
+doc401
+R:ls -l doc[1-4][0][0-1]
+
+Explorational Exercises
+Use the cp man page to find out how to make a copy of a file and
+have the permissions and modification time match the original.
+R:
+cp -p foo bar
+
+What does the rmdir -p command do? Experiment with it and explain how it differs from rm -r.
+R:
+Ele faz com que rmdir se comporte de maneira semelhante a mkdir -p.
+Se for passado em uma árvore de diretórios vazios, ele removerá todos eles.
+
+DO NOT ACTUALLY EXECUTE THIS COMMAND: What do you think rm -ri /* will do? (HONESTLY, DO NOT ATTEMPT TO DO THIS!)
+R:
+Ele remove todos os arquivos e diretórios com permissão de escrita em sua conta de usuário.
+Isso inclui quaisquer sistemas de arquivos de rede.
+
+Other than using -i, is it possible to prevent mv from overwriting destination files?
+R:
+Sim, a opção -n ou --no-clobber impede que mv sobrescreva arquivos.
+
+Explain the command cp -u.
+R:
+A opção -u faz com que cp só copie um arquivo se o destino estiver ausente ou for mais antigo que o arquivo de origem.

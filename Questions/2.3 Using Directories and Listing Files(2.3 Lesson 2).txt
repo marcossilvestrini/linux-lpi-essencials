@@ -1,0 +1,92 @@
+Guided Exercises
+
+Use the following file structure to answer the following three questions:
+
+/
+├── etc/
+│   ├── network/
+│   │   └── interfaces/
+│   ├── systemd/
+│   │   ├── resolved.conf
+│   │   ├── system/
+│   │   ├── system.conf
+│   │   ├── user/
+│   │   └── user.conf
+│   └── udev/
+│       ├── rules.d
+│       └── udev.conf
+└── home/
+    ├── lost+found/
+    ├── user/
+    │   └── Documents/
+    └── michael/
+        └── Music/
+
+What command will navigate into the network directory regardless of your current location?
+R:
+cd /etc/network
+
+What command can user enter to navigate into their Documents directory from /etc/udev?
+Use the shortest possible path.
+R:
+cd ~/Documents
+
+What command can user enter to navigate into michael 's Music directory? Use the shortest possible path.
+R:
+cd ~michael/Music
+
+Consider the following output of ls -lh to answer the next two questions.
+Note that directories are indicated with a d at the beginning of the line.
+
+drwxrwxrwx  5 eric eric  4.0K Apr 26  2011 China/
+-rwxrwxrwx  1 eric eric  1.5M Jul 18  2011 img_0066.jpg
+-rwxrwxrwx  1 eric eric  1.5M Jul 18  2011 img_0067.jpg
+-rwxrwxrwx  1 eric eric  1.6M Jul 18  2011 img_0074.jpg
+-rwxrwxrwx  1 eric eric  1.8M Jul 18  2011 img_0075.jpg
+-rwxrwxrwx  1 eric eric   46K Jul 18  2011 scary.jpg
+-rwxrwxrwx  1 eric eric  469K Jan 29  2018 Screenshot from 2017-08-13 21-22-24.png
+-rwxrwxrwx  1 eric eric  498K Jan 29  2018 Screenshot from 2017-08-14 21-18-07.png
+-rwxrwxrwx  1 eric eric  211K Jan 29  2018 Screenshot from 2018-01-06 23-29-30.png
+-rwxrwxrwx  1 eric eric  150K Jul 18  2011 tobermory.jpg
+drwxrwxrwx  6 eric eric  4.0K Apr 26  2011 Tokyo/
+-rwxrwxrwx  1 eric eric  1.4M Jul 18  2011 Toronto 081.jpg
+-rwxrwxrwx  1 eric eric  1.4M Jul 18  2011 Toronto 085.jpg
+-rwxrwxrwx  1 eric eric  944K Jul 18  2011 Toronto 152.jpg
+-rwxrwxrwx  1 eric eric  728K Jul 18  2011 Toronto 173.jpg
+drwxrwxrwx  2 eric eric  4.0K Jun  5  2016 Wallpapers/
+
+When you run the command ls -lrS, what file will be at the beginning?
+R:
+The three folders are all 4.0K, which is the smallest file size.
+ls will then sort the directories alphabetically by default. The correct answer is the file scary.jpg.
+
+Please describe what you expect to see as the output for ls -ad */.
+R:
+This command will show all subdirectories, including hidden subdirectories.
+
+Explorational Exercises
+
+Run the ls -lh command in a directory that contains subdirectories.
+Note the listed size of these directories. Do these file sizes seem correct to you?
+Do they accurately represent the contents of all files inside that directory?
+R:
+No, they do not. Each directory has a listed file size of 4096 bytes.
+This is because directories here are an abstraction: they don’t exist as a tree structure on the disk.
+When you see a directory listed, you are seeing a link to a list of files.
+The size of these links is 4096 bytes.
+
+Here is a new command to try: du -h.
+Run this command and describe the output that it gives you.
+R:
+The du command will generate a list of all files and directories,
+and indicate the size of each. For example, du -s will display the file size of all files,
+directories, and subdirectories for a certain location.
+
+On many Linux systems, you can type in ll and get the same output as you would if you typed ls -l.
+Please note however that ll is not a command. For example, man ll will give you the message
+that no manual entry exists for it.
+This is an example of an alias. Why might aliases be useful to a user?
+R:
+ll is an alias of ls -l.
+In Bash, we can use aliases to simplify commonly-used commands.
+ll is often defined for you in Linux, but you can create your own as well.
