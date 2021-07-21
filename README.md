@@ -539,6 +539,7 @@ echo foo/bar/201{1,2,3}
 # ^
 grep '^[P-R]' list.txt
 grep '[^A-C]' list.txt
+ls file[^0-8]
 sudo grep -rhE ^deb /etc/apt/sources.list*
 
 # !
@@ -548,6 +549,11 @@ grep [!4-8] list.txt
 # $
 grep a$ list.txt
 grep 50$ list.txt
+
+# Class
+ls file[[:digit:]]
+ls file[[:digit:]]a
+ls file[[:digit:]a]
 
 ```
 
@@ -956,8 +962,6 @@ ls -lX
 
 ```
 
-
-
 #### Command tree -  list contents of directories in a tree-like format.
 
 ```sh
@@ -1070,6 +1074,7 @@ tar -tf scripts.tar
 # extract
 tar -xf scripts.tar
 tar -xvf scripts.tar
+tar -xvf 3.1.tar compression/hosts.gz
 
 #update - Add new version for modify files.Not best practice!
 tar -uvf scripts.tar scripts
@@ -1116,6 +1121,20 @@ bzip2 -v9 picture1.jpg
 #descompress
 bunzip2 -v picture1.jpg.bz2
 bzip2 -dv picture1.jpg.bz2
+```
+
+#### xz - Compress or decompress .xz and .lzma files
+
+```sh
+#compress
+xz script1.sh
+xz -1 bigfile bigfile-xz1
+xz -9 bigfile bigfile-xz9
+
+#descompress
+unxz picture1.xz
+xz -d picture1.xz
+
 ```
 
 #### Zip - package and compress (archive) files
