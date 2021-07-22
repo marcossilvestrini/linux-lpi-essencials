@@ -1,0 +1,66 @@
+Guided Exercises
+
+List the contents of your current directory, including the ownership and permissions,
+and redirect the output to a file called contents.txt within your home directory.
+R:
+ls -l > ~/contents.txt
+
+
+
+Sort the contents of the contents.txt file from your current directory and append
+it to the end of a new file named contents-sorted.txt.
+R:
+sort contents.txt >>contents-sorted.txt
+
+
+Display the last 10 lines of the /etc/passwd file and redirect
+it to a new file in your user’s Documents directory.
+R:
+$ tail /etc/passwd > Documents/newfile
+
+Count the number of words within the contents.txt
+file and append the output to the end of a file field2.txt in your home directory.
+You will need to use both input and output redirection.
+R:
+wc < contents.txt >> field2.txt
+
+Display the first 5 lines of the /etc/passwd file and sort the output reverse alphabetically.
+R:
+head -n 5 /etc/passwd | sort -r
+
+Using the previously created contents.txt file, count the number of characters of the last 9 lines.
+R:
+tail -n 9 contents.txt | wc -c
+
+Count the number of files called test within the /usr/share directory and its subdirectories.
+Note: each line output from the find command represents a file.
+R:
+find /usr/share -name test | wc -l
+
+Explorational Exercises
+
+Select the second field of the contents.txt file and redirect the standard output and error
+output to another file called field1.txt.
+R:
+cut -f 2 -d " " contents.txt &> field1.txt
+
+Using the input redirection operator and the tr command,
+delete the dashes (-) from the contents.txt file.
+R:
+tr -d "-" < contents.txt
+
+What is the biggest advantage of only redirecting errors to a file?
+R:
+O redirecionamento dos erros para um arquivo ajuda a manter um arquivo
+de log monitorado com frequência.
+
+Replace all recurrent spaces within the alphabetically sorted contents.txt file with a single space.
+R:
+sort contents.txt | tr -s " "
+
+In one command line, eliminate the recurrent spaces (as done in the previous exercise),
+select the ninth field and sort it reverse alphabetically and non-case sensitive.
+How many pipes did you have to use?
+R:
+cat contents.txt | tr -s " " | cut -f 9 -d " " | sort -fr
+3 Pipes

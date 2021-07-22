@@ -1067,6 +1067,7 @@ rm -rf ~/pictures
 tar -cf scripts.tar foo1.sh foo2.sh
 tar -cvf scripts.tar scripts
 tar -cf scripts.tar scripts/*
+tar cfv  tar-file.tar --wildcards bigfile[1-3]
 
 #view content
 tar -tf scripts.tar
@@ -1086,9 +1087,12 @@ tar -cvf scripts.tar scripts
 tar -czvf scripts.tar.gz scripts
 tar -xzvf scripts.tar.gz
 
-#compress \ descompress with bzip
+#compress \ descompress with bzip2
 tar -cjvf scripts.tar.bz2 scripts
 tar -xjvf scripts.tar.bz2
+
+#compress \ descompress with xz
+tar -cJvf scripts.tar.xz scripts
 ```
 
 #### Compress Files
@@ -1100,7 +1104,7 @@ tar -xjvf scripts.tar.bz2
 gzip -v scripts/script1.sh
 gzip -v1 scripts/script1.sh
 gzip -v9 scripts/script1.sh
-gzip -c scripts/script1.sh > scripts/script1.sh.gz
+gzip -c scripts/script1.sh > scripts/script1.gz
 
 #descompress
 gzip -dv picture1.jpg.gz
@@ -1248,11 +1252,16 @@ echo "Second Line" >> echo_hello.txt
 #stderr
 cd /shgfdjdgfjsdfgjhdfs 2> stderr_cd.txt
 
-#alter output channel
-cat /shgfdjdgfjsdfgjhdfs >stderr_cat.txt 2>&1
-
 #input
 zip -@ programs.zip < list_programs.txt
+
+#combination chanels
+#stdout and stderr
+find /usr admin &> newfile
+find /usr admin &>> newfile
+
+#alter output channel
+cat /shgfdjdgfjsdfgjhdfs >stderr_cat.txt 2>&1
 
 ```
 
