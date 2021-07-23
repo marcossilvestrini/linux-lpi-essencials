@@ -1,0 +1,81 @@
+Guided Exercises
+
+Using grep and the /usr/share/hunspell/en_US.dic file, find the lines that match the following criteria:
+
+All lines containing the word cat anywhere on the line.
+R:
+grep "cat" /usr/share/hunspell/en_US.dic
+
+All lines that do not contain any of the following characters: sawgtfixk.
+R:
+grep -v "[^sawgtfixk]" /usr/share/hunspell/en_US.dic
+
+All lines that start with any 3 letters and the word dig.
+R:
+grep "^...dig" /usr/share/hunspell/en_US.dic
+
+All lines that end with at least one e.
+R:
+grep -E "e+$" bigfile
+
+All lines that contain one of the following words: org , kay or tuna.
+R:
+grep -E "org|kay|tuna" /usr/share/hunspell/en_US.dic
+
+Number of lines that start with one or no c followed by the string ati.
+R:
+
+Explorational Exercises
+
+Find the regular expression that matches the words in the “Include”
+line and doesn’t match the ones in the “Exclude” line:
+
+Include: pot, spot, apot
+Exclude: potic, spots, potatoe
+
+Include: arp99, apple, zipper
+Exclude: zoo, arive, attack
+
+Include: arcane, capper, zoology
+Exclude: air, coper, zoloc
+
+Include: 0th/pt, 3th/tc, 9th/pt
+Exclude: 0/nm, 3/nm, 9/nm
+
+Include: Hawaii, Dario, Ramiro
+Exclude: hawaii, Ian, Alice
+
+R:
+Incluir: pot, spot, apot
+Excluir: potic, spots, potatoe
+Resposta: pot$
+
+Incluir: arp99, apple, zipper
+Excluir: zoo, arive, attack
+Resposta: p+
+
+Incluir: arcane, capper, zoology
+Excluir: air, coper, zoloc
+Resposta: arc|cap|zoo
+
+Incluir: 0th/pt, 3th/tc, 9th/pt
+Excluir: 0/nm, 3/nm, 9/nm
+Resposta: [0-9]th.+
+
+Incluir: Hawaii, Dario, Ramiro
+Excluir: hawaii, Ian, Alice
+Resposta: ^[A-Z]a.*i+
+
+What other useful command is commonly used to search within the files?
+What additional functionalities does it have?
+R:
+O comando sed.
+Ele é capaz de encontrar e substituir caracteres ou conjuntos de caracteres dentro de um arquivo.
+
+Thinking back at the previous lesson, use one of the examples and try to look
+for a specific pattern within the output of the command, with the help of grep.
+R:
+Peguei uma das respostas dos Exercícios Exploratórios e busquei pela linha que tem as permissões
+de grupo para leitura, escrita e execução.
+Sua resposta pode ser diferente, dependendo do comando que você escolher e do padrão que criar.
+cat contents.txt | tr -s " " | grep "^....rwx"
