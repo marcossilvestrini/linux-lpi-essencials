@@ -7,3 +7,14 @@ rsync -avzh --exclude=.vagrant --exclude=.git --progress /mnt/projects/alura/alu
 
 Set Timezone
 sudo timedatectl set-timezone America/Sao_Paulo
+
+Permissões:
+
+0 - nenhuma permissão (-)
+1 - permissão de execução (001,--x)
+2 - permissão de escrita (010,-w-)
+3 - permissão de escrita e execução (011,-wx)
+4 - permissão de leitura (100,r--)
+5 - permissão de leitura e execução (101,r-x)
+6 - permissão de leitura e escrita (110,rw-)
+7 - todas as permissões (111,rwx)

@@ -2349,8 +2349,8 @@ sudo vipw -s
 5: 1: file, 2: directory
 6: owner
 7: group
-8:
-9:
+8: size
+9: data creation
 
 # Symbolic Method
 u: user
@@ -2368,14 +2368,21 @@ s: setuid,setgid
 -: denny permission
 
 # Numeric Method
-0: (000) - There is no permission.
-1: (001) - It has only the execute permission.
-2: (010) - It has only the write permission.
-3: (011) - It has both execute and write permissions.
-4: (100) - It has only read permission.
-5: (101) - Assigned only execute and read permissions.
-6: (110) - Only the write and read permissions have been assigned.
-7: (111) - All permissions.
+0: (000) - There is no permission (-).
+1: (001) - It has only the execute permission (--x).
+2: (010) - It has only the write permission (-w-).
+3: (011) - It has both write and execute permissions (-wx).
+4: (100) - It has only read permission (r--).
+5: (101) - Assigned only read and execute permissions (r-x).
+6: (110) - Only the read and write permissions have been assigned (rw-).
+7: (111) - All permissions. (rwx)
+
+Examples with files:
+
+600:    --rw-------
+654:    -rw-r-xr--
+744     -rwxr--r--
+
 
 ```
 
