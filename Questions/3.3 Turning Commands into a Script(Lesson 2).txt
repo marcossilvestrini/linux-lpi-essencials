@@ -1,122 +1,81 @@
 Guided Exercises
 
-The user types the following to their shell:
+Read the contents of script1.sh below:
 
-$ PATH=~/scripts
-$ ls
-Command 'ls' is available in '/bin/ls'
-The command could not be located because '/bin' is not included in the PATH environment variable.
-ls: command not found
-
-What has the user done?
-R:
-O usuário sobrescreveu o conteúdo de PATH com o diretório ~/scripts.
-O comando ls não pode mais ser encontrado, já que não está contido em PATH.
-Note que essa alteração afeta somente a sessão atual; basta se deslogar e se
-relogar novamente para reverter a mudança.
-
-
-What command will combine the current value of PATH with the new directory ~/scripts?
-R:
-PATH=$PATH:~/scripts
-
-Consider the following script.
-Notice that it is using elif to check for a second condition:
-
->  /!bin/bash
-
-> fruit1 = Apples
-> fruit2 = Oranges
-
-  if [ $1 -lt $# ]
-  then
-    echo "This is like comparing $fruit1 and $fruit2!"
-> elif [$1 -gt $2 ]
-  then
->   echo '$fruit1 win!'
-  else
->   echo "Fruit2 win!"
-> done
-
-The lines marked with a > contain errors. Fix the errors.
-
-R:
 #!/bin/bash
 
-fruit1 =Apples
-fruit2 =Oranges
-
-if [ $1 -lt $# ]
-  then
-    echo "This is like comparing $fruit1 and $fruit2!"
-elif [ $1 -gt $2 ]
-  then
-    echo "$fruit1 win!"
-  else
-    echo "$fruit2 win!"
+if [ $# -lt 1 ]
+then
+  echo "This script requires at least 1 argument."
+  exit 1
 fi
 
-What will the output be in the following situations?
+echo $1 | grep "^[A-Z]*$" > /dev/null
+if [ $? -ne 0 ]
+then
+  echo "no cake for you!"
+  exit 2
+fi
 
-$ ./guided1.sh 3 0
-$ ./guided1.sh 2 4
-$ ./guided1.sh 0 1
+echo "here's your cake!"
+exit 0
 
+What is the output of these commands?
+
+./script1.sh
 R:
-$ ./guided1.sh 3 0 -  Apples win!
-$ ./guided1.sh 2 4 -  Oranges win!
-$ ./guided1.sh 0 1 - This is like comparing Apples and Oranges!
+This script requires at least 1 argument.
 
+echo $?
+R:
+1
+
+./script1.sh cake
+R:
+no cake for you!
+
+echo $?
+R:
+2
+
+./script1.sh CAKE
+R:
+here's your cake!
+
+echo $?
+R:
+0
+
+Read the contents of file script2.sh:
+
+for filename in $1/*.txt
+do
+   cp $filename $filename.bak
+done
+
+Describe the purpose of this script as you understand it.
+R:
+Copiar todos os arquivos .txt do path passado por parametro para o mesmo path,
+com mesmo nome porem com extenção .bak
 
 Explorational Exercises
 
-Write a simple script that will check if exactly two arguments are passed.
-If so, print the arguments in reverse order. Consider this example
-(note: your code may look different than this, but should lead to the same output):
-
-if [ $1 == $number ]
-then
-  echo "True!"
-fi
-
+Create a script that will take any number of arguments from the user,
+and print only those arguments which are numbers greater than 10.
 R:
 #!/bin/bash
 
-if [ $# -ne 2 ]
-then
-  echo "Error"
-else
-  echo "$2 $1"
-fi
+for i in $@
+do
+  echo $i | grep "^[0-9]*$" > /dev/null
+  if [ $? -eq 0 ]
+  then
+    if [ $i -gt 10 ]
+    then
+      echo -n "$i "
+    fi
+  fi
+done
+echo ""
+© 2020 Linux Professional Insitute Inc.
 
-This code is correct, but it is not a number comparison.
-abc == abc  true
-
-abc == ABC  false
-
-1 == 1  true
-
-1+1 == 2    false
-
-Use an internet search to discover how this code is different from using -eq.
-R:
-A comparação de strings provoca comportamentos inesperados se estivermos testando com números.
-
-There is an environment variable that will print the current directory.
-Use env to discover the name of this variable.
-R:
-PWD
-
-Using what you have learned in questions 2 and 3, write a short script that accepts an argument.
-If an argument is passed, check if that argument matches the name of the current directory.
-If so, print yes. Otherwise, print no.
-
-R:
-#!/bin/bash
-
-if [ "$1" == "$PWD" ]
-then
-  echo "yes"
-else
-  echo "no"
-fi

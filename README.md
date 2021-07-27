@@ -658,6 +658,26 @@ PATH=$PATH:/some_dir
 echo $PATH
 ```
 
+##### Some Special Bash Variables
+
+```linux
+$?
+last exit code
+
+$0
+script path
+
+$1...$9
+list of arguments in script
+
+$#
+Number of arguments in script
+
+$@ or @*
+array of arguments
+
+```
+
 ##### Some Environment Variables
 
 ```linux
@@ -1683,6 +1703,40 @@ for i in *$MYEXTENSION
 do
     echo ${i}
 done
+```
+
+#### Example 9 - If Else
+
+```sh
+#!/bin/bash
+
+# ---------------------------------
+#
+# Script Example if
+#
+# Purpose: Script for print list usernames
+#
+# Example: friendly2.sh USER1 USER2 USERN
+#
+# Author: https://learning.lpi.org/pt/learning-materials/010-160/3/3.3/3.3_02/
+#
+# Version: 1.0.0
+# --------------------------------
+
+# Clear Screen
+clear
+
+#one simple script for salute users
+if [ $# -eq 0 ]
+then
+    echo "Please enter at least one user to greet."
+    exit 1
+else
+    # $@ is special variable for list of arguments with blank space
+    echo "Hello $@!"
+    exit 0
+fi
+
 ```
 
 #### Text editors
