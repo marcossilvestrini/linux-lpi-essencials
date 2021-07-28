@@ -1,0 +1,62 @@
+Guided Exercises
+
+Which project makes up the common component of all Linux distributions?
+CentOS
+Red Hat
+Ubuntu
+Linux Kernel
+CoreOS
+
+R: Linux Kernel
+
+Which operating system is reported in use for macOS from Apple?
+
+OS X
+OSX
+Darwin
+MacOS
+
+R:
+Darwin
+
+How does a Linux distribution differ from the Linux kernel?
+
+The kernel is part of a distribution, the distribution as applications
+to surround the kernel to make it useful
+
+The kernel is the Linux distribution
+
+All distributions that use the same kernel are the same
+
+R:
+
+Which of the following is a desktop environment in Linux?
+
+Mint
+Elementary
+Zorin
+Wayland
+
+R: Wayland
+
+Which component of an operating system allows access to hardware?
+
+Drivers
+Shells
+Service
+Application
+
+R: Drivers
+
+Explorational Exercises
+
+Retrieve the current Kernel version of your Linux system if you have access to the command line
+R:
+
+Using your preferred search engine locate and identify public cloud providers available to you.
+These could include AWS, Google Cloud, Rackspace and many more. Choose one and see which operating
+systems are available to deploy.
+
+R:
+O AWS, por exemplo, permite implementar várias distribuições Linux como
+Debian, Red Hat, SUSE ou Ubuntu, além do Windows.

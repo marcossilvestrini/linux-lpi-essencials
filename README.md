@@ -1715,6 +1715,7 @@ done
 # Script Example if
 #
 # Purpose: Script for print list usernames
+
 #
 # Example: friendly2.sh USER1 USER2 USERN
 #
