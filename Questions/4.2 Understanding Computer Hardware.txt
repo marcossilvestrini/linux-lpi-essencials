@@ -1,0 +1,90 @@
+Guided Exercises
+
+Describe these terms:
+
+Processor
+CPU
+GPU
+
+R:
+Processador
+Um termo geral que se aplica a qualquer tipo de processador. Muitas vezes usado incorretamente como sinônimo de CPU.
+
+CPU
+Unidade Central de Processamento. Uma unidade de processamento que suporta as tarefas computacionais de uso geral.
+
+GPU
+Unidade de Processamento Gráfico. Uma unidade de processamento otimizada para suportar atividades relacionadas à apresentação de imagens.
+
+If you are primarily running video editing applications
+(a computationally intensive activity) which components and characteristics
+would you expect to have the most impact on system usability:
+
+CPU cores
+CPU speed
+Available system memory
+Storage system
+GPU
+Video display
+None of the above
+
+R:
+Núcleos da CPU
+Sim. Uma configuração com múltiplos núcleos suporta as tarefas concorrentes de apresentação e renderização exigidas pela edição de vídeo.
+
+Velocidade da CPU
+Sim. A renderização de vídeo requer uma dose significativa de atividade computacional.
+
+Memória disponível do sistema
+Provavelmente. O vídeo não-compactado usado na edição é grande. Os sistemas de uso geral costumam vir com 8 gigabytes de memória. Uma memória de 16 ou mesmo 32 gigabytes permitiria que o sistema operasse mais quadros de vídeo não compactado, aumentando a eficácia das atividades de edição.
+
+Sistema de armazenamento
+Sim. Os arquivos de vídeo são grandes. A sobrecarga de um drive SSD local suporta uma transferência mais eficiente. Drives de rede mais lentos seriam contraproducentes.
+
+GPU
+Não. A GPU teria um impacto principalmente na apresentação do vídeo renderizado.
+
+Exibição de vídeo
+Não. A exibição de vídeo teria um impacto principalmente na apresentação do vídeo renderizado.
+
+Nenhuma das anteriores
+Não. Alguns desses fatores têm um impacto óbvio na usabilidade do sistema no contexto apresentado.
+
+What would you expect the name of the device file in /dev to be for partition 3 of the third SATA drive in a system:
+
+sd3p3
+sdcp3
+sdc3
+None of the above
+
+R:
+sdc3
+
+
+Explorational Exercises
+
+Run the lsblk command on your system. Identify the parameters below.
+If a system is not immediately available, consider the lsblk -f listing
+for the Raspberry Pi system mentioned in the “Storage” section above:
+
+$ lsblk -f
+NAME        FSTYPE LABEL  UUID                                 MOUNTPOINT
+mmcblk0
++-mmcblk0p1 vfat   boot   9304-D9FD                            /boot
++-mmcblk0p2 ext4   rootfs 29075e46-f0d4-44e2-a9e7-55ac02d6e6cc /
+The type of devices and how many
+
+The partition structure of each device
+The type of file system and mount for each partition
+
+R:
+Tipos de dispositivo e quantos são
+Há um só dispositivo: mmcblk0. Por convenção, sabemos que mmcblk seria um cartão de memória USB.
+
+A estrutura de partições de cada dispositivo
+Existem duas partições: mmcblk0p1 e mmcblk0p2.
+
+O tipo de sistema de arquivos e a montagem de cada partição
+A Partição 1 usa o sistema de arquivos vfat.
+Ele é usado para inicializar o sistema e está montado como /boot.
+A Partição 2 usa o sistema de arquivos ext4. Ele é usado como o sistema de arquivos principais e está montado como /.
