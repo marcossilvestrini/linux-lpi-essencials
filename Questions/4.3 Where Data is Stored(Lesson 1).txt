@@ -1,0 +1,82 @@
+Guided Exercises
+
+Use the which command to find out the location of the following programs and complete the table:
+
+Program	which command	Path to Executable (output)	User needs root privileges?
+
+swapon
+kill
+cut
+usermod
+cron
+ps
+
+R:
+Program	    which command	Path to Executable (output)	User needs root privileges?
+swapon      which swapon    /usr/sbin/swapon            sim
+kill        which kill      /usr/bin/kill               no
+cut         which cut       /usr/bin/cut                no
+usermod     which usermod   /usr/sbin/usermod           sim
+cron        which cron      /usr/bin/cron               sim
+ps          which ps        /usr/bin/ps                 no
+
+Where are the following files to be found?
+
+R:
+
+File	        /etc	                ~
+.bashrc         x                       -
+bash.bashrc     -                       -
+passw           x                       -
+.profile        -                       -
+resolv.conf     x                       x
+sysctl.conf     -                       -
+
+
+Explain the meaning of the number elements for
+kernel file vmlinuz-4.15.0-50-generic found in /boot:
+
+Number Element	Meaning
+4
+15
+0
+50
+
+R:
+w.xx.y-zzz - vmlinuz-4.15.0-50-generic
+
+w = Kernel Version = 4
+xx= Major Revision = 15
+y = Minor Revision = 0
+zzz=Patch number = 50
+
+What command would you use to list all hard drives and partitions in /dev?
+
+R:
+ls /dev/sd*
+
+
+Explorational Exercises
+
+Device files for hard drives are represented based on the controllers
+they use — we saw /dev/sd* for drives using SCSI
+(Small Computer System Interface) and SATA (Serial Advanced Technology Attachment), but
+How were old IDE (Integrated Drive Electronics) drives represented?
+/dev/hd*
+
+And modern NVMe (Non-Volatile Memory Express) drives?
+/dev/nvme*
+
+Take a look at the file /proc/meminfo.
+Compare the contents of this file to the output of the command
+free and identify which key from /proc/meminfo correspond to the following
+fields in the output of free:
+
+free output	/proc/meminfo field
+R:
+
+total - MemTotal / SwapTotal
+free - MemFree / SwapFree
+shared - Shmem
+buff/cache - Buffers, Cached and SReclaimable
+available - MemAvailable
