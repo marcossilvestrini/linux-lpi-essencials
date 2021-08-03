@@ -11,7 +11,8 @@ $ip = "192.168.0.33"
 $port = "22"
 
 # Power Off Virtual Machine
-Write-Host "Power Off Virtual Machine: [$($vm)]" -BackgroundColor White -ForegroundColor Black
+Write-Host "Power Off Virtual Machine: [$($vm)]" -BackgroundColor White -For
+egroundColor Black
 & $vmrun stop $vm >$null
 
 # Down vmware if Running

@@ -1,0 +1,203 @@
+Guided Exercises
+
+Have a look at the following listing of top and answer the following questions:
+
+carol@debian:~$ top
+
+top - 13:39:16 up 31 min,  1 user,  load average: 0.12, 0.15, 0.10
+Tasks:  73 total,   2 running,  71 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.1 us,  0.4 sy,  0.0 ni, 98.6 id,  0.0 wa,  0.0 hi,  0.0 si,  0.0 st
+KiB Mem :  1020332 total,   698700 free,   170664 used,   150968 buff/cache
+KiB Swap:  1046524 total,  1046524 free,        0 used.   710956 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
+  605 nobody    20   0 1137620 132424  34256 S  6.3 13.0   1:47.24 ntopng
+  444 www-data  20   0  364780   4132   2572 S  0.3  0.4   0:00.44 apache2
+  734 root      20   0   95212   7004   6036 S  0.3  0.7   0:00.36 sshd
+  887 carol     20   0   46608   3680   3104 R  0.3  0.4   0:00.03 top
+    1 root      20   0   56988   6688   5240 S  0.0  0.7   0:00.42 systemd
+    2 root      20   0       0      0      0 S  0.0  0.0   0:00.00 kthreadd
+    3 root      20   0       0      0      0 S  0.0  0.0   0:00.09 ksoftirqd/0
+    4 root      20   0       0      0      0 S  0.0  0.0   0:00.87 kworker/0:0
+(...)
+
+
+Which processes have been started by the user carol?
+R:
+top
+
+What virtual directory of /proc should you visit to search for data regarding the top command?
+R:
+/proc/887
+
+What process was run first? How can you tell?
+R:
+systemd.Porque ele tem o PID #1.
+
+
+Complete the table specifying in what area of top output the following information is found:
+
+Information about …​	Summary Area	Task Area
+Memory                      sim             sim
+Swap                        sim             não
+PID                         não             sim
+CPU time                    sim             sim
+Commands                    não             sim
+
+What command is used to read the following binary logs?
+/var/log/wtmp
+/var/log/btmp
+/run/log/journal/2a7d9730cd3142f4b15e20d6be631836/system.journal
+
+R:
+/var/log/wtmp - last
+/var/log/btmp - lastb
+/run/log/journal/2a7d9730cd3142f4b15e20d6be631836/system.journal - journalctl
+
+In combination with grep, what commands would you use to find out the following
+information about your Linux system?
+
+When the system was last rebooted (wtmp)
+R:
+last
+
+Which hard disks are installed (kern.log)
+R:
+less /var/log/kern.log
+
+When the last login occurred (auth.log)
+R:
+less /var/log/auth.log
+
+What two commands would you use to have the kernel ring buffer displayed?
+R:
+dmesg e journalctl -k (e também journalctl --dmesg).
+
+Indicate where the following log messages belong:
+Jul 10 13:37:39 debian dbus[303]: [system] Successfully activated service 'org.freedesktop.nm_dispatcher'
+
+/var/log/auth.log
+/var/log/kern.log
+/var/log/syslog
+/var/log/messages
+
+R:
+/var/log/syslog
+
+Jul 10 11:23:58 debian kernel: [ 1.923349] usbhid: USB HID core driver
+/var/log/auth.log
+/var/log/kern.log
+/var/log/syslog
+/var/log/messages
+
+R:
+/var/log/kern.log
+/var/log/messages
+
+Jul 10 14:02:53 debian sudo: pam_unix(sudo:session): session opened for user root by carol(uid=0)
+
+/var/log/auth.log
+/var/log/kern.log
+/var/log/syslog
+/var/log/messages
+
+R:
+/var/log/auth.log
+
+Jul 10 11:23:58 debian NetworkManager[322]: <info> [1562750638.8672] NetworkManager (version 1.6.2) is starting…​
+
+/var/log/auth.log
+/var/log/kern.log
+/var/log/syslog
+/var/log/messages
+
+R:
+/var/log/messages
+
+Have journalctl query information about the following units?
+
+Unit	Command
+ssh
+networking
+rsyslog
+cron
+
+R:
+Unit	        Command
+ssh             journalctl -u ssh.service
+networking      journalctl -u networking.service
+rsyslog         journalctl -u rsyslog.service
+cron            journalctl -u cron.service
+
+Explorational Exercises
+
+Reconsider the top output from the guided exercises and answer the following questions:
+
+What two steps would you follow to kill the apache web server?
+R:
+Primeiro, pressionar k; depois fornecer um valor kill.
+
+In the summary area, how could you display the information about physical memory
+and swap using progress bars?
+R:
+Pressionando m uma ou duas vezes.
+
+Now, sort the processes by memory usage:
+R:
+M
+
+Now that you have memory information displayed in progress bars and processes
+sorted by memory usage, save these configurations so that you get them as
+default next time you use top:
+R:
+W
+
+What file stores top’s configuration settings?
+Where does it live?
+How can you check for its existence?
+R:
+O arquivo é ~/.config/procps/toprc e ele fica no diretório inicial do usuário (~).
+Como se trata de um arquivo oculto (reside em um diretório cujo nome começa com um ponto),
+podemos verificar sua existência com ls -a (listar todos os arquivos).
+Esse arquivo pode ser gerado pressionando kbd:[Shift+W] enquanto estamos em top.
+
+Learn about the command exec in Bash.
+Try to demonstrate its functionality by starting a Bash session,
+finding the Bash process with ps, then run exec /bin/sh and search
+for the process with the same PID again.
+R:
+PID=`echo $$`
+echo ${PID}
+ps auxf | grep ${PID} | head -1
+exec /bin/sh
+PID=`echo $$`
+echo ${PID}
+ps auxf | grep ${PID} | head -1
+
+
+Follow these steps to explore kernel events and udev’s dynamic management of devices:
+
+Hotplug a USB drive into your computer.
+Run dmesg and pay attention to the last lines.
+What is the most recent line?
+R:
+Deve aparecer algo semelhante a [ 1967.700468] sd 6:0:0:0: [sdb] Attached SCSI removable disk.
+
+Bearing in mind the output from the previous command, run ls /dev/sd*
+and make sure your USB drive appears in the listing.
+What is the output?
+R:
+Dependendo do número de dispositivos conectados ao sistema,
+deve aparecer algo semelhante a /dev/sda /dev/sda1 /dev/sdb /dev/sdb1 /dev/sdb2.
+Em nosso caso, encontramos nosso drive USB (/dev/sdb) e suas duas partições (/dev/sdb1 e /dev/sdb2).
+
+Now remove the USB drive and run dmesg again.
+How does the most recent line read?
+R:
+Deve aparecer algo semelhante a [ 2458.881695] usb 1-9: USB disconnect, device number 6.
+
+Run ls /dev/sd* again and make sure your device disappeared from the listing.
+What is the output?
+R:
+Em nosso caso, /dev/sda /dev/sda1.
+
