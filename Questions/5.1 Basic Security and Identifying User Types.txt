@@ -1,0 +1,130 @@
+Guided Exercises
+
+Consider the following output of the id command:
+
+$ id emma
+uid=1000(emma) gid=1000(emma) groups=1000(emma),4(adm),5(tty),10(uucp),20(dialout),27(sudo),46(plugdev)
+In which files are the following attributes stored?
+
+R:
+UID and GID: etc/passwd
+Groups: /etc/group
+
+Additionally, in which file is the user password stored?
+R:
+/etc/shadow
+
+Which of the following types of cryptography is used by default to store passwords
+locally on a Linux system?
+
+Asymmetric
+One-way Hash
+Symmetric
+ROT13
+
+R:
+One-way Hash
+
+If an account has a User ID (UID) enumerated under 1000, what type of account is this?
+R:
+Contas com UID menor que 1000 geralmente são contas de sistema.
+
+How can you get a list of the active logins in your system, and a count of them as well?
+R:
+Use o comando w. Além de uma lista de logins ativos, ele também mostra informações
+como a quantidade de usuários conectados, além da carga e tempo de atividade do sistema.
+
+Using the grep command, we got the result below with information about the user emma.
+
+$ grep emma /etc/passwd
+emma:x:1000:1000:Emma Smith,42 Douglas St,555.555.5555,:/home/emma:/bin/ksh
+Fill in the blanks of the chart with the appropriate information using the output
+of the previous command.
+
+R:
+Username
+emma
+
+Password
+x
+
+UID
+1000
+
+Primary GID
+1000
+
+GECOS
+Emma Smith,42 Douglas St,555.555.5555
+
+Home Directory
+/home/emma
+
+Shell
+/bin/ksh
+
+Explorational Exercises
+
+Compare the results of last to w and who. What details are missing from each of the
+commands compared to one another?
+R:
+As ferramentas w e who listam apenas os usuários atualmente conectados ao sistema,
+ao passo que last também lista os usuários que se desconectaram.
+O comando w lista a utilização do sistema, enquanto who não faz isso.
+
+Try issuing the commands who and w -his.
+
+What information has been removed from the output of the w command with the “no header” (-h)
+and “short” (-s) options?
+R:
+O cabeçalho não é impresso, o que é útil para análise, e o tempo de login e informações
+selecionadas da CPU não são listados, respectivamente.
+
+What information has been added in the output the w command with the “ip address” (-i) option?
+R:
+ssa opção imprime o endereço IP, em vez de tentar a resolução de DNS, imprimindo o nome do host.
+Essa opção de w é mais adequada à saída padrão do comando last.
+
+Which file is the file that stores a user account’s one-way password hash?
+R:
+O arquivo /etc/shadow armazena o hash unidirecional de uma conta de usuário,
+já que ele não é legível por uma conta de usuário regular, sem privilégios,
+ao contrário do arquivo /etc/passwd.
+
+Which file contains the list of groups a user account is a member of?
+R:
+O arquivo /etc/group tem uma lista em formato CSV de nomes de usuários no último campo (“members”)
+de qualquer linha correspondente a um grupo.
+Qualquer linha no arquivo /etc/group na qual o usuário aparece listado no último campo,
+“members”, implica que o usuário é membro daquele grupo — supondo-se que ele esteja
+corretamente formatado (valores delimitados por vírgulas).
+Além disso, a participação do usuário em seu grupo principal no arquivo
+/etc/passwd também terá uma entrada correspondente no arquivo /etc/group,
+incluindo tanto o nome do grupo quanto o GID.
+
+What logic could be used to compile a list of a groups a user account is a member of?
+R:
+
+One or more (1+) of the following files are not readable by regular, unprivileged users, by default.
+Which ones?
+
+/etc/group
+/etc/passwd
+/etc/shadow
+/etc/sudoers
+
+R:
+/etc/shadow
+/etc/sudoers
+
+How would you change the current user’s login shell to the Korn Shell (/usr/bin/ksh)
+in non-interactive mode?
+R:
+chsh -s /usr/bin/ksh
+
+Why is the home directory of the root user not placed within /home directory?
+R:
+Porque a conta root é necessária para resolver problemas e corrigir erros,
+o que pode incluir problemas no sistema de arquivos relacionados ao diretório
+/home. Nesses casos, root deve estar plenamente funcional mesmo que o sistema
+de arquivos de /home esteja indisponível.

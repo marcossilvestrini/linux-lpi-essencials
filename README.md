@@ -2393,6 +2393,23 @@ sudo vipw -s
 ### Undertanding file permissions
 
 ```sh
+The file type is one of the following characters:
+-  regular file
+b  block special file
+c  character special file
+C  high performance ("contiguous data") file
+d  directory
+D  door (Solaris 2.5 and up)
+l  symbolic link
+M  off-line ("migrated") file (Cray DMF)
+n  network special file (HP-UX)
+p  FIFO (named pipe)
+P  port (Solaris 10 and up)
+s  socket
+?  some other file type
+```
+
+```sh
 # Example
 1  2   3    4  5  6   7   8     9
 - rw- r-- r--. 1 foo foo  0 Jun 25 19:37 my-personal-file.txt
