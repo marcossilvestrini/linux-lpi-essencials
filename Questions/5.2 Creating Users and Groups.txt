@@ -1,0 +1,156 @@
+Guided Exercises
+
+For each of the following entries, indicate the file to which it refers:
+
+developer:x:1010:frank,grace,dave
+root:x:0:0:root:/root:/bin/bash
+henry:$1$.AbCdEfGh123456789A1b2C3d4.:18015:20:90:5:30::
+henry:x:1000:1000:User Henry:/home/henry:/bin/bash
+staff:!:dave:carol,emma
+
+R:
+developer:x:1010:frank,grace,dave
+/etc/group
+
+root:x:0:0:root:/root:/bin/bash
+/etc/passwd
+
+henry:$1$.AbCdEfGh123456789A1b2C3d4.:18015:20:90:5:30::
+/etc/shadow
+
+henry:x:1000:1000:User Henry:/home/henry:/bin/bash
+/etc/passwd
+
+staff:!:dave:carol,emma
+/etc/gshadow
+
+Observe the following output to answer the next seven questions:
+
+# cat /etc/passwd | tail -3
+dave:x:1050:1050:User Dave:/home/dave:/bin/bash
+carol:x:1051:1015:User Carol:/home/carol:/bin/sh
+henry:x:1052:1005:User Henry:/home/henry:/bin/tcsh
+
+# cat /etc/group | tail -3
+web_admin:x:1005:frank,emma
+web_developer:x:1010:grace,kevin,christian
+dave:x:1050:
+
+# cat /etc/shadow | tail -3
+dave:$6$AbCdEfGh123456789A1b2C3D4e5F6G7h8i9:0:20:90:7:30::
+carol:$6$q1w2e3r4t5y6u7i8AbcDeFgHiLmNoPqRsTu:18015:0:60:7:::
+henry:!$6$123456789aBcDeFgHa1B2c3d4E5f6g7H8I9:18015:0:20:5:::
+
+# cat /etc/gshadow | tail -3
+web_admin:!:frank:frank,emma
+web_developer:!:kevin:grace,kevin,christian
+dave:!::
+
+What is the User ID (UID) and Group ID (GID) of carol?
+R:
+UID - 1051
+GUID - 1015
+
+What shell is set for dave and henry?
+R:
+dave:
+/bin/bash
+
+henry:
+/bin/tcsh
+
+
+What is the name of the primary group of henry?
+R:
+O nome do grupo é web_admin (o primeiro campo em /etc/group).
+
+
+What are the members of the web_developer group?
+Which of these are group administrators?
+R:
+Os membros são grace, kevin e christian (o quarto campo em /etc/group),
+mas apenas kevin é o administrador do grupo (o terceiro campo em /etc/gshadow).
+
+Which user cannot log into the system?
+R:
+ conta de usuário henry está bloqueada
+ (tem um ponto de exclamação na frente dos hashes de senha em /etc/shadow).
+
+Which user should change the password the next time he will log into the system?
+R:
+Se o terceiro campo (Data da Última Mudança de Senha)
+de /etc/shadow for 0, o usuário deve alterar sua senha na próxima vez
+em que se logar ao sistema. Portanto, dave deverá trocar a senha.
+
+How many days must pass before a password change is required for carol?
+R:
+60 dias (o quinto campo em /etc/shadow).
+
+Explorational Exercises
+
+Working as root, run the useradd -m dave command to add a new user account.
+What operations does this command perform?
+Assume that CREATE_HOME and USERGROUPS_ENAB in /etc/login.defs are set to yes.
+R:
+O comando adiciona um novo usuário, chamado dave, à lista de usuários no sistema.
+O diretório inicial de dave é criado (por padrão /home/dave) e os arquivos e
+diretórios contidos no diretório esqueleto são copiados no diretório inicial.
+Finalmente, o novo grupo é criado com o mesmo nome da conta de usuário.
+
+
+Now that you have created the dave account, can this user login to the system?
+R:
+Não, porque a conta dave está bloqueada (como indica o ponto de exclamação em /etc/shadow).
+# cat /etc/shadow | grep dave
+dave:!:18015:0:99999:7:::
+
+Identify the User ID (UID) and Group ID (GID) of dave and all members of the dave group.
+R:
+O UID e GID of dave são 1015 e 1019, respectivamente
+(o terceiro e o quarto campos em /etc/passwd) e o grupo dave não tem membros
+(o quarto campo em /etc/group está vazio).
+
+Create the sys_admin, web_admin and db_admin groups and identify their Group IDs (GIDs).
+R:
+# groupadd sys_admin
+# groupadd web_admin
+# groupadd db_admin
+# cat /etc/group | grep admin
+sys_admin:x:1020:
+web_admin:x:1021:
+db_admin:x:1022:
+
+
+Add a new user account named carol with UID 1035 and set sys_admin as its primary group
+and web_admin and db_admin as its secondary groups.
+R:
+sudo adduser -u 1035 -g 1010 -G web_admin,db_admin robert
+
+
+Delete the dave and carol user accounts and the sys_admin, web_admin and db_admin
+groups that you have previously created.
+R:
+# userdel -r dave
+# userdel -r carol
+# groupdel sys_admin
+# groupdel web_admin
+# groupdel db_admin
+
+Run the ls -l /etc/passwd /etc/group /etc/shadow /etc/gshadow
+command and describe the output that it gives you in terms of file permissions.
+Which of these four files are shadowed for security reasons?
+Assume your system uses shadow passwords.
+R:
+Os arquivos /etc/passwd e /etc/group são legíveis por todos
+e estão em shadow por motivos de segurança. Quando senhas shadow são usadas,
+vemos um x no segundo campo desses arquivos, porque as senhas criptografadas
+de usuários e grupos são armazenadas em /etc/shadow e /etc/gshadow, legíveis
+apenas pelo root e, em certos sistemas, também por membros pertencentes ao grupo shadow.
+
+Run the ls -l /usr/bin/passwd command. Which special bit is set and what is its meaning?
+R:
+O comando passwd tem o bit SUID definido (o quarto caractere desta linha),
+o que significa que o comando é executado com os privilégios do proprietário do arquivo
+(ou seja, o root). É assim que os usuários comuns podem mudar sua senha.
+
+
