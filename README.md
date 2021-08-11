@@ -2189,7 +2189,7 @@ who
 who -H
 ```
 
-### w - Show who is logged on and what they are doing.
+### w - Show who is logged on and what they are doing
 
 ```sh
 w
@@ -2418,7 +2418,7 @@ s  socket
 2: permission owner file
 3: permission owner group
 4: permission others owners
-5: 1: file, 2: directory
+5: Number of physical links(folders include . and ..)
 6: owner
 7: group
 8: size
@@ -2440,7 +2440,7 @@ s: setuid,setgid
 -: denny permission
 
 # Numeric Method
-0: (000) - There is no permission (-).
+0: (000) - There is no permission (---).
 1: (001) - It has only the execute permission (--x).
 2: (010) - It has only the write permission (-w-).
 3: (011) - It has both write and execute permissions (-wx).
@@ -2449,12 +2449,18 @@ s: setuid,setgid
 6: (110) - Only the read and write permissions have been assigned (rw-).
 7: (111) - All permissions. (rwx)
 
+1: - Stick bit(t)
+2: - Set GID(s)
+4: - Set UID(s)
+
 Examples with files:
 
 600:    --rw-------
 654:    -rw-r-xr--
-744     -rwxr--r--
-
+744:    -rwxr--r--
+1755:   drwxr-xr-t
+2755    drwxr-sr-x
+4745    -rwsr--r-x
 
 ```
 

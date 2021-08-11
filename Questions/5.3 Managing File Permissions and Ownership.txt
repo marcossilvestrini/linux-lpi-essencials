@@ -1,0 +1,153 @@
+Guided Exercises
+
+Create a directory named emptydir using the command mkdir emptydir.
+Now, using ls, list the permissions for the directory emptydir.
+R:
+mkdir emptydir
+ls -ld emptydir
+
+Create an empty file named emptyfile with the command touch emptyfile.
+Now, using chmod with symbolic notation, add execute permissions for the
+owner of the file emptyfile, and remove write and execute permissions for
+everyone else. Do this using only one chmod command.
+
+R:
+touch emptyfile
+chmod u+x,go-wx emptyfile
+
+What will be the permissions for a file called text.txt after you use the command chmod 754 text.txt?
+R:
+-rwxr-xr--
+
+Let’s assume a file named test.sh is a shell script with the following permissions and ownership:
+-rwxr-sr-x 1 carol root     33 Dec 11 10:36 test.sh
+
+What are the permissions for the owner of the file?
+R:
+rwx : read, write, execute
+
+If the user john runs this script, under which user’s privileges will it be run?
+
+R:
+Preste atenção às permissões do grupo.
+Elas são r-s, o que significa que o bit SGID está definido.
+O grupo proprietário do arquivo é root, de modo que o script,
+mesmo quando iniciado por um usuário regular, será executado com os privilégios do usuário.
+
+Using the numeric notation, which should be the syntax of chmod to “unset”
+the special permission granted to this file?
+
+R:
+chmod  0755 test.sh
+
+Consider this file:
+
+$ ls -l /dev/sdb1
+brw-rw---- 1 root disk 8, 17 Dec 21 18:51 /dev/sdb1
+Which kind of file is sdb1? And who can write to it?
+
+R:
+O primeiro caractere da saída de ls -l mostra o tipo de arquivo.
+b é um dispositivo de bloco, normalmente um disco (interno ou externo),
+conectado à máquina. O proprietário (root) e todos os usuários do grupo
+disk podem escrever nele.
+
+Consider the following 4 files:
+
+drwxr-xr-t 2 carol carol 4,0K Dec 20 18:46 Another_Directory
+----r--r-- 1 carol carol    0 Dec 11 10:55 foo.bar
+-rw-rw-r-- 1 carol carol 1,2G Dec 20 18:22 HugeFile.zip
+drwxr-sr-x 2 carol users 4,0K Jan 18 17:26 Sample_Directory
+Write down the corresponding permissions for each file and directory using numeric 4-digit notation.
+
+Another_Directory
+foo.bar
+HugeFile.zip
+Sample_Directory
+
+R:
+Another_Directory
+1755
+
+foo.bar
+0044
+
+HugeFile.zip
+0664
+
+Sample_Directory
+2755
+
+Explorational Exercises
+
+Try this on a terminal: create an empty file called emptyfile with the command touch emptyfile.
+Now “zero out” the permissions for the file with chmod 000 emptyfile.
+What will happen if you change the permissions for emptyfile by passing only one
+value for chmod in numeric mode, such as chmod 4 emptyfile? What if we use two,
+such as chmod 44 emptyfile? What can we learn about the way chmod reads the numerical value?
+
+R:
+Podemos concluir que em notação numérica, chmod lê o valor “de trás pra frente”,
+do dígito menos significativo (others) para o mais significativo (usuário).
+Se você passar um só dígito, as permissões de outros são modificadas.
+Com dois dígitos modificamos grupo e outros, com três modificamos usuário,
+grupo e outros e com quatro modificamos usuário, grupo, outros e as permissões especiais.
+
+Can you execute a file for which you have execute, but not read permissions (--x)?
+Why or why not?
+
+R:
+No início, a resposta parece óbvia: se você tem permissão de execução,
+o arquivo deveria poder ser executado. No entanto, sem permissão de leitura,
+o sistema não pode abrir o arquivo e ler seu conteúdo para executá-lo.
+Assim, sem a permissão de leitura, não é possível executar um arquivo, mesmo
+que se tenha permissão de execução para ele.
+
+Consider the permissions for the temporary directory on a Linux system, /tmp:
+
+$ ls -l /tmp
+drwxrwxrwt  19 root root  16K Dec 21 18:58 tmp
+User, group and others have full permissions.
+But can a regular user delete any files inside this directory? Why is this?
+
+R:
+/tmp é o que chamamos um diretório escrito por todos, ou seja,
+qualquer usuário pode escrever nele. Mas não queremos que um usuário
+modifique arquivos criados por outros, por isso o sticky bit foi definido
+(como indicado pelo t nas permissões de outros).
+Graças a isso, um usuário pode excluir arquivos em /tmp, mas somente se tiver criado esses arquivos.
+
+A file called test.sh has the following permissions: -rwsr-xr-x, meaning the SUID bit is set.
+Now, run the following commands:
+
+$ chmod u-x test.sh
+$ ls -l test.sh
+-rwSr-xr-x 1 carol carol 33 Dec 11 10:36 test.sh
+What did we do? What does the uppercase S mean?
+
+R:
+Removemos as permissões de execução do usuário dono do arquivo.
+O s (ou t) toma o lugar do x na saída de ls -l, por isso o sistema
+precisa de uma maneira de mostrar se o usuário tem permissões de execução ou não.
+Para isso, ele muda a caixa do caractere especial.
+
+Um s minúsculo no primeiro grupo de permissões indica que o usuário dono do arquivo
+tem permissões de execução e que o bit SUID foi definido.
+Um S maiúsculo indica que o usuário dono do arquivo não tem (-)
+permissões de execução e que o bit SUID foi definido.
+
+Pode-se dizer o mesmo do SGID.
+Um s minúsculo no segundo grupo de permissões indica que o grupo
+dono do arquivo tem permissões de execução e que o bit SUID foi definido.
+Um S maiúsculo indica que o grupo dono do arquivo não tem (-)
+permissões de execução e que o bit SUID foi definido.
+
+Isso também vale para o sticky bit, representado pelo t No terceiro grupo de permissões.
+O t minúsculo indica que o sticky bit foi definido e que os outros têm permissões de execução.
+O T maiúsculo indica que o sticky bit foi definido e que os outros não têm permissões de execução.
+
+How would you create a directory named Box where all the files are automatically
+owned by the group users, and can only be deleted by the user who created them?
+
+R:
+$ chmod g+wxs,o+t Box/
