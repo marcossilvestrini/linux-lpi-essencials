@@ -1,0 +1,149 @@
+Guided Exercises
+
+Imagine a program needs to create a one-use temporary file that will never
+be needed again after the program is closed. What would be the correct
+directory in which to to create this file?
+R:
+/tmp
+
+Which is the temporary directory that must be cleared during the boot process?
+R:
+/run ou /var/run
+
+What is the parameter for chmod in symbolic mode to enable the sticky bit on a directory?
+R:
++t
+
+Imagine there is a file named document.txt on the directory /home/carol/Documents.
+What is the command to create a symbolic link to it named text.txt on the current directory?
+R:
+ln -s /home/carol/Documents/document.txt text.txt
+
+Explain the difference between a hard link to a file and a copy of this file.
+R:
+Estão em inodes diferentes
+
+Um link físico é apenas outro nome para um arquivo.
+Mesmo que pareça uma duplicata do arquivo original, para todos os efeitos,
+o link e o original são iguais, pois apontam para os mesmos dados no disco.
+As alterações feitas no conteúdo do link serão refletidas no original e vice-versa.
+Uma cópia é uma entidade completamente independente, ocupando um lugar diferente no disco.
+As alterações na cópia não serão refletidas no original e vice-versa.
+
+Explorational Exercises
+
+Imagine that inside a directory you create a file called recipes.txt.
+Inside this directory, you will also create a hard link to this file, called receitas.txt,
+and a symbolic (or soft) link to this called rezepte.txt.
+
+$ touch recipes.txt
+$ ln recipes.txt receitas.txt
+$ ln -s recipes.txt rezepte.txt
+The contents of the directory should appear like so:
+
+$ ls -lhi
+total 160K
+5388833 -rw-r--r-- 4 carol carol 77K jun 17 17:25 receitas.txt
+5388833 -rw-r--r-- 4 carol carol 77K jun 17 17:25 recipes.txt
+5388837 lrwxrwxrwx 1 carol carol  12 jun 24 10:12 rezepte.txt -> receitas.txt
+Remember that, as a hard link, receitas.txt points to the same inode that recipes.txt.
+
+What would happen to the soft link rezepte.txt if the name receitas.txt is deleted? Why?
+R:
+O link simbólico rezepte.txt deixaria de funcionar, porque os links simbólicos apontam
+para nomes, e não inodes, e o nome receitas.txt não existe mais, mesmo que os dados
+ainda estejam no disco com o nome recipes.txt.
+
+Imagine you have a flash drive plugged into your system, and mounted on /media/youruser/FlashA.
+You want to create in your home directory a link called schematics.pdf,
+pointing to the file esquema.pdf in the root directory of the flash drive.
+So, you type the command:
+
+$ ln /media/youruser/FlashA/esquema.pdf ~/schematics.pdf
+What would happen? Why?
+
+R:
+O comando falharia. A mensagem de erro seria Invalid cross-device link
+(Link inválido entre dispositivos), esclarecendo o motivo: os links físicos
+não podem apontar para um destino em uma partição ou dispositivo diferente.
+A única maneira de criar um link como esse é usar um link simbólico ou soft,
+adicionando o parâmetro -s a ln.
+
+Consider the following output of ls -lah:
+
+$ ls -lah
+total 3,1M
+drwxr-xr-x 2 carol carol 4,0K jun 17 17:27 .
+drwxr-xr-x 5 carol carol 4,0K jun 17 17:29 ..
+-rw-rw-r-- 1 carol carol 2,8M jun 17 15:45 compressed.zip
+-rw-r--r-- 4 carol carol  77K jun 17 17:25 document.txt
+-rw-rw-r-- 1 carol carol 216K jun 17 17:25 image.png
+-rw-r--r-- 4 carol carol  77K jun 17 17:25 text.txt
+How many links point to the file document.txt?
+
+R:
+Todos os arquivos começam com 1 na contagem de links.
+Como a contagem de links desse arquivo é 4, existem três links apontando para ele.
+
+Are they soft or hard links?
+R:
+São links físicos, já que os links simbólicos não aumentam a contagem de links de um arquivo.
+
+Which parameter should you pass to ls to see which inode each file occupies?
+R:
+O parâmetro é -i. O inode será mostrado na primeira coluna da saída de ls
+
+Imagine you have in your ~/Documents directory a file named clients.txt containing
+some client names, and a directory named somedir.
+Inside this there is a different file also named clients.txt with different names.
+To replicate this structure, use the following commands.
+
+$ cd ~/Documents
+$ echo "John, Michael, Bob" > clients.txt
+$ mkdir somedir
+$ echo "Bill, Luke, Karl" > somedir/clients.txt
+You then create a link inside somedir named partners.txt pointing to this file, with the commands:
+
+$ cd somedir/
+$ ln -s clients.txt partners.txt
+So, the directory structure is:
+
+Documents
+|-- clients.txt
+`-- somedir
+    |-- clients.txt
+    `-- partners.txt -> clients.txt
+Now, you move partners.txt from somedir to ~/Documents, and list its contents.
+
+$ cd ~/Documents/
+$ mv somedir/partners.txt .
+$ less partners.txt
+Will the link still work? If so, which file will have its contents listed? Why?
+
+R:
+Isto é quase uma “pegadinha”, mas o link funcionará e o arquivo listado
+será o que está em ~/Documents, contendo os nomes John, Michael, Bob.
+
+Lembre-se de que, como não especificamos o caminho completo para o alvo clients.txt
+ao criar o link simbólico partners.txt, o local do destino será interpretado
+como sendo relativo ao local do link, que neste caso é o diretório atual.
+
+Quando o link é movido de ~/Documents/somedir para ~/Documents,
+ele deveria parar de funcionar, já que o destino não estava mais
+no mesmo diretório do link. Porém, coincidentemente existe um arquivo chamado
+clients.txt em ~/Documents, de forma que o link apontará para esse arquivo em
+vez do destino original dentro de ~/somedir.
+
+Para evitar isso, sempre especifique o caminho completo para o destino
+ao criar um link simbólico.
+
+Consider the following files:
+
+-rw-r--r-- 1 carol carol 19 Jun 24 11:12 clients.txt
+lrwxrwxrwx 1 carol carol 11 Jun 24 11:13 partners.txt -> clients.txt
+What are the access permissions for partners.txt? Why?
+
+R:
+As permissões de acesso de partners.txt são rw-r—​r--,
+já que os links sempre herdam as mesmas permissões de acesso do alvo.
+

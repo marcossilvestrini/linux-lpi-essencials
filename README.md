@@ -2418,7 +2418,7 @@ s  socket
 2: permission owner file
 3: permission owner group
 4: permission others owners
-5: Number of physical links(folders include . and ..)
+5: Count of physical links
 6: owner
 7: group
 8: size
