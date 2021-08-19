@@ -80,11 +80,12 @@ Installation and configuration of some packages will also be covered
 
 **RPM-Based**\
 RHEL\
-OpenSUSE
-
-**RHEL-based**\
 Fedora\
 Centos\
+OpenSUSE
+
+**Centos\RHEL-based**\
+
 Oracle Linux
 
 **openSUSE-based**\
