@@ -1,4 +1,4 @@
-# UBUNTU
+# DEBIAN
 
 ![Debian](https://user-images.githubusercontent.com/62715900/130154504-f6946dc1-fef9-4d22-9370-64cf3195c20c.jpg)
 
