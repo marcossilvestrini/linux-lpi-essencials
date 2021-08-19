@@ -80,11 +80,11 @@ Installation and configuration of some packages will also be covered
 
 **RPM-Based**\
 RHEL\
-Centos\
 OpenSUSE\
-Fedora
 
-**CentOS/RHEL-based**\
+**RHEL-based**\
+Fedora\
+Centos\
 Oracle Linux
 
 **openSUSE-based**\
@@ -100,6 +100,7 @@ SteamOS
 **Embedded Systems**\
 Android\
 Raspbian\
+Tizen\
 Kodi
 
 #### Android Devices
