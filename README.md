@@ -1,4 +1,4 @@
-# LEARNNING LPI CERTIFICATION
+# LEARNNING LPI ESSENCIALS CERTIFICATION
 
 ![download-linux-1024x576](https://user-images.githubusercontent.com/62715900/120332929-950dfd80-c2c5-11eb-9629-094d5bd209ac.png)
 
