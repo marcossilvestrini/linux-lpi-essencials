@@ -16,7 +16,7 @@ This project is licensed under the MIT License - see the LICENSE.md file for det
 ## References
 
 - [Debian Docs](https://www.debian.org/doc/)
-- [](https://debian-handbook.info/browse/stable/)
+- [Handbook](https://debian-handbook.info/browse/stable/)
 
 ## Licenses
 
