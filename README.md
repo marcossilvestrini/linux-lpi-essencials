@@ -2,15 +2,18 @@
 
 ![download-linux-1024x576](https://user-images.githubusercontent.com/62715900/120332929-950dfd80-c2c5-11eb-9629-094d5bd209ac.png)
 
->This project aims to help students or professionals to learn the main concepts of GNU \ Linux and free software
-Some GNU \ Linux distributions like Debian and RPM will be covered
+>This project aims to help students or professionals to learn the main concepts of GNU \ Linux and free software\
+Some GNU \ Linux distributions like Debian and RPM will be covered\
 Installation and configuration of some packages will also be covered
 
 >***Four Essential Freedoms:***
 >0.The freedom to run the program as you wish, for any purpose (freedom 0).\
->1.The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1). Access to the source code is a precondition for this.\
->2.The freedom to redistribute copies so you can help others (freedom 2).
->3.freedom to distribute copies of your modified versions to others (freedom 3). By doing this you can give the whole community a chance to benefit from your changes. Access to the source code is a precondition for this.***
+>1.The freedom to study how the program works, and change it so it does your computing as you wish (freedom 1).\
+>Access to the source code is a precondition for this.\
+>2.The freedom to redistribute copies so you can help others (freedom 2).\
+>3.freedom to distribute copies of your modified versions to others (freedom 3).\
+>By doing this you can give the whole community a chance to benefit from your changes.\
+>Access to the source code is a precondition for this.***
 
 ## Authors
 
