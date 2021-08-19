@@ -80,7 +80,7 @@ Installation and configuration of some packages will also be covered
 
 **RPM-Based**\
 RHEL\
-OpenSUSE\
+OpenSUSE
 
 **RHEL-based**\
 Fedora\
