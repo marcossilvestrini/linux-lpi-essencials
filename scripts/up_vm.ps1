@@ -55,5 +55,3 @@ While (!$tcp_test) {
         Start-Sleep 1
     }
 }
-
-
