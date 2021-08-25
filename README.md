@@ -1894,91 +1894,111 @@ du -sh ~/
 ##### binary directories
 
 ```sh
-# Essential command binaries
 /bin
+# Essential command binaries
 
-# Essential system binaries
 /sbin
+# Essential system binaries
 
-# Essential shared libraries and kernel modules
 /lib
+# Essential shared libraries and kernel modules
 
-# Add-on application software packages
 /opt
+# Add-on application software packages
 ```
 
 ##### configuration directories
 
 ```sh
-# Static files of the boot loader
 /boot
-# Host-specific system configuration
+# Static files of the boot loader
+
 /etc
+# Host-specific system configuration
+
 ```
 
 ##### data directories
 
 ```sh
-#  User home directories (optional)
 /home
-# Home directory for the root user(optional)
+#  User home directories (optional)
+
 /root
-# Data for services provided by this system
+# Home directory for the root user(optional)
+
 /srv
-# Mount point for removable media
+# Data for services provided by this system
+
 /media
-# Mount point for mounting a filesystem temporarily
+# Mount point for removable media
+
 /mnt
-# Temporary files
+# Mount point for mounting a filesystem temporarily
+
 /tmp
+# Temporary files
 ```
 
 ##### in memory directories
 
 ```sh
-# Device files
 /dev
-# Kernel and process information virtual filesystem
+# Device files
+
 /proc
-# Kernel and system information virtual filesystem
+# Kernel and process information virtual filesystem
+
 /sys
+# Kernel and system information virtual filesystem
 ```
 
 ##### Unix System Resources - The second major section of the filesystem
 
 ```sh
-# Unix System Resources
 /usr
-# Most user commands
+# Unix System Resources
+
 /usr/bin
-# Directory for standard include files
+# Most user commands
+
 /usr/include
-# Libraries for programming and packages
+# Directory for standard include files
+
 /usr/lib
-# Local hierarchy
+# Libraries for programming and packages
+
 /usr/local
-# Architecture-independent data
+# Local hierarchy
+
 /usr/share
-# Source code (optional)
+# Architecture-independent data
+
 /usr/src
+# Source code (optional)
 ```
 
 ##### Variable data
 
 ```sh
 /run
-/var
-# Data relevant to running processes
 /var/run
-# Log files and directories
+# Data relevant to running processes
+
+/var
 /var/log
 /var/log/messages
-# Application cache data
+# Log files and directories
+
 /var/cache
-# Application spool data
+# Application cache data
+
 /var/spool
-# Variable state information
+# Application spool data
+
 /var/lib
+# Variable state information
+
 ```
 
 #### Some important FHS files
