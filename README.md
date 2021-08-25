@@ -2070,7 +2070,6 @@ go back to the program: fg
 |Class C   |192.0.1.1 to 223.255.254.254  |Supports 254 hosts on each of 2 million networks.|
 |Class D   |224.0.0.0 to 239.255.255.255  |Reserved for multicast groups.|
 |Class E   |240.0.0.0 to 254.255.255.254  |Reserved for future use, or research and development purposes.|
-|          |
 
 #### IP conversions
 
@@ -2078,7 +2077,6 @@ go back to the program: fg
 |:-------           |:--|:--|:--|:--|:--|:--|:--|:--|
 |                   |1|1|1|1|1|1|1|1|
 |Decimal            |128|64|32|16|8|4|2|1|
-|                   |
 
 ```linux
 Convert 172.24.24.36 in binary:\
@@ -2128,7 +2126,6 @@ Result:\
 |/30             |255.255.255.252 |0xfffffffc |11111111 |11111111 |11111111 |11111100|
 |/31             |255.255.255.254 |0xfffffffe |11111111 |11111111 |11111111 |11111110|
 |/32             |255.255.255.255 |0xffffffff |11111111 |11111111 |11111111 |11111111|
-||
 
 #### Some importants files
 
