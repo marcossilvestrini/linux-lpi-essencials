@@ -18,3 +18,6 @@ Permissões:
 5 - permissão de leitura e execução (101,r-x)
 6 - permissão de leitura e escrita (110,rw-)
 7 - todas as permissões (111,rwx)
+
+Fix vagrant ssh in windows powershell
+$Env:VAGRANT_PREFER_SYSTEM_BIN += 0

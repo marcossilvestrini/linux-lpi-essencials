@@ -1896,10 +1896,13 @@ du -sh ~/
 ```sh
 # Essential command binaries
 /bin
+
 # Essential system binaries
 /sbin
+
 # Essential shared libraries and kernel modules
 /lib
+
 # Add-on application software packages
 /opt
 ```
