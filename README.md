@@ -74,9 +74,12 @@ Installation and configuration of some packages will also be covered
 - [Howtos](https://tldp.org/docs.html#howto)
 - [Regular Expressions](https://www.gnu.org/software/grep/manual/html_node/Regular-Expressions.html)
 - [Shebang](https://bash.cyberciti.biz/guide/Shebang)
+- [DNS Resource Record](https://www.novell.com/documentation/dns_dhcp/?page=/documentation/dns_dhcp/dhcp_enu/data/behdehag.html)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 - [LinuxEssentials Objectives V1.6](https://wiki.lpi.org/wiki/LinuxEssentials_Objectives_V1.6(PT-BR)#1.1_A_evolu.C3.A7.C3.A3o_do_Linux_e_sistemas_operacionais_populares)
-- [Simulator](https://www.proprofs.com/quiz-school/story.php?title=mtq1mtq2oqtx8h)
+- [Course by Luciano Siqueira](https://lcnsqr.com/curso-linux-essentials)
+- [Moc Exam by Proprofs](https://www.proprofs.com/quiz-school/story.php?title=mtq1mtq2oqtx8h)
+- [Moc Exam By ITexams](https://www.itexams.com/info/010-160)
 
 ## 1 The Linux Community and a Career in Open Source
 
@@ -1911,7 +1914,7 @@ du -sh ~/
 /boot
 # Static files of the boot loader
 
-/etc
+/etc (Enviroment Tables and Controls)
 # Host-specific system configuration
 
 ```

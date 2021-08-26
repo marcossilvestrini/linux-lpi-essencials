@@ -1,0 +1,42 @@
+DNS server
+
+Which of the following DNS record types hold an IP address? (Choose two.)
+A. NS
+B. AAAA
+C. MX
+D. A
+E. CNAME
+
+-------------------------------------------------------------------
+Permissions
+
+The ownership of the file doku.odt should be changed. The new owner is named tux. Which command accomplishes this change?
+A. chmod u=tux doku.odt
+B. newuser doku.odt tux
+C. chown tux doku.odt
+D. transfer tux: doku.odt
+E. passwd doku.odt:tux
+
+-------------------------------------------------------------------
+User account
+
+What happens to a file residing outside the home directory when the file owner's account is deleted? (Choose two.)
+A. During a file system check, the file is moved to /lost +found.
+B. The file is removed from the file system.
+C. The UID of the former owner is shown when listing the file's details.
+D. The user root is set as the new owner of the file.
+E. Ownership and permissions of the file remain unchanged.
+
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
