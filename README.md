@@ -208,24 +208,24 @@ Fortune\
 
 ##### Server Mail
 
-- [Postfix](http://www.postfix.org/documentation.html)
+[Postfix](http://www.postfix.org/documentation.html)
 
 ##### DNS Server
 
-- [Bind](https://www.isc.org/bind/)
+[Bind](https://www.isc.org/bind/)
 
 ##### DHCP Server
 
-- [DNSmasq](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
+[DNSmasq](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
 
 ##### LDAP
 
-- [OpenLDAP](https://www.openldap.org/)
+[OpenLDAP](https://www.openldap.org/)
 
 ##### Filesystem
 
-- [NFS](https://www.kernel.org/doc/html/latest/admin-guide/nfs/index.html)
-- [Samba](https://wiki.samba.org/index.php/Main_Page)
+[NFS](https://www.kernel.org/doc/html/latest/admin-guide/nfs/index.html)
+[Samba](https://wiki.samba.org/index.php/Main_Page)
 
 ##### Web Server
 
