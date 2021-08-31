@@ -89,17 +89,18 @@ Installation and configuration of some packages will also be covered
 
 **RPM-Based**\
 RHEL\
+SUSE
+
+**RHEL-based**\
 Fedora\
-Centos\
-OpenSUSE
+Centos
 
-**Centos\RHEL-based**\
-
+**Centos-based**\
 Oracle Linux
 
-**openSUSE-based**\
+**SUSE-based**\
 SUSE Linux Enterprise Server\
-SUSE Linux Enterprise Desktop
+OpenSUSE
 
 **Debian-Based**\
 Debian\
@@ -207,24 +208,24 @@ Fortune\
 
 ##### Server Mail
 
-- [Postfix](http://www.postfix.org/documentation.html)
+[Postfix](http://www.postfix.org/documentation.html)
 
 ##### DNS Server
 
-- [Bind](https://www.isc.org/bind/)
+[Bind](https://www.isc.org/bind/)
 
 ##### DHCP Server
 
-- [DNSmasq](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
+[DNSmasq](http://www.thekelleys.org.uk/dnsmasq/docs/dnsmasq-man.html)
 
 ##### LDAP
 
-- [OpenLDAP](https://www.openldap.org/)
+[OpenLDAP](https://www.openldap.org/)
 
 ##### Filesystem
 
-- [NFS](https://www.kernel.org/doc/html/latest/admin-guide/nfs/index.html)
-- [Samba](https://wiki.samba.org/index.php/Main_Page)
+[NFS](https://www.kernel.org/doc/html/latest/admin-guide/nfs/index.html)
+[Samba](https://wiki.samba.org/index.php/Main_Page)
 
 ##### Web Server
 
