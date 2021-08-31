@@ -224,7 +224,7 @@ Fortune\
 
 ##### Filesystem
 
-[NFS](https://www.kernel.org/doc/html/latest/admin-guide/nfs/index.html)
+[NFS](https://www.kernel.org/doc/html/latest/admin-guide/nfs/index.html)\
 [Samba](https://wiki.samba.org/index.php/Main_Page)
 
 ##### Web Server
