@@ -204,7 +204,7 @@ Fortune\
 
 ##### Server Printer
 
-- [Cups](https://www.cups.org/documentation.html)
+[Cups](https://www.cups.org/documentation.html)
 
 ##### Server Mail
 
