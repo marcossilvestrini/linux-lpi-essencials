@@ -93,7 +93,7 @@ SUSE
 
 **RHEL-based**\
 Fedora\
-Centos\
+Centos
 
 **Centos-based**\
 Oracle Linux
