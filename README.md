@@ -258,7 +258,6 @@ JavaScript\
 Perl\
 Shell\
 Python\
-Python\
 PHP
 
 #### Package management tools and repositories
