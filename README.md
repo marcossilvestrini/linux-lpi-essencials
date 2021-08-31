@@ -242,8 +242,8 @@ PostgreSQL
 
 ##### Package Bundle
 
-- [LAMP - Linux, Apache,Mysql,PHP](https://www.linode.com/docs/web-servers/lamp/)
-- [LEMP - Linux, Nginx,Mysql,PHP](https://www.linode.com/docs/guides/web-servers/lemp/)
+[LAMP - Linux, Apache,Mysql,PHP](https://www.linode.com/docs/web-servers/lamp/)\
+[LEMP - Linux, Nginx,Mysql,PHP](https://www.linode.com/docs/guides/web-servers/lemp/)
 
 #### Cloud
 
@@ -252,7 +252,14 @@ Nextcloud
 
 #### Development languages
 
-C, Java, JavaScript, Perl, shell, Python, PHP
+C\
+Java\
+JavaScript\
+Perl\
+Shell\
+Python\
+Python\
+PHP
 
 #### Package management tools and repositories
 
@@ -423,8 +430,8 @@ KDE
 
 #### Graphical terminal emulator
 
-Gnome Terminal(Gnome)
-Konsole(KDE)
+Gnome Terminal(Gnome)\
+Konsole(KDE)\
 XTerm
 
 #### Encryption
@@ -2154,6 +2161,15 @@ sudo yum install bind-utils
 dig www.google.com
 ```
 
+#### host - DNS lookup utility
+
+```sh
+# install
+sudo yum install bind-utils
+
+host www.google.com
+```
+
 #### ping\ping6 - send ICMP ECHO_REQUEST to network hosts
 
 ```sh
@@ -2168,15 +2184,6 @@ ping6 www.google.com
 sudo dnf install net-tools.x86_64
 
 ifconfig
-```
-
-#### host - DNS lookup utility
-
-```sh
-# install
-sudo yum install bind-utils
-
-host www.google.com
 ```
 
 #### route - show / manipulate the IP routing table
