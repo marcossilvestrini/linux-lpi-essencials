@@ -89,17 +89,18 @@ Installation and configuration of some packages will also be covered
 
 **RPM-Based**\
 RHEL\
+SUSE
+
+**RHEL-based**\
 Fedora\
 Centos\
-OpenSUSE
 
-**Centos\RHEL-based**\
-
+**Centos-based**\
 Oracle Linux
 
-**openSUSE-based**\
+**SUSE-based**\
 SUSE Linux Enterprise Server\
-SUSE Linux Enterprise Desktop
+OpenSUSE
 
 **Debian-Based**\
 Debian\
