@@ -10,7 +10,8 @@ E. CNAME
 -------------------------------------------------------------------
 Permissions
 
-The ownership of the file doku.odt should be changed. The new owner is named tux. Which command accomplishes this change?
+The ownership of the file doku.odt should be changed. The new owner is named tux.
+Which command accomplishes this change?
 A. chmod u=tux doku.odt
 B. newuser doku.odt tux
 C. chown tux doku.odt
@@ -20,7 +21,8 @@ E. passwd doku.odt:tux
 -------------------------------------------------------------------
 User account
 
-What happens to a file residing outside the home directory when the file owner's account is deleted? (Choose two.)
+What happens to a file residing outside the home directory when the file owner's
+account is deleted? (Choose two.)
 A. During a file system check, the file is moved to /lost +found.
 B. The file is removed from the file system.
 C. The UID of the former owner is shown when listing the file's details.
@@ -28,6 +30,15 @@ D. The user root is set as the new owner of the file.
 E. Ownership and permissions of the file remain unchanged.
 
 -------------------------------------------------------------------
+Security
+
+
+Why are web browser cookies considered dangerous?
+A. Cookies support identification and tracking of users.
+B. Cookies are always public and accessible to anyone on the internet.
+C. Cookies consume significant amounts of storage and can exhaust disk space.
+D. Cookies store critical data which is lost when a cookie is deleted.
+E. Cookies can contain and execute viruses and malware.
 
 -------------------------------------------------------------------
 
