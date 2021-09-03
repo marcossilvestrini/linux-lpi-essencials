@@ -516,6 +516,13 @@ history
 history -c
 ```
 
+##### Command fc - Display  history list
+
+```sh
+fc -l
+fc -l -5
+```
+
 ##### Comand hash - Manipulate bash cache
 
 ```sh
@@ -2429,6 +2436,9 @@ newgrp group
 ```sh
 sudo useradd jon
 
+# personalize useradd defaults
+sudo vi  /etc/default/useradd
+
 # create home dir
 sudo useradd -m jon
 
@@ -2438,6 +2448,29 @@ sudo  cp -r /etc/skel /my-skel
 sudo touch /my-skel/skel/my-personal-file.txt
 sudo useradd -m -k /my-skel/skel/ jon
 sudo ls -la /home/jon
+```
+
+### chfn - change real user name and information(gecos)
+
+```sh
+# fullname
+sudo chfn -f "New full name here" jon
+```
+
+### chsh - change login shell
+
+```sh
+'sudo chsh -s /bin/bash jon
+```
+
+### chage - change user password expiry information
+
+```sh
+#view expiry date
+sudo chage -l jon
+
+#change password expiry date
+sudo chage -M 90 jerry
 ```
 
 ### userdel - delete a user account and related files
@@ -2460,6 +2493,20 @@ sudo usermod -a -G 1003 jon
 
 ```sh
 sudo passwd jon
+#block account
+sudo passwd -l jon
+#unblock account
+sudo passwd -u jon
+```
+
+### gpasswd - administer /etc/group and /etc/gshadow
+
+```sh
+gpasswd group: create password for group
+gpasswd -r group: delete password for group
+gpasswd -a user group:  associate user to group
+gpasswd -d user group: delete user of group
+gpasswd -A user group: set user for admin of group
 ```
 
 ### su - run a command with substitute user and group ID
@@ -2485,6 +2532,14 @@ sudo -i
 ```sh
 last
 last vagrant
+```
+
+### lastlog - reports the most recent login of all users or of a given user
+
+```sh
+lastlog
+lastlog -u vagrant
+lastlog -t 2
 ```
 
 ### vipw, vigr - edit the password, group, shadow-password or shadow-group file
@@ -2521,7 +2576,7 @@ s  socket
 1  2   3    4  5  6   7   8     9
 - rw- r-- r--. 1 foo foo  0 Jun 25 19:37 my-personal-file.txt
 
-1: d=directory, -: file
+1: d=directory, -= file, l= link , b=block , c=char ,p=fifo channel, s=socket.
 2: permission owner file
 3: permission owner group
 4: permission others owners
@@ -2632,6 +2687,12 @@ sudo chown mark -R   /home/mark/foo
 # alter group
 sudo chown :bar foo.txt
 sudo chown mark:bar foo.txt
+```
+
+### chgrp - change group ownership
+
+```sh
+chgrp users documentos.tar.gz
 ```
 
 ### Special File Permissions (setuid, setgid and Sticky Bit)
