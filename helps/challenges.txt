@@ -1,0 +1,60 @@
+SECURITY AND PERMISSION FILES
+
+#groups
+create group totvs guid 2000
+create group protheus 2001
+create group fluig 2002
+
+set password for group totvs
+set password for group app-protheus
+set password for group app-fluig
+
+#users
+create user totvs (guid 2000)
+create user app-protheus (guid 2001)
+create user app-fluig (guid 2002)
+
+set password for user totvs
+set password for user app-protheus
+set password for user app-fluig
+
+#folders
+create folder /opt/totvs
+create folder /opt/totvs/protheus
+create folder /opt/totvs/fluig
+
+#permissions in folders
+g+rws /totvs/*
+
+#owner for folders
+totvs/:  totvs:totvs
+totvs/protheus/: app-protheus:tprotheus
+totvs/fluig/: app-fluig:fluig
+
+cd /opt
+
+#login with totvs
+id
+ls -lR totvs/
+
+create file totvs/readme.txt
+create file totvs/protheus/test.txt
+create file totvs/fluig/test.txt
+
+
+#login with app-protheus
+id
+ls -lR totvs/
+
+create file totvs/protheus/readme.txt
+create file totvs/test.txt
+create file totvs/fluig/test.txt
+
+
+#login with app-fluig
+id
+ls -lR totvs/
+
+create file totvs/fluig/readme.txt
+create file totvs/protheus/test.txt
+create file totvs/test.txt
