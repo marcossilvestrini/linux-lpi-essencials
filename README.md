@@ -453,6 +453,7 @@ Z shell (zsh)
 #### About prompt
 
 ```sh
+Default value for PS1 variable example:
 username@hostname current_directory shell_type
 
 # shel type simbols
@@ -474,7 +475,7 @@ root@mycomputer:~#
 
 ```sh
 command  [option(s)/parameter(s)...]  [argument(s)...]
-[var_name=value] [option(s)/parameter(s)...]  [argument(s)...]
+[var_name=value] command [option(s)/parameter(s)...]  [argument(s)...]
 
 ```
 
@@ -513,21 +514,33 @@ whereis python
 
 ```sh
 history
+
+# clear history
 history -c
+
+The three related environment variables you need to be aware of are
+HISTFILE, HISTFILESIZE, and HISTSIZE.
+
+HISTFILE—/home/<username>/.bash_history
+HISTFILESIZE—1000
+HISTSIZE—1000
 ```
 
-##### Command fc - Display  history list
+##### Command fc - Display last 16 commands
 
 ```sh
 fc -l
+
+# print last 5 commands
 fc -l -5
 ```
 
-##### Comand hash - Manipulate bash cache
+##### Comand hash - hash database access method
 
 ```sh
 help hash
-hash -d vi
+
+#Forget all previously remembered utility locations.
 hash -r
 ```
 
@@ -559,17 +572,19 @@ ls -a ~/foo[123].log
 
 # {}
 ls {centos?-ks.cfg,*.log}
+ls {log[0-2],log[a-b]}.log
 echo foo/bar/201{1,2,3}
 
 # ^
 grep '^[P-R]' list.txt
 grep '[^A-C]' list.txt
-ls file[^0-8]
 sudo grep -rhE ^deb /etc/apt/sources.list*
 
 # !
 grep [!P-R] list.txt
 grep [!4-8] list.txt
+ls log[!0-9].log
+ls log[!a-z].log
 
 # $
 grep a$ list.txt
@@ -577,8 +592,7 @@ grep 50$ list.txt
 
 # Class
 ls file[[:digit:]]
-ls file[[:digit:]]a
-ls file[[:digit:]a]
+ls log[[:alpha:]].log
 
 ```
 
@@ -633,8 +647,6 @@ cd ~/
 ##### Best pratice for scripts
 
 ```sh
-#env
-
 env NAME=Silvestrini AGE=110 bash ./example_env_vars
 NAME=Silvestrini AGE=110 bash ./example_env_vars
 ```
@@ -732,7 +744,7 @@ zip -h
 #### Command Man - Manual pager utils
 
 **Path for docs in Linux**\
-/usr/share/doc/\
+/usr/share/doc/
 
 Each man page is divided in maximum of 11 sections, though many of these sections are optional:
 
