@@ -1095,10 +1095,11 @@ mkdir -p pictures/201{1,2}/foo{1,2,3,4}
 rmdir -p --ignore-fail-on-non-empty  pictures/201{1,2}/foo{1,2,3,4}
 
 mkdir 202{1..5}
-mkdir 202{1..5}/test{1..5}
+mkdir -p 202{1..5}/test{1..5}
 
-rmdir 202{1..5}/test{1..5}
 rmdir 202{1..5}
+rmdir -p --ignore-fail-on-non-empty 202{1..5}/test{1..5}
+
 ```
 
 #### Files
@@ -1123,8 +1124,15 @@ touch -cm foo.txt
 cp /etc/fstab ~/
 cp foo.txt foo2.txt
 cp pictures/*  images
-cp -R pictures/  images
-cp -Ru pictures  images
+
+#recursive
+cp -r pictures/  images
+
+#update
+cp -ur pictures  images
+
+#copy files with permissions
+cp -p /etc/fstab /etc/fstab-bkp
 
 #Warnning in user -f !!!!!
 cp -rf pictures  images
@@ -1165,13 +1173,18 @@ tar -cvf scripts.tar scripts
 tar -cf scripts.tar scripts/*
 tar cfv  tar-file.tar --wildcards bigfile[1-3]
 
+#redirect file to specific folder
+tar cvf arquive/logs.tar logs/
+
 #view content
 tar -tf scripts.tar
 
 # extract
 tar -xf scripts.tar
 tar -xvf scripts.tar
-tar -xvf 3.1.tar compression/hosts.gz
+
+# extract to specific folder
+tar xvf logs.tar -C new-logs/
 
 #update - Add new version for modify files.Not best practice!
 tar -uvf scripts.tar scripts
@@ -1190,8 +1203,6 @@ tar -xjvf scripts.tar.bz2
 #compress \ descompress with xz
 tar -cJvf scripts.tar.xz scripts
 ```
-
-#### Compress Files
 
 #### Gzip - compress or expand files
 
@@ -1251,13 +1262,10 @@ zip scripts.zip scripts/script{1,8}.sh
 zip scripts.zip scripts/script?.sh
 zip scripts.zip scripts/script??.sh
 
-#stdin
-zip scripts.zip -@ [input name file]
-
-#pipe with find
+#zip with pipe
 find scripts/tar/ -name "*.tar" | zip -@ scripts.zip
 find scripts/tar/script[3-7].tar | zip -@ scripts.zip
-
+ls logs/* | zip -@ logs.zip
 ```
 
 #### Unzip - list, test and extract compressed files in a ZIP archive
@@ -1268,7 +1276,11 @@ unzip -l scripts.zip
 
 #descompress
 unzip scripts.zip
+
+#quiet mode
 unzip -q scripts.zip
+
+# descompress in specific folder
 unzip -d /tmp scripts.zip
 
 #descompress specific file
@@ -1291,7 +1303,7 @@ unzip -d /tmp scripts.zip "scripts/*"
 wc foo.txt
 wc -c bar.txt #bytes
 wc -l foo.txt #lines
-wc -m bar.txt #words
+wc -m bar.txt #chars
 wc -w bar.txt #words
 wc -L bar.txt #big line
 ```
@@ -1311,13 +1323,23 @@ less foo.txt
 #### cat - concatenate files and print on the standard output
 
 ```sh
+cat foo.txt
 cat foo.txt bar.txt
+```
+
+#### tac - concatenate and print files in reverse
+
+```sh
+tac foo.txt
+tac foo.txt bar.txt
 ```
 
 #### head - output the first part of files
 
 ```sh
 head foo.txt
+
+#print N first lines in quiet mode
 head -n 2 -q foo.txt
 ```
 
@@ -1325,7 +1347,11 @@ head -n 2 -q foo.txt
 
 ```sh
 tail foo.txt
+
+#print N last lines
 tail -n 20 foo.txt
+
+#use -n +K to output lines starting with the K
 tail -n +30 foo.txt
 
 #follow file
@@ -1339,6 +1365,9 @@ input: stdin(channel 0)
 output:  stdout(channel 1)
 error: stderr(channel 2)
 
+#input
+zip -@ programs.zip < list_programs.txt
+
 #output
 ls > ~/stdout_ls.txt
 echo "Hello World" > echo_hello.txt
@@ -1347,14 +1376,12 @@ echo "Second Line" >> echo_hello.txt
 
 #stderr
 cd /shgfdjdgfjsdfgjhdfs 2> stderr_cd.txt
-
-#input
-zip -@ programs.zip < list_programs.txt
+ls -lR / >result.txt 2>error.log
 
 #combination chanels
 #stdout and stderr
-find /usr admin &> newfile
-find /usr admin &>> newfile
+find /home -user vagrant &> newfile
+find /home -user vagrant &> newfile
 
 #alter output channel
 cat /shgfdjdgfjsdfgjhdfs >stderr_cat.txt 2>&1
@@ -1364,7 +1391,7 @@ cat /shgfdjdgfjsdfgjhdfs >stderr_cat.txt 2>&1
 #### Pipe in commandline
 
 ```sh
-find scripts -name progran*[1..9].sh | zip -@ programs2.zip
+find scripts -name program*[1..9].sh | zip -@ programs2.zip
 ls -la | less
 dnf search msql | less
 cat /etc/passwd | wc
@@ -1374,13 +1401,24 @@ cat /etc/passwd | cut -c 1-5 /etc/passwd
 #### cut - remove sections from each line of files
 
 ```sh
+#cut interval n chars
 cut -c 10 /etc/passwd
-cut -c 1-5 /etc/passwd
-cut -c 1-5,10,15 /etc/passwd
-cut -c 1-5,6-12 --output-delimiter=' - ' /etc/passwd
 
-cut -f 6 -d: --output-delimiter=";" /etc/passwd
+# cut interval k-l chars
+cut -c 1-5 /etc/passwd
+
+#cut interval k-l,m-n
+cut -c 1-5,10,15 /etc/passwd
+
+#cut field (-f) n with delimiter (-d) x
+cut -f 1 -d:  /etc/passwd
+cut -f 1,7 -d:  /etc/passwd
+
+#output delimiter
+cut -c 1-5,6-12 --output-delimiter=' - ' /etc/passwd
+cut -f 1,6 -d: --output-delimiter=";" /etc/passwd
 cut -f 1,5 -d: --output-delimiter="|" /etc/passwd
+
 ```
 
 #### paste - merge lines of files
@@ -1505,11 +1543,26 @@ $*= print value all arguments
 # Author: Marcos Silvestrini
 #
 # Version: 1.0.0
-# --------------------------------
-cd
-find scripts -name "*progran*" \
-| zip -@ /tmp/scripts.zip scripts \
+# -------------------------------
+clear
+# clear zip files
+rm /tmp/scripts.zip
+
+# create files
+mkdir scripts 2>/dev/null
+cd scripts
+touch program{1..20}.sh
+
+# zip files
+cd -
+find scripts -name "*program*" \
+| zip -@ /tmp/scripts.zip \
 | wc -l
+
+unzip -l /tmp/scripts.zip
+
+# remove files
+rm -r scripts
 ```
 
 #### Example 2 - Quotting
@@ -1528,11 +1581,27 @@ find scripts -name "*progran*" \
 # Version: 2.0.0
 # --------------------------------
 clear
-cd
+
+# clear zip files
+rm /tmp/scripts.zip
+
+# create files
+mkdir scripts 2>/dev/null
+cd scripts
+touch program{1..20}.sh
+
+# zip files
+cd -
 echo "Zip files in directory `pwd`/scripts"
-find scripts -name "*progran*" \
-| zip -@ /tmp/scripts.zip scripts \
+find scripts -name "*program*" \
+| zip -@ /tmp/scripts.zip \
 | echo "Number of files: $(wc -l)"
+
+#list zip files
+unzip -l /tmp/scripts.zip
+
+# remove files
+rm -r scripts
 ```
 
 #### Example 3 - Variables
@@ -1556,19 +1625,33 @@ find scripts -name "*progran*" \
 # Clear Screen
 clear
 
-#Variables
-NAME="progran"
+# clear zip files
+rm /tmp/scripts.zip
 
-# Navegate to home
-cd
+# create files
+mkdir scripts 2>/dev/null
+cd scripts
+touch program{1..20}.sh
+
+# zip files
+cd -
+
+#Variables
+NAME="program"
 
 # Print message
 echo "Zip files in directory `pwd`/scripts"
 
 # Find and Zip Files
 find scripts -name "*$NAME*" \
-| zip -@ /tmp/scripts.zip scripts \
+| zip -@ /tmp/scripts.zip \
 | echo "Number of files: $(wc -l)"
+
+#list zip files
+unzip -l /tmp/scripts.zip
+
+# remove files
+rm -r scripts
 ```
 
 #### Example 4 - Arguments
@@ -1592,8 +1675,16 @@ find scripts -name "*$NAME*" \
 # Clear Screen
 clear
 
-# Navegate to home
-cd
+# clear zip files
+rm /tmp/scripts.zip
+
+# create files
+mkdir scripts 2>/dev/null
+cd scripts
+touch program{1..20}.sh
+
+# zip files
+cd -
 
 # ScriptPath
 echo "Scrip in exec is: ${0}"
@@ -1606,13 +1697,19 @@ NAME=${1}
 
 # Find and Zip Files
 find scripts -name "*${NAME}*" \
-| zip -@ /tmp/scripts.zip scripts \
+| zip -@ /tmp/scripts.zip \
 | echo "Number of files: $(wc -l)"
+
+#list zip files
+unzip -l /tmp/scripts.zip
+
+# remove files
+rm -r scripts
 ```
 
 ```sh
 #execute script with arg
-example-zip4.sh progran
+example-zip4.sh program
 ```
 
 #### Example 5 - Loop for
@@ -1626,7 +1723,7 @@ example-zip4.sh progran
 #
 # Purpose: Zip files in folder whith name file like NAME
 #
-# Example: example-zip5.sh NAME [NAME...]
+# Example: example-zip5.sh app bd
 #
 # Author: Marcos Silvestrini
 #
@@ -1636,8 +1733,19 @@ example-zip4.sh progran
 # Clear Screen
 clear
 
-# Navegate to home
-cd
+# clear zip files
+rm /tmp/logs.zip 2> /dev/null
+
+# create files
+mkdir logs 2>/dev/null
+cd logs
+touch app-log{1..20}.log
+touch bd-log{1..20}.log
+touch api-log{1..20}.log
+
+
+# zip files
+cd - >/dev/null
 
 # ScriptPath
 echo "Scrip in exec is: ${0}"
@@ -1648,13 +1756,25 @@ echo "Zip log files in directory `pwd`/logs"
 # Variables
 SOURCE=logs
 
+if [ -z "${1}" ]
+then
+    echo "Print value for NAME"
+    exit 1
+fi
+
 for NAME in $*
 do
     echo "Arg : ${NAME}"
     find ${SOURCE} -name "*${NAME}*" \
-    | zip -@ /tmp/logs.zip "${SOURCE}" \
+    | zip -@ /tmp/logs.zip \
     | echo "Number of files: $(wc -l)"
 done
+
+#list zip files
+unzip -l /tmp/logs.zip
+
+# remove files
+rm -r logs
 ```
 
 #### Example 6 - Loop for
@@ -1707,7 +1827,7 @@ done
 #
 # Purpose: Script for find files in MYPATH by NAME and add name file in file
 #
-# Example: print-files.sh MYPATH NAME
+# Example: print-files.sh scripts app
 #
 # Author: Marcos Silvestrini
 #
@@ -1717,11 +1837,29 @@ done
 # Clear Screen
 clear
 
-# Navegate to home
-cd
+# create files
+mkdir scripts 2>/dev/null
+cd scripts
+touch program{1..20}.sh
+touch api{1..20}.sh
+touch app{1..20}.sh
+cd -
 
 # ScriptPath
 echo "Scrip in exec is: ${0}"
+
+#check variables
+if [ -z "${1}" ]
+then
+    echo "Please enter value for MYPATH"
+    exit 1
+fi
+
+if [ -z "${2}" ]
+then
+    echo "Please enter value for NAME"
+    exit 1
+fi
 
 # Variables
 MYPATH=${1}
@@ -1737,6 +1875,9 @@ do
     # add text in file
     echo "${i}" >> $i
 done
+
+# remove files
+rm -r scripts
 ```
 
 #### Example 8 - Loop for
