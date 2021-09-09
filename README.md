@@ -2034,7 +2034,7 @@ ctr+r
 MOTHERBOARDS - main printed circuit board (PCB)\
 CPU - Central Processig Unit\
 BIOS - Basic Input/Output System\
-UEFI - Unified Extensible Firmware Interface
+UEFI - Unified Extensible Firmware Interface\
 RAM - Random-Access Memory\
 HD - Hard Disk\
 PSU - Power Supply Unit
@@ -2400,11 +2400,16 @@ route
 #### ip - show / manipulate routing, network devices, interfaces and tunnels
 
 ```sh
-# list ips
-ip addr show
+# list links
+ip link show
 
 # list routes
 ip route show
+
+# list ips
+ip addr show
+
+
 ```
 
 #### netstat - Print network connections, routing tables, interface statistics, masquerade connections, and multicast memberships
@@ -2558,28 +2563,27 @@ username:encrypted password:last password change:minimum:maximum:warning:disable
 
 Here is a brief description of each field:
 
-**username:** the name of the user.
+username: the name of the user.
 
-**encrypted password:** the password in encrypted form.
+encrypted password: the password in encrypted form.
 
-l**ast password change:** the date of the last password change. This date is stored as the number of\
+last password change: the date of the last password change. This date is stored as the number of
 days since January 1, 1970.
 
-**minimum:** the number of days before a password change is allowed. The value of 0 means the password \
+minimum: the number of days before a password change is allowed. The value of 0 means the password
 can be changed any time.
 
-**maximum:** the number of days before the password must be changed. The value 99999 means the user’s \
+maximum: the number of days before the password must be changed. The value 99999 means the user’s
 password never expires.
 
-**warning:** the number of days before a password is going to expire during which the user will be \
+warning: the number of days before a password is going to expire during which the user will be
 warned.
 
-**disabled:** the number of days after a password has expired until the user account is disabled. No \
+disabled: the number of days after a password has expired until the user account is disabled. No
 entry in this field means that the account is disabled immediately after the password expires.
 
-**disabled date:** the number of days since January 1, 1970 that the account has been disabled. No entry \
+disabled date: the number of days since January 1, 1970 that the account has been disabled. No entry
 in this field means the account is not disabled.
-
 ```
 
 ### Uderstanding Files /etc/gshadow
