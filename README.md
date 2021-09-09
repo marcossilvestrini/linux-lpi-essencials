@@ -461,6 +461,7 @@ GNU Privacy Guard(GnuPG)
 
 #### Shell in Linux
 
+[sh](https://pubs.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html)
 Bourne-again shell (Bash)\
 C shell (csh ou tcsh, a versão aprimorada do csh)\
 Korn shell (ksh)\
@@ -757,6 +758,34 @@ zip -?
 zip -h
 ```
 
+#### apropos - Search the manual page names and descriptions(man -k)
+
+```sh
+apropos pwd
+```
+
+#### whatis - Display one-line manual page descriptions
+
+```sh
+whatis pwd
+```
+
+#### HOWTOs
+
+```linux
+#find Howto's
+apt-cache search HOWTO
+
+#install Howto's
+sudo apt-get install python-turbogears2-doc -y
+
+#list Howto"s files
+ls /usr/share/doc/python-turbogears2-doc/
+
+#open howto
+chromium /usr/share/doc/python-turbogears2-doc/html/index.html
+```
+
 #### Command Man - Manual pager utils
 
 **Path for docs in Linux**\
@@ -812,9 +841,10 @@ man -k compiler
 #similar whatis
 man -f zip
 
-File of config man path
+#file of config man path
 /etc/manpath.config
 
+#list all path of manuals
 manpath
 ```
 
@@ -827,39 +857,19 @@ info echo
 #### Locate - Find files by name
 
 ```linux
-# Update db
+#update db
 sudo updatedb
 
-locate file
+#locate file
 locate -e file
 
-# Globbling
+#globbling
 locate "*arquivo*"
 locate arquivo[2-3].txt
 locate arquivo?.txt
 
-# N first files
-locate -n 3 README
-```
-
-#### apropos - Search the manual page names and descriptions(man -k)
-
-```sh
-apropos pwd
-```
-
-#### whatis - Display one-line manual page descriptions
-
-```sh
-whatis pwd
-```
-
-#### HOWTOs
-
-```linux
-apt-cache search HOWTO
-sudo apt-get install python-turbogears2-doc -y
-ls /usr/share/doc/
+#limited number of outputs
+locate -l 10 passwd
 ```
 
 #### Find - search for files in a directory hierarchy
@@ -874,7 +884,7 @@ find -name 'picture[3-9].jpg'
 find -name 'picture?.jpg'
 
 #find folder
-find -type d -name "*picture*"
+sudo find /etc -depth -name skel
 
 #find file
 find -type f -name "picture*"
@@ -955,6 +965,7 @@ cd ../../bar/foo
 
 # home
 cd
+cd ~
 
 # latest path
 cd -
@@ -988,9 +999,6 @@ ls -p
 
 #all infos actual dir
 ls -ld
-
-#Some examples
-ls /etc
 ls -ld /etc
 
 #inode
