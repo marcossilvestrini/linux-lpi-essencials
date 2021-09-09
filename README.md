@@ -1968,7 +1968,7 @@ vi foo.txt
 #enter edit mode
 i
 
-#exit edir mode
+#exit edit mode
 esc
 
 # add  char
@@ -1994,6 +1994,7 @@ dd - delete line where the course is positioned
 
 #save and quit
 :wq
+ZZ
 
 #not save and quit
 :q!
@@ -2033,6 +2034,7 @@ ctr+r
 MOTHERBOARDS - main printed circuit board (PCB)\
 CPU - Central Processig Unit\
 BIOS - Basic Input/Output System\
+UEFI - Unified Extensible Firmware Interface
 RAM - Random-Access Memory\
 HD - Hard Disk\
 PSU - Power Supply Unit
@@ -2067,7 +2069,7 @@ sudo mkfs -t ext4 /dev/sdb1
 ### mount - mount a filesystem
 
 ```sh
-mkdir /mnt/secondary
+sudo mkdir /mnt/secondary
 sudo mount /dev/sdb1 /mnt/secondary
 lsblk
 ```
