@@ -303,11 +303,15 @@ sudo add-apt-repository \
 
 ##### Remove repository(RPM)
 
-`yum --disablerepo=hashicorp update`
+```sh
+yum --disablerepo=hashicorp update
+```
 
 ##### Remove repository(Debian)
 
-`sudo add-apt-repository -r ppa:nemh/systemback`
+```sh
+sudo add-apt-repository -r ppa:nemh/systemback`
+```
 
 ##### Search Packge(RPM)
 
@@ -339,15 +343,21 @@ sudo apt install xclock
 
 ##### Infos of Package(RPM)
 
-`yum info lynx`
+```sh
+yum info lynx
+```
 
 ##### Infos of Package(Debian)
 
-`apt-cache show lynx`
+```sh
+apt-cache show lynx
+```
 
 ##### Remove Package(RPM)
 
-`sudo yum remove lynx`
+```sh
+sudo yum remove lynx
+```
 
 ##### Remove Package(Debian)
 
@@ -360,15 +370,21 @@ sudo apt-get purge cups
 
 ##### Update Repo Cache(RPM)
 
-`yum makecache`
+```sh
+yum makecache
+```
 
 ##### Update Packages(RPM)
 
-`sudo yum update`
+```sh
+sudo yum update
+```
 
 ##### Update Packages(Debian)
 
-`sudo apt-get update`
+```sh
+sudo apt-get update
+```
 
 ### 1.3 Open Source Software and Licensing
 
@@ -782,10 +798,19 @@ man [COMMAND]
 
 Examples:
 man ls
+
+# print all ocorrences
 man -a ls
+
+#specific man page
 man 5 passwd
+
+#similar apropos
 man -k ascii
 man -k compiler
+
+#similar whatis
+man -f zip
 
 File of config man path
 /etc/manpath.config
@@ -795,7 +820,9 @@ manpath
 
 #### info- Read Info documents
 
-`info echo`
+```sh
+info echo
+```
 
 #### Locate - Find files by name
 
@@ -817,11 +844,15 @@ locate -n 3 README
 
 #### apropos - Search the manual page names and descriptions(man -k)
 
-`apropos pwd`
+```sh
+apropos pwd
+```
 
 #### whatis - Display one-line manual page descriptions
 
-`whatis pwd`
+```sh
+whatis pwd
+```
 
 #### HOWTOs
 
@@ -1908,7 +1939,12 @@ du -sh ~/
 
 ### df - Report file system disk space usage
 
-`df /`
+```sh
+df /
+
+#human values
+df -h /
+```
 
 ### 4.3 Where Data is Stored
 
@@ -2255,15 +2291,21 @@ netstat -s
 
 #### List Network Adapters
 
-`nmcli d`
+```sh
+nmcli d
+```
 
 #### Configure Network
 
-`nmtui`
+```sh
+nmtui
+```
 
 #### Restart Network
 
-`sudo systemctl restart network`
+```sh
+sudo systemctl restart network
+```
 
 ## 5 Security and File Permissions
 
@@ -2347,18 +2389,21 @@ log in to the Linux system directly, the /sbin/nologin shell closes the connecti
 
 ### Understanding File /etc/group
 
+```sh
 The group membership in Linux is controlled through the /etc/group file. This is a simple text file that\
 contains a list of groups and the members belonging to each group. Just like the /etc/passwd file,\
 the /etc/group file consists of a series of colon-delimited lines, each of which defines a single group.\
 The file is readable by all users.
 
-Here is how an entry in the /etc/group file looks like:\
-`group name:password:GID:list of users`
+Here is how an entry in the /etc/group file looks like:
+group name:password:GID:list of users
+```
 
 ### Uderstanding Files /etc/shadow
 
-Here is how an entry in the /etc/shadow file looks like:\
-`username:encrypted password:last password change:minimum:maximum:warning:disabled:disabled date`
+```sh
+Here is how an entry in the /etc/shadow file looks like:
+username:encrypted password:last password change:minimum:maximum:warning:disabled:disabled date
 
 Here is a brief description of each field:
 
@@ -2384,10 +2429,13 @@ entry in this field means that the account is disabled immediately after the pas
 **disabled date:** the number of days since January 1, 1970 that the account has been disabled. No entry \
 in this field means the account is not disabled.
 
+```
+
 ### Uderstanding Files /etc/gshadow
 
-Here is how an entry in the /etc/shadow file looks like:\
-`group name:encrypted password:group administrator:group members`
+```sh
+Here is how an entry in the /etc/shadow file looks like:
+group name:encrypted password:group administrator:group members
 
 Here is a brief description of each field:
 
@@ -2406,6 +2454,7 @@ members using the gpasswd command
 
 Group Members: All the members of the group listed here are regular members. But, there is a comma to \
 separate them, i.e. a non-administrative member of the groups.
+```
 
 ### Understanding File /etc/skel
 
@@ -2726,7 +2775,9 @@ running the executable file. This special permission allows a user to access fil
 are normally only available to the owner. For example, the setuid permission on the passwd command makes\
 it possible for a user to change passwords, assuming the permissions of the root ID:
 
-`-r-sr-sr-x   3 root     sys       104580 Sep 16 12:02 /usr/bin/passwd`
+```sh
+-r-sr-sr-x   3 root     sys       104580 Sep 16 12:02 /usr/bin/passwd
+```
 
 This special permission presents a security risk, because some determined users can find a way to\
 maintain the permissions that are granted to them by the setuid process even after the process has\
@@ -2741,7 +2792,9 @@ The set-group identification (setgid) permission is similar to setuid, except th
 effective group ID (GID) is changed to the group owner of the file, and a user is granted access based\
 on permissions granted to that group. The /usr/bin/mail command has setgid permissions:
 
-`-r-x--s--x   1 root     mail       63628 Sep 16 12:01 /usr/bin/mail`
+```sh
+-r-x--s--x   1 root     mail       63628 Sep 16 12:01 /usr/bin/mail
+```
 
 When setgid permission is applied to a directory, files that were created in this directory belong to\
 the group to which the directory belongs, not the group to which the creating process belongs. Any user\
@@ -2759,7 +2812,9 @@ sticky bit set, a file can be deleted only by the owner of the file, the owner o
 root. This special permission prevents a user from deleting other users' files from public directories\
 such as /tmp:
 
-`drwxrwxrwt 7  root  sys   400 Sep  3 13:37 tmp`
+```sh
+drwxrwxrwt 7  root  sys   400 Sep  3 13:37 tmp
+```
 
 ### ln - make links between files
 
