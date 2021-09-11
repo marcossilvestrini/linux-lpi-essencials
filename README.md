@@ -461,7 +461,7 @@ GNU Privacy Guard(GnuPG)
 
 #### Shell in Linux
 
-[sh](https://pubs.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html)
+[sh](https://pubs.opengroup.org/onlinepubs/009695399/utilities/xcu_chap02.html)\
 Bourne-again shell (Bash)\
 C shell (csh ou tcsh, a versão aprimorada do csh)\
 Korn shell (ksh)\
