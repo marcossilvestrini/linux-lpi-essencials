@@ -1381,7 +1381,6 @@ ls -lR / >result.txt 2>error.log
 #combination chanels
 #stdout and stderr
 find /home -user vagrant &> newfile
-find /home -user vagrant &> newfile
 
 #alter output channel
 cat /shgfdjdgfjsdfgjhdfs >stderr_cat.txt 2>&1
@@ -2546,9 +2545,9 @@ log in to the Linux system directly, the /sbin/nologin shell closes the connecti
 ### Understanding File /etc/group
 
 ```sh
-The group membership in Linux is controlled through the /etc/group file. This is a simple text file that\
-contains a list of groups and the members belonging to each group. Just like the /etc/passwd file,\
-the /etc/group file consists of a series of colon-delimited lines, each of which defines a single group.\
+The group membership in Linux is controlled through the /etc/group file. This is a simple text file that
+contains a list of groups and the members belonging to each group. Just like the /etc/passwd file,
+the /etc/group file consists of a series of colon-delimited lines, each of which defines a single group.
 The file is readable by all users.
 
 Here is how an entry in the /etc/group file looks like:
