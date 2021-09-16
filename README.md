@@ -74,7 +74,7 @@ Installation and configuration of some packages will also be covered
 - [Howtos](https://tldp.org/docs.html#howto)
 - [Regular Expressions](https://www.gnu.org/software/grep/manual/html_node/Regular-Expressions.html)
 - [Shebang](https://bash.cyberciti.biz/guide/Shebang)
-- [DNS Record Types](https://simpledns.plus/help/dns-record-types/data/behdehag.html)
+- [DNS Record Types](https://simpledns.plus/help/dns-record-types)
 - [Learning Materials 010-160](https://learning.lpi.org/en/learning-materials/010-160/)
 - [LinuxEssentials Objectives V1.6](https://wiki.lpi.org/wiki/LinuxEssentials_Objectives_V1.6(PT-BR)#1.1_A_evolu.C3.A7.C3.A3o_do_Linux_e_sistemas_operacionais_populares)
 - [Course by Luciano Siqueira](https://lcnsqr.com/curso-linux-essentials)
