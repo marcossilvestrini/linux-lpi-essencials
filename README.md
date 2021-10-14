@@ -2286,6 +2286,17 @@ go back to the program: fg
 |Class D   |224.0.0.0 to 239.255.255.255  |Reserved for multicast groups.|
 |Class E   |240.0.0.0 to 254.255.255.254  |Reserved for future use, or research and development purposes.|
 
+#### Private Address Ranges
+
+The Internet Assigned Numbers Authority (IANA) has assigned several address ranges to be used by private networks.\
+Address ranges to be use by private networks are:\
+
+|CLASS   |IP RANGE|
+|:-------|:--------------------------------|
+|Class A: |10.0.0.0 to 10.255.255.255      |
+|Class B: |172.16.0.0 to 172.31.255.255    |
+|Class C: |192.168.0.0 to 192.168.255.255  |
+
 #### IP conversions
 
 |Bit Position       |7|6|5|4|3|2|1|0|
